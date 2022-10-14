@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Sphere : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.CompareTag("Ground"))
+        if (other.CompareTag("Ground"))
         {
             Destroy(gameObject);
         }
