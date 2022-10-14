@@ -5,9 +5,9 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class FireBullet : MonoBehaviour
+public class Expulse : MonoBehaviour
 {
-    [SerializeField] private InputActionProperty triggerAction, gripAction;
+    [SerializeField] private InputActionProperty triggerAction;
     [SerializeField] private Transform spawnPoint; 
     [SerializeField] private GameObject bulletPrefabs;
     [SerializeField] private int force;
