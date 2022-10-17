@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xSizeRoom: 10
-  ySizeRoom: 10
+  ySizeRoom: 25
   zSizeRoom: 10
   prefab: {fileID: 881815943842963321, guid: 30c56a91dd71ebf45a6efd9f536ac082, type: 3}
 --- !u!4 &258666544
@@ -317,6 +317,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &298881631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 298881633}
+  - component: {fileID: 298881632}
+  m_Layer: 0
+  m_Name: Pooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &298881632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298881631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dac5991e970a114192cad62e135edf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolKeys:
+  - key: Water
+    pool:
+      prefab: {fileID: 3840541877187718813, guid: 4515b34d09b31404297302d69dea525e,
+        type: 3}
+      baseCount: 50
+--- !u!4 &298881633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298881631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.760715, y: 2.191605, z: -4.2425337}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &492022318
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +379,7 @@ GameObject:
   - component: {fileID: 492022322}
   - component: {fileID: 492022321}
   - component: {fileID: 492022320}
+  - component: {fileID: 492022323}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -491,6 +542,39 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &492022323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492022318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &552442059
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,11 +834,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 600144006}
+  - component: {fileID: 600144017}
+  - component: {fileID: 600144015}
+  - component: {fileID: 600144014}
   - component: {fileID: 600144011}
   - component: {fileID: 600144013}
-  - component: {fileID: 600144014}
-  - component: {fileID: 600144015}
-  - component: {fileID: 600144017}
   - component: {fileID: 600144016}
   m_Layer: 6
   m_Name: RightHand Controller
@@ -1024,7 +1108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e195cc7fa6723f4a97baced1a6224b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 0}
+  hand: {fileID: 600144017}
   gripAction:
     m_UseReference: 1
     m_Action:
@@ -1046,7 +1130,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600144005}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
@@ -1676,10 +1760,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1370770196}
+  - component: {fileID: 1370770205}
+  - component: {fileID: 1370770206}
+  - component: {fileID: 1370770204}
   - component: {fileID: 1370770201}
   - component: {fileID: 1370770203}
-  - component: {fileID: 1370770204}
-  - component: {fileID: 1370770205}
   m_Layer: 6
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -1919,7 +2004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e195cc7fa6723f4a97baced1a6224b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 0}
+  hand: {fileID: 1370770205}
   gripAction:
     m_UseReference: 1
     m_Action:
@@ -1946,6 +2031,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf977c8bb8ab2c42a718b45ce5bca3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1370770206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370770195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca8f565c75506c4286170cdf526901f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Trigger
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 7e1c7e2f-b19e-4ba1-99e5-391200a330d8
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  bulletPrefabs: {fileID: 0}
+  force: 0
 --- !u!1 &1480049085
 GameObject:
   m_ObjectHideFlags: 0

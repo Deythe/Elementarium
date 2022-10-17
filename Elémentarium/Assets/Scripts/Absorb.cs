@@ -13,10 +13,7 @@ public class Absorb : MonoBehaviour
     {
         if (gripAction.action.ReadValue<float>() > 0.5f)
         {
-            if (!hand.haveAnElement)
-            {
-                AbsorbObjects.SetActive(true);       
-            }
+            AbsorbObjects.SetActive(true);      
         }
         else
         {
