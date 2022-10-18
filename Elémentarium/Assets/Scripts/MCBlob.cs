@@ -108,6 +108,11 @@ public class MCBlob : MonoBehaviour
         UpdateBlobs();
     }
 
+    public void AddBlobs()
+    {
+        BlobObjectsLocations = GetComponentsInChildren<SphereCollider>();
+    }
+
     void UpdateBlobs()
     {
         if (blobs == null || blobs.Length != BlobObjectsLocations.Length)
