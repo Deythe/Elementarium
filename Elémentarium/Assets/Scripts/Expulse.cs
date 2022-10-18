@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR;
 
 
 public class Expulse : MonoBehaviour
@@ -22,6 +23,7 @@ public class Expulse : MonoBehaviour
     private bool canFire = true;
 
     private GameObject bullet;
+    private bool canShoot = true;
 
     private void Start()
     {
@@ -33,7 +35,6 @@ public class Expulse : MonoBehaviour
         if (canFire && triggerAction.action.ReadValue<float>() > 0.1f)
         {
             ShootBullet();
-            StartCoroutine(CooldownCoroutine(cooldown));
         }
     }
 
@@ -42,6 +43,7 @@ public class Expulse : MonoBehaviour
         bullet = Instantiate(bulletPrefabs);
         bullet.transform.position = spawnPoint.transform.position;
         bullet.GetComponent<Rigidbody>().AddForce((transform.forward + transform.right * UnityEngine.Random.Range(-bloom, bloom) + transform.up * UnityEngine.Random.Range(-bloom, bloom)).normalized * force, ForceMode.Impulse);
+        StartCoroutine(CooldownCoroutine(cooldown));
     }
 
     IEnumerator CooldownCoroutine(float t) 
