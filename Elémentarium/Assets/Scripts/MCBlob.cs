@@ -33,6 +33,7 @@
 */
 
 /*Unity Specific*/
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
@@ -97,7 +98,6 @@ public class MCBlob : MonoBehaviour
     private int pctr = 0;
 
     [SerializeField] private SphereCollider[] BlobObjectsLocations;
-
     //Unity and Sample Specific
     void Start()
     {
@@ -106,11 +106,14 @@ public class MCBlob : MonoBehaviour
             BlobObjectsLocations = GetComponentsInChildren<SphereCollider>();
         }
         UpdateBlobs();
+        doFrame();
     }
 
     public void AddBlobs()
     {
         BlobObjectsLocations = GetComponentsInChildren<SphereCollider>();
+        UpdateBlobs();
+        doFrame();
     }
 
     void UpdateBlobs()
@@ -141,12 +144,14 @@ public class MCBlob : MonoBehaviour
         }
     }
 
+ 
+
 
     //Unity and Sample specific
     void LateUpdate()
     {
-        UpdateBlobs();
-        doFrame();
+        //UpdateBlobs();
+        //doFrame();
     }
 
     /*Cube Class*/
