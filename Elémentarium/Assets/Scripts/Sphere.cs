@@ -21,9 +21,8 @@ public class Sphere : MonoBehaviour
         }
         else if (other.CompareTag("Metaball"))
         {
-            if (other.transform.GetComponent<MCBlob>().blobs.Length < 20)
+            if (other.transform.GetComponent<MCBlob>().blobs.Length < 19)
             {
-                Debug.Log(other.transform.GetComponent<MCBlob>().blobs.Length);
                 metaball = Instantiate(metaballPrefab);
                 metaball.transform.position = transform.position;
                 metaball.transform.parent = other.transform;

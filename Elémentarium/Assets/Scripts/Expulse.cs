@@ -35,7 +35,6 @@ public class Expulse : MonoBehaviour
         if (canFire && triggerAction.action.ReadValue<float>() > 0.1f)
         {
             ShootBullet();
-            
         }
     }
 
@@ -44,6 +43,7 @@ public class Expulse : MonoBehaviour
         bullet = Instantiate(bulletPrefabs);
         bullet.transform.position = spawnPoint.transform.position;
         bullet.GetComponent<Rigidbody>().AddForce((transform.forward + transform.right * UnityEngine.Random.Range(-bloom, bloom) + transform.up * UnityEngine.Random.Range(-bloom, bloom)).normalized * force, ForceMode.Impulse);
+        StartCoroutine(CooldownCoroutine(cooldown));
     }
 
     IEnumerator CooldownCoroutine(float t) 
