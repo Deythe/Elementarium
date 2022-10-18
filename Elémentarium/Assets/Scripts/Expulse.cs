@@ -23,7 +23,8 @@ public class Expulse : MonoBehaviour
 
     public void ShootBullet()
     {
-        bullet = Instantiate(bulletPrefabs);
+        bullet = Pooler.instance.Pop("Water");
+        bullet.GetComponent<Rigidbody>().velocity = Vector3.zero;
         bullet.transform.position = spawnPoint.transform.position;
         bullet.GetComponent<Rigidbody>().AddForce(transform.forward * force, ForceMode.Impulse);
     }

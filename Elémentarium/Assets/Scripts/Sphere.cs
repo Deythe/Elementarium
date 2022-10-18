@@ -9,7 +9,7 @@ public class Sphere : MonoBehaviour
     {
         if (other.CompareTag("Ground"))
         {
-            Destroy(gameObject);
+            //Pooler.instance.DePop("Water", gameObject);
         }
     }
 }
