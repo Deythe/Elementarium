@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Absorb : MonoBehaviour
 {
     [SerializeField] private HandController hand;
     [SerializeField] private InputActionProperty gripAction;
-    [SerializeField] private GameObject AbsorbObjects;
-
+    [SerializeField] private GameObject absorbObjects;
     public void Update()
     {
         if (gripAction.action.ReadValue<float>() > 0.5f)
         {
-            AbsorbObjects.SetActive(true);      
+            absorbObjects.SetActive(true);
         }
         else
         {
-            AbsorbObjects.SetActive(false);
+            absorbObjects.SetActive(false);
         }
     }
 }
