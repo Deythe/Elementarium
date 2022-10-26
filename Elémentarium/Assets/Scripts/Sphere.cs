@@ -15,22 +15,22 @@ public class Sphere : MonoBehaviour
     {
         if (other.CompareTag("Ground"))
         {
-            metaballPool = Instantiate(metaballParentPrefab);
+            metaballPool = Pooler.instance.Pop("Liquid");
             metaballPool.transform.position = transform.position;
-            Destroy(gameObject);
+            //Pooler.instance.DePop("Water", gameObject);
         }
         else if (other.CompareTag("Metaball"))
         {
-            if (other.transform.GetComponent<MCBlob>().blobs.Length < 19)
+            if (other.transform.GetComponent<MCBlob>().blobs.Length < 10)
             {
-                metaball = Instantiate(metaballPrefab);
+                metaball = Pooler.instance.Pop("Metaball");
                 metaball.transform.position = transform.position;
                 metaball.transform.parent = other.transform;
                 //metaball.transform.localScale = Vector3.one;
                 other.transform.GetComponent<MCBlob>().AddBlobs();
             }
-            
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            //Pooler.instance.DePop("Water", gameObject);
         }
     }
 }
