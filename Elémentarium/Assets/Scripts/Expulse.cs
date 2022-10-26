@@ -23,7 +23,6 @@ public class Expulse : MonoBehaviour
     private bool canFire = true;
 
     private GameObject bullet;
-    private bool canShoot = true;
 
     private void Start()
     {

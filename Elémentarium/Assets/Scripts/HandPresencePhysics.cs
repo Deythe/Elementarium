@@ -8,7 +8,7 @@ public class HandPresencePhysics : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float distanceShowRealHands;
-    [SerializeField] private GameObject realHand;
+    [SerializeField] private SkinnedMeshRenderer realHand;
     private Quaternion rotationDiference;
     private Vector3 rotationDiferenceInDegree;
     private void Start()
@@ -36,10 +36,10 @@ public class HandPresencePhysics : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, target.position) > distanceShowRealHands)
         {
-            realHand.SetActive(true);
+            realHand.enabled = true;
             return;
         }
         
-        realHand.SetActive(false);
+        realHand.enabled = false;
     }
 }
