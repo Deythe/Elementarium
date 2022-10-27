@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
-    public static PlayerController instance;
+    public static PlayerManager instance;
     [SerializeField] private HandController leftHandController;
     [SerializeField] private HandController rightHandController;
+    [SerializeField] private DataPlayerScriptable data;
 
+    public DataPlayerScriptable p_data
+    {
+        get => data;
+        set
+        {
+            data = value;
+        }
+    }
 
     private void Awake()
     {
