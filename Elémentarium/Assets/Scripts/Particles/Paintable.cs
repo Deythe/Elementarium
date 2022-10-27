@@ -42,11 +42,6 @@ public class Paintable : MonoBehaviour {
         PaintManager.instance.initTextures(this);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        GetComponent<MeshRenderer>().enabled = true;
-    }
-
     void OnDisable(){
         maskRenderTexture.Release();
         uvIslandsRenderTexture.Release();

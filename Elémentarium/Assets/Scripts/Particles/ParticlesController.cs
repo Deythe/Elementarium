@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ParticlesController: MonoBehaviour{
     public Color paintColor;
@@ -24,6 +26,7 @@ public class ParticlesController: MonoBehaviour{
     void OnParticleCollision(GameObject other) {
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
         Paintable p = other.GetComponent<Paintable>();
+        BoxCollider bc = other.GetComponent<BoxCollider>();
         if(p != null){
             for  (int i = 0; i< numCollisionEvents; i++){
                 Vector3 pos = collisionEvents[i].intersection;
@@ -31,10 +34,12 @@ public class ParticlesController: MonoBehaviour{
                 PaintManager.instance.paint(p, pos, radius, hardness, strength, paintColor);
             }
         }
-        else
+        
+        else if (bc != null)
         {
-            other.GetComponent<BoxCollider>().isTrigger = true;
+            bc.isTrigger = true;
             other.GetComponent<MeshRenderer>().enabled = false;
         }
+        
     }
 }
