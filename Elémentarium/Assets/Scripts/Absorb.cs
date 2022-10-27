@@ -8,19 +8,19 @@ public class Absorb : MonoBehaviour
 {
     [SerializeField] private HandController hand;
     [SerializeField] private InputActionProperty gripAction;
-    [SerializeField] private GameObject absorbObjects;
+    [SerializeField] private GameObject absorbGroup;
     [SerializeField] private Transform anchorTransform;
     [SerializeField] private float rayDistanceMax;
     [SerializeField] private LayerMask _layerMask;
     
     private Transform absorbedObject;
-    private float whereObjectWasTouched;
+    private float whereObjectWasTouched, timerForAbsorbed;
     private RaycastHit hit;
-    public void Update()
+    void Update()
     {
         if (gripAction.action.ReadValue<float>() > 0.5f)
         {
-            absorbObjects.SetActive(true);
+            absorbGroup.SetActive(true);
             
             if (absorbedObject==null)
             {
@@ -28,7 +28,7 @@ public class Absorb : MonoBehaviour
                 {
                     absorbedObject = hit.transform;
                     absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
-                    whereObjectWasTouched = Vector3.Distance(absorbedObject.position, hit.point);
+                    whereObjectWasTouched = Mathf.Abs(Vector3.Distance(absorbedObject.position, hit.point));
                     absorbedObject.position = new Vector3(anchorTransform.position.x, anchorTransform.position.y, anchorTransform.position.z + whereObjectWasTouched);
                     absorbedObject.SetParent(anchorTransform);
                 }
@@ -41,8 +41,14 @@ public class Absorb : MonoBehaviour
                 absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
                 absorbedObject.SetParent(null);
                 absorbedObject = null;
-                absorbObjects.SetActive(false);
             }
+            
+            absorbGroup.SetActive(false);
         }
+    }
+
+    IEnumerator CoroutineAbsorbedObject()
+    {
+        yield return new WaitForSeconds(0);
     }
 }
