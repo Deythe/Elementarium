@@ -14,7 +14,15 @@ public class Expulse : MonoBehaviour
     [SerializeField] ParticleSystem inkParticle;
     [SerializeField] Transform parentController;
     [SerializeField] Transform splatGunNozzle;
+    [SerializeField] [Range(0, 1)] private float cooldownMin, cooldownMax;
 
+    private float cooldown;
+    private GameObject bullet;
+
+    private void Start()
+    {
+        cooldown = UnityEngine.Random.Range(cooldownMin, cooldownMax);
+    }
 
     public void Update()
     {
