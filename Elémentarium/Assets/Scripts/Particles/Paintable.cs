@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Paintable : MonoBehaviour {
@@ -9,6 +10,7 @@ public class Paintable : MonoBehaviour {
     RenderTexture uvIslandsRenderTexture;
     RenderTexture maskRenderTexture;
     RenderTexture supportTexture;
+    
     
     Renderer rend;
 
@@ -32,11 +34,17 @@ public class Paintable : MonoBehaviour {
 
         supportTexture = new RenderTexture(TEXTURE_SIZE, TEXTURE_SIZE, 0);
         supportTexture.filterMode =  FilterMode.Bilinear;
+        
 
         rend = GetComponent<Renderer>();
         rend.material.SetTexture(maskTextureID, extendIslandsRenderTexture);
 
         PaintManager.instance.initTextures(this);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        GetComponent<MeshRenderer>().enabled = true;
     }
 
     void OnDisable(){
