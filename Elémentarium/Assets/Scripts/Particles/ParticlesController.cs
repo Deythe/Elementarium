@@ -31,7 +31,7 @@ public class ParticlesController: MonoBehaviour{
                 PaintManager.instance.paint(p, pos, radius, hardness, strength, paintColor);
             }
         }
-        else
+        else if(other.transform.CompareTag("Ground"))
         {
             other.GetComponent<BoxCollider>().isTrigger = true;
             other.GetComponent<MeshRenderer>().enabled = false;
