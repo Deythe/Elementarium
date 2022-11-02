@@ -10,105 +10,79 @@ public class Absorb : MonoBehaviour
 {
     [SerializeField] private HandController hand;
     [SerializeField] private InputActionProperty gripAction;
-    [SerializeField] private GameObject absorbShape;
-    [SerializeField] private Transform absorbAnchorTransform, inHandAnchorTranform;
-    [SerializeField] private float rayDistanceMax, speedRotation, radiusRotation;
+    [SerializeField] private GameObject absorbGroup;
+    [SerializeField] private Transform anchorTransform;
+    [SerializeField] private float rayDistanceMax;
     [SerializeField] private LayerMask _layerMask;
-    [SerializeField] private float multiplicator;
-    [SerializeField] private Animator _animator;
-    
-    private Coroutine currentCoroutine;
-    private Vector3 distanceBetweenPivot;
+
     private bool isTouching, haveInHand = false;
     private Transform absorbedObject;
-    private float angle, distance;
+    private float whereObjectWasTouched;
     private RaycastHit hit;
     void Update()
     {
         if (gripAction.action.ReadValue<float>() > 0.5f)
         {
+            absorbGroup.SetActive(true);
+            
             if (!haveInHand)
             {
-                absorbShape.SetActive(true);
                 CheckAbsorbeObject();
             }
         }
         else
         {
-            FreeObject();
-            absorbShape.SetActive(false);
+            if (absorbedObject != null)
+            {
+                FreeObject();
+            }
+            
+            absorbGroup.SetActive(false);
         }
-
-
-        _animator.SetBool("hasAnObject", haveInHand);
     }
 
     void CheckAbsorbeObject()
     {
-        if (absorbedObject == null)
+        isTouching = Physics.Raycast(anchorTransform.position, anchorTransform.forward, out hit, rayDistanceMax, _layerMask);
+
+        if (!isTouching)
         {
-            isTouching = Physics.SphereCast(absorbAnchorTransform.position, 0.3f, absorbAnchorTransform.forward, out hit,
-                rayDistanceMax, _layerMask);
-        }
-        
-        if (hit.transform != null)
-        {
-            if (hit.transform != absorbedObject)
+            if (absorbedObject != null)
             {
-
                 FreeObject();
-                absorbedObject = hit.transform;
-
-                absorbedObject.SetParent(absorbAnchorTransform);
-                absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
-                currentCoroutine = StartCoroutine(CoroutineMoveAround());
+                return;
             }
             
-            absorbedObject.LookAt(absorbAnchorTransform);
+            return;
         }
+        
+        if (hit.transform!=absorbedObject)
+        {
+            FreeObject();
+            absorbedObject = hit.transform;
+            absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
+            whereObjectWasTouched = Mathf.Abs(Vector3.Distance(absorbedObject.position, hit.point));
+        }
+
+        absorbedObject.DOMove(
+                new Vector3(anchorTransform.position.x, anchorTransform.position.y,
+                    anchorTransform.position.z),
+                PlayerManager.instance.p_data.timeToAbsorbObjectComeToUs)
+            .OnComplete(() => MakeInHand(absorbedObject));
     }
 
     void FreeObject()
     {
-        if (absorbedObject != null)
-        {
-            if (currentCoroutine != null)
-            {
-                StopCoroutine(currentCoroutine);
-            }
-
-            absorbedObject.DOKill();
-            absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
-            absorbedObject.SetParent(null);
-            absorbedObject = null;
-            haveInHand = false;
-        }
+        absorbedObject.DOKill();
+        absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
+        absorbedObject.SetParent(null);
+        absorbedObject = null;
+        haveInHand = false;
     }
 
-    IEnumerator CoroutineMoveAround()
+    void MakeInHand(Transform child)
     {
-        angle = 0;
-        
-        while (Vector3.Distance(absorbedObject.position, absorbAnchorTransform.position) > 0.2f)
-        {
-            absorbedObject.localPosition = new Vector3(Mathf.Cos(angle)/(radiusRotation+angle), Mathf.Sin(angle)/(radiusRotation+angle), absorbedObject.localPosition.z-0.01f);
-            angle += Time.deltaTime * speedRotation;
-            yield return new WaitForFixedUpdate();
-        }
-
+        child.SetParent(anchorTransform);
         haveInHand = true;
-        
-        Debug.Log(absorbedObject.name);
-        if (absorbedObject.CompareTag("Grabable"))
-        {
-            _animator.SetTrigger("grab");
-        }
-        
-        absorbShape.SetActive(false);
-        absorbedObject.position = inHandAnchorTranform.position;
-        absorbedObject.rotation = inHandAnchorTranform.rotation;
-        distanceBetweenPivot = absorbedObject.position - absorbedObject.GetChild(0).position;
-
-        absorbedObject.position += distanceBetweenPivot;
     }
 }

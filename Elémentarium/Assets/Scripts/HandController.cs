@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HandController : MonoBehaviour, ISource
+public class HandController : MonoBehaviour
 {
     private bool _haveAnElement;
-    [SerializeField] private ElementData element;
+    [SerializeField] private Element element;
 
     public bool haveAnElement
     {
@@ -14,11 +14,6 @@ public class HandController : MonoBehaviour, ISource
         {
             _haveAnElement = value;
         }
-    }
-
-    public ElementData GetElementData() 
-    {
-        return this.element;
     }
 
     public void ResetElement() 

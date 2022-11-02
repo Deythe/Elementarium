@@ -6,5 +6,5 @@ public interface IContainer
 {
     public float GetCurrentMass();
     public float GetCurrentCapacity();
-    public void ModifyCapacity(ElementData element, float quantity);
+    public void ModifyCapacity(Element element, float quantity);
 }
