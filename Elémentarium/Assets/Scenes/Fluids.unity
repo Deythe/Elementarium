@@ -10728,6 +10728,9 @@ MonoBehaviour:
   inkParticle: {fileID: 2007379151}
   parentController: {fileID: 218557510}
   splatGunNozzle: {fileID: 218557510}
+  element: {fileID: 0}
+  cooldownMin: 0
+  cooldownMax: 0
 --- !u!135 &883150979
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -25420,7 +25423,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}

@@ -9,6 +9,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Absorb : MonoBehaviour
 {
     [SerializeField] private HandController hand;
+    
     [SerializeField] private InputActionProperty gripAction;
     [SerializeField] private GameObject absorbShape;
     [SerializeField] private Transform absorbAnchorTransform, inHandAnchorTranform;
@@ -23,6 +24,7 @@ public class Absorb : MonoBehaviour
     private Transform absorbedObject;
     private float angle, distance;
     private RaycastHit hit;
+    
     void Update()
     {
         if (gripAction.action.ReadValue<float>() > 0.5f)
@@ -99,7 +101,7 @@ public class Absorb : MonoBehaviour
         haveInHand = true;
         
         Debug.Log(absorbedObject.name);
-        if (absorbedObject.CompareTag("Grabable"))
+        if (absorbedObject.GetComponent<Interactable>().p_isGrabable)
         {
             _animator.SetTrigger("grab");
         }
