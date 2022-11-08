@@ -17,13 +17,13 @@ public class Expulse : MonoBehaviour
     {
         if (triggerAction.action.WasPerformedThisFrame())
         {
-            elemParticle.gameObject.SetActive(true);
+            //elemParticle.gameObject.SetActive(true);
             elemParticle.Play();
         }
         else if (triggerAction.action.WasReleasedThisFrame())
         {
             elemParticle.Stop();
-            elemParticle.gameObject.SetActive(false);
+            //elemParticle.gameObject.SetActive(false);
         }
     }
 
