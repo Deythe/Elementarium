@@ -10,7 +10,7 @@ public class Barrel : MonoBehaviour, IContainer, ISource
     [SerializeField] private float maxCapacity;
     [SerializeField] private float currentCapacity;
 
-    [SerializeField] private Element currentElement;
+    [SerializeField] private Water currentElement;
 
     [SerializeField] private float fillSpeed;
 
@@ -23,7 +23,8 @@ public class Barrel : MonoBehaviour, IContainer, ISource
 
     private void Start()
     {
-        currentMass = baseMass + currentElement.GetMass() * currentCapacity;
+        Debug.Log(currentElement.GetMass());
+        //currentMass = baseMass + currentElement.GetMass() * currentCapacity;
     }
 
     public float GetCurrentMass()

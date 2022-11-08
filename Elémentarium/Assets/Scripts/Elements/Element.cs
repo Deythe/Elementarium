@@ -4,15 +4,22 @@ using UnityEngine;
 
 public abstract class Element : MonoBehaviour
 {
+    protected enum ID {WATER, FIRE, AIR, EARTH, STEAM, ICE, MUD, FLAMETHROWER, CLAY, SAND};
     [SerializeField] protected string elementName;
-    protected int id;
     protected int priority;
-    [SerializeField] protected float mass;
+    protected int id;
+    [SerializeField] protected float mass = 0;
     [SerializeField] protected ParticleSystem particles;
 
     private Element collidedElement;
 
+    protected virtual void Start()
+    {
+        mass = 0;
+    }
+
     protected abstract void Merge(Element element);
+    protected abstract void Remove();
 
     public void PlayParticles() 
     {
@@ -30,6 +37,9 @@ public abstract class Element : MonoBehaviour
         {
             if (collidedElement.priority > priority) collidedElement.Merge(this);
             else Merge(collidedElement);
+
+            Remove();
+            collidedElement.Remove();
         }
     }
 

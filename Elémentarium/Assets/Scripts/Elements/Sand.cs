@@ -4,27 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Earth : Element
+public class Sand : Element
 {
 
     protected override void Start()
     {
-        id = (int)ID.EARTH;
+        id = (int)ID.SAND;
         priority = Enum.GetValues(typeof(ID)).Cast<int>().Max() - id;
     }
 
     protected override void Merge(Element element)
     {
-        switch (element.GetID()) 
-        {
-            default:
-                Debug.Log("Il y a un bug, c'est pas censé arriver !");
-                break;
-        }
+        throw new System.NotImplementedException();
     }
 
     protected override void Remove()
     {
-        throw new NotImplementedException();
+        throw new System.NotImplementedException();
     }
 }

@@ -1,13 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Fire : Element
 {
-    private void Start()
+    protected override void Start()
     {
-        id = 1;
-        priority = 3;
+        id = (int)ID.FIRE;
+        priority = Enum.GetValues(typeof(ID)).Cast<int>().Max() - id;
     }
 
     protected override void Merge(Element element)
@@ -24,5 +26,20 @@ public class Fire : Element
                 Debug.Log("Il y a un bug, c'est pas censé arriver !");
                 break;
         }
+    }
+
+    protected void Flamethrower() 
+    {
+        
+    }
+
+    protected void Clay() 
+    {
+        
+    }
+
+    protected override void Remove()
+    {
+        throw new NotImplementedException();
     }
 }
