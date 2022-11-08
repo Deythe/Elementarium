@@ -33,7 +33,7 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    void CheckInACollider()
+    public void CheckInACollider()
     {
         for (int i = 0; i < colliders.Count; i++)
         {
@@ -42,10 +42,5 @@ public class Interactable : MonoBehaviour
                 transform.position += direction * distance;
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
-        CheckInACollider();
     }
 }

@@ -5,19 +5,19 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using UnityEngine.Serialization;
 using UnityEngine.XR;
 
 
 public class Expulse : MonoBehaviour
 {
-    [SerializeField] private InputActionProperty triggerAction;
+    [SerializeField] private HandController masterHand;
     [SerializeField] ParticleSystem inkParticle;
     [SerializeField] Transform parentController;
     [SerializeField] Transform splatGunNozzle;
-
     [SerializeField] private ElementData element;
-
     [SerializeField] [Range(0, 1)] private float cooldownMin, cooldownMax;
+    
     private float cooldown;
     private GameObject bullet;
 
@@ -30,12 +30,12 @@ public class Expulse : MonoBehaviour
     {
         Vector3 angle = parentController.localEulerAngles;
         
-        if (triggerAction.action.WasPerformedThisFrame())
+        if (masterHand.triggerAction.action.ReadValue<float>() > 0.5f && masterHand.gripAction.action.ReadValue<float>()<0.1f)
         {
             VisualPolish();
             inkParticle.Play();
         }
-        else if (triggerAction.action.WasReleasedThisFrame())
+        else
         {
             inkParticle.Stop();
         }

@@ -4,13 +4,13 @@ using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class Absorb : MonoBehaviour
 {
-    [SerializeField] private HandController hand;
+    [SerializeField] private HandController masterHand;
     
-    [SerializeField] private InputActionProperty gripAction;
     [SerializeField] private GameObject absorbShape;
     [SerializeField] private Transform absorbAnchorTransform, inHandAnchorTranform;
     [SerializeField] private float rayDistanceMax, speedRotation, radiusRotation;
@@ -20,16 +20,16 @@ public class Absorb : MonoBehaviour
     
     private Coroutine currentCoroutine;
     private Vector3 distanceBetweenPivot;
-    private bool isTouching, haveInHand = false;
+    private bool isTouching;
     private Transform absorbedObject;
-    private float angle, distance;
+    private float angle;
     private RaycastHit hit;
     
     void Update()
     {
-        if (gripAction.action.ReadValue<float>() > 0.5f)
+        if (masterHand.gripAction.action.ReadValue<float>() > 0.5f && masterHand.triggerAction.action.ReadValue<float>()<0.1f)
         {
-            if (!haveInHand)
+            if (!masterHand.haveInHand)
             {
                 absorbShape.SetActive(true);
                 CheckAbsorbeObject();
@@ -42,7 +42,7 @@ public class Absorb : MonoBehaviour
         }
 
 
-        _animator.SetBool("hasAnObject", haveInHand);
+        _animator.SetBool("hasAnObject", masterHand.haveInHand);
     }
 
     void CheckAbsorbeObject()
@@ -82,25 +82,31 @@ public class Absorb : MonoBehaviour
             absorbedObject.DOKill();
             absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
             absorbedObject.SetParent(null);
+            absorbedObject.GetComponent<Interactable>().CheckInACollider();
             absorbedObject = null;
-            haveInHand = false;
+            masterHand.haveInHand = false;
         }
     }
 
     IEnumerator CoroutineMoveAround()
     {
         angle = 0;
-        
-        while (Vector3.Distance(absorbedObject.position, absorbAnchorTransform.position) > 0.2f)
+        while (Mathf.Abs(Vector3.Distance(absorbedObject.position, absorbAnchorTransform.position)) > 0.1f)
         {
             absorbedObject.localPosition = new Vector3(Mathf.Cos(angle)/(radiusRotation+angle), Mathf.Sin(angle)/(radiusRotation+angle), absorbedObject.localPosition.z-0.01f);
+            
+            if (absorbedObject.localPosition.z <= absorbAnchorTransform.localPosition.z)
+            {
+                absorbedObject.localPosition = new Vector3(absorbedObject.localPosition.x,
+                    absorbedObject.localPosition.y, absorbAnchorTransform.localPosition.z);
+            }
+            
             angle += Time.deltaTime * speedRotation;
             yield return new WaitForFixedUpdate();
         }
 
-        haveInHand = true;
+        masterHand.haveInHand = true;
         
-        Debug.Log(absorbedObject.name);
         if (absorbedObject.GetComponent<Interactable>().p_isGrabable)
         {
             _animator.SetTrigger("grab");
