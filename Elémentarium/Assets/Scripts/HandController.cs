@@ -5,7 +5,7 @@ using UnityEngine;
 public class HandController : MonoBehaviour, ISource
 {
     private bool _haveAnElement;
-    [SerializeField] private ElementData element;
+    [SerializeField] private Element element;
 
     public bool haveAnElement
     {
@@ -16,7 +16,7 @@ public class HandController : MonoBehaviour, ISource
         }
     }
 
-    public ElementData GetElementData() 
+    public Element GetElementData() 
     {
         return this.element;
     }
