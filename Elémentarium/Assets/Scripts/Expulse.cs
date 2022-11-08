@@ -13,18 +13,27 @@ public class Expulse : MonoBehaviour
     [SerializeField] private InputActionProperty triggerAction;
     [SerializeField] ParticleSystem elemParticle;
 
+    private ParticleSystem currentElement;
+    
+    
     public void Update()
     {
+        //GetElement();
+        //if (currentElement == null) return;
         if (triggerAction.action.WasPerformedThisFrame())
         {
-            //elemParticle.gameObject.SetActive(true);
+            elemParticle.gameObject.SetActive(true);
             elemParticle.Play();
         }
         else if (triggerAction.action.WasReleasedThisFrame())
         {
             elemParticle.Stop();
-            //elemParticle.gameObject.SetActive(false);
+            elemParticle.gameObject.SetActive(false);
         }
     }
 
+    private void GetElement()
+    {
+        throw new NotImplementedException();
+    }
 }
