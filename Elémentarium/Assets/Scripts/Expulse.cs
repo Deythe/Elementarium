@@ -15,7 +15,9 @@ public class Expulse : MonoBehaviour
     [SerializeField] ParticleSystem inkParticle;
     [SerializeField] Transform parentController;
     [SerializeField] Transform splatGunNozzle;
-    [SerializeField] private ElementData element;
+
+    [SerializeField] private Element element;
+
     [SerializeField] [Range(0, 1)] private float cooldownMin, cooldownMax;
     
     private float cooldown;

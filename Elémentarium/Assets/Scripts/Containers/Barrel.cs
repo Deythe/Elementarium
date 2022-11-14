@@ -10,7 +10,7 @@ public class Barrel : MonoBehaviour, IContainer, ISource
     [SerializeField] private float maxCapacity;
     [SerializeField] private float currentCapacity;
 
-    [SerializeField] private ElementData currentElement;
+    [SerializeField] private Water currentElement;
 
     [SerializeField] private float fillSpeed;
 
@@ -23,7 +23,8 @@ public class Barrel : MonoBehaviour, IContainer, ISource
 
     private void Start()
     {
-        currentMass = baseMass + currentElement.mass * currentCapacity;
+        Debug.Log(currentElement.GetMass());
+        //currentMass = baseMass + currentElement.GetMass() * currentCapacity;
     }
 
     public float GetCurrentMass()
@@ -36,14 +37,14 @@ public class Barrel : MonoBehaviour, IContainer, ISource
         return this.currentCapacity;
     }
 
-    public ElementData GetElementData() 
+    public Element GetElementData() 
     {
         return this.currentElement;
     }
 
-    public void ModifyCapacity(ElementData element, float quantity) 
+    public void ModifyCapacity(Element element, float quantity) 
     {
-        if (currentElement.elementID == element.elementID)
+        if (currentElement.GetID() == element.GetID())
         {
             if (quantity + currentCapacity > maxCapacity)
             {
@@ -58,7 +59,7 @@ public class Barrel : MonoBehaviour, IContainer, ISource
                 currentCapacity += quantity;
             }
 
-            currentMass = baseMass + (currentCapacity * element.mass);
+            currentMass = baseMass + (currentCapacity * element.GetMass());
         } 
     }
 

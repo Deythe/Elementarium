@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class HandController : MonoBehaviour, ISource
 {
-    [SerializeField] private ElementData element;
+    [SerializeField] private Element element;
     [SerializeField] private InputActionProperty _triggerAction;
     [SerializeField] private InputActionProperty _gripAction;
     
@@ -47,7 +47,7 @@ public class HandController : MonoBehaviour, ISource
         }
     }
 
-    public ElementData GetElementData() 
+    public Element GetElementData() 
     {
         return this.element;
     }
