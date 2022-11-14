@@ -24,6 +24,7 @@ public class ParticlesController: MonoBehaviour{
     void OnParticleCollision(GameObject other) {
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
         Paintable p = other.GetComponent<Paintable>();
+        
         if(p != null){
             for  (int i = 0; i< numCollisionEvents; i++){
                 Vector3 pos = collisionEvents[i].intersection;
@@ -33,8 +34,10 @@ public class ParticlesController: MonoBehaviour{
         }
         else if(other.transform.CompareTag("Ground"))
         {
+            Debug.Log("Touché");
             other.GetComponent<BoxCollider>().isTrigger = true;
-            other.GetComponent<MeshRenderer>().enabled = false;
+            //other.GetComponent<MeshRenderer>().enabled = false;
+            
         }
     }
 }

@@ -10674,6 +10674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 883150977}
   - component: {fileID: 883150980}
+  - component: {fileID: 883150981}
   - component: {fileID: 883150979}
   - component: {fileID: 883150978}
   m_Layer: 6
@@ -10712,22 +10713,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca8f565c75506c4286170cdf526901f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Trigger
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 829792f3-b751-4195-a0b7-c7e779aab5a2
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
-      type: 3}
+  masterHand: {fileID: 883150981}
   inkParticle: {fileID: 2007379151}
   parentController: {fileID: 218557510}
   splatGunNozzle: {fileID: 218557510}
+  element: {fileID: 11400000, guid: a1d589fed03ede047b5bfa9cff3e3a14, type: 2}
+  cooldownMin: 0
+  cooldownMax: 0
 --- !u!135 &883150979
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10932,6 +10924,45 @@ MonoBehaviour:
     m_Reference: {fileID: 875253871413052681, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &883150981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883150976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bf977c8bb8ab2c42a718b45ce5bca3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: {fileID: 0}
+  _triggerAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Trigger
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 6abcfa88-7d72-4e1d-8e55-fa0b48dde79c
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  _gripAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Grip
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: dc61f78c-4e4c-44be-a329-e94c774ece70
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!1 &885653382
 GameObject:
   m_ObjectHideFlags: 0
@@ -18003,7 +18034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1497644939
 Transform:
   m_ObjectHideFlags: 0
@@ -25420,7 +25451,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
