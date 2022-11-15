@@ -34,13 +34,13 @@ public class Expulse : MonoBehaviour
         
         if (masterHand.triggerAction.action.ReadValue<float>() > 0.5f && masterHand.gripAction.action.ReadValue<float>()<0.1f)
         {
-            elemParticle.gameObject.SetActive(true);
-            elemParticle.Play();
+            inkParticle.gameObject.SetActive(true);
+            inkParticle.Play();
         }
         else
         {
-            elemParticle.Stop();
-            elemParticle.gameObject.SetActive(false);
+            inkParticle.Stop();
+            inkParticle.gameObject.SetActive(false);
         }
     }
 

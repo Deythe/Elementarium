@@ -10,7 +10,7 @@ public class Barrel : MonoBehaviour, IContainer
     [SerializeField] private float maxCapacity;
     [SerializeField] private float currentCapacity;
 
-    [SerializeField] private Water currentElement;
+    [SerializeField] private Element currentElement;
 
     private float rotation;
     [SerializeField] private float emptySpeed;
@@ -56,15 +56,20 @@ public class Barrel : MonoBehaviour, IContainer
             }
 
             currentMass = baseMass + (currentCapacity * element.GetMass());
-        } 
+        }
     }
 
     private void CheckRotation() 
     {
         rotation = Vector3.Angle(Vector3.up, transform.up) - 90;
-        if (rotation > 0) 
+        if (rotation > 0)
         {
             ModifyCapacity(currentElement, -(rotation / 90) * emptySpeed * Time.deltaTime);
+            particles.Play();
+        }
+        else 
+        {
+            particles.Stop();
         }
     }
 

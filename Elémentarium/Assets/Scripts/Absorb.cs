@@ -11,7 +11,7 @@ public class Absorb : MonoBehaviour
 {
     [SerializeField] private HandController masterHand;
     
-    [SerializeField] private GameObject absorbShape;
+    [SerializeField] private GameObject absorbShape, absorbGroup;
     [SerializeField] private Transform absorbAnchorTransform, inHandAnchorTranform;
     [SerializeField] private float rayDistanceMax, speedRotation, radiusRotation;
     [SerializeField] private LayerMask _layerMask;
@@ -50,7 +50,7 @@ public class Absorb : MonoBehaviour
 
     void CheckAbsorbeObject()
     {
-        isTouching = Physics.Raycast(anchorTransform.position, anchorTransform.forward, out hit, rayDistanceMax, _layerMask);
+        isTouching = Physics.Raycast(absorbAnchorTransform.position, absorbAnchorTransform.forward, out hit, rayDistanceMax, _layerMask);
 
         if (!isTouching)
         {
@@ -68,12 +68,12 @@ public class Absorb : MonoBehaviour
             FreeObject();
             absorbedObject = hit.transform;
             absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
-            whereObjectWasTouched = Mathf.Abs(Vector3.Distance(absorbedObject.position, hit.point));
+            //whereObjectWasTouched = Mathf.Abs(Vector3.Distance(absorbedObject.position, hit.point));
         }
 
         absorbedObject.DOMove(
-                new Vector3(anchorTransform.position.x, anchorTransform.position.y,
-                    anchorTransform.position.z),
+                new Vector3(absorbAnchorTransform.position.x, absorbAnchorTransform.position.y,
+                    absorbAnchorTransform.position.z),
                 PlayerManager.instance.p_data.timeToAbsorbObjectComeToUs)
             .OnComplete(() => MakeInHand(absorbedObject));
     }
@@ -96,7 +96,7 @@ public class Absorb : MonoBehaviour
         }
     }
 
-    void MakeInHand(Transform child)
+    IEnumerator MakeInHand(Transform child)
     {
         angle = 0;
         while (Mathf.Abs(Vector3.Distance(absorbedObject.position, absorbAnchorTransform.position)) > 0.1f)
