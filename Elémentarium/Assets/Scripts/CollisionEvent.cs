@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class CollisionEvent : MonoBehaviour
 {
-    [SerializeField] private string thisTag;
+    [SerializeField] private string tag;
     [SerializeField] private UnityEvent collisionEnterEvent;
     [SerializeField] private UnityEvent collisionStayEvent;
     [SerializeField] private UnityEvent collisionExitEvent;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag(thisTag)) 
+        if (collision.transform.CompareTag(tag)) 
         {
             collisionEnterEvent.Invoke();
         }
@@ -21,7 +20,7 @@ public class CollisionEvent : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.transform.CompareTag(thisTag))
+        if (collision.transform.CompareTag(tag))
         {
             collisionStayEvent.Invoke();
         }
@@ -29,7 +28,7 @@ public class CollisionEvent : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.transform.CompareTag(thisTag)) 
+        if (collision.transform.CompareTag(tag)) 
         {
             collisionExitEvent.Invoke();
         }

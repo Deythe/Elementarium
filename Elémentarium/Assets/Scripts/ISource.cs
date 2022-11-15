@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ISource
 {
-    public Element GetElementData();
+    public ElementData GetElementData();
 }

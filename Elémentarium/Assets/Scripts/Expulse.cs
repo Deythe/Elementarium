@@ -34,26 +34,18 @@ public class Expulse : MonoBehaviour
         
         if (masterHand.triggerAction.action.ReadValue<float>() > 0.5f && masterHand.gripAction.action.ReadValue<float>()<0.1f)
         {
-            VisualPolish();
-            inkParticle.Play();
+            elemParticle.gameObject.SetActive(true);
+            elemParticle.Play();
         }
         else
         {
-            inkParticle.Stop();
+            elemParticle.Stop();
+            elemParticle.gameObject.SetActive(false);
         }
     }
-    
-    void VisualPolish()
-    {
-        if (!DOTween.IsTweening(parentController))
-        {
-            parentController.DOComplete();
-            Vector3 forward = -parentController.forward;
-            Vector3 localPos = parentController.localPosition;
-            parentController.DOLocalMove(localPos - new Vector3(0, 0, .2f), .03f)
-                .OnComplete(() => parentController.DOLocalMove(localPos, .1f).SetEase(Ease.OutSine));
 
-        }
+    private void GetElement()
+    {
+        throw new NotImplementedException();
     }
-    
 }

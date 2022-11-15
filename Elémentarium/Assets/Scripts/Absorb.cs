@@ -31,14 +31,17 @@ public class Absorb : MonoBehaviour
         {
             if (!masterHand.haveInHand)
             {
-                absorbShape.SetActive(true);
                 CheckAbsorbeObject();
             }
         }
         else
         {
-            FreeObject();
-            absorbShape.SetActive(false);
+            if (absorbedObject != null)
+            {
+                FreeObject();
+            }
+            
+            absorbGroup.SetActive(false);
         }
 
 
@@ -47,27 +50,32 @@ public class Absorb : MonoBehaviour
 
     void CheckAbsorbeObject()
     {
-        if (absorbedObject == null)
+        isTouching = Physics.Raycast(anchorTransform.position, anchorTransform.forward, out hit, rayDistanceMax, _layerMask);
+
+        if (!isTouching)
         {
-            isTouching = Physics.SphereCast(absorbAnchorTransform.position, 0.3f, absorbAnchorTransform.forward, out hit,
-                rayDistanceMax, _layerMask);
-        }
-        
-        if (hit.transform != null)
-        {
-            if (hit.transform != absorbedObject)
+            if (absorbedObject != null)
             {
-
                 FreeObject();
-                absorbedObject = hit.transform;
-
-                absorbedObject.SetParent(absorbAnchorTransform);
-                absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
-                currentCoroutine = StartCoroutine(CoroutineMoveAround());
+                return;
             }
             
-            absorbedObject.LookAt(absorbAnchorTransform);
+            return;
         }
+        
+        if (hit.transform!=absorbedObject)
+        {
+            FreeObject();
+            absorbedObject = hit.transform;
+            absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
+            whereObjectWasTouched = Mathf.Abs(Vector3.Distance(absorbedObject.position, hit.point));
+        }
+
+        absorbedObject.DOMove(
+                new Vector3(anchorTransform.position.x, anchorTransform.position.y,
+                    anchorTransform.position.z),
+                PlayerManager.instance.p_data.timeToAbsorbObjectComeToUs)
+            .OnComplete(() => MakeInHand(absorbedObject));
     }
 
     void FreeObject()
@@ -88,7 +96,7 @@ public class Absorb : MonoBehaviour
         }
     }
 
-    IEnumerator CoroutineMoveAround()
+    void MakeInHand(Transform child)
     {
         angle = 0;
         while (Mathf.Abs(Vector3.Distance(absorbedObject.position, absorbAnchorTransform.position)) > 0.1f)

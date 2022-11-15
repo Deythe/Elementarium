@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class HandController : MonoBehaviour, ISource
+public class HandController : MonoBehaviour
 {
     [SerializeField] private Element element;
     [SerializeField] private InputActionProperty _triggerAction;
