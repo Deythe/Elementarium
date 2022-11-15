@@ -20,7 +20,7 @@ public class Barrel : MonoBehaviour, IContainer
     private void Start()
     {
         Debug.Log(currentElement.GetMass());
-        //currentMass = baseMass + currentElement.GetMass() * currentCapacity;
+        currentMass = baseMass + currentElement.GetMass() * currentCapacity;
     }
 
     public float GetCurrentMass()
