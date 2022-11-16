@@ -8,13 +8,27 @@ using UnityEngine;
 public class Water : ElementData
 {
 
-    public override void Merge(ElementData elementData)
+    private GameObject newElementGO;
+    private Element newElement;
+
+    public override void Merge(ElementData elementData, Vector3 collisionPoint)
     {
+        Debug.Log("JE MERGE");
         switch (elementData.GetID()) 
         {
             case ID.FIRE:
-                Debug.Log("JE FAIS DE LA VAPEUR");
+                MergeFire(collisionPoint);
                 break;
+        }
+    }
+
+    private void MergeFire(Vector3 collisionPoint)
+    {
+        Debug.Log("JE FAIS DE LA VAPEUR");
+        newElementGO = Pooler.instance.Pop("Steam", collisionPoint);
+        if ((newElement = newElementGO.GetComponent<Element>()) != null)
+        {
+            newElement.PlayParticles();
         }
     }
 

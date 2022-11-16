@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Earth", menuName = "Element/Earth")]
 public class Earth : ElementData
 {
-    public override void Merge(ElementData elementData)
+    public override void Merge(ElementData elementData, Vector3 collisionPoint)
     {
         throw new NotImplementedException();
     }

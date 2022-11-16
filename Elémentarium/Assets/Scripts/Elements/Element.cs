@@ -16,11 +16,19 @@ public class Element : MonoBehaviour
         elementData.Initialize();
     }
 
-    public void PlayParticles(Transform transform, Transform parent)
+    public void PlayParticles()
     {
-        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), transform.position, parent);
-        particles = particlesGO.GetComponent<ParticleSystem>();
-        if (particles != null) 
+        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), transform.position);
+        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
+        {
+            particles.Play();
+        }
+    }
+
+    public void PlayParticles(Transform t, Transform parent)
+    {
+        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, parent);
+        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null) 
         {
             particles.Play();
         }
@@ -36,15 +44,24 @@ public class Element : MonoBehaviour
         Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
     }
 
+    // @@@@@@@@@@@@@@@@@@@@@
+    // POUR DEBUG
+
+    private bool hasCollidedOnce = false;
+
+    //@@@@@@@@@@@@@@@@@@@@@@
+
     private void OnCollisionEnter(Collision collision)
     {
-        if ((collidedElement = collision.transform.GetComponent<Element>()) != null)
+        if ((collidedElement = collision.transform.GetComponent<Element>()) != null && !hasCollidedOnce)
         {
-            if (collidedElement.GetPriority() > GetPriority()) collidedElement.GetElementData().Merge(elementData);
-            else elementData.Merge(collidedElement.GetElementData());
+            if (collidedElement.GetPriority() > GetPriority()) collidedElement.GetElementData().Merge(elementData, collision.contacts[0].point);
+            else elementData.Merge(collidedElement.GetElementData(), collision.contacts[0].point);
 
-            elementData.Remove();
-            collidedElement.GetElementData().Remove();
+            hasCollidedOnce = true;
+
+            /*elementData.Remove();
+            collidedElement.GetElementData().Remove();*/
         }
     }
 

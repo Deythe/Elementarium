@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Steam", menuName = "Element/Steam")]
 public class Steam : ElementData
 {
-    public override void Merge(ElementData elementData)
+    public override void Merge(ElementData elementData, Vector3 collisionPoint)
     {
         throw new NotImplementedException();
     }

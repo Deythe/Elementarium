@@ -8,7 +8,7 @@ using UnityEngine;
 public class Mud : ElementData
 {
 
-    public override void Merge(ElementData elementData)
+    public override void Merge(ElementData elementData, Vector3 collisionPoint)
     {
         throw new NotImplementedException();
     }
