@@ -110,7 +110,6 @@ GameObject:
   - component: {fileID: 5142567623446034365}
   - component: {fileID: 5142567623446034366}
   - component: {fileID: 4867453993445397873}
-  - component: {fileID: 4391138414218408565}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -214,23 +213,8 @@ MonoBehaviour:
   baseMass: 0.5
   maxCapacity: 10
   currentCapacity: 10
-  currentElement: {fileID: 4391138414218408565}
+  currentElement: {fileID: 0}
   emptySpeed: 2
-  particles: {fileID: 3052311020983213015}
---- !u!114 &4391138414218408565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5142567623446034360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7933fe2a5376124f8f558b4d771fe51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementName: Water
-  mass: 2
   particles: {fileID: 3052311020983213015}
 --- !u!1001 &7370038311134906559
 PrefabInstance:

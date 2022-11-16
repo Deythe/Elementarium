@@ -2,54 +2,65 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Element : MonoBehaviour
+public class Element : MonoBehaviour
 {
-    protected enum ID {WATER, FIRE, AIR, EARTH, STEAM, ICE, MUD, FLAMETHROWER, CLAY, SAND};
-    [SerializeField] protected string elementName;
-    protected int priority;
-    protected int id;
-    [SerializeField] protected float mass = 0;
-    [SerializeField] protected ParticleSystem particles;
 
-    private Element collidedElement;
+    [SerializeField] protected ElementData elementData;
 
-    protected virtual void Start()
+    protected GameObject particlesGO;
+    protected ParticleSystem particles;
+    protected Element collidedElement;
+
+
+    public void PlayParticles(Transform transform, Transform parent)
     {
-        mass = 0;
+        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), transform.position, parent);
+        particles = particlesGO.GetComponent<ParticleSystem>();
+        if (particles != null) 
+        {
+            particles.Play();
+        }
     }
 
-    protected abstract void Merge(Element element);
-    protected abstract void Remove();
-
-    public void PlayParticles() 
+    public void StopParticles()
     {
-        particles.Play();
-    }
+        if (particles != null) 
+        {
+            particles.Stop();
+        }
 
-    public void StopParticles() 
-    {
-        particles.Stop();
+        Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if ((collidedElement = collision.transform.GetComponent<Element>()) != null)
         {
-            if (collidedElement.priority > priority) collidedElement.Merge(this);
-            else Merge(collidedElement);
+            if (collidedElement.GetPriority() > GetPriority()) collidedElement.GetElementData().Merge(elementData);
+            else elementData.Merge(collidedElement.GetElementData());
 
-            Remove();
-            collidedElement.Remove();
+            elementData.Remove();
+            collidedElement.GetElementData().Remove();
         }
+    }
+
+    public ElementData GetElementData() 
+    {
+        return elementData;
     }
 
     public float GetMass()
     {
-        return mass;
+        return elementData.GetMass();
     }
 
-    public int GetID()
+    public ElementData.ID GetID()
     {
-        return id;
+        return elementData.GetID();
+    }
+
+    public int GetPriority() 
+    {
+        return elementData.GetPriority();
     }
 }
