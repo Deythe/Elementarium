@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public abstract class ElementData : ScriptableObject
@@ -8,8 +9,7 @@ public abstract class ElementData : ScriptableObject
     
     [SerializeField] protected ID id;
     [SerializeField] protected string elementName;
-    //[SerializeField] protected int id;
-    [SerializeField] protected int priority;
+    protected int priority;
     [SerializeField] protected float mass = 0;
 
     [Header("Particles")]
@@ -18,6 +18,12 @@ public abstract class ElementData : ScriptableObject
 
     public abstract void Merge(ElementData elementData);
     public abstract void Remove();
+
+    [ContextMenu("Initialize Element")]
+    public void Initialize()
+    {
+        priority = Enum.GetValues(typeof(ID)).Cast<int>().Max() - (int)id;
+    }
 
     public string GetName() 
     {
@@ -51,7 +57,7 @@ public abstract class ElementData : ScriptableObject
 
     public enum ID 
     {
-        WATER, FIRE, AIR, EARTH
+        WATER, FIRE, AIR, EARTH, STEAM, ICE, MUD, FLAMETHROWER, CLAY, SAND
     }
 
 }

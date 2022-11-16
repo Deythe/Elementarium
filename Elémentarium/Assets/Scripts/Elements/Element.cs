@@ -11,6 +11,10 @@ public class Element : MonoBehaviour
     protected ParticleSystem particles;
     protected Element collidedElement;
 
+    private void Start()
+    {
+        elementData.Initialize();
+    }
 
     public void PlayParticles(Transform transform, Transform parent)
     {

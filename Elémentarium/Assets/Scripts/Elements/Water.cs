@@ -7,11 +7,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Water", menuName = "Element/Water")]
 public class Water : ElementData
 {
+
     public override void Merge(ElementData elementData)
     {
         switch (elementData.GetID()) 
         {
             case ID.FIRE:
+                Debug.Log("JE FAIS DE LA VAPEUR");
                 break;
         }
     }
