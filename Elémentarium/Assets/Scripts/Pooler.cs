@@ -80,6 +80,37 @@ public class Pooler : MonoBehaviour
         return objectInstance;
     }
 
+    public GameObject Pop(string key, Vector3 position) 
+    {
+        objectInstance = pools[key].queueDisable.Dequeue();
+        pools[key].queueDisable.Enqueue(objectInstance);
+        objectInstance.transform.position = position;
+        objectInstance.SetActive(true);
+
+        return objectInstance;
+    }
+
+    public GameObject Pop(string key, Transform parent) 
+    {
+        objectInstance = pools[key].queueDisable.Dequeue();
+        pools[key].queueDisable.Enqueue(objectInstance);
+        objectInstance.transform.parent = parent;
+        objectInstance.SetActive(true);
+
+        return objectInstance;
+    }
+
+    public GameObject Pop(string key, Vector3 position, Transform parent) 
+    {
+        objectInstance = pools[key].queueDisable.Dequeue();
+        pools[key].queueDisable.Enqueue(objectInstance);
+        objectInstance.transform.position = position;
+        objectInstance.transform.parent = parent;
+        objectInstance.SetActive(true);
+
+        return objectInstance;
+    }
+
     public void DePop(String key, GameObject go)
     {
         pools[key].queueDisable.Enqueue(go);
