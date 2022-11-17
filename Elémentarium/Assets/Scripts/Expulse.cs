@@ -12,47 +12,40 @@ using UnityEngine.XR;
 public class Expulse : MonoBehaviour
 {
     [SerializeField] private HandController playerHand;
-    [SerializeField] private ElementData element;
     [SerializeField] private float sourceRange;
     [SerializeField] private LayerMask layerMask;
 
     private GameObject elementGO;
+    private Element element;
     private ParticleSystem elementPS;
     private Transform parentController;
     private RaycastHit hit;
-    private bool hasElement;
+    private bool hasShot;
 
     //[SerializeField] private Element element;
     
     private void Start()
     {
         parentController = playerHand.transform;
-    }
-
-    private void PopulateElement()
-    {
-        hasElement = true;
-        elementGO = Pooler.instance.Pop(element.GetParticlesKey());
-        elementPS = elementGO.GetComponent<ParticleSystem>();
-        elementGO.transform.parent = parentController;
-        elementGO.transform.localPosition = Vector3.zero;
-        elementGO.transform.localRotation = Quaternion.identity;
+        element = GetComponent<Element>();
     }
 
     private void FireElement()
     {
-        if (elementPS == null) return;
-        Vector3 angle = parentController.localEulerAngles;
+        if (element == null) return;
         
         if (playerHand.triggerAction.action.ReadValue<float>() > 0.5f && playerHand.gripAction.action.ReadValue<float>()<0.1f)
         {
-            elementPS.gameObject.SetActive(true);
-            elementPS.Play();
+            if (!hasShot)
+            {
+                element.PlayParticles(transform, transform);
+                hasShot = true;
+            }
         }
         else
         {
-            elementPS.Stop();
-            elementPS.gameObject.SetActive(false);
+            element.StopParticles();
+            hasShot = false;
         }
     }
 
@@ -63,19 +56,9 @@ public class Expulse : MonoBehaviour
             if (playerHand.gripAction.action.ReadValue<float>() > 0.5f &&
                 playerHand.triggerAction.action.ReadValue<float>() < 0.1f)
             {
-                ChangeElement(hit.collider.GetComponent<Source>().GetElement());
+                element.SetElementData(hit.collider.GetComponent<Element>().GetElementData());
             }
         }
-    }
-    
-    private void ChangeElement(ElementData newElement)
-    {
-        if (hasElement)
-        {
-            //Pooler.instance.DePop(element.GetParticlesKey(), elementGO);
-        }
-        element = newElement;
-        PopulateElement();
     }
 
 
@@ -84,9 +67,5 @@ public class Expulse : MonoBehaviour
         CheckForSources();
         FireElement();
     }
-
-    public void SetElement(ElementData element)
-    {
-        this.element = element;
-    }
+    
 }
