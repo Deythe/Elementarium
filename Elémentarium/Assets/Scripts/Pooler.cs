@@ -111,6 +111,52 @@ public class Pooler : MonoBehaviour
         return objectInstance;
     }
 
+    public GameObject Pop(string key, Vector3 position)
+    {
+        if (pools[key].queue.Count == 0)
+        {
+            Debug.LogWarning("pool of " + key + " is empty");
+            AddInstance(pools[key]);
+        }
+
+        objectInstance = pools[key].queue.Dequeue();
+        objectInstance.transform.position = position;
+        objectInstance.SetActive(true);
+
+        return objectInstance;
+    }
+
+    public GameObject Pop(string key, Transform parent)
+    {
+        if (pools[key].queue.Count == 0)
+        {
+            Debug.LogWarning("pool of " + key + " is empty");
+            AddInstance(pools[key]);
+        }
+
+        objectInstance = pools[key].queue.Dequeue();
+        objectInstance.transform.parent = parent;
+        objectInstance.SetActive(true);
+
+        return objectInstance;
+    }
+
+    public GameObject Pop(string key, Vector3 position, Transform parent)
+    {
+        if (pools[key].queue.Count == 0)
+        {
+            Debug.LogWarning("pool of " + key + " is empty");
+            AddInstance(pools[key]);
+        }
+
+        objectInstance = pools[key].queue.Dequeue();
+        objectInstance.transform.position = position;
+        objectInstance.transform.parent = parent;
+        objectInstance.SetActive(true);
+
+        return objectInstance;
+    }
+
     public void DePop(String key, GameObject go)
     {
         pools[key].queue.Enqueue(go);
