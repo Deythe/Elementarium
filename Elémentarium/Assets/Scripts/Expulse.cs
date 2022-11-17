@@ -11,41 +11,82 @@ using UnityEngine.XR;
 
 public class Expulse : MonoBehaviour
 {
-    [SerializeField] private HandController masterHand;
-    [SerializeField] ParticleSystem inkParticle;
-    [SerializeField] Transform parentController;
-    [SerializeField] Transform splatGunNozzle;
+    [SerializeField] private HandController playerHand;
+    [SerializeField] private ElementData element;
+    [SerializeField] private float sourceRange;
+    [SerializeField] private LayerMask layerMask;
 
-    [SerializeField] private Element element;
+    private GameObject elementGO;
+    private ParticleSystem elementPS;
+    private Transform parentController;
+    private RaycastHit hit;
+    private bool hasElement;
 
-    [SerializeField] [Range(0, 1)] private float cooldownMin, cooldownMax;
+    //[SerializeField] private Element element;
     
-    private float cooldown;
-    private GameObject bullet;
-
     private void Start()
     {
-        cooldown = UnityEngine.Random.Range(cooldownMin, cooldownMax);
+        parentController = playerHand.transform;
     }
 
-    public void Update()
+    private void PopulateElement()
     {
+        hasElement = true;
+        elementGO = Pooler.instance.Pop(element.GetParticlesKey());
+        elementPS = elementGO.GetComponent<ParticleSystem>();
+        elementGO.transform.parent = parentController;
+        elementGO.transform.localPosition = Vector3.zero;
+        elementGO.transform.localRotation = Quaternion.identity;
+    }
+
+    private void FireElement()
+    {
+        if (elementPS == null) return;
         Vector3 angle = parentController.localEulerAngles;
         
-        if (masterHand.triggerAction.action.ReadValue<float>() > 0.5f && masterHand.gripAction.action.ReadValue<float>()<0.1f)
+        if (playerHand.triggerAction.action.ReadValue<float>() > 0.5f && playerHand.gripAction.action.ReadValue<float>()<0.1f)
         {
-            inkParticle.gameObject.SetActive(true);
-            inkParticle.Play();
+            elementPS.gameObject.SetActive(true);
+            elementPS.Play();
         }
         else
         {
-            inkParticle.Stop();
-            inkParticle.gameObject.SetActive(false);
+            elementPS.Stop();
+            elementPS.gameObject.SetActive(false);
         }
     }
 
-    private void GetElement()
+    private void CheckForSources()
     {
-        throw new NotImplementedException();
+        if (Physics.Raycast(transform.position + transform.forward /10, transform.forward,  out hit, sourceRange,  layerMask))
+        {
+            if (playerHand.gripAction.action.ReadValue<float>() > 0.5f &&
+                playerHand.triggerAction.action.ReadValue<float>() < 0.1f)
+            {
+                ChangeElement(hit.collider.GetComponent<Source>().GetElement());
+            }
+        }
+    }
+    
+    private void ChangeElement(ElementData newElement)
+    {
+        if (hasElement)
+        {
+            //Pooler.instance.DePop(element.GetParticlesKey(), elementGO);
+        }
+        element = newElement;
+        PopulateElement();
+    }
+
+
+    public void Update()
+    {
+        CheckForSources();
+        FireElement();
+    }
+
+    public void SetElement(ElementData element)
+    {
+        this.element = element;
     }
 }

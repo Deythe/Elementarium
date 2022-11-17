@@ -71,6 +71,14 @@ public class Pooler : MonoBehaviour
         pool.queueDisable.Enqueue(objectInstance);
     }
 
+    public void ShowPools()
+    {
+        foreach (var elem in pools)
+        {
+            Debug.Log(elem.ToString());
+        }
+    }
+
     public GameObject Pop(string key)
     {
         objectInstance = pools[key].queueDisable.Dequeue();
