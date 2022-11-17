@@ -17,6 +17,7 @@ public class Expulse : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
 
     private GameObject elementGO;
+    private Element currentElement;
     private ParticleSystem elementPS;
     private Transform parentController;
     private RaycastHit hit;
@@ -46,13 +47,11 @@ public class Expulse : MonoBehaviour
         
         if (playerHand.triggerAction.action.ReadValue<float>() > 0.5f && playerHand.gripAction.action.ReadValue<float>()<0.1f)
         {
-            elementPS.gameObject.SetActive(true);
-            elementPS.Play();
+            currentElement.PlayParticles(parentController, parentController);
         }
         else
         {
-            elementPS.Stop();
-            elementPS.gameObject.SetActive(false);
+            currentElement.StopParticles();
         }
     }
 
@@ -63,7 +62,8 @@ public class Expulse : MonoBehaviour
             if (playerHand.gripAction.action.ReadValue<float>() > 0.5f &&
                 playerHand.triggerAction.action.ReadValue<float>() < 0.1f)
             {
-                ChangeElement(hit.collider.GetComponent<Source>().GetElement());
+                currentElement = hit.collider.GetComponent<Element>();
+                ChangeElement(currentElement.GetElementData());
             }
         }
     }

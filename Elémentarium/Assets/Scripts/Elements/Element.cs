@@ -40,7 +40,7 @@ public class Element : MonoBehaviour
         {
             particles.Stop();
         }
-
+        
         Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
     }
 
