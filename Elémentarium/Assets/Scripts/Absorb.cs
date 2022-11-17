@@ -13,7 +13,7 @@ public class Absorb : MonoBehaviour
     private Coroutine currentCoroutine;
     private bool isTouching;
     private Transform absorbedObject;
-    private float angle;
+    private float angle, distance, maxDistance;
     private RaycastHit hit;
     
     void Update()
@@ -23,20 +23,18 @@ public class Absorb : MonoBehaviour
             if (!masterHand.haveObjectInHand)
             {
                 absorbShape.SetActive(true);
-                CheckAbsorbeObject();
+                CheckAbsorbedObject();
             }
         }
         else
         {
-            FreeObject();
+            CancelAbsorb();
             absorbShape.SetActive(false);
         }
     }
 
-    void CheckAbsorbeObject()
+    void CheckAbsorbedObject()
     {
-        isTouching = Physics.Raycast(absorbAnchorTransform.position, absorbAnchorTransform.forward, out hit, rayDistanceMax, _layerMask);
-
         if (absorbedObject == null)
         {
             isTouching = Physics.SphereCast(absorbAnchorTransform.position, 0.3f, absorbAnchorTransform.forward, out hit,
@@ -47,20 +45,16 @@ public class Absorb : MonoBehaviour
         {
             if (hit.transform != absorbedObject)
             {
-
-                FreeObject();
+                CancelAbsorb();
                 absorbedObject = hit.transform;
-
                 absorbedObject.SetParent(absorbAnchorTransform);
                 absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
                 currentCoroutine = StartCoroutine(CoroutineMoveAround());
             }
-            
-            absorbedObject.LookAt(absorbAnchorTransform);
         }
     }
 
-    void FreeObject()
+    void CancelAbsorb()
     {
         if (absorbedObject != null)
         {
@@ -68,8 +62,7 @@ public class Absorb : MonoBehaviour
             {
                 StopCoroutine(currentCoroutine);
             }
-
-            absorbedObject.DOKill();
+            
             absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
             absorbedObject.SetParent(null);
             absorbedObject = null;
@@ -77,23 +70,27 @@ public class Absorb : MonoBehaviour
         }
     }
 
+    public void Grabbed()
+    {
+        masterHand.haveObjectInHand = true;
+        StopCoroutine(currentCoroutine);
+        absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
+        absorbedObject.SetParent(null);
+        absorbShape.SetActive(false);
+    }
+
     IEnumerator CoroutineMoveAround()
     {
         angle = 0;
-        while (Mathf.Abs(Vector3.Distance(absorbedObject.position, absorbAnchorTransform.position)) > 0.1f)
+        maxDistance = Mathf.Abs(Vector3.Distance(absorbedObject.position, absorbAnchorTransform.position)); 
+        do
         {
-            absorbedObject.localPosition = new Vector3(Mathf.Cos(angle)/(radiusRotation+angle), Mathf.Sin(angle)/(radiusRotation+angle), absorbedObject.localPosition.z-0.01f);
-            
-            if (absorbedObject.localPosition.z <= absorbAnchorTransform.localPosition.z)
-            {
-                absorbedObject.localPosition = new Vector3(absorbedObject.localPosition.x,
-                    absorbedObject.localPosition.y, absorbAnchorTransform.localPosition.z);
-            }
-            
+            absorbedObject.LookAt(absorbAnchorTransform);
+            distance = Mathf.Abs(Vector3.Distance(absorbedObject.position, absorbAnchorTransform.position)); 
+            absorbedObject.localPosition = new Vector3(Mathf.Cos(angle)*distance*0.5f/maxDistance, Mathf.Sin(angle)*distance*0.5f/maxDistance, absorbedObject.localPosition.z-0.01f);
             angle += Time.deltaTime * speedRotation;
             yield return new WaitForFixedUpdate();
         }
-
-        masterHand.haveObjectInHand = true;
+        while (!masterHand.haveObjectInHand) ;
     }
 }
