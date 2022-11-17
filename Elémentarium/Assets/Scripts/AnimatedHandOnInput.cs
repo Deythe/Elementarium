@@ -4,10 +4,14 @@ using UnityEngine.InputSystem;
 public class AnimatedHandOnInput : MonoBehaviour
 {
     [SerializeField] private InputActionProperty triggerAnimationAction, gripAnimationAction;
-    
     [SerializeField] private Animator _handAnimator;
     private float _triggerValue, _gripValue;
-   
+
+    public Animator handAnimator
+    {
+        get => _handAnimator;
+    }
+    
     // Update is called once per frame
     void Update()
     {

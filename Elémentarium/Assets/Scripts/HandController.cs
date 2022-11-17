@@ -8,9 +8,10 @@ public class HandController : MonoBehaviour
     [SerializeField] private Element element;
     [SerializeField] private InputActionProperty _triggerAction;
     [SerializeField] private InputActionProperty _gripAction;
-    
-    private bool _haveAnElement, _haveInHand;
-    
+
+    [SerializeField] private AnimatedHandOnInput anim;
+    [SerializeField] private bool _haveAnElement, _haveObjectInHand, _haveGlove = false;
+
     public InputActionProperty triggerAction
     {
         get => _triggerAction;
@@ -29,27 +30,29 @@ public class HandController : MonoBehaviour
         }
     }
     
-    public bool haveInHand
+    public bool haveObjectInHand
     {
-        get => _haveInHand;
+        get => _haveObjectInHand;
         set
         {
-            _haveInHand = value;
+            _haveObjectInHand = value;
+            anim.handAnimator.SetBool("HaveObjectInHand", _haveObjectInHand);
         }
     }
     
-    public bool haveAnElement
+    public bool haveGlove
     {
-        get => _haveAnElement;
+        get => _haveGlove;
         set
         {
-            _haveAnElement = value;
+            _haveGlove = value;
+            anim.handAnimator.SetBool("HaveGlove", _haveGlove);
         }
     }
 
     public Element GetElementData() 
     {
-        return this.element;
+        return element;
     }
 
     public void ResetElement() 
