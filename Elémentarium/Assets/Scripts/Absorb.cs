@@ -1,23 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
-using UnityEngine.XR.Interaction.Toolkit;
 
 public class Absorb : MonoBehaviour
 {
     [SerializeField] private HandController masterHand;
     
     [SerializeField] private GameObject absorbShape, absorbGroup;
-    [SerializeField] private Transform absorbAnchorTransform, inHandAnchorTranform;
+    [SerializeField] private Transform absorbAnchorTransform;
     [SerializeField] private float rayDistanceMax, speedRotation, radiusRotation;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private float multiplicator;
     [SerializeField] private Animator _animator;
-    
     private Coroutine currentCoroutine;
     private Vector3 distanceBetweenPivot;
     private bool isTouching;
@@ -43,9 +37,6 @@ public class Absorb : MonoBehaviour
             
             absorbGroup.SetActive(false);
         }
-
-
-        _animator.SetBool("hasAnObject", masterHand.haveInHand);
     }
 
     void CheckAbsorbeObject()
@@ -121,10 +112,5 @@ public class Absorb : MonoBehaviour
         }
         
         absorbShape.SetActive(false);
-        absorbedObject.position = inHandAnchorTranform.position;
-        absorbedObject.rotation = inHandAnchorTranform.rotation;
-        distanceBetweenPivot = absorbedObject.position - absorbedObject.GetChild(0).position;
-
-        absorbedObject.position += distanceBetweenPivot;
     }
 }
