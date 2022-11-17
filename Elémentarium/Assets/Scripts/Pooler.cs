@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pooler : MonoBehaviour
@@ -8,7 +9,9 @@ public class Pooler : MonoBehaviour
     public static Pooler instance;
 
     private int i;
+
     private GameObject objectInstance;
+    
     private Dictionary<String, Pool> pools = new Dictionary<string, Pool>();
     
     [SerializeField] private List<PoolKey> poolKeys = new List<PoolKey>();
@@ -17,9 +20,10 @@ public class Pooler : MonoBehaviour
     public class Pool
     {
         public GameObject prefab;
-        public Queue<GameObject> queueDisable = new Queue<GameObject>(); // Liste par probs
-        public Queue<GameObject> queueEnable = new Queue<GameObject>(); // Liste par probs
+        public Queue<GameObject> queue = new Queue<GameObject>();
         public int baseCount;
+        public float baseRefreshSpeed = 5;
+        public float refreshSpeed = 5;
     }
 
     [Serializable]
@@ -32,10 +36,6 @@ public class Pooler : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-    
-    void Start()
-    {
         InitPools();
         Populate();
     }
@@ -68,44 +68,44 @@ public class Pooler : MonoBehaviour
     {
         objectInstance = Instantiate(pool.prefab, transform);
         objectInstance.SetActive(false);
-        pool.queueDisable.Enqueue(objectInstance);
+        
+        pool.queue.Enqueue(objectInstance);
     }
 
+    void Start()
+    {
+        InitRefreshCount();
+    }
+
+    void InitRefreshCount()
+    {
+        foreach (KeyValuePair<String, Pool> pool in pools)
+        {
+            StartCoroutine(RefreshPool(pool.Value, pool.Value.baseRefreshSpeed));
+        }
+    }
+
+    IEnumerator RefreshPool(Pool pool, float t)
+    {
+        yield return new WaitForSeconds(t);
+        if (pool.queue.Count < pool.baseCount)
+        {
+            AddInstance(pool);
+            pool.refreshSpeed = pool.baseRefreshSpeed * pool.queue.Count / pool.baseCount;
+        }
+        
+        StartCoroutine(RefreshPool(pool, pool.refreshSpeed));
+    }
+    
     public GameObject Pop(string key)
     {
-        objectInstance = pools[key].queueDisable.Dequeue();
-        pools[key].queueDisable.Enqueue(objectInstance);
-        objectInstance.SetActive(true);
+        if (pools[key].queue.Count == 0)
+        {
+            Debug.LogWarning("pool of "+key +" is empty");
+            AddInstance(pools[key]);
+        }
 
-        return objectInstance;
-    }
-
-    public GameObject Pop(string key, Vector3 position) 
-    {
-        objectInstance = pools[key].queueDisable.Dequeue();
-        pools[key].queueDisable.Enqueue(objectInstance);
-        objectInstance.transform.position = position;
-        objectInstance.SetActive(true);
-
-        return objectInstance;
-    }
-
-    public GameObject Pop(string key, Transform parent) 
-    {
-        objectInstance = pools[key].queueDisable.Dequeue();
-        pools[key].queueDisable.Enqueue(objectInstance);
-        objectInstance.transform.parent = parent;
-        objectInstance.SetActive(true);
-
-        return objectInstance;
-    }
-
-    public GameObject Pop(string key, Vector3 position, Transform parent) 
-    {
-        objectInstance = pools[key].queueDisable.Dequeue();
-        pools[key].queueDisable.Enqueue(objectInstance);
-        objectInstance.transform.position = position;
-        objectInstance.transform.parent = parent;
+        objectInstance = pools[key].queue.Dequeue();
         objectInstance.SetActive(true);
 
         return objectInstance;
@@ -113,8 +113,7 @@ public class Pooler : MonoBehaviour
 
     public void DePop(String key, GameObject go)
     {
-        pools[key].queueDisable.Enqueue(go);
-        pools[key].queueEnable.Dequeue();
+        pools[key].queue.Enqueue(go);
         go.transform.parent = transform;
         go.SetActive(false);
     }

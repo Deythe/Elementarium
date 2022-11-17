@@ -5,10 +5,11 @@ using UnityEngine;
 public class Source : MonoBehaviour
 {
 
-    [SerializeField] private ParticleSystem element;
+    [SerializeField] private ElementData element;
 
-    // Update is called once per frame
-    public ParticleSystem GetElement()
+    
+    
+    public ElementData GetElement()
     {
         return element;
     }
