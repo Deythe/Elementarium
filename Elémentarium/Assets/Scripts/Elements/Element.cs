@@ -2,54 +2,86 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Element : MonoBehaviour
+public class Element : MonoBehaviour
 {
-    protected enum ID {WATER, FIRE, AIR, EARTH, STEAM, ICE, MUD, FLAMETHROWER, CLAY, SAND};
-    [SerializeField] protected string elementName;
-    protected int priority;
-    protected int id;
-    [SerializeField] protected float mass = 0;
-    [SerializeField] protected ParticleSystem particles;
 
-    private Element collidedElement;
+    [SerializeField] protected ElementData elementData;
 
-    protected virtual void Start()
+    protected GameObject particlesGO;
+    protected ParticleSystem particles;
+    protected Element collidedElement;
+
+    private void Start()
     {
-        mass = 0;
+        elementData.Initialize();
     }
 
-    protected abstract void Merge(Element element);
-    protected abstract void Remove();
-
-    public void PlayParticles() 
+    public void PlayParticles()
     {
-        particles.Play();
+        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), transform.position);
+        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
+        {
+            particles.Play();
+        }
     }
 
-    public void StopParticles() 
+    public void PlayParticles(Transform t, Transform parent)
     {
-        particles.Stop();
+        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, parent);
+        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null) 
+        {
+            particles.Play();
+        }
     }
+
+    public void StopParticles()
+    {
+        if (particles != null) 
+        {
+            particles.Stop();
+        }
+
+        Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
+    }
+
+    // @@@@@@@@@@@@@@@@@@@@@
+    // POUR DEBUG
+
+    private bool hasCollidedOnce = false;
+
+    //@@@@@@@@@@@@@@@@@@@@@@
 
     private void OnCollisionEnter(Collision collision)
     {
-        if ((collidedElement = collision.transform.GetComponent<Element>()) != null)
+        if ((collidedElement = collision.transform.GetComponent<Element>()) != null && !hasCollidedOnce)
         {
-            if (collidedElement.priority > priority) collidedElement.Merge(this);
-            else Merge(collidedElement);
+            if (collidedElement.GetPriority() > GetPriority()) collidedElement.GetElementData().Merge(elementData, collision.contacts[0].point);
+            else elementData.Merge(collidedElement.GetElementData(), collision.contacts[0].point);
 
-            Remove();
-            collidedElement.Remove();
+            hasCollidedOnce = true;
+
+            /*elementData.Remove();
+            collidedElement.GetElementData().Remove();*/
         }
+    }
+
+    public ElementData GetElementData() 
+    {
+        return elementData;
     }
 
     public float GetMass()
     {
-        return mass;
+        return elementData.GetMass();
     }
 
-    public int GetID()
+    public ElementData.ID GetID()
     {
-        return id;
+        return elementData.GetID();
+    }
+
+    public int GetPriority() 
+    {
+        return elementData.GetPriority();
     }
 }

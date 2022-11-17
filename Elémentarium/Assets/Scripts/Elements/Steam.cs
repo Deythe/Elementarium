@@ -4,21 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Steam : Element
+[CreateAssetMenu(fileName = "Steam", menuName = "Element/Steam")]
+public class Steam : ElementData
 {
-
-    protected override void Start()
+    public override void Merge(ElementData elementData, Vector3 collisionPoint)
     {
-        id = (int)ID.STEAM;
-        priority = Enum.GetValues(typeof(ID)).Cast<int>().Max() - id;
-    }
-    protected override void Merge(Element element)
-    {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
-    protected override void Remove()
+    public override void Remove()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 }

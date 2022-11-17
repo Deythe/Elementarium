@@ -4,26 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Earth : Element
+[CreateAssetMenu(fileName = "Earth", menuName = "Element/Earth")]
+public class Earth : ElementData
 {
-
-    protected override void Start()
+    public override void Merge(ElementData elementData, Vector3 collisionPoint)
     {
-        id = (int)ID.EARTH;
-        priority = Enum.GetValues(typeof(ID)).Cast<int>().Max() - id;
+        throw new NotImplementedException();
     }
 
-    protected override void Merge(Element element)
-    {
-        switch (element.GetID()) 
-        {
-            default:
-                Debug.Log("Il y a un bug, c'est pas censé arriver !");
-                break;
-        }
-    }
-
-    protected override void Remove()
+    public override void Remove()
     {
         throw new NotImplementedException();
     }

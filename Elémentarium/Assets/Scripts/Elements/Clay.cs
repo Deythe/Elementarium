@@ -4,21 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Clay : Element
+[CreateAssetMenu(fileName = "Clay", menuName = "Element/Clay")]
+public class Clay : ElementData
 {
-    protected override void Start()
+    public override void Merge(ElementData elementData, Vector3 collisionPoint)
     {
-        id = (int)ID.CLAY;
-        priority = Enum.GetValues(typeof(ID)).Cast<int>().Max() - id;
+        throw new NotImplementedException();
     }
 
-    protected override void Merge(Element element)
+    public override void Remove()
     {
-        throw new System.NotImplementedException();
-    }
-
-    protected override void Remove()
-    {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 }
