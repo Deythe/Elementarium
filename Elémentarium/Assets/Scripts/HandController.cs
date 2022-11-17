@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,12 @@ public class HandController : MonoBehaviour
     [SerializeField] private InputActionProperty _gripAction;
 
     [SerializeField] private AnimatedHandOnInput anim;
-    [SerializeField] private bool _haveAnElement, _haveObjectInHand, _haveGlove = false;
+    private bool _haveAnElement, _haveObjectInHand, _haveGlove;
+
+    private void Start()
+    {
+        haveGlove = true;
+    }
 
     public InputActionProperty triggerAction
     {
