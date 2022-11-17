@@ -27170,18 +27170,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 942787502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dac5991e970a114192cad62e135edf0, type: 3}
+  m_Script: {fileID: 11500000, guid: 63b49cae866e9814c96721534f3e9abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   poolKeys:
+  - key: p_Fire
+    pool:
+      prefab: {fileID: 1253142483436318, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
+      baseCount: 2
   - key: p_Water
     pool:
       prefab: {fileID: 5484362316147430247, guid: 0c4b5e79854978b4d857eab7fc922401,
         type: 3}
-      baseCount: 2
-  - key: p_Fire
-    pool:
-      prefab: {fileID: 1253142483436318, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
       baseCount: 2
 --- !u!4 &942787504
 Transform:
