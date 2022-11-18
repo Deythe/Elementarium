@@ -9,9 +9,4 @@ public class GiveGloves : MonoBehaviour
         PlayerManager.instance.GiveGlove();
         Destroy(gameObject);
     }
-
-    public void Test()
-    {
-        Destroy(gameObject);
-    }
 }

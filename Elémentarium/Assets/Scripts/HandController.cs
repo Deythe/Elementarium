@@ -9,7 +9,6 @@ public class HandController : MonoBehaviour
     [SerializeField] private Element element;
     [SerializeField] private InputActionProperty _triggerAction;
     [SerializeField] private InputActionProperty _gripAction;
-
     [SerializeField] private AnimatedHandOnInput anim;
     private bool _haveAnElement, _haveObjectInHand, _haveGlove;
 
@@ -52,6 +51,7 @@ public class HandController : MonoBehaviour
         set
         {
             _haveGlove = value;
+            GetComponent<Absorb>().enabled = value;
             anim.handAnimator.SetBool("HaveGlove", _haveGlove);
         }
     }

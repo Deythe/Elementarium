@@ -50,6 +50,7 @@ public class Absorb : MonoBehaviour
                 absorbedObject.SetParent(absorbAnchorTransform);
                 absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
                 currentCoroutine = StartCoroutine(CoroutineMoveAround());
+                return;
             }
         }
     }
@@ -66,17 +67,21 @@ public class Absorb : MonoBehaviour
             absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
             absorbedObject.SetParent(null);
             absorbedObject = null;
-            masterHand.haveObjectInHand = false;
         }
+        
+        masterHand.haveObjectInHand = false;
     }
 
     public void Grabbed()
     {
         masterHand.haveObjectInHand = true;
-        StopCoroutine(currentCoroutine);
-        absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
-        absorbedObject.SetParent(null);
-        absorbShape.SetActive(false);
+        if (masterHand.haveGlove)
+        {
+            StopCoroutine(currentCoroutine);
+            absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
+            absorbedObject.SetParent(null);
+            absorbShape.SetActive(false);
+        }
     }
 
     IEnumerator CoroutineMoveAround()
