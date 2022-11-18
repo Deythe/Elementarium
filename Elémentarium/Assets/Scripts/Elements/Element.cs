@@ -13,8 +13,13 @@ public class Element : MonoBehaviour
 
     private void Start()
     {
-        elementData.Initialize();
+        if (elementData != null)
+        {
+            elementData.Initialize();
+        }
     }
+    
+    
 
     public void PlayParticles()
     {
@@ -40,8 +45,12 @@ public class Element : MonoBehaviour
         {
             particles.Stop();
         }
-        
-        Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
+
+        if (particlesGO != null)
+        {
+            Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
+            particlesGO = null;
+        }
     }
 
     // @@@@@@@@@@@@@@@@@@@@@
@@ -68,6 +77,11 @@ public class Element : MonoBehaviour
     public ElementData GetElementData() 
     {
         return elementData;
+    }
+
+    public void SetElementData(ElementData elementData)
+    {
+        this.elementData = elementData;
     }
 
     public float GetMass()
