@@ -15,7 +15,7 @@ public class HandController : MonoBehaviour
 
     private void Start()
     {
-        haveGlove = true;
+        haveGlove = false;
     }
 
     public InputActionProperty triggerAction

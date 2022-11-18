@@ -29,4 +29,10 @@ public class PlayerManager : MonoBehaviour
         leftHandController.ResetElement();
         rightHandController.ResetElement();
     }
+
+    public void GiveGlove()
+    {
+        leftHandController.haveGlove = true;
+        rightHandController.haveGlove = true;
+    }
 }
