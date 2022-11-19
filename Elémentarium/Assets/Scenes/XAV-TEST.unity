@@ -19681,13 +19681,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca8f565c75506c4286170cdf526901f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterHand: {fileID: 783593124}
-  inkParticle: {fileID: 0}
-  parentController: {fileID: 0}
-  splatGunNozzle: {fileID: 0}
-  element: {fileID: 0}
-  cooldownMin: 0
-  cooldownMax: 0
+  playerHand: {fileID: 0}
+  sourceRange: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &783593122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22529,7 +22527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 888523438}
-  - component: {fileID: 888523437}
+  - component: {fileID: 888523439}
   m_Layer: 0
   m_Name: Pooler
   m_TagString: Untagged
@@ -22537,37 +22535,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &888523437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888523436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dac5991e970a114192cad62e135edf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolKeys:
-  - key: P_Water
-    pool:
-      prefab: {fileID: 5484362316147430247, guid: 0c4b5e79854978b4d857eab7fc922401,
-        type: 3}
-      baseCount: 3
-  - key: P_Fire
-    pool:
-      prefab: {fileID: 1253142483436318, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
-      baseCount: 3
-  - key: Steam
-    pool:
-      prefab: {fileID: 3492171818417176022, guid: 963da8a42f9a71440b327f80b0d96b9c,
-        type: 3}
-      baseCount: 3
-  - key: P_Steam
-    pool:
-      prefab: {fileID: 1253142483436318, guid: 7c50de229e88bd9428ecf14259835b20, type: 3}
-      baseCount: 3
 --- !u!4 &888523438
 Transform:
   m_ObjectHideFlags: 0
@@ -22583,6 +22550,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &888523439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888523436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b49cae866e9814c96721534f3e9abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolKeys:
+  - key: Steam
+    pool:
+      prefab: {fileID: 3492171818417176022, guid: 963da8a42f9a71440b327f80b0d96b9c,
+        type: 3}
+      baseCount: 3
+  - key: P_Steam
+    pool:
+      prefab: {fileID: 1253142483436318, guid: 7c50de229e88bd9428ecf14259835b20, type: 3}
+      baseCount: 3
+  - key: P_Water
+    pool:
+      prefab: {fileID: 5484362316147430247, guid: 0c4b5e79854978b4d857eab7fc922401,
+        type: 3}
+      baseCount: 3
+  - key: P_Fire
+    pool:
+      prefab: {fileID: 1253142483436318, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
+      baseCount: 3
 --- !u!1 &889803964
 GameObject:
   m_ObjectHideFlags: 0
@@ -36600,13 +36598,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca8f565c75506c4286170cdf526901f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterHand: {fileID: 1357462900}
-  inkParticle: {fileID: 0}
-  parentController: {fileID: 0}
-  splatGunNozzle: {fileID: 0}
-  element: {fileID: 0}
-  cooldownMin: 0
-  cooldownMax: 0
+  playerHand: {fileID: 0}
+  sourceRange: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1357462902
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -73,8 +73,13 @@ public class Pooler : MonoBehaviour
 
     public GameObject Pop(string key)
     {
+        if (pools[key].queueDisable.Count == 0)
+        {
+            Debug.LogWarning("pool of "+key +" is empty");
+            AddInstance(pools[key]);
+        }
         objectInstance = pools[key].queueDisable.Dequeue();
-        pools[key].queueDisable.Enqueue(objectInstance);
+        pools[key].queueEnable.Enqueue(objectInstance);
         objectInstance.SetActive(true);
 
         return objectInstance;
@@ -82,8 +87,13 @@ public class Pooler : MonoBehaviour
 
     public GameObject Pop(string key, Vector3 position) 
     {
+        if (pools[key].queueDisable.Count == 0)
+        {
+            Debug.LogWarning("pool of "+key +" is empty");
+            AddInstance(pools[key]);
+        }
         objectInstance = pools[key].queueDisable.Dequeue();
-        pools[key].queueDisable.Enqueue(objectInstance);
+        pools[key].queueEnable.Enqueue(objectInstance);
         objectInstance.transform.position = position;
         objectInstance.SetActive(true);
 
@@ -92,8 +102,13 @@ public class Pooler : MonoBehaviour
 
     public GameObject Pop(string key, Transform parent) 
     {
+        if (pools[key].queueDisable.Count == 0)
+        {
+            Debug.LogWarning("pool of "+key +" is empty");
+            AddInstance(pools[key]);
+        }
         objectInstance = pools[key].queueDisable.Dequeue();
-        pools[key].queueDisable.Enqueue(objectInstance);
+        pools[key].queueEnable.Enqueue(objectInstance);
         objectInstance.transform.parent = parent;
         objectInstance.SetActive(true);
 
@@ -102,8 +117,13 @@ public class Pooler : MonoBehaviour
 
     public GameObject Pop(string key, Vector3 position, Transform parent) 
     {
+        if (pools[key].queueDisable.Count == 0)
+        {
+            Debug.LogWarning("pool of "+key +" is empty");
+            AddInstance(pools[key]);
+        }
         objectInstance = pools[key].queueDisable.Dequeue();
-        pools[key].queueDisable.Enqueue(objectInstance);
+        pools[key].queueEnable.Enqueue(objectInstance);
         objectInstance.transform.position = position;
         objectInstance.transform.parent = parent;
         objectInstance.SetActive(true);

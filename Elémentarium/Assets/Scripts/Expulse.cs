@@ -11,41 +11,61 @@ using UnityEngine.XR;
 
 public class Expulse : MonoBehaviour
 {
-    [SerializeField] private HandController masterHand;
-    [SerializeField] ParticleSystem inkParticle;
-    [SerializeField] Transform parentController;
-    [SerializeField] Transform splatGunNozzle;
+    [SerializeField] private HandController playerHand;
+    [SerializeField] private float sourceRange;
+    [SerializeField] private LayerMask layerMask;
 
-    [SerializeField] private Element element;
+    private GameObject elementGO;
+    private Element element;
+    private ParticleSystem elementPS;
+    private Transform parentController;
+    private RaycastHit hit;
+    private bool hasShot;
 
-    [SerializeField] [Range(0, 1)] private float cooldownMin, cooldownMax;
+    //[SerializeField] private Element element;
     
-    private float cooldown;
-    private GameObject bullet;
-
     private void Start()
     {
-        cooldown = UnityEngine.Random.Range(cooldownMin, cooldownMax);
+        parentController = playerHand.transform;
+        element = GetComponent<Element>();
     }
 
-    public void Update()
+    private void FireElement()
     {
-        Vector3 angle = parentController.localEulerAngles;
+        if (element == null) return;
         
-        if (masterHand.triggerAction.action.ReadValue<float>() > 0.5f && masterHand.gripAction.action.ReadValue<float>()<0.1f)
+        if (playerHand.triggerAction.action.ReadValue<float>() > 0.5f && playerHand.gripAction.action.ReadValue<float>()<0.1f)
         {
-            inkParticle.gameObject.SetActive(true);
-            inkParticle.Play();
+            if (!hasShot)
+            {
+                element.PlayParticles(transform, transform);
+                hasShot = true;
+            }
         }
         else
         {
-            inkParticle.Stop();
-            inkParticle.gameObject.SetActive(false);
+            element.StopParticles();
+            hasShot = false;
         }
     }
 
-    private void GetElement()
+    private void CheckForSources()
     {
-        throw new NotImplementedException();
+        if (Physics.Raycast(transform.position + transform.forward /10, transform.forward,  out hit, sourceRange,  layerMask))
+        {
+            if (playerHand.gripAction.action.ReadValue<float>() > 0.5f &&
+                playerHand.triggerAction.action.ReadValue<float>() < 0.1f)
+            {
+                element.SetElementData(hit.collider.GetComponent<Element>().GetElementData());
+            }
+        }
     }
+
+
+    public void Update()
+    {
+        CheckForSources();
+        FireElement();
+    }
+    
 }

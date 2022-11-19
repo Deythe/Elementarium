@@ -10,11 +10,18 @@ public class Element : MonoBehaviour
     protected GameObject particlesGO;
     protected ParticleSystem particles;
     protected Element collidedElement;
+    protected List<ParticleCollisionEvent> particlesCollisions;
 
     private void Start()
     {
-        elementData.Initialize();
+        if (elementData != null)
+        {
+            elementData.Initialize();
+        }
+        particlesCollisions = new List<ParticleCollisionEvent>(); 
     }
+    
+    
 
     public void PlayParticles()
     {
@@ -41,7 +48,11 @@ public class Element : MonoBehaviour
             particles.Stop();
         }
 
-        Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
+        if (particlesGO != null)
+        {
+            Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
+            particlesGO = null;
+        }
     }
 
     // @@@@@@@@@@@@@@@@@@@@@
@@ -65,9 +76,27 @@ public class Element : MonoBehaviour
         }
     }
 
+    /*private void OnParticleCollision(GameObject other)
+    {
+        Debug.Log("PARTICLE COLLISION");
+        if ((collidedElement = other.GetComponentInParent<Element>()) != null && !hasCollidedOnce) 
+        {
+            if (particlesCollisions.Count > 0) 
+            {
+                if (collidedElement.GetPriority() > GetPriority()) collidedElement.GetElementData().Merge(elementData, particlesCollisions[0].intersection);
+                else elementData.Merge(collidedElement.GetElementData(), particlesCollisions[0].intersection);
+            }
+        }
+    }*/
+
     public ElementData GetElementData() 
     {
         return elementData;
+    }
+
+    public void SetElementData(ElementData elementData)
+    {
+        this.elementData = elementData;
     }
 
     public float GetMass()

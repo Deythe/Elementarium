@@ -12,8 +12,15 @@ public class ParticlesController: MonoBehaviour{
     public float strength = 1;
     public float hardness = 1;
     [Space]
+
+    protected Element element;
+    protected Element collidedElement;
+    private bool hasCollidedOnce = false;
+
+    [Space]
     ParticleSystem part;
     List<ParticleCollisionEvent> collisionEvents;
+
 
     void Start(){
         part = GetComponent<ParticleSystem>();
@@ -23,23 +30,55 @@ public class ParticlesController: MonoBehaviour{
         //paintColor = c;
     }
 
-    void OnParticleCollision(GameObject other) {
+    private void OnEnable()
+    {
+        element = GetComponentInParent<Element>();
+    }
+
+    void OnParticleCollision(GameObject other)
+    {
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
         Paintable p = other.GetComponent<Paintable>();
         BoxCollider bc = other.GetComponent<BoxCollider>();
-        if(p != null){
-            for  (int i = 0; i< numCollisionEvents; i++){
+        if (p != null && false)
+        {
+            for (int i = 0; i < numCollisionEvents; i++)
+            {
                 Vector3 pos = collisionEvents[i].intersection;
                 float radius = Random.Range(minRadius, maxRadius);
                 PaintManager.instance.paint(p, pos, radius, hardness, strength, paintColor);
             }
         }
-        
-        else if (bc != null)
+
+        else if (bc != null && false)
         {
             bc.isTrigger = true;
             other.GetComponent<MeshRenderer>().enabled = false;
         }
-        
+
+        ElementCollision(other);
+
+    }
+
+    private void ElementCollision(GameObject other)
+    {
+        if (element != null)
+        {
+
+            if (collisionEvents.Count > 0 && !hasCollidedOnce)
+            {
+                if ((collidedElement = other.GetComponentInParent<Element>()) != null)
+                {
+                    Debug.Log("OAUIS");
+                    if (collidedElement.GetPriority() > element.GetPriority()) collidedElement.GetElementData().Merge(element.GetElementData(), collisionEvents[0].intersection);
+                    else element.GetElementData().Merge(collidedElement.GetElementData(), collisionEvents[0].intersection);
+                    hasCollidedOnce = true;
+                }
+            }
+        }
+        else
+        {
+            hasCollidedOnce = false;
+        }
     }
 }
