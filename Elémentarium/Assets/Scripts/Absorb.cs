@@ -5,7 +5,6 @@ using UnityEngine;
 public class Absorb : MonoBehaviour
 {
     [SerializeField] private HandController masterHand;
-
     [SerializeField] private GameObject absorbShape;
     [SerializeField] private Transform absorbAnchorTransform;
     [SerializeField] private float rayDistanceMax, speedRotation, radiusRotation;
@@ -38,21 +37,24 @@ public class Absorb : MonoBehaviour
         if (absorbedObject == null)
         {
             isTouching = Physics.SphereCast(absorbAnchorTransform.position, 0.3f, absorbAnchorTransform.forward, out hit,
-                rayDistanceMax, _layerMask);
+                rayDistanceMax);
         }
-        
-        if (hit.transform != null)
+
+        if (hit.transform == null) return;
+        if (hit.transform == absorbedObject) return;
+        if (((1<<hit.transform.gameObject.layer) & _layerMask) == 0) return;
+        if (hit.transform.gameObject.layer.Equals(12)) 
         {
-            if (hit.transform != absorbedObject)
-            {
-                CancelAbsorb();
-                absorbedObject = hit.transform;
-                absorbedObject.SetParent(absorbAnchorTransform);
-                absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
-                currentCoroutine = StartCoroutine(CoroutineMoveAround());
-                return;
-            }
+            masterHand.element.SetElementData(hit.collider.GetComponent<Element>().GetElementData());
+            return;
         }
+
+        CancelAbsorb();
+        absorbedObject = hit.transform;
+        absorbedObject.SetParent(absorbAnchorTransform);
+        absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
+        currentCoroutine = StartCoroutine(CoroutineMoveAround());
+        
     }
 
     void CancelAbsorb()

@@ -6,12 +6,13 @@ using UnityEngine.InputSystem;
 
 public class HandController : MonoBehaviour
 {
-    [SerializeField] private Element element;
+    [SerializeField] private Element _element;
     [SerializeField] private InputActionProperty _triggerAction;
     [SerializeField] private InputActionProperty _gripAction;
     [SerializeField] private AnimatedHandOnInput anim;
+    [SerializeField] private Absorb _absorb;
     private bool _haveAnElement, _haveObjectInHand, _haveGlove;
-
+    
     private void Start()
     {
         haveGlove = false;
@@ -51,19 +52,23 @@ public class HandController : MonoBehaviour
         set
         {
             _haveGlove = value;
-            GetComponent<Absorb>().enabled = value;
+            _absorb.enabled = value;
             anim.handAnimator.SetBool("HaveGlove", _haveGlove);
         }
     }
 
-    public Element GetElementData() 
+    public Element element
     {
-        return element;
+        get => _element;
+        set
+        {
+            value = _element;
+        }
     }
 
     public void ResetElement() 
     {
-        element = null;
+        _element = null;
         Debug.Log("ResetElement in HandController called");
     }
 }

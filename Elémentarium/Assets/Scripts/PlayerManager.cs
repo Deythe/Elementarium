@@ -34,7 +34,5 @@ public class PlayerManager : MonoBehaviour
     {
         leftHandController.haveGlove = true;
         rightHandController.haveGlove = true;
-        Debug.Log(leftHandController.haveGlove);
-        Debug.Log(rightHandController.haveGlove);
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,7 +12,7 @@ public class AnimatedHandOnInput : MonoBehaviour
     {
         get => _handAnimator;
     }
-    
+
     // Update is called once per frame
     void Update()
     {

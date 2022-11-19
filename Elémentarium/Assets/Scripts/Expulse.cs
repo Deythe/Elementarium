@@ -11,40 +11,44 @@ using UnityEngine.XR;
 
 public class Expulse : MonoBehaviour
 {
-    [SerializeField] private HandController playerHand;
+    [SerializeField] private HandController motherHand;
     [SerializeField] private float sourceRange;
     [SerializeField] private LayerMask layerMask;
 
     private GameObject elementGO;
-    private Element element;
     private ParticleSystem elementPS;
     private Transform parentController;
     private RaycastHit hit;
     private bool hasShot;
-
-    //[SerializeField] private Element element;
+    
     
     private void Start()
     {
-        parentController = playerHand.transform;
-        element = GetComponent<Element>();
+        parentController = motherHand.transform;
+        //motherHand = GetComponent<Element>();
+    }
+    
+    public void Update()
+    {
+        CheckForSources();
+        FireElement();
     }
 
     private void FireElement()
     {
-        if (element == null) return;
+        if (motherHand.element == null) return;
         
-        if (playerHand.triggerAction.action.ReadValue<float>() > 0.5f && playerHand.gripAction.action.ReadValue<float>()<0.1f)
+        if (motherHand.triggerAction.action.ReadValue<float>() > 0.5f && motherHand.gripAction.action.ReadValue<float>()<0.1f)
         {
             if (!hasShot)
             {
-                element.PlayParticles(transform, transform);
+                motherHand.element.PlayParticles(transform, transform);
                 hasShot = true;
             }
         }
         else
         {
-            element.StopParticles();
+            motherHand.element.StopParticles();
             hasShot = false;
         }
     }
@@ -53,19 +57,12 @@ public class Expulse : MonoBehaviour
     {
         if (Physics.Raycast(transform.position + transform.forward /10, transform.forward,  out hit, sourceRange,  layerMask))
         {
-            if (playerHand.gripAction.action.ReadValue<float>() > 0.5f &&
-                playerHand.triggerAction.action.ReadValue<float>() < 0.1f)
+            if (motherHand.gripAction.action.ReadValue<float>() > 0.5f &&
+                motherHand.triggerAction.action.ReadValue<float>() < 0.1f)
             {
-                element.SetElementData(hit.collider.GetComponent<Element>().GetElementData());
+                motherHand.element.SetElementData(hit.collider.GetComponent<Element>().GetElementData());
             }
         }
     }
 
-
-    public void Update()
-    {
-        CheckForSources();
-        FireElement();
-    }
-    
 }
