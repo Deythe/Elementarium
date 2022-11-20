@@ -1,19 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using DG.Tweening;
-using UnityEngine.Serialization;
-using UnityEngine.XR;
+
 
 
 public class Expulse : MonoBehaviour
 {
     [SerializeField] private HandController motherHand;
-    [SerializeField] private float sourceRange;
-    [SerializeField] private LayerMask layerMask;
 
     private GameObject elementGO;
     private ParticleSystem elementPS;
@@ -30,7 +21,6 @@ public class Expulse : MonoBehaviour
     
     public void Update()
     {
-        CheckForSources();
         FireElement();
     }
 
@@ -38,6 +28,7 @@ public class Expulse : MonoBehaviour
     {
         if (motherHand.element == null) return;
         
+        if(motherHand.element.GetElementData() == null) return;
         if (motherHand.triggerAction.action.ReadValue<float>() > 0.5f && motherHand.gripAction.action.ReadValue<float>()<0.1f)
         {
             if (!hasShot)
@@ -52,17 +43,4 @@ public class Expulse : MonoBehaviour
             hasShot = false;
         }
     }
-
-    private void CheckForSources()
-    {
-        if (Physics.Raycast(transform.position + transform.forward /10, transform.forward,  out hit, sourceRange,  layerMask))
-        {
-            if (motherHand.gripAction.action.ReadValue<float>() > 0.5f &&
-                motherHand.triggerAction.action.ReadValue<float>() < 0.1f)
-            {
-                motherHand.element.SetElementData(hit.collider.GetComponent<Element>().GetElementData());
-            }
-        }
-    }
-
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,8 +19,6 @@ public class Element : MonoBehaviour
         }
         particlesCollisions = new List<ParticleCollisionEvent>(); 
     }
-    
-    
 
     public void PlayParticles()
     {
@@ -75,19 +72,7 @@ public class Element : MonoBehaviour
             collidedElement.GetElementData().Remove();*/
         }
     }
-
-    /*private void OnParticleCollision(GameObject other)
-    {
-        Debug.Log("PARTICLE COLLISION");
-        if ((collidedElement = other.GetComponentInParent<Element>()) != null && !hasCollidedOnce) 
-        {
-            if (particlesCollisions.Count > 0) 
-            {
-                if (collidedElement.GetPriority() > GetPriority()) collidedElement.GetElementData().Merge(elementData, particlesCollisions[0].intersection);
-                else elementData.Merge(collidedElement.GetElementData(), particlesCollisions[0].intersection);
-            }
-        }
-    }*/
+    
 
     public ElementData GetElementData() 
     {

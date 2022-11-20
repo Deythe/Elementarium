@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Glass : MonoBehaviour, IDestroyable
 {
@@ -8,13 +10,15 @@ public class Glass : MonoBehaviour, IDestroyable
     [SerializeField] private MeshRenderer originalMeshRenderer;
     [SerializeField] private Collider originalCollider;
     [SerializeField] private GameObject fracturedObject;
-    private Rigidbody rbFractured;
     [SerializeField] private float impactSpeedMin;
     [SerializeField] private float impactForceMultiplier;
+    [SerializeField] private float explosionForceRadius;
+    [SerializeField] private UnityEvent actionWhenBroke;
+    
+    private Rigidbody rbFractured;
     private Vector3 impactPosition;
     private float impactPositionOffsetMultiplier = -0.5f;
     private float impactRelativeSpeed;
-    [SerializeField] private float explosionForceRadius;
     //[SerializeField] private LayerMask destroyerLayerMask;
 
     public void DestroyObject()
@@ -39,6 +43,7 @@ public class Glass : MonoBehaviour, IDestroyable
         {
             Debug.Log("Collision Condition entered");
             impactPosition = collision.GetContact(0).point +  new Vector3(collision.GetContact(0).normal.x * impactPositionOffsetMultiplier, collision.GetContact(0).normal.y * impactPositionOffsetMultiplier, collision.GetContact(0).normal.z * impactPositionOffsetMultiplier);
+            actionWhenBroke.Invoke();
             DestroyObject();
         }
     }

@@ -11,6 +11,7 @@ public class HandController : MonoBehaviour
     [SerializeField] private InputActionProperty _gripAction;
     [SerializeField] private AnimatedHandOnInput anim;
     [SerializeField] private Absorb _absorb;
+    [SerializeField] private Expulse _expulse;
     private bool _haveAnElement, _haveObjectInHand, _haveGlove;
     
     private void Start()
@@ -53,6 +54,7 @@ public class HandController : MonoBehaviour
         {
             _haveGlove = value;
             _absorb.enabled = value;
+            _expulse.enabled = value;
             anim.handAnimator.SetBool("HaveGlove", _haveGlove);
         }
     }
