@@ -1,10 +1,11 @@
 using UnityEngine;
-
+using UnityEngine.XR.Interaction.Toolkit;
 
 
 public class Expulse : MonoBehaviour
 {
     [SerializeField] private HandController motherHand;
+    [SerializeField] private XRRayInteractor rayHand;
 
     private GameObject elementGO;
     private ParticleSystem elementPS;
@@ -21,7 +22,13 @@ public class Expulse : MonoBehaviour
     
     public void Update()
     {
+        if (CheckIfInMenu()) return;
         FireElement();
+    }
+
+    private bool CheckIfInMenu()
+    {
+        return rayHand.TryGetHitInfo(out Vector3 pos, out Vector3 normal, out int number, out bool valid);
     }
 
     private void FireElement()
