@@ -45,9 +45,34 @@ public class Element : MonoBehaviour
 
     public void StopParticles()
     {
-        if (particles != null) 
+        if (particles != null && !particles.IsAlive()) 
         {
             particles.Stop();
+        }
+
+        if (particlesGO != null)
+        {
+            Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
+            particlesGO = null;
+        }
+    }
+
+    public void DelayedStopParticles(float t) 
+    {
+        StartCoroutine(StopParticlesCoroutine(t));
+    }
+
+    IEnumerator StopParticlesCoroutine(float t) 
+    {
+        while (!particles.isStopped)
+        {
+
+            yield return new WaitForSeconds(t);
+
+            if (particles != null && !particles.IsAlive())
+            {
+                particles.Stop();
+            }
         }
 
         if (particlesGO != null)

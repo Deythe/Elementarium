@@ -27,6 +27,7 @@ public class Water : ElementData
         if ((newElement = newElementGO.GetComponent<Element>()) != null)
         {
             newElement.PlayParticles();
+            newElement.DelayedStopParticles(2);
         }
     }
 

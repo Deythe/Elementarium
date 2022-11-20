@@ -16,7 +16,7 @@ public class ParticlesController: MonoBehaviour{
     protected Element element;
     protected Element collidedElement;
     private Quaternion rotation;
-    private bool hasCollidedOnce = false;
+    private bool canElementCollide = true;
 
     [Space]
     ParticleSystem part;
@@ -34,6 +34,7 @@ public class ParticlesController: MonoBehaviour{
     private void OnEnable()
     {
         element = GetComponentInParent<Element>();
+        canElementCollide = true;
     }
 
     void OnParticleCollision(GameObject other)
@@ -65,20 +66,25 @@ public class ParticlesController: MonoBehaviour{
     {
         if (element != null)
         {
-            if (collisionEvents.Count > 0 && !hasCollidedOnce)
+            if (collisionEvents.Count > 0 && canElementCollide)
             {
                 if ((collidedElement = other.GetComponentInParent<Element>()) != null)
                 {
                     rotation = Quaternion.FromToRotation(Vector3.forward, transform.forward + collidedElement.transform.forward);
                     if (collidedElement.GetPriority() > element.GetPriority()) collidedElement.GetElementData().Merge(element.GetElementData(), collisionEvents[0].intersection, rotation);
                     else element.GetElementData().Merge(collidedElement.GetElementData(), collisionEvents[0].intersection, rotation);
-                    hasCollidedOnce = true;
+                    canElementCollide = false;
+                    StartCoroutine(CollideCoroutine(0.5f));
                 }
             }
         }
-        else
-        {
-            hasCollidedOnce = false;
-        }
+    }
+
+    IEnumerator CollideCoroutine(float t) 
+    {
+    
+        yield return new WaitForSeconds(t);
+
+        canElementCollide = true;
     }
 }
