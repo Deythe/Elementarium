@@ -15,6 +15,7 @@ public class ParticlesController: MonoBehaviour{
 
     protected Element element;
     protected Element collidedElement;
+    private Quaternion rotation;
     private bool hasCollidedOnce = false;
 
     [Space]
@@ -64,14 +65,13 @@ public class ParticlesController: MonoBehaviour{
     {
         if (element != null)
         {
-
             if (collisionEvents.Count > 0 && !hasCollidedOnce)
             {
                 if ((collidedElement = other.GetComponentInParent<Element>()) != null)
                 {
-                    Debug.Log("OAUIS");
-                    if (collidedElement.GetPriority() > element.GetPriority()) collidedElement.GetElementData().Merge(element.GetElementData(), collisionEvents[0].intersection);
-                    else element.GetElementData().Merge(collidedElement.GetElementData(), collisionEvents[0].intersection);
+                    rotation = Quaternion.FromToRotation(Vector3.forward, transform.forward + collidedElement.transform.forward);
+                    if (collidedElement.GetPriority() > element.GetPriority()) collidedElement.GetElementData().Merge(element.GetElementData(), collisionEvents[0].intersection, rotation);
+                    else element.GetElementData().Merge(collidedElement.GetElementData(), collisionEvents[0].intersection, rotation);
                     hasCollidedOnce = true;
                 }
             }

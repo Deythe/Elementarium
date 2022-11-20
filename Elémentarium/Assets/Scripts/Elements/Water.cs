@@ -11,19 +11,19 @@ public class Water : ElementData
     private GameObject newElementGO;
     private Element newElement;
 
-    public override void Merge(ElementData elementData, Vector3 collisionPoint)
+    public override void Merge(ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation)
     {
         switch (elementData.GetID()) 
         {
             case ID.FIRE:
-                MergeFire(collisionPoint);
+                MergeFire(collisionPoint, collisionRotation);
                 break;
         }
     }
 
-    private void MergeFire(Vector3 collisionPoint)
+    private void MergeFire(Vector3 collisionPoint, Quaternion collisionRotation)
     {
-        newElementGO = Pooler.instance.Pop("Steam", collisionPoint);
+        newElementGO = Pooler.instance.Pop("Steam", collisionPoint, collisionRotation);
         if ((newElement = newElementGO.GetComponent<Element>()) != null)
         {
             newElement.PlayParticles();
