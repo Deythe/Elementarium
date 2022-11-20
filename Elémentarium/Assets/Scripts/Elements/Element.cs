@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class Element : MonoBehaviour
     protected Element collidedElement;
     protected List<ParticleCollisionEvent> particlesCollisions;
 
+    protected Quaternion rotation;
+
     private void Start()
     {
         if (elementData != null)
@@ -19,10 +22,12 @@ public class Element : MonoBehaviour
         }
         particlesCollisions = new List<ParticleCollisionEvent>(); 
     }
+    
+    
 
     public void PlayParticles()
     {
-        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), transform.position);
+        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), transform.position, transform);
         if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
         {
             particles.Play();
@@ -40,9 +45,34 @@ public class Element : MonoBehaviour
 
     public void StopParticles()
     {
-        if (particles != null) 
+        if (particles != null && !particles.IsAlive()) 
         {
             particles.Stop();
+        }
+
+        if (particlesGO != null)
+        {
+            Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
+            particlesGO = null;
+        }
+    }
+
+    public void DelayedStopParticles(float t) 
+    {
+        StartCoroutine(StopParticlesCoroutine(t));
+    }
+
+    IEnumerator StopParticlesCoroutine(float t) 
+    {
+        while (!particles.isStopped)
+        {
+
+            yield return new WaitForSeconds(t);
+
+            if (particles != null && !particles.IsAlive())
+            {
+                particles.Stop();
+            }
         }
 
         if (particlesGO != null)
@@ -55,24 +85,38 @@ public class Element : MonoBehaviour
     // @@@@@@@@@@@@@@@@@@@@@
     // POUR DEBUG
 
-    private bool hasCollidedOnce = false;
+    //private bool hasCollidedOnce = false;
 
     //@@@@@@@@@@@@@@@@@@@@@@
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if ((collidedElement = collision.transform.GetComponent<Element>()) != null && !hasCollidedOnce)
         {
-            if (collidedElement.GetPriority() > GetPriority()) collidedElement.GetElementData().Merge(elementData, collision.contacts[0].point);
-            else elementData.Merge(collidedElement.GetElementData(), collision.contacts[0].point);
+            rotation = Quaternion.FromToRotation(Vector3.forward, transform.forward + collidedElement.transform.forward);
+
+            if (collidedElement.GetPriority() > GetPriority()) collidedElement.GetElementData().Merge(elementData, collision.contacts[0].point, rotation);
+            else elementData.Merge(collidedElement.GetElementData(), collision.contacts[0].point, rotation);
 
             hasCollidedOnce = true;
 
-            /*elementData.Remove();
-            collidedElement.GetElementData().Remove();*/
+            elementData.Remove();
+            collidedElement.GetElementData().Remove();
         }
-    }
-    
+    }*/
+
+    /*private void OnParticleCollision(GameObject other)
+    {
+        Debug.Log("PARTICLE COLLISION");
+        if ((collidedElement = other.GetComponentInParent<Element>()) != null && !hasCollidedOnce) 
+        {
+            if (particlesCollisions.Count > 0) 
+            {
+                if (collidedElement.GetPriority() > GetPriority()) collidedElement.GetElementData().Merge(elementData, particlesCollisions[0].intersection);
+                else elementData.Merge(collidedElement.GetElementData(), particlesCollisions[0].intersection);
+            }
+        }
+    }*/
 
     public ElementData GetElementData() 
     {
