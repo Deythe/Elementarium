@@ -32,10 +32,28 @@ public class Element : MonoBehaviour
         }
     }
 
+    public void PlayParticles(Transform t, Quaternion quaternion)
+    {
+        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, quaternion);
+        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
+        {
+            particles.Play();
+        }
+    }
+
     public void PlayParticles(Transform t, Transform parent)
     {
         particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, parent);
         if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null) 
+        {
+            particles.Play();
+        }
+    }
+
+    public void PlayParticles(Transform t, Quaternion quaternion, Transform parent)
+    {
+        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, quaternion,  parent);
+        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
         {
             particles.Play();
         }
