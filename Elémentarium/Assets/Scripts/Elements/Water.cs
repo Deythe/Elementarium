@@ -13,7 +13,6 @@ public class Water : ElementData
 
     public override void Merge(ElementData elementData, Vector3 collisionPoint)
     {
-        Debug.Log("JE MERGE");
         switch (elementData.GetID()) 
         {
             case ID.FIRE:
@@ -24,7 +23,6 @@ public class Water : ElementData
 
     private void MergeFire(Vector3 collisionPoint)
     {
-        Debug.Log("JE FAIS DE LA VAPEUR");
         newElementGO = Pooler.instance.Pop("Steam", collisionPoint);
         if ((newElement = newElementGO.GetComponent<Element>()) != null)
         {

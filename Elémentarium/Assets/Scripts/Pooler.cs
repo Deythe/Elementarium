@@ -85,11 +85,11 @@ public class Pooler : MonoBehaviour
         return objectInstance;
     }
 
-    public GameObject Pop(string key, Vector3 position) 
+    public GameObject Pop(string key, Vector3 position)
     {
         if (pools[key].queueDisable.Count == 0)
         {
-            Debug.LogWarning("pool of "+key +" is empty");
+            Debug.LogWarning("pool of " + key + " is empty");
             AddInstance(pools[key]);
         }
         objectInstance = pools[key].queueDisable.Dequeue();
@@ -110,6 +110,7 @@ public class Pooler : MonoBehaviour
         objectInstance = pools[key].queueDisable.Dequeue();
         pools[key].queueEnable.Enqueue(objectInstance);
         objectInstance.transform.parent = parent;
+        objectInstance.transform.Rotate(parent.eulerAngles);
         objectInstance.SetActive(true);
 
         return objectInstance;
@@ -126,6 +127,7 @@ public class Pooler : MonoBehaviour
         pools[key].queueEnable.Enqueue(objectInstance);
         objectInstance.transform.position = position;
         objectInstance.transform.parent = parent;
+        objectInstance.transform.Rotate(parent.eulerAngles);
         objectInstance.SetActive(true);
 
         return objectInstance;
@@ -136,6 +138,7 @@ public class Pooler : MonoBehaviour
         pools[key].queueDisable.Enqueue(go);
         pools[key].queueEnable.Dequeue();
         go.transform.parent = transform;
+        go.transform.rotation = Quaternion.identity;
         go.SetActive(false);
     }
 
