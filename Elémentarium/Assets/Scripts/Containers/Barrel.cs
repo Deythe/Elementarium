@@ -99,7 +99,8 @@ public class Barrel : MonoBehaviour, IContainer
     private void OnParticleCollision(GameObject other)
     {
         Debug.Log("Collision");
-        if ((collidedElement = other.GetComponentInParent<Element>()) != null) 
+        if(other.GetComponentInParent<HandPresencePhysics>()==null) return;
+        if ((collidedElement = other.GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>()) != null) 
         {
             ModifyCapacity(collidedElement, fillSpeed);
         }
