@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class Burn : MonoBehaviour
 {
-
     private void OnParticleCollision(GameObject other)
     {
+        Debug.Log(other.name);
         Destroy(other);
     }
 }

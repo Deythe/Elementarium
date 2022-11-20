@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class HandController : MonoBehaviour
 {
@@ -12,11 +10,12 @@ public class HandController : MonoBehaviour
     [SerializeField] private AnimatedHandOnInput anim;
     [SerializeField] private Absorb _absorb;
     [SerializeField] private Expulse _expulse;
+    [SerializeField] private XRRayInteractor _rayHand;
     private bool _haveAnElement, _haveObjectInHand, _haveGlove;
     
     private void Start()
     {
-        haveGlove = true;
+        haveGlove = false;
     }
 
     public InputActionProperty triggerAction
@@ -25,6 +24,15 @@ public class HandController : MonoBehaviour
         set
         {
             _triggerAction= value;
+        }
+    }
+
+    public XRRayInteractor rayHand
+    {
+        get => _rayHand;
+        set
+        {
+            _rayHand = value;
         }
     }
     
