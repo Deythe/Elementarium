@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Barrel : MonoBehaviour, IContainer
@@ -22,6 +23,11 @@ public class Barrel : MonoBehaviour, IContainer
     [SerializeField] private Transform particleStart;
 
     private Element collidedElement;
+
+    [SerializeField] private Transform camera;
+
+    [SerializeField] private RectTransform canvas;
+    [SerializeField] private TMP_Text text;
 
     private void Start()
     {
@@ -102,5 +108,9 @@ public class Barrel : MonoBehaviour, IContainer
     private void Update()
     {
         CheckRotation();
+
+        canvas.LookAt(new Vector3(camera.position.x, canvas.transform.position.y, camera.position.z));
+        canvas.transform.forward *= -1;
+        text.text = $"{currentCapacity}/{maxCapacity}";
     }
 }
