@@ -16,7 +16,7 @@ public abstract class ElementData : ScriptableObject
     [SerializeField] protected GameObject particlesPrefab;
     [SerializeField] protected string particlesKey;
 
-    public abstract void Merge(ElementData elementData, Vector3 collisionPoint);
+    public abstract void Merge(ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation);
     public abstract void Remove();
 
     [ContextMenu("Initialize Element")]

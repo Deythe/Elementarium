@@ -1,11 +1,18 @@
+using Mono.Cecil;
 using UnityEngine;
 
 public class HandPresencePhysics : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform _target;
     [SerializeField] private Rigidbody rb;
     private Quaternion rotationDiference;
     private Vector3 rotationDiferenceInDegree;
+
+    public Transform target
+    {
+        get => _target;
+    }
+    
     private void Start()
     {
         rb.maxAngularVelocity = 10000;
@@ -13,9 +20,9 @@ public class HandPresencePhysics : MonoBehaviour
     
     private void FixedUpdate()
     {
-        rb.velocity = (target.position - transform.position) / Time.deltaTime;
+        rb.velocity = (_target.position - transform.position) / Time.deltaTime;
 
-        rotationDiference = target.rotation * Quaternion.Inverse(transform.rotation);
+        rotationDiference = _target.rotation * Quaternion.Inverse(transform.rotation);
         rotationDiference.ToAngleAxis(out float angleInDegree, out Vector3 rotationAxis);
         rotationDiferenceInDegree = angleInDegree * rotationAxis;
 
