@@ -12,10 +12,11 @@ public class HandController : MonoBehaviour
     [SerializeField] private Expulse _expulse;
     [SerializeField] private XRRayInteractor _rayHand;
     private bool _haveAnElement, _haveObjectInHand, _haveGlove;
+    public bool debugHaveGlove;
     
     private void Start()
     {
-        haveGlove = false;
+        haveGlove = false || debugHaveGlove;
     }
 
     public InputActionProperty triggerAction
@@ -79,6 +80,5 @@ public class HandController : MonoBehaviour
     public void ResetElement() 
     {
         _element = null;
-        Debug.Log("ResetElement in HandController called");
     }
 }

@@ -40,7 +40,6 @@ public class Absorb : MonoBehaviour
                 rayDistanceMax);
         }
         
-        Debug.Log(hit.transform);
         if (hit.transform == null) return;
         if (hit.transform == absorbedObject) return;
         if (((1<<hit.transform.gameObject.layer) & _layerMask) == 0) return;
@@ -77,7 +76,6 @@ public class Absorb : MonoBehaviour
 
     public void Release()
     {
-        Debug.Log("Release");
         masterHand.haveObjectInHand = false;
     }
 
