@@ -33,8 +33,9 @@ public class ParticlesController: MonoBehaviour{
 
     private void OnEnable()
     {
-        element = GetComponentInParent<Element>();
         canElementCollide = true;
+        if(GetComponentInParent<HandPresencePhysics>()==null) return;
+        element = GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>();
     }
 
     void OnParticleCollision(GameObject other)
@@ -68,11 +69,18 @@ public class ParticlesController: MonoBehaviour{
         {
             if (collisionEvents.Count > 0 && canElementCollide)
             {
-                if ((collidedElement = other.GetComponentInParent<Element>()) != null)
+                if(other.GetComponentInParent<HandPresencePhysics>()==null) return;
+                if ((collidedElement = other.GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>()) != null)
                 {
+                    
                     rotation = Quaternion.FromToRotation(Vector3.forward, transform.forward + collidedElement.transform.forward);
-                    if (collidedElement.GetPriority() > element.GetPriority()) collidedElement.GetElementData().Merge(element.GetElementData(), collisionEvents[0].intersection, rotation);
-                    else element.GetElementData().Merge(collidedElement.GetElementData(), collisionEvents[0].intersection, rotation);
+                    if (collidedElement.GetPriority() > element.GetPriority())
+                    {
+                        collidedElement.GetElementData().Merge(element.GetElementData(), collisionEvents[0].intersection, rotation);
+                    }else
+                    {
+                        element.GetElementData().Merge(collidedElement.GetElementData(), collisionEvents[0].intersection, rotation);
+                    }
                     canElementCollide = false;
                     StartCoroutine(CollideCoroutine(0.5f));
                 }

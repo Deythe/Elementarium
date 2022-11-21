@@ -5,20 +5,13 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Expulse : MonoBehaviour
 {
     [SerializeField] private HandController motherHand;
-    [SerializeField] private XRRayInteractor rayHand;
-
+    [SerializeField] private Transform anchorTransform;
+    
     private GameObject elementGO;
     private ParticleSystem elementPS;
-    private Transform parentController;
     private RaycastHit hit;
     private bool hasShot;
     
-    
-    private void Start()
-    {
-        parentController = motherHand.transform;
-        //motherHand = GetComponent<Element>();
-    }
     
     public void Update()
     {
@@ -28,7 +21,7 @@ public class Expulse : MonoBehaviour
 
     private bool CheckIfInMenu()
     {
-        return rayHand.TryGetHitInfo(out Vector3 pos, out Vector3 normal, out int number, out bool valid);
+        return motherHand.rayHand.TryGetHitInfo(out Vector3 pos, out Vector3 normal, out int number, out bool valid);
     }
 
     private void FireElement()
@@ -40,7 +33,7 @@ public class Expulse : MonoBehaviour
         {
             if (!hasShot)
             {
-                motherHand.element.PlayParticles(transform, transform);
+                motherHand.element.PlayParticles(anchorTransform, anchorTransform);
                 hasShot = true;
             }
         }

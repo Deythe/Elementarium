@@ -22,8 +22,6 @@ public class Element : MonoBehaviour
         }
         particlesCollisions = new List<ParticleCollisionEvent>(); 
     }
-    
-    
 
     public void PlayParticles()
     {
@@ -34,10 +32,28 @@ public class Element : MonoBehaviour
         }
     }
 
+    public void PlayParticles(Transform t, Quaternion quaternion)
+    {
+        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, quaternion);
+        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
+        {
+            particles.Play();
+        }
+    }
+
     public void PlayParticles(Transform t, Transform parent)
     {
         particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, parent);
         if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null) 
+        {
+            particles.Play();
+        }
+    }
+
+    public void PlayParticles(Transform t, Quaternion quaternion, Transform parent)
+    {
+        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, quaternion,  parent);
+        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
         {
             particles.Play();
         }
@@ -102,19 +118,6 @@ public class Element : MonoBehaviour
 
             elementData.Remove();
             collidedElement.GetElementData().Remove();
-        }
-    }*/
-
-    /*private void OnParticleCollision(GameObject other)
-    {
-        Debug.Log("PARTICLE COLLISION");
-        if ((collidedElement = other.GetComponentInParent<Element>()) != null && !hasCollidedOnce) 
-        {
-            if (particlesCollisions.Count > 0) 
-            {
-                if (collidedElement.GetPriority() > GetPriority()) collidedElement.GetElementData().Merge(elementData, particlesCollisions[0].intersection);
-                else elementData.Merge(collidedElement.GetElementData(), particlesCollisions[0].intersection);
-            }
         }
     }*/
 

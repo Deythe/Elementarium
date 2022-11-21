@@ -36,7 +36,7 @@ public class Absorb : MonoBehaviour
     {
         if (absorbedObject == null)
         {
-            isTouching = Physics.SphereCast(absorbAnchorTransform.position, 0.25f, absorbAnchorTransform.forward, out hit,
+            isTouching = Physics.SphereCast(absorbAnchorTransform.position, 0.3f, absorbAnchorTransform.forward, out hit,
                 rayDistanceMax);
         }
         
