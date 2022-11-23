@@ -13,6 +13,9 @@ public class GameMenuManager : MonoBehaviour
     private InputActionProperty showButton;
 
     [SerializeField] 
+    private InputActionProperty debugShowButton;
+
+    [SerializeField] 
     private Transform head;
 
     [SerializeField][Range(1,10)]
@@ -20,7 +23,7 @@ public class GameMenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (showButton.action.WasPressedThisFrame())
+        if (showButton.action.WasPressedThisFrame() || debugShowButton.action.WasPressedThisFrame())
         {
             menu.SetActive(!menu.activeSelf);
 
