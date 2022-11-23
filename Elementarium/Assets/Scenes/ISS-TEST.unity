@@ -20676,6 +20676,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2791466403368733729, guid: 31ede31bb35e28d43a1749b22cd38bd8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.168
+      objectReference: {fileID: 0}
+    - target: {fileID: 2791466403368733757, guid: 31ede31bb35e28d43a1749b22cd38bd8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2791466403368733757, guid: 31ede31bb35e28d43a1749b22cd38bd8,
+        type: 3}
+      propertyPath: m_CookingOptions
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31ede31bb35e28d43a1749b22cd38bd8, type: 3}
 --- !u!1 &745891191
@@ -44180,6 +44195,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2791466403368733729, guid: f91e78a3bab12d14fb307319e63478d4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.168
+      objectReference: {fileID: 0}
     - target: {fileID: 2791466403368733730, guid: f91e78a3bab12d14fb307319e63478d4,
         type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -52284,6 +52304,11 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6659447780043994947, guid: 999f5964e6dbcbb43bdf18f6e609eb17,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6659447780043994948, guid: 999f5964e6dbcbb43bdf18f6e609eb17,
         type: 3}
       propertyPath: m_RootOrder
@@ -53037,6 +53062,30 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   maxWeight: 10
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.168
+      inSlope: -0.12799999
+      outSlope: -0.12799999
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.04
+      inSlope: -0.12799999
+      outSlope: -0.12799999
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   collider: {fileID: 0}
 --- !u!1 &2016469712
 GameObject:
@@ -54444,6 +54493,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088650683}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2093844972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2791466402147576096, guid: 31ede31bb35e28d43a1749b22cd38bd8,
+    type: 3}
+  m_PrefabInstance: {fileID: 739669288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2093844977
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093844972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2094082932
 GameObject:
   m_ObjectHideFlags: 0
