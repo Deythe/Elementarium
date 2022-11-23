@@ -66,7 +66,6 @@ public class Buttons : MonoBehaviour
     {
         _isPressed = true;
         onPressed.Invoke();
-        Debug.Log("Pressed");
     }
     
     void Release()
