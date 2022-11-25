@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5761795734060739992}
   - component: {fileID: 9027588952810100233}
   - component: {fileID: 7756806144694632724}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: IceSnowPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4823,7 +4823,8 @@ GameObject:
   - component: {fileID: 7585507071794366347}
   - component: {fileID: 1451810519195979122}
   - component: {fileID: 3588774825149349693}
-  m_Layer: 0
+  - component: {fileID: 7268452772159651870}
+  m_Layer: 7
   m_Name: IceDustPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8433,9 +8434,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -8606,11 +8607,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 65536
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -9633,6 +9634,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &7268452772159651870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5454188381392780767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7549140d2426f364185b14f53487ae44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementData: {fileID: 11400000, guid: 505dd95b919e4864989cdf5e78127c0f, type: 2}
 --- !u!1 &8822587945446644179
 GameObject:
   m_ObjectHideFlags: 0
@@ -9644,7 +9658,7 @@ GameObject:
   - component: {fileID: 682859564309903768}
   - component: {fileID: 177978323728127605}
   - component: {fileID: 6941654279730331792}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IcePS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
