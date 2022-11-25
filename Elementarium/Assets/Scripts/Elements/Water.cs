@@ -18,6 +18,9 @@ public class Water : ElementData
             case ID.FIRE:
                 MergeFire(collisionPoint, collisionRotation);
                 break;
+            case ID.AIR:
+                MergeAir(collisionPoint, collisionRotation);
+                break;
         }
     }
 
@@ -25,6 +28,16 @@ public class Water : ElementData
     {
         newElementGO = Pooler.instance.Pop("Steam", collisionPoint, collisionRotation);
         if ((newElement = newElementGO.GetComponent<Element>()) != null)
+        {
+            newElement.PlayParticles();
+            newElement.DelayedStopParticles(2);
+        }
+    }
+
+    private void MergeAir(Vector3 collisionPoint, Quaternion collisionRotation) 
+    {
+        newElementGO = Pooler.instance.Pop("Ice", collisionPoint, collisionRotation);
+        if ((newElement = newElementGO.GetComponent<Element>()) != null) 
         {
             newElement.PlayParticles();
             newElement.DelayedStopParticles(2);
