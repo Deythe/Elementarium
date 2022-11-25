@@ -7,6 +7,7 @@ public class SteamMachine : Interactible
 {
     private Rigidbody rb;
     [SerializeField] private float upForce;
+    private bool frozen;
 
     private void Start()
     {
@@ -15,6 +16,22 @@ public class SteamMachine : Interactible
 
     protected override void Collide(Element e)
     {
-        rb.AddForce(Vector3.up * upForce);
+        if (e.GetID() == ElementData.ID.STEAM)
+        {
+            rb.AddForce(Vector3.up * upForce);
+        } else
+        {
+            if (frozen) return;
+            StartCoroutine(Freeze());
+        }
+    }
+
+    private IEnumerator Freeze()
+    {
+        Debug.Log("I'm frozen");
+        frozen = true;
+        yield return new WaitForSeconds(2);
+        frozen = false;
+        Debug.Log("I'm not frozen anymore");
     }
 }

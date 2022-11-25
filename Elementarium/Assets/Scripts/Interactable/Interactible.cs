@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Interactible: MonoBehaviour
 {
     private Element _collidedParticle;
-    [SerializeField] private ElementData.ID neededID;
+    [SerializeField] private List<ElementData.ID> neededIDs;
     
     private void OnParticleCollision(GameObject other)
     {
@@ -25,7 +25,7 @@ public abstract class Interactible: MonoBehaviour
     {
         if (_collidedParticle != null)
         {
-            return (_collidedParticle.GetID() == neededID) ;
+            return (neededIDs.Contains(_collidedParticle.GetID())) ;
         }
 
         return false;
