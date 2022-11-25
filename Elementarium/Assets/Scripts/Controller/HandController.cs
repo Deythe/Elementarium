@@ -12,11 +12,10 @@ public class HandController : MonoBehaviour
     [SerializeField] private Expulse _expulse;
     [SerializeField] private XRRayInteractor _rayHand;
     private bool _haveAnElement, _haveObjectInHand, _haveGlove;
-    public bool debugHaveGlove;
-    
+
     private void Start()
     {
-        haveGlove = false || debugHaveGlove;
+        haveGlove = false;
     }
 
     public InputActionProperty triggerAction
