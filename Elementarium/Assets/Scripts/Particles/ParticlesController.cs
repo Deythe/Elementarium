@@ -43,7 +43,7 @@ public class ParticlesController: MonoBehaviour{
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
         Paintable p = other.GetComponent<Paintable>();
         BoxCollider bc = other.GetComponent<BoxCollider>();
-        if (p != null && false)
+        if (p != null)
         {
             for (int i = 0; i < numCollisionEvents; i++)
             {
@@ -65,7 +65,7 @@ public class ParticlesController: MonoBehaviour{
 
     private void ElementCollision(GameObject other)
     {
-        if (element != null)
+        if (element != null && false)
         {
             if (collisionEvents.Count > 0 && canElementCollide)
             {
