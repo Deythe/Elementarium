@@ -10,7 +10,7 @@ public class Absorb : MonoBehaviour
     [SerializeField] private float rayDistanceMax, speedRotation, radiusRotation;
     [SerializeField] private LayerMask _layerMask;
     private Coroutine currentCoroutine;
-    private bool isTouching;
+    private bool isTouching, isAbsorbing;
     private Transform absorbedObject;
     private float angle, distance, maxDistance;
     private RaycastHit hit;
@@ -19,8 +19,8 @@ public class Absorb : MonoBehaviour
     {
         if (masterHand.haveObjectInHand) return;
         
-        if (masterHand.gripAction.action.ReadValue<float>() > 0.5f &&
-            masterHand.triggerAction.action.ReadValue<float>() < 0.05f)
+        if (masterHand.gripAction.action.ReadValue<float>() > 0.95f &&
+            masterHand.triggerAction.action.ReadValue<float>() > 0.95f)
         {
             absorbShape.SetActive(true);
             CheckAbsorbedObject();
