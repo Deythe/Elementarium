@@ -14502,7 +14502,7 @@ GameObject:
   - component: {fileID: 4845561253834940}
   - component: {fileID: 198778633208645958}
   - component: {fileID: 199242344788938392}
-  - component: {fileID: 4712670755553254300}
+  - component: {fileID: 3367794120944874508}
   m_Layer: 7
   m_Name: PS_Sparks
   m_TagString: Untagged
@@ -18283,7 +18283,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 8192
+      m_Bits: 65536
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -19316,7 +19316,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &4712670755553254300
+--- !u!114 &3367794120944874508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19325,9 +19325,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1878652760548056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f71536abca6a14a4f8dfba1265b774dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7549140d2426f364185b14f53487ae44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elementData: {fileID: 11400000, guid: 6fe1b171d11fdf74b97534d50a3d7969, type: 2}
 --- !u!1 &1911683160194432
 GameObject:
   m_ObjectHideFlags: 0

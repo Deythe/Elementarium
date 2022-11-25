@@ -4910,6 +4910,7 @@ GameObject:
   - component: {fileID: 5484362316147430246}
   - component: {fileID: 5484362316147430248}
   - component: {fileID: 5484362316147430249}
+  - component: {fileID: 2270551173066671677}
   m_Layer: 4
   m_Name: WaterPS
   m_TagString: Untagged
@@ -8799,7 +8800,7 @@ ParticleSystem:
     radiusScale: 0.15
     collidesWith:
       serializedVersion: 2
-      m_Bits: 34359
+      m_Bits: 71479
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -9827,6 +9828,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2270551173066671677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5484362316147430247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7549140d2426f364185b14f53487ae44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementData: {fileID: 11400000, guid: a1d589fed03ede047b5bfa9cff3e3a14, type: 2}
 --- !u!1 &5484362316165165061
 GameObject:
   m_ObjectHideFlags: 0
@@ -13559,7 +13573,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -13664,10 +13678,10 @@ ParticleSystem:
         m_RotationOrder: 4
     minKillSpeed: 0
     maxKillSpeed: 10000
-    radiusScale: 0.15
+    radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 8127
+      m_Bits: 71575
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -18608,11 +18622,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 55
+      m_Bits: 71575
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -23479,7 +23493,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 71575
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
