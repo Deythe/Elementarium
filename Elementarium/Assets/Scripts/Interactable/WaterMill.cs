@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterMill : MonoBehaviour
+public class WaterMill : Interactible
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private Vector3 angularAcceleration;
+     
+    protected override void Collide(Element e)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        rb.angularVelocity += angularAcceleration;
     }
 }
