@@ -14481,6 +14481,7 @@ GameObject:
   - component: {fileID: 3839227041449324252}
   - component: {fileID: 4715247997865429647}
   - component: {fileID: 5400016414243065873}
+  - component: {fileID: 7296832168511112783}
   m_Layer: 10
   m_Name: AirPS
   m_TagString: Untagged
@@ -19285,3 +19286,17 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!136 &7296832168511112783
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4193000839210913559}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 5
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 2.5}
