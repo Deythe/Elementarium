@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2549983832483646033}
   - component: {fileID: 2549983832483646034}
-  - component: {fileID: 2549983832483646035}
+  - component: {fileID: 6835809939811007783}
   m_Layer: 16
   m_Name: WindMill
   m_TagString: Untagged
@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9ff77138c1f7e48855062ff85920c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pales: {fileID: 2549983832906662165}
   neededID: 2
---- !u!136 &2549983832483646035
-CapsuleCollider:
+  pales: {fileID: 2549983832906662165}
+--- !u!65 &6835809939811007783
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -59,10 +59,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 2.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.3, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 0.2}
+  m_Center: {x: 0, y: 0.5, z: -0.25}
 --- !u!1 &2549983832906662165
 GameObject:
   m_ObjectHideFlags: 0
