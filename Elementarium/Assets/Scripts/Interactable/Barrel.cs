@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Barrel : MonoBehaviour, IContainer
+public class Barrel :Interactible, IContainer
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float baseMass;
@@ -24,14 +24,15 @@ public class Barrel : MonoBehaviour, IContainer
 
     private Element collidedElement;
 
-    [SerializeField] private Transform camera;
+    private Transform camera;
 
     [SerializeField] private RectTransform canvas;
     [SerializeField] private TMP_Text text;
-
+    
     private void Start()
     {
         currentMass = baseMass + currentElement.GetMass() * currentCapacity;
+        if (Camera.main != null) camera = Camera.main.transform;
         rb.mass = currentMass;
     }
 
@@ -95,11 +96,11 @@ public class Barrel : MonoBehaviour, IContainer
         }
     }
 
-    private void OnParticleCollision(GameObject other)
+    protected override void Collide(Element e)
     {
         Debug.Log("Collision");
-        if(other.GetComponentInParent<HandPresencePhysics>()==null) return;
-        if ((collidedElement = other.GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>()) != null) 
+        if(e.GetComponentInParent<HandPresencePhysics>()==null) return;
+        if ((collidedElement = e.GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>()) != null) 
         {
             ModifyCapacity(collidedElement, fillSpeed);
         }

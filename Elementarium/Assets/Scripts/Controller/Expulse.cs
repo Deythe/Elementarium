@@ -11,13 +11,20 @@ public class Expulse : MonoBehaviour
     private ParticleSystem elementPS;
     private RaycastHit hit;
     private bool hasShot;
-    
-    
+
+
     public void Update()
     {
-        if (CheckIfInMenu()) return;
+        if (CheckIfInMenu())
+        {
+            motherHand.element.StopParticles();
+            hasShot = false;
+            return;
+        }
+        
         if(motherHand.haveObjectInHand) return;
         FireElement();
+
     }
 
     private bool CheckIfInMenu()

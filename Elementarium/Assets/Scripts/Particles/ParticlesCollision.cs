@@ -1,14 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Burn : MonoBehaviour
+public class ParticlesCollision : MonoBehaviour
 {
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log(other.name);
-        Destroy(other);
+        
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SteamMachine : MonoBehaviour, ISteamReceiver
+public class SteamMachine : Interactible
 {
     private Rigidbody rb;
     [SerializeField] private float upForce;
@@ -13,12 +13,7 @@ public class SteamMachine : MonoBehaviour, ISteamReceiver
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnParticleCollision(GameObject other)
-    {
-        Power();
-    }
-
-    public void Power()
+    protected override void Collide(Element e)
     {
         rb.AddForce(Vector3.up * upForce);
     }

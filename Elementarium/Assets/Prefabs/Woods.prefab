@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9153436708659758956}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Woods
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,8 @@ GameObject:
   - component: {fileID: 9153436708931231052}
   - component: {fileID: 9153436708931231053}
   - component: {fileID: 9153436708931231054}
-  m_Layer: 13
+  - component: {fileID: 4503845587713171803}
+  m_Layer: 16
   m_Name: Wood Stack (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +64,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9153436708931231048}
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 9.058, y: 2.197, z: 12.252}
+  m_LocalPosition: {x: 0, y: 1.97, z: -0.18}
   m_LocalScale: {x: 0.6, y: 1.5, z: 0.46736407}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -134,6 +135,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &4503845587713171803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153436708931231048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e63505ab2a09b42bb4b698cb07bbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neededID: 1
 --- !u!1 &9153436709146828176
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +160,8 @@ GameObject:
   - component: {fileID: 9153436709146828180}
   - component: {fileID: 9153436709146828181}
   - component: {fileID: 9153436709146828182}
-  m_Layer: 13
+  - component: {fileID: 3639681896000211601}
+  m_Layer: 16
   m_Name: Wood Stack (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +176,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9153436709146828176}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 9.058, y: 0.709, z: 11.975}
+  m_LocalPosition: {x: 0, y: 0.709, z: 0}
   m_LocalScale: {x: 0.6, y: 1.5000001, z: 0.46736404}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -232,6 +247,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &3639681896000211601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153436709146828176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e63505ab2a09b42bb4b698cb07bbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neededID: 1
 --- !u!1 &9153436709680038397
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +272,8 @@ GameObject:
   - component: {fileID: 9153436709680038337}
   - component: {fileID: 9153436709680038338}
   - component: {fileID: 9153436709680038339}
-  m_Layer: 13
+  - component: {fileID: 6487196795003742478}
+  m_Layer: 16
   m_Name: Wood Stack (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9153436709680038397}
   m_LocalRotation: {x: -0.4304593, y: -0.56098557, z: -0.4304593, w: 0.56098557}
-  m_LocalPosition: {x: 8.547, y: 0.932, z: 10.825}
+  m_LocalPosition: {x: 0.34, y: 0.53, z: -1.868}
   m_LocalScale: {x: 0.6, y: 0.7, z: 0.46736407}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -330,6 +359,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &6487196795003742478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153436709680038397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e63505ab2a09b42bb4b698cb07bbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neededID: 1
 --- !u!1 &9153436709881816354
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +384,8 @@ GameObject:
   - component: {fileID: 9153436709881816358}
   - component: {fileID: 9153436709881816359}
   - component: {fileID: 9153436709881816352}
-  m_Layer: 13
+  - component: {fileID: 3658718629657697871}
+  m_Layer: 16
   m_Name: Wood Stack (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9153436709881816354}
   m_LocalRotation: {x: -0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 9.155, y: 1.548, z: 12.898}
+  m_LocalPosition: {x: 0, y: 1.41, z: 0.45}
   m_LocalScale: {x: 0.6, y: 0.70000005, z: 0.46736407}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -428,6 +471,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &3658718629657697871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153436709881816354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e63505ab2a09b42bb4b698cb07bbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neededID: 1
 --- !u!1 &9153436710668881707
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +496,8 @@ GameObject:
   - component: {fileID: 9153436710668881711}
   - component: {fileID: 9153436710668881704}
   - component: {fileID: 9153436710668881710}
-  m_Layer: 13
+  - component: {fileID: 5574530049155674749}
+  m_Layer: 16
   m_Name: Wood Stack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9153436710668881707}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.058, y: 1.966, z: 13.713}
+  m_LocalPosition: {x: 0, y: 1.966, z: 1.17}
   m_LocalScale: {x: 0.6, y: 1.5, z: 0.46736404}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -526,3 +583,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &5574530049155674749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153436710668881707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e63505ab2a09b42bb4b698cb07bbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neededID: 1
