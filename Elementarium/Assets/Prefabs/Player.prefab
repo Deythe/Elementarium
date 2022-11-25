@@ -1180,8 +1180,6 @@ GameObject:
   - component: {fileID: 3363044772775323248}
   - component: {fileID: 3363044772775323255}
   - component: {fileID: 3363044772775323254}
-  - component: {fileID: 3363044772775323253}
-  - component: {fileID: 3363044772775323252}
   - component: {fileID: 1463848112405622355}
   m_Layer: 5
   m_Name: Canvas
@@ -1277,34 +1275,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
---- !u!114 &3363044772775323253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3363044772775323259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce28ccd10080b3b42bddd756b2780318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  snapTurn: {fileID: 3363044772836877697}
-  continuousTurn: {fileID: 3363044772836877696}
---- !u!114 &3363044772775323252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3363044772775323259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6117ffec25f5f8647a59e35b47c78f88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  continuousMove: {fileID: 3363044772836877699}
-  teleportationMove: {fileID: 3363044772836877698}
 --- !u!114 &1463848112405622355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2659,7 +2629,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3363044773258879507}
-  - component: {fileID: 3363044773258879506}
+  - component: {fileID: 3234910183414646101}
   m_Layer: 0
   m_Name: GameMenu
   m_TagString: Untagged
@@ -2683,7 +2653,7 @@ Transform:
   m_Father: {fileID: 3363044773693846070}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3363044773258879506
+--- !u!114 &3234910183414646101
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2692,7 +2662,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3363044773258879505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24c4e6ba0e882744493bbd4cb63d37f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 62d37e7d07855e14fa004aa32b6263f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 3363044772775323259}
@@ -2702,7 +2672,7 @@ MonoBehaviour:
       m_Name: Show Button
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 76a6e3a8-05ef-409b-8246-743e89093e14
+      m_Id: 96ed4a87-f186-4b62-89b1-4d5dc931bf94
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -2715,7 +2685,7 @@ MonoBehaviour:
       m_Name: Debug Show Button
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 4ad8eafb-36c4-4d6e-9272-9418dae364ee
+      m_Id: ff4a69ce-cedd-4be9-aaeb-8f67544f52d0
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -2724,6 +2694,18 @@ MonoBehaviour:
       type: 3}
   head: {fileID: 3363044774188570828}
   spawnDistance: 2
+  leftRay: {fileID: 3363044773696633324}
+  rightRay: {fileID: 3363044772489211237}
+  continuousMove: {fileID: 3363044772836877699}
+  teleportationMove: {fileID: 3363044772836877698}
+  snapTurn: {fileID: 3363044772836877697}
+  continuousTurn: {fileID: 3363044772836877696}
+  UIlayer:
+    serializedVersion: 2
+    m_Bits: 32
+  TPLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &3363044773286656225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4691,7 +4673,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3363044772775323253}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SetTurnType, Assembly-CSharp
         m_MethodName: SetTypeFromIndex
         m_Mode: 0
@@ -5859,7 +5841,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3363044772775323252}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MoveParameters, Assembly-CSharp
         m_MethodName: SetTypeFromIndex
         m_Mode: 0
