@@ -17,6 +17,7 @@ public class ParticlesController: MonoBehaviour{
     protected Element collidedElement;
     private Quaternion rotation;
     private bool canElementCollide = true;
+    private float collisionCooldown = 0.1f;
 
     [Space]
     ParticleSystem part;
@@ -72,7 +73,7 @@ public class ParticlesController: MonoBehaviour{
                 if(other.GetComponentInParent<HandPresencePhysics>()==null) return;
                 if ((collidedElement = other.GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>()) != null)
                 {
-                    
+
                     rotation = Quaternion.FromToRotation(Vector3.forward, transform.forward + collidedElement.transform.forward);
                     if (collidedElement.GetPriority() > element.GetPriority())
                     {
@@ -82,7 +83,7 @@ public class ParticlesController: MonoBehaviour{
                         element.GetElementData().Merge(collidedElement.GetElementData(), collisionEvents[0].intersection, rotation);
                     }
                     canElementCollide = false;
-                    StartCoroutine(CollideCoroutine(0.5f));
+                    StartCoroutine(CollideCoroutine(collisionCooldown));
                 }
             }
         }

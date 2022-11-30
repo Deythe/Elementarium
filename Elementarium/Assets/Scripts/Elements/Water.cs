@@ -9,7 +9,7 @@ public class Water : ElementData
 {
 
     private GameObject newElementGO;
-    private Element newElement;
+    private Element element;
 
     public override void Merge(ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation)
     {
@@ -27,20 +27,22 @@ public class Water : ElementData
     private void MergeFire(Vector3 collisionPoint, Quaternion collisionRotation)
     {
         newElementGO = Pooler.instance.Pop("Steam", collisionPoint, collisionRotation);
-        if ((newElement = newElementGO.GetComponent<Element>()) != null)
+        if ((element = newElementGO.GetComponent<Element>()) != null)
         {
-            newElement.PlayParticles();
-            newElement.DelayedStopParticles(2);
+            element.PlayParticles();
+            element.DelayedStopParticles(2);
+            element.DelayedDepopThis(2);
         }
     }
 
     private void MergeAir(Vector3 collisionPoint, Quaternion collisionRotation) 
     {
         newElementGO = Pooler.instance.Pop("Ice", collisionPoint, collisionRotation);
-        if ((newElement = newElementGO.GetComponent<Element>()) != null) 
+        if ((element = newElementGO.GetComponent<Element>()) != null) 
         {
-            newElement.PlayParticles();
-            newElement.DelayedStopParticles(2);
+            element.PlayParticles();
+            element.DelayedStopParticles(2);
+            element.DelayedDepopThis(2);
         }
     }
 
