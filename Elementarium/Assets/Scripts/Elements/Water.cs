@@ -40,6 +40,7 @@ public class Water : ElementData
         newElementGO = Pooler.instance.Pop("Ice", collisionPoint, collisionRotation);
         if ((element = newElementGO.GetComponent<Element>()) != null) 
         {
+            Debug.Log("Merge Ice");
             element.PlayParticles();
             element.DelayedStopParticles(2);
             element.DelayedDepopThis(2);

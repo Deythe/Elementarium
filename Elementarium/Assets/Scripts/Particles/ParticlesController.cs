@@ -13,11 +13,6 @@ public class ParticlesController: MonoBehaviour{
     public float hardness = 1;
     [Space]
 
-    protected Element element;
-    protected Element collidedElement;
-    private Quaternion rotation;
-    private bool canElementCollide = true;
-    private float collisionCooldown = 0.1f;
 
     [Space]
     ParticleSystem part;
@@ -34,9 +29,7 @@ public class ParticlesController: MonoBehaviour{
 
     private void OnEnable()
     {
-        canElementCollide = true;
         if(GetComponentInParent<HandPresencePhysics>()==null) return;
-        element = GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>();
     }
 
     void OnParticleCollision(GameObject other)
@@ -59,41 +52,5 @@ public class ParticlesController: MonoBehaviour{
             bc.isTrigger = true;
             other.GetComponent<MeshRenderer>().enabled = false;
         }
-
-        ElementCollision(other);
-
-    }
-
-    private void ElementCollision(GameObject other)
-    {
-        if (element != null)
-        {
-            if (collisionEvents.Count > 0 && canElementCollide)
-            {
-                if(other.GetComponentInParent<HandPresencePhysics>()==null) return;
-                if ((collidedElement = other.GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>()) != null)
-                {
-
-                    rotation = Quaternion.FromToRotation(Vector3.forward, transform.forward + collidedElement.transform.forward);
-                    if (collidedElement.GetPriority() > element.GetPriority())
-                    {
-                        collidedElement.GetElementData().Merge(element.GetElementData(), collisionEvents[0].intersection, rotation);
-                    }else
-                    {
-                        element.GetElementData().Merge(collidedElement.GetElementData(), collisionEvents[0].intersection, rotation);
-                    }
-                    canElementCollide = false;
-                    StartCoroutine(CollideCoroutine(collisionCooldown));
-                }
-            }
-        }
-    }
-
-    IEnumerator CollideCoroutine(float t) 
-    {
-    
-        yield return new WaitForSeconds(t);
-
-        canElementCollide = true;
     }
 }

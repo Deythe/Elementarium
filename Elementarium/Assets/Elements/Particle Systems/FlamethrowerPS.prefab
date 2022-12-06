@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5456116331886647823
 Transform:
   m_ObjectHideFlags: 0
@@ -14502,7 +14502,6 @@ GameObject:
   - component: {fileID: 5456431833472222855}
   - component: {fileID: 5290076763973336957}
   - component: {fileID: 5290547654053804195}
-  - component: {fileID: 778790415299308967}
   m_Layer: 7
   m_Name: PS_Sparks
   m_TagString: Untagged
@@ -18104,7 +18103,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -19316,18 +19315,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &778790415299308967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5453498831524697315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f71536abca6a14a4f8dfba1265b774dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5453540834120354747
 GameObject:
   m_ObjectHideFlags: 0
