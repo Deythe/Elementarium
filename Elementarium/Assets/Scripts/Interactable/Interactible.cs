@@ -1,15 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Interactible: MonoBehaviour
 {
-    private Element _collidedParticle;
-    [SerializeField] private ElementData.ID neededID;
+    private Transform _collidedParticle;
+    [SerializeField] private List<ElementData.ID> neededID;
     
     private void OnParticleCollision(GameObject other)
     {
-        _collidedParticle = other.GetComponent<Element>();
+        _collidedParticle = other.transform;
         
         if (CheckCollidedElement())
         {
@@ -23,13 +22,14 @@ public abstract class Interactible: MonoBehaviour
 
     private bool CheckCollidedElement()
     {
-        if (_collidedParticle != null)
+        if (_collidedParticle.GetComponent<Element>() != null)
         {
-            return (_collidedParticle.GetID() == neededID) ;
+            return neededID.Contains(_collidedParticle.GetComponent<Element>().GetID()) ;
         }
 
         return false;
     }
 
-    protected abstract void Collide(Element e);
+    protected abstract void Collide(Transform collid);
+
 }

@@ -23,7 +23,6 @@ public class Barrel :Interactible, IContainer
     [SerializeField] private Transform particleStart;
 
     private Element collidedElement;
-
     private Transform camera;
 
     [SerializeField] private RectTransform canvas;
@@ -38,17 +37,17 @@ public class Barrel :Interactible, IContainer
 
     public float GetCurrentMass()
     {
-        return this.currentMass;
+        return currentMass;
     }
 
     public float GetCurrentCapacity() 
     {
-        return this.currentCapacity;
+        return currentCapacity;
     }
 
     public Element GetElementData() 
     {
-        return this.currentElement;
+        return currentElement;
     }
 
     public void ModifyCapacity(Element element, float quantity) 
@@ -96,7 +95,7 @@ public class Barrel :Interactible, IContainer
         }
     }
 
-    protected override void Collide(Element e)
+    protected override void Collide(Transform e)
     {
         Debug.Log("Collision");
         if(e.GetComponentInParent<HandPresencePhysics>()==null) return;
