@@ -36,8 +36,7 @@ public class ParticlesController: MonoBehaviour{
     {
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
         Paintable p = other.GetComponent<Paintable>();
-        BoxCollider bc = other.GetComponent<BoxCollider>();
-        if (p != null && false)
+        if (p != null)
         {
             for (int i = 0; i < numCollisionEvents; i++)
             {
@@ -45,12 +44,6 @@ public class ParticlesController: MonoBehaviour{
                 float radius = Random.Range(minRadius, maxRadius);
                 PaintManager.instance.paint(p, pos, radius, hardness, strength, paintColor);
             }
-        }
-
-        else if (bc != null && false)
-        {
-            bc.isTrigger = true;
-            other.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }
