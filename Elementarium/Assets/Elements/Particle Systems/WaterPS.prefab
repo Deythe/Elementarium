@@ -4917,7 +4917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5484362316147430246
 Transform:
   m_ObjectHideFlags: 0
@@ -8800,7 +8800,7 @@ ParticleSystem:
     radiusScale: 0.15
     collidesWith:
       serializedVersion: 2
-      m_Bits: 71479
+      m_Bits: 71463
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -9852,7 +9852,7 @@ GameObject:
   - component: {fileID: 5484362316165165060}
   - component: {fileID: 5484362316165165065}
   - component: {fileID: 5484362316165165062}
-  - component: {fileID: 8788014357060514344}
+  - component: {fileID: 2935349347790383436}
   m_Layer: 4
   m_Name: Collision Particle
   m_TagString: Untagged
@@ -13681,7 +13681,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 71575
+      m_Bits: 71431
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -14708,7 +14708,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &8788014357060514344
+--- !u!114 &2935349347790383436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14717,14 +14717,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5484362316165165061}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f87c8c01161eca44a6976d8b6216d9c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2329d26ca66a9b44da5bd06e3468ff0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintColor: {r: 0.1967782, g: 0.52462167, b: 0.6226415, a: 1}
-  minRadius: 0.2
-  maxRadius: 1.5
-  strength: 1
-  hardness: 0.01
 --- !u!1 &5484362316548721233
 GameObject:
   m_ObjectHideFlags: 0

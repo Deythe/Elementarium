@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5456116331886647823
 Transform:
   m_ObjectHideFlags: 0
@@ -44,7 +44,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5452846966871389477}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 0.2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 1
@@ -4883,7 +4883,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5453498831524697315}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 0.2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
@@ -8633,7 +8633,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 8192
+      m_Bits: 0
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -9675,9 +9675,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5453498831524697315}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f71536abca6a14a4f8dfba1265b774dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7549140d2426f364185b14f53487ae44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elementData: {fileID: 11400000, guid: 505dd95b919e4864989cdf5e78127c0f, type: 2}
 --- !u!1 &5453540834120354747
 GameObject:
   m_ObjectHideFlags: 0
@@ -9719,7 +9720,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5453540834120354747}
   serializedVersion: 8
-  lengthInSec: 1
+  lengthInSec: 0.2
   simulationSpeed: 1.5
   stopAction: 0
   cullingMode: 1
