@@ -9,7 +9,7 @@ public abstract class Interactible: MonoBehaviour
     
     private void OnParticleCollision(GameObject other)
     {
-        _collidedParticle = other.GetComponent<Element>();
+        _collidedParticle = other.GetComponentInParent<Element>();
         
         if (CheckCollidedElement())
         {
