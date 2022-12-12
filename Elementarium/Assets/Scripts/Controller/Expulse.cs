@@ -36,6 +36,7 @@ public class Expulse : MonoBehaviour
     {
         if (motherHand.element == null) return;
         if(motherHand.element.GetElementData() == null) return;
+        
         if (motherHand.triggerAction.action.ReadValue<float>() > 0.5f && motherHand.gripAction.action.ReadValue<float>()<0.05f)
         {
             if (!hasShot)

@@ -14,7 +14,7 @@ public class SteamMachine : Interactible
         rb = GetComponent<Rigidbody>();
     }
 
-    protected override void Collide(Element e)
+    protected override void Collide(Transform e)
     {
         if (e.GetID() == ElementData.ID.STEAM)
         {
