@@ -30,6 +30,7 @@ public class Absorb : MonoBehaviour
         else
         {
             CancelAbsorb();
+            isAbsorbing = false;
             absorbShape.SetActive(false);
         }
     }

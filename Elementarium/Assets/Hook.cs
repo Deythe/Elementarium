@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
+    [SerializeField] private Transform pivot;
+    private Pipe currentPipe;
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Pipe>() != null)
         {
-            other.GetComponent<Pipe>().isOnHook = true;
+            currentPipe = other.GetComponent<Pipe>();
+            currentPipe.isOnHook = true;
+            currentPipe.hookAttached = pivot;
         }
     }
 
@@ -17,7 +21,9 @@ public class Hook : MonoBehaviour
     {
         if (other.GetComponent<Pipe>() != null)
         {
-            other.GetComponent<Pipe>().isOnHook = false;
+            currentPipe = other.GetComponent<Pipe>();
+            currentPipe.isOnHook = false;
+            currentPipe = null;
         }
     }
 }

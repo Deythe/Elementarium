@@ -12,9 +12,8 @@ public class Pipe : Interactible
     [SerializeField] private List<Transform> listLinkedPiped = new List<Transform>();
     [SerializeField] private bool _isInHand;
     [SerializeField] private Rigidbody rb;
-    
     private WaitForSeconds stopTime = new WaitForSeconds(0.5f);
-    private Transform holeMoreDistant;
+    private Transform holeMoreDistant, _hookAttached;
     
     public bool isOnHook
     {
@@ -22,6 +21,15 @@ public class Pipe : Interactible
         set
         {
             _isInHand = value;
+        }
+    }
+
+    public Transform hookAttached
+    {
+        get => _hookAttached;
+        set
+        {
+            _hookAttached = value;
         }
     }
 
@@ -100,7 +108,9 @@ public class Pipe : Interactible
     {
         if (isOnHook)
         {
-            //rb.fre
+            transform.position = hookAttached.position;
+            transform.rotation = Quaternion.Euler(hookAttached.localRotation.eulerAngles.x, hookAttached.localRotation.eulerAngles.y, (int)((((transform.rotation.eulerAngles.z/90)%4)+4)%4)*90);
+            rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 
@@ -108,7 +118,8 @@ public class Pipe : Interactible
     {
         if (isOnHook)
         {
-            
+            rb.constraints = RigidbodyConstraints.None;
+            hookAttached = null;
         }
     }
 
