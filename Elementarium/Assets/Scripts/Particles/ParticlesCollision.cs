@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class ParticlesCollision : MonoBehaviour
@@ -77,9 +78,9 @@ public class ParticlesCollision : MonoBehaviour
     {
         if ((collidedElement = other.GetComponentInParent<Element>()) != null)
         {
-            if (collidedElement.GetID() != element.GetID()) 
+            if (collidedElement.GetID() != element.GetID())
             {
-                rotation = Quaternion.FromToRotation(Vector3.forward, transform.forward + collidedElement.transform.forward);
+                rotation = Quaternion.LookRotation(Vector3.up);
                 if (collidedElement.GetPriority() > element.GetPriority())
                 {
                     collidedElement.GetElementData().Merge(element.GetElementData(), collisionEvents[0].intersection, rotation);
