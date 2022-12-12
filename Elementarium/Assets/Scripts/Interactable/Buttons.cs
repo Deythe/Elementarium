@@ -72,7 +72,6 @@ public class Buttons : MonoBehaviour
     {
         _isPressed = false;
         onReleased.Invoke();
-        Debug.Log("Pressed");
     }
 
     public void ChangeColor(bool b)
