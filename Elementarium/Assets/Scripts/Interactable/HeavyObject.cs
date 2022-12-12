@@ -1,0 +1,67 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HeavyObject : Interactible
+{
+    [SerializeField] private ElementData.ID slidingElement;
+
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private float velocity;
+
+    private RaycastHit hit;
+    [SerializeField] private float raycastDistance;
+    private Element element;
+    private float xDiff;
+    private float zDiff;
+    private bool canMove = true;
+
+    private void Update()
+    {
+        if (rb.velocity.sqrMagnitude < (velocity * velocity) / 2) 
+        {
+            ResetVelocity();
+            canMove = true;
+        }
+    }
+
+    protected override void Collide(Transform e)
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, raycastDistance))
+        {
+            element = hit.transform.GetComponent<Element>();
+
+            if (element == null || element.GetID() != slidingElement)
+            {
+                ResetVelocity();
+            }
+            else if(canMove)
+            {
+                canMove = false;
+                CalculateVelocity(e);
+            }
+        }
+    }
+
+    private void CalculateVelocity(Transform e)
+    {
+        xDiff = e.position.x - transform.position.x;
+        zDiff = e.position.z - transform.position.z;
+
+        if (xDiff > zDiff)
+        {
+            rb.velocity = new Vector3((xDiff < 0 ? 1 : -1) * velocity, 0, 0);
+            //rb.AddForce((xDiff < 0 ? 1 : -1) * velocity, 0, 0);
+        }
+        else
+        {
+            rb.velocity = new Vector3(0, 0, (zDiff < 0 ? 1 : -1) * velocity);
+            //rb.AddForce(0, 0, (zDiff < 0 ? 1 : -1) * velocity);
+        }
+    }
+
+    private void ResetVelocity()
+    {
+        rb.velocity = Vector3.zero;
+    }
+}
