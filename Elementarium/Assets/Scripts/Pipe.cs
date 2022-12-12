@@ -9,10 +9,21 @@ public class Pipe : Interactible
     [SerializeField] private bool isTheFirst, isTheEnd, isFeed;
     [SerializeField] private Element currentElement;
     [SerializeField] private List<Pipe> lastPipes = new List<Pipe>();
-    [SerializeField] private List<Transform> listLinkedPiped = new List<Transform>(); 
-    private Pipe collidePipe;
+    [SerializeField] private List<Transform> listLinkedPiped = new List<Transform>();
+    [SerializeField] private bool _isInHand;
+    [SerializeField] private Rigidbody rb;
+    
     private WaitForSeconds stopTime = new WaitForSeconds(0.5f);
     private Transform holeMoreDistant;
+    
+    public bool isOnHook
+    {
+        get => _isInHand;
+        set
+        {
+            _isInHand = value;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -82,6 +93,22 @@ public class Pipe : Interactible
             }
             
             StartCoroutine(CoroutineStopWata());
+        }
+    }
+
+    public void Hook()
+    {
+        if (isOnHook)
+        {
+            //rb.fre
+        }
+    }
+
+    public void UnHook()
+    {
+        if (isOnHook)
+        {
+            
         }
     }
 

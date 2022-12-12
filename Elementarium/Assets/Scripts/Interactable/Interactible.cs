@@ -8,7 +8,7 @@ public abstract class Interactible: MonoBehaviour
     
     private void OnParticleCollision(GameObject other)
     {
-        _collidedParticle = other.transform;
+        _collidedParticle = other.transform.parent;
         
         if (CheckCollidedElement())
         {
