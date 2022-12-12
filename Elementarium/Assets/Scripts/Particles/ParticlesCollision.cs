@@ -42,12 +42,12 @@ public class ParticlesCollision : MonoBehaviour
                 if (other.GetComponentInParent<HandPresencePhysics>() == null) return;
                 if ((collidedElement = other.GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>()) != null)
                 {
-                    Debug.Log("1");
-                    Debug.Log(collidedElement.GetID() + " / " + element.GetID());
+                    //Debug.Log("1");
+                    //Debug.Log(collidedElement.GetID() + " / " + element.GetID());
                     if (collidedElement.GetID() != element.GetID()) 
                     {
                         rotation = Quaternion.FromToRotation(Vector3.forward, transform.forward + collidedElement.transform.forward);
-                        Debug.Log("collided element " + collidedElement.GetID() + " / priority " + collidedElement.GetPriority() + "\nelement " + element.GetID() + " / element priority " + element.GetPriority());
+                        //Debug.Log("collided element " + collidedElement.GetID() + " / priority " + collidedElement.GetPriority() + "\nelement " + element.GetID() + " / element priority " + element.GetPriority());
                         if (collidedElement.GetPriority() > element.GetPriority())
                         {
                             collidedElement.GetElementData().Merge(element.GetElementData(), collisionEvents[0].intersection, rotation);
@@ -66,7 +66,7 @@ public class ParticlesCollision : MonoBehaviour
 
     IEnumerator CollideCoroutine(float t)
     {
-        Debug.Log("Start Coroutine");
+        //Debug.Log("Start Coroutine");
         yield return new WaitForSeconds(t);
 
         canElementCollide = true;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5456116331886647823}
   - component: {fileID: 5289619309610276149}
   - component: {fileID: 5290391247525119783}
-  - component: {fileID: 6653072882888944053}
+  - component: {fileID: 6429759037703070149}
   m_Layer: 10
   m_Name: IcePS
   m_TagString: Untagged
@@ -4827,20 +4827,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!136 &6653072882888944053
-CapsuleCollider:
+--- !u!114 &6429759037703070149
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5452846966871389477}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.1
-  m_Height: 0.35
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.13}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7549140d2426f364185b14f53487ae44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementData: {fileID: 11400000, guid: 505dd95b919e4864989cdf5e78127c0f, type: 2}
 --- !u!1 &5453498831524697315
 GameObject:
   m_ObjectHideFlags: 0
@@ -4852,7 +4851,6 @@ GameObject:
   - component: {fileID: 5456431833472222855}
   - component: {fileID: 5290076763973336957}
   - component: {fileID: 5290547654053804195}
-  - component: {fileID: 778790415299308967}
   m_Layer: 7
   m_Name: PS_Sparks
   m_TagString: Untagged
@@ -8633,7 +8631,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 65536
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -9666,19 +9664,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &778790415299308967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5453498831524697315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7549140d2426f364185b14f53487ae44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementData: {fileID: 11400000, guid: 505dd95b919e4864989cdf5e78127c0f, type: 2}
 --- !u!1 &5453540834120354747
 GameObject:
   m_ObjectHideFlags: 0

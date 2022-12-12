@@ -66,6 +66,7 @@ public class Pooler : MonoBehaviour
 
     void AddInstance(Pool pool)
     {
+        if (pool.prefab == null) return;
         objectInstance = Instantiate(pool.prefab, transform);
         objectInstance.SetActive(false);
         pool.queueDisable.Enqueue(objectInstance);
