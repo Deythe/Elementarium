@@ -64,7 +64,10 @@ public class Barrel :Interactible, IContainer, ICompleted
             }
             else
             {
-                currentCapacity += quantity;
+                if ((quantity > 0 && !isEmptying) || quantity < 0)
+                {
+                    currentCapacity += quantity;
+                }
             }
 
             currentMass = baseMass + (currentCapacity * element.GetMass());
