@@ -14,6 +14,11 @@ public class Hook : MonoBehaviour
             currentPipe = other.GetComponent<Pipe>();
             currentPipe.isOnHook = true;
             currentPipe.hookAttached = pivot;
+        } else if (other.GetComponentInParent<Pipe>() != null)
+        {
+            currentPipe = other.GetComponentInParent<Pipe>();
+            currentPipe.isOnHook = true;
+            currentPipe.hookAttached = pivot;
         }
     }
 
@@ -24,6 +29,11 @@ public class Hook : MonoBehaviour
             currentPipe = other.GetComponent<Pipe>();
             currentPipe.isOnHook = false;
             currentPipe = null;
+        } else if (other.GetComponentInParent<Pipe>() != null)
+        {
+            currentPipe = other.GetComponentInParent<Pipe>();
+            currentPipe.isOnHook = false;
+            currentPipe.hookAttached = null;
         }
     }
 }
