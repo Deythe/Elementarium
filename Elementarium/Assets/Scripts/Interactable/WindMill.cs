@@ -16,6 +16,7 @@ public class WindMill: Interactible, ICompleted
 
     public bool getCompletedCondition()
     {
-        return pales.transform.eulerAngles.y >= 160f;
+        //return pales.transform.eulerAngles.y >= 160f;
+        return rb.angularVelocity.z < 2 * angularAcceleration.z;
     }
 }
