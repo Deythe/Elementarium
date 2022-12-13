@@ -11,7 +11,6 @@ public class WindMill: Interactible
      
     protected override void Collide(Transform e)
     {
-        //pales.transform.Rotate(Vector3.forward, 10);
         rb.angularVelocity += angularAcceleration;
     }
 }

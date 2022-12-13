@@ -16,11 +16,12 @@ public class SteamMachine : Interactible
 
     protected override void Collide(Transform e)
     {
-        if (e.GetComponent<Element>().GetID() == ElementData.ID.STEAM)
+        if (e.GetComponentInParent<Element>().GetID() == ElementData.ID.STEAM)
         {
             rb.AddForce(Vector3.up * upForce);
         } else
         {
+            Debug.Log("collided with ice");
             if (frozen) return;
             StartCoroutine(Freeze());
         }
