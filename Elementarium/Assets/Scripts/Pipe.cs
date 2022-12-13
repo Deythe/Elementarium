@@ -12,6 +12,7 @@ public class Pipe : Interactible
     [SerializeField] private List<Transform> listLinkedPiped = new List<Transform>();
     [SerializeField] private bool _isInHand;
     [SerializeField] private Rigidbody rb;
+    private List<ParticleCollisionEvent> currentCollision = new List<ParticleCollisionEvent>();
     private WaitForSeconds stopTime = new WaitForSeconds(0.5f);
     private Transform holeMoreDistant, _hookAttached;
     
@@ -70,38 +71,50 @@ public class Pipe : Interactible
     
     protected override void Collide(Transform e)
     {
-        Debug.Log("Caca");
-        currentElement.SetElementData(e.GetComponent<Element>().GetElementData());
-        
         if (!isFeed)
         {
-            isFeed = true;
-            holeMoreDistant = listHole[0];
-            lastPipes.Clear();
-            
-            if (listLinkedPiped.Count > 0)
+            e.GetComponent<ParticleSystem>().GetCollisionEvents(gameObject, currentCollision);
+            foreach (var part in currentCollision)
             {
-                LastPipes(this, new List<Pipe>());
-            }
-            else
-            {
-                lastPipes.Add(this);
-            }
-
-            
-            foreach (var pipe in lastPipes)
-            {
-                foreach (var hole in pipe.listHole)
+                foreach (var localhole in listHole)
                 {
-                    if (Vector3.Distance(hole.position, e.position) > Vector3.Distance(holeMoreDistant.position, e.position))
+                    if (Vector3.Distance(localhole.position, part.intersection) <= 0.2f)
                     {
-                        holeMoreDistant = hole;
+                        currentElement.SetElementData(e.GetComponent<Element>().GetElementData());
+
+                        isFeed = true;
+                        holeMoreDistant = listHole[0];
+                        lastPipes.Clear();
+
+                        if (listLinkedPiped.Count > 0)
+                        {
+                            LastPipes(this, new List<Pipe>());
+                        }
+                        else
+                        {
+                            lastPipes.Add(this);
+                        }
+
+
+                        foreach (var pipe in lastPipes)
+                        {
+                            foreach (var hole in pipe.listHole)
+                            {
+                                if (Vector3.Distance(hole.position, part.intersection) >
+                                    Vector3.Distance(holeMoreDistant.position, part.intersection))
+                                {
+                                    holeMoreDistant = hole;
+                                }
+                            }
+
+                            currentElement.PlayParticles(holeMoreDistant, holeMoreDistant.rotation, transform);
+                        }
+
+                        StartCoroutine(CoroutineStopWata());
+                        return;
                     }
                 }
-                currentElement.PlayParticles(holeMoreDistant, holeMoreDistant.rotation, transform);
             }
-            
-            StartCoroutine(CoroutineStopWata());
         }
     }
 
@@ -128,6 +141,7 @@ public class Pipe : Interactible
     {
         yield return stopTime;
         currentElement.StopParticles();
+        currentElement.SetElementData(null);
         isFeed = false;
     }
 }
