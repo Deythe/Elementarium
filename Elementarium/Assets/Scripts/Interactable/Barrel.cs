@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Barrel :Interactible, IContainer
+public class Barrel :Interactible, IContainer, ICompleted
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float baseMass;
@@ -98,11 +98,8 @@ public class Barrel :Interactible, IContainer
     protected override void Collide(Transform e)
     {
         Debug.Log("Collision");
-        if(e.GetComponentInParent<HandPresencePhysics>()==null) return;
-        if ((collidedElement = e.GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>()) != null) 
-        {
-            ModifyCapacity(collidedElement, fillSpeed);
-        }
+        collidedElement = e.GetComponent<Element>();
+        ModifyCapacity(collidedElement, fillSpeed);
     }
 
     private void Update()
@@ -112,5 +109,10 @@ public class Barrel :Interactible, IContainer
         canvas.LookAt(new Vector3(camera.position.x, canvas.transform.position.y, camera.position.z));
         canvas.transform.forward *= -1;
         text.text = $"{currentCapacity}/{maxCapacity}";
+    }
+
+    public bool getCompletedCondition()
+    {
+        return (currentCapacity - maxCapacity).Equals(0);
     }
 }
