@@ -1456,6 +1456,7 @@ GameObject:
   - component: {fileID: 4810349078344802480}
   - component: {fileID: 4810349078344802481}
   - component: {fileID: 4810349078344802486}
+  - component: {fileID: 6607672908982023083}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -2108,6 +2109,40 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &6607672908982023083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4810349078344802484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e65c16ef9fdfd0e498b7d2a9d1cd21b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transforms: []
+  triggerEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 173233398911238035}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  triggerStayEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  triggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4810349078359413149
 GameObject:
   m_ObjectHideFlags: 0
@@ -8954,6 +8989,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58012d95b23499f4aa87bf8d5c775075, type: 3}
+--- !u!1 &173233398911238035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7612285601578142427, guid: 58012d95b23499f4aa87bf8d5c775075,
+    type: 3}
+  m_PrefabInstance: {fileID: 7765111444046394696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &173233398911238041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7612285601578142417, guid: 58012d95b23499f4aa87bf8d5c775075,
