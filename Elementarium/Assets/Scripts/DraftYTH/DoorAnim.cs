@@ -13,6 +13,10 @@ public class DoorAnim : MonoBehaviour
 
     public void Open()
     {
-        doorAnim.Play();
+        doorAnim.Play("DoorTest");
+    }
+    public void Close()
+    {
+        doorAnim.Play("DoorTestClose");
     }
 }
