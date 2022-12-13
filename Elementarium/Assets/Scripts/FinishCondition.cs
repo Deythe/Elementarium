@@ -20,7 +20,7 @@ public class FinishCondition : MonoBehaviour
             finishConditionEvent.Invoke();
             //Destroy(this);
         }
-        else if(flag)
+        else if(!condition.GetComponent<ICompleted>().getCompletedCondition() && flag)
         {
             flag = false;
             resetCondition.Invoke();
