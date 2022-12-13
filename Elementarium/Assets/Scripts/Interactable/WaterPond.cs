@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class WaterPond : Interactible
 {
+
     [SerializeField] private WaterPondMaster waterPondMaster;
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Element element;
