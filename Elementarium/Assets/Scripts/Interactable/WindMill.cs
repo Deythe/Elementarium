@@ -11,11 +11,11 @@ public class WindMill: Interactible, ICompleted
      
     protected override void Collide(Transform e)
     {
-        rb.angularVelocity += angularAcceleration;
+        rb.angularVelocity += angularAcceleration * Time.deltaTime;
     }
     
     public bool getCompletedCondition()
     {
-        return rb.angularVelocity.magnitude > 0.2;
+        return rb.angularVelocity.magnitude > 0.3;
     }
 }
