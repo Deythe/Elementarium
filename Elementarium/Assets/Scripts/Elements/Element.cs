@@ -127,4 +127,9 @@ public class Element : MonoBehaviour
     {
         return elementData.GetPriority();
     }
+
+    public void ResetElement()
+    {
+        SetElementData(null);
+    }
 }
