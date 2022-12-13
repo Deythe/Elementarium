@@ -10,6 +10,8 @@ public class Brasero : Interactible
     protected override void Collide(Transform collid)
     {
         if (onFire) return;
+        
+        
         onFire = true;
         fire = Pooler.instance.Pop("p_Fire", transform);
         fire.transform.position = transform.position + transform.up * offset;
