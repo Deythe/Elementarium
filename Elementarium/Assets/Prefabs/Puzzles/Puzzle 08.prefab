@@ -91690,14 +91690,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
+        type: 3}
+      propertyPath: neededID.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad8332f570062fd4a83fe5c00b1d75c2, type: 3}
+--- !u!114 &2693661527467736421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 433069224340289335}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2693661527467736423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f9ff77138c1f7e48855062ff85920c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2693661527467736422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2549983832483646033, guid: ad8332f570062fd4a83fe5c00b1d75c2,
     type: 3}
   m_PrefabInstance: {fileID: 433069224340289335}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2693661527467736423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2549983832483646032, guid: ad8332f570062fd4a83fe5c00b1d75c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 433069224340289335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4273856742696475735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2693661527467736423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d158abee50ef8c4591f4914856a1c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  condition: {fileID: 2693661527467736421}
+  finishConditionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1305634186609865145}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1379265798972452813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91880,6 +91931,12 @@ PrefabInstance:
 --- !u!4 &1305634186609865139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7612285601578142417, guid: 58012d95b23499f4aa87bf8d5c775075,
+    type: 3}
+  m_PrefabInstance: {fileID: 8915664964369152866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1305634186609865145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7612285601578142427, guid: 58012d95b23499f4aa87bf8d5c775075,
     type: 3}
   m_PrefabInstance: {fileID: 8915664964369152866}
   m_PrefabAsset: {fileID: 0}
