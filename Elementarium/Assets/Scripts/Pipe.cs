@@ -36,6 +36,7 @@ public class Pipe : Interactible
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(name + other.name);
         if (other.GetComponent<Pipe>() != null && !listLinkedPiped.Contains(other.transform))
         {
             listLinkedPiped.Add(other.transform);
@@ -123,7 +124,7 @@ public class Pipe : Interactible
         if (isOnHook)
         {
             transform.position = hookAttached.position;
-            transform.rotation = Quaternion.Euler(hookAttached.localRotation.eulerAngles.x, hookAttached.localRotation.eulerAngles.y, (int)((((transform.rotation.eulerAngles.z/90)%4)+4)%4)*90);
+            transform.rotation = Quaternion.Euler((int)((((transform.rotation.eulerAngles.x/90)%4)+4)%4)*90, hookAttached.rotation.eulerAngles.y, hookAttached.rotation.eulerAngles.z);
             rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
