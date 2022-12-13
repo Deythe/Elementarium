@@ -70,6 +70,7 @@ public class Pipe : Interactible
     
     protected override void Collide(Transform e)
     {
+        Debug.Log("Caca");
         currentElement.SetElementData(e.GetComponent<Element>().GetElementData());
         
         if (!isFeed)
