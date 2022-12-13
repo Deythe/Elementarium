@@ -14,7 +14,6 @@ public class Air : ElementData
             case ID.EARTH:
                 break;
         }
-        Debug.Log("why the fuck is this merging with the void");
     }
 
     public override void Remove()
