@@ -48,7 +48,7 @@ public class HeavyObject : Interactible
         xDiff = e.position.x - transform.position.x;
         zDiff = e.position.z - transform.position.z;
 
-        if (xDiff > zDiff)
+        if (Mathf.Abs(xDiff) > Mathf.Abs(zDiff))
         {
             rb.velocity = new Vector3((xDiff < 0 ? 1 : -1) * velocity, 0, 0);
             //rb.AddForce((xDiff < 0 ? 1 : -1) * velocity, 0, 0);
