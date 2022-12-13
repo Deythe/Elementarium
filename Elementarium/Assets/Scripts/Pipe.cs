@@ -141,6 +141,7 @@ public class Pipe : Interactible
     {
         yield return stopTime;
         currentElement.StopParticles();
+        currentElement.SetElementData(null);
         isFeed = false;
     }
 }
