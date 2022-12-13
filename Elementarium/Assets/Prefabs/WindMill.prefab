@@ -49,7 +49,7 @@ MonoBehaviour:
   neededID: 02000000
   pales: {fileID: 2549983832906662165}
   rb: {fileID: 7856806377188824724}
-  angularAcceleration: {x: 0, y: 0, z: 0.2}
+  angularAcceleration: {x: 0, y: 0, z: 20000}
 --- !u!65 &6835809939811007783
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.25
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
