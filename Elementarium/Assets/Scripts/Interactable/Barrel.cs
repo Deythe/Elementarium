@@ -98,11 +98,8 @@ public class Barrel :Interactible, IContainer, ICompleted
     protected override void Collide(Transform e)
     {
         Debug.Log("Collision");
-        if(e.GetComponentInParent<HandPresencePhysics>()==null) return;
-        if ((collidedElement = e.GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>()) != null) 
-        {
-            ModifyCapacity(collidedElement, fillSpeed);
-        }
+        collidedElement = e.GetComponent<Element>();
+        ModifyCapacity(collidedElement, fillSpeed);
     }
 
     private void Update()
