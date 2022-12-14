@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -72,6 +73,7 @@ public class Barrel :Interactible, IContainer, ICompleted
 
             currentMass = baseMass + (currentCapacity * element.GetMass());
             rb.mass = currentMass;
+            rb.WakeUp();
         }
     }
 
