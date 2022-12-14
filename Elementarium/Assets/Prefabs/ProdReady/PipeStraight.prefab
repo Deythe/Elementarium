@@ -43,13 +43,12 @@ GameObject:
   - component: {fileID: 2687648558205218193}
   - component: {fileID: 191549589969000795}
   - component: {fileID: 6825815913923086330}
-  - component: {fileID: 6402032041698680820}
   - component: {fileID: 7105620165675532}
   - component: {fileID: 4946044765998894258}
   - component: {fileID: 6305520074220564719}
   - component: {fileID: -6734488421642664353}
   m_Layer: 9
-  m_Name: PipeStraightGameplay
+  m_Name: PipeStraight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,24 +140,11 @@ MonoBehaviour:
   isTheFirst: 0
   isTheEnd: 0
   isFeed: 0
-  currentElement: {fileID: 6402032041698680820}
+  currentElement: {fileID: 0}
   lastPipes: []
   listLinkedPiped: []
   _isInHand: 0
-  rb: {fileID: -6734488421642664353}
---- !u!114 &6402032041698680820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848860852834728078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7549140d2426f364185b14f53487ae44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementData: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!64 &7105620165675532
 MeshCollider:
   m_ObjectHideFlags: 0
