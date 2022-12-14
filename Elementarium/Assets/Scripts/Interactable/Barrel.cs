@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -54,21 +55,25 @@ public class Barrel :Interactible, IContainer, ICompleted
     {
         if (currentElement.GetID() == element.GetID())
         {
-            if (quantity + currentCapacity > maxCapacity)
+            if (quantity + currentCapacity >= maxCapacity)
             {
                 currentCapacity = maxCapacity;
             }
-            else if (quantity + currentCapacity < 0)
+            else if (quantity + currentCapacity <= 0)
             {
                 currentCapacity = 0;
             }
             else
             {
-                currentCapacity += quantity;
+                if ((quantity > 0 && !isEmptying) || quantity < 0)
+                {
+                    currentCapacity += quantity;
+                }
             }
 
             currentMass = baseMass + (currentCapacity * element.GetMass());
             rb.mass = currentMass;
+            rb.WakeUp();
         }
     }
 

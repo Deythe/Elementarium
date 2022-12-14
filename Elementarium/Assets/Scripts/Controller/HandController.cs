@@ -79,6 +79,6 @@ public class HandController : MonoBehaviour
 
     public void ResetElement() 
     {
-        _element = null;
+        _element.SetElementData(null);
     }
 }
