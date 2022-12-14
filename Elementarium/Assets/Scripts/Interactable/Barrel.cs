@@ -55,11 +55,11 @@ public class Barrel :Interactible, IContainer, ICompleted
     {
         if (currentElement.GetID() == element.GetID())
         {
-            if (quantity + currentCapacity > maxCapacity)
+            if (quantity + currentCapacity >= maxCapacity)
             {
                 currentCapacity = maxCapacity;
             }
-            else if (quantity + currentCapacity < 0)
+            else if (quantity + currentCapacity <= 0)
             {
                 currentCapacity = 0;
             }
