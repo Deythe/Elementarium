@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6483606957064368887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6483606957064368889}
+  - component: {fileID: 6483606957064368886}
+  m_Layer: 0
+  m_Name: Pooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6483606957064368889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6483606957064368887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6483606957064368886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6483606957064368887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b49cae866e9814c96721534f3e9abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolKeys:
+  - key: Steam
+    pool:
+      prefab: {fileID: 3492171818417176022, guid: 963da8a42f9a71440b327f80b0d96b9c,
+        type: 3}
+      baseCount: 3
+  - key: p_Steam
+    pool:
+      prefab: {fileID: 1253142483436318, guid: 7c50de229e88bd9428ecf14259835b20, type: 3}
+      baseCount: 3
+  - key: p_Water
+    pool:
+      prefab: {fileID: 5484362316147430247, guid: 0c4b5e79854978b4d857eab7fc922401,
+        type: 3}
+      baseCount: 3
+  - key: p_Fire
+    pool:
+      prefab: {fileID: 1253142483436318, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
+      baseCount: 3
+  - key: p_Air
+    pool:
+      prefab: {fileID: 4193000839210913559, guid: 9a5aa08a3019057438591a51590da4f0,
+        type: 3}
+      baseCount: 3
+  - key: p_Ice
+    pool:
+      prefab: {fileID: 5452846966871389477, guid: dc4045ad24c13534cbdb01ecdd555c3e,
+        type: 3}
+      baseCount: 3
+  - key: Ice
+    pool:
+      prefab: {fileID: 2390752587740751661, guid: 12f0d26a5ef03744996d064f85fee68c,
+        type: 3}
+      baseCount: 3
+  - key: p_Flamethrower
+    pool:
+      prefab: {fileID: 5452846966871389477, guid: d7f2074f6918e3249a19278d400f659e,
+        type: 3}
+      baseCount: 3
+  - key: Flamethrower
+    pool:
+      prefab: {fileID: 1436368493083274651, guid: 9a3277cbb27c98f4e8c4e2f8f03fbc58,
+        type: 3}
+      baseCount: 3

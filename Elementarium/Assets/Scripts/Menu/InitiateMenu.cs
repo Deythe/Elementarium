@@ -8,23 +8,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class InitiateMenu : MonoBehaviour
 {
-    [SerializeField]
-    private ActionBasedSnapTurnProvider snapTurn;
-    
-    [SerializeField]
-    private ActionBasedContinuousTurnProvider continuousTurn;
-    
-    [SerializeField]
-    private ActionBasedContinuousMoveProvider continuousMove;
-    
-    [SerializeField]
-    private TeleportationProvider teleportationMove;
-
-    [SerializeField] 
-    private TMP_Dropdown turnDD;
-    
-    [SerializeField] 
-    private TMP_Dropdown moveDD;
+    [SerializeField] private ActionBasedSnapTurnProvider snapTurn;
+    [SerializeField] private ActionBasedContinuousTurnProvider continuousTurn;
+    [SerializeField] private ActionBasedContinuousMoveProvider continuousMove;
+    [SerializeField] private TeleportationProvider teleportationMove;
+    [SerializeField] private TMP_Dropdown turnDD;
+    [SerializeField] private TMP_Dropdown moveDD;
 
     private void Start()
     {

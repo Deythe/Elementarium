@@ -3,23 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SteamMachine : MonoBehaviour, ISteamReceiver
+public class SteamMachine : Interactible
 {
     private Rigidbody rb;
     [SerializeField] private float upForce;
+    private bool frozen;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnParticleCollision(GameObject other)
+    protected override void Collide(Transform e)
     {
-        Power();
+        if (e.GetComponentInParent<Element>().GetID() == ElementData.ID.STEAM)
+        {
+            rb.AddForce(Vector3.up * upForce);
+        } else
+        {
+            Debug.Log("collided with ice");
+            if (frozen) return;
+            StartCoroutine(Freeze());
+        }
     }
 
-    public void Power()
+    private IEnumerator Freeze()
     {
-        rb.AddForce(Vector3.up * upForce);
+        Debug.Log("I'm frozen");
+        frozen = true;
+        yield return new WaitForSeconds(2);
+        frozen = false;
+        Debug.Log("I'm not frozen anymore");
     }
 }

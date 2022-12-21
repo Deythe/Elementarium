@@ -9,7 +9,11 @@ public class Air : ElementData
 {
     public override void Merge(ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation)
     {
-        throw new NotImplementedException();
+        switch (elementData.GetID()) 
+        {
+            case ID.EARTH:
+                break;
+        }
     }
 
     public override void Remove()

@@ -9,8 +9,9 @@ public class Absorb : MonoBehaviour
     [SerializeField] private Transform absorbAnchorTransform;
     [SerializeField] private float rayDistanceMax, speedRotation, radiusRotation;
     [SerializeField] private LayerMask _layerMask;
+    
     private Coroutine currentCoroutine;
-    private bool isTouching;
+    private bool isTouching, isAbsorbing;
     private Transform absorbedObject;
     private float angle, distance, maxDistance;
     private RaycastHit hit;
@@ -19,15 +20,17 @@ public class Absorb : MonoBehaviour
     {
         if (masterHand.haveObjectInHand) return;
         
-        if (masterHand.gripAction.action.ReadValue<float>() > 0.5f &&
-            masterHand.triggerAction.action.ReadValue<float>() < 0.05f)
+        if (masterHand.gripAction.action.ReadValue<float>() > 0.95f &&
+            masterHand.triggerAction.action.ReadValue<float>() > 0.95f)
         {
+            isAbsorbing = true;
             absorbShape.SetActive(true);
             CheckAbsorbedObject();
         }
         else
         {
             CancelAbsorb();
+            isAbsorbing = false;
             absorbShape.SetActive(false);
         }
     }
@@ -43,6 +46,7 @@ public class Absorb : MonoBehaviour
         if (hit.transform == null) return;
         if (hit.transform == absorbedObject) return;
         if (((1<<hit.transform.gameObject.layer) & _layerMask) == 0) return;
+        
         if (hit.transform.gameObject.layer.Equals(12)) 
         {
             masterHand.element.SetElementData(hit.collider.GetComponent<Element>().GetElementData());
@@ -82,7 +86,7 @@ public class Absorb : MonoBehaviour
     public void Grabbed()
     {
         masterHand.haveObjectInHand = true;
-        if (masterHand.haveGlove)
+        if (isAbsorbing)
         {
             StopCoroutine(currentCoroutine);
             absorbedObject.GetComponent<Rigidbody>().isKinematic = false;

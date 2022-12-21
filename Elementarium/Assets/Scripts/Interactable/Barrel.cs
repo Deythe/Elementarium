@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Barrel : MonoBehaviour, IContainer
+public class Barrel :Interactible, IContainer, ICompleted
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float baseMass;
@@ -23,52 +24,56 @@ public class Barrel : MonoBehaviour, IContainer
     [SerializeField] private Transform particleStart;
 
     private Element collidedElement;
-
-    [SerializeField] private Transform camera;
+    private Transform camera;
 
     [SerializeField] private RectTransform canvas;
     [SerializeField] private TMP_Text text;
-
+    
     private void Start()
     {
         currentMass = baseMass + currentElement.GetMass() * currentCapacity;
+        if (Camera.main != null) camera = Camera.main.transform;
         rb.mass = currentMass;
     }
 
     public float GetCurrentMass()
     {
-        return this.currentMass;
+        return currentMass;
     }
 
     public float GetCurrentCapacity() 
     {
-        return this.currentCapacity;
+        return currentCapacity;
     }
 
     public Element GetElementData() 
     {
-        return this.currentElement;
+        return currentElement;
     }
 
     public void ModifyCapacity(Element element, float quantity) 
     {
         if (currentElement.GetID() == element.GetID())
         {
-            if (quantity + currentCapacity > maxCapacity)
+            if (quantity + currentCapacity >= maxCapacity)
             {
                 currentCapacity = maxCapacity;
             }
-            else if (quantity + currentCapacity < 0)
+            else if (quantity + currentCapacity <= 0)
             {
                 currentCapacity = 0;
             }
             else
             {
-                currentCapacity += quantity;
+                if ((quantity > 0 && !isEmptying) || quantity < 0)
+                {
+                    currentCapacity += quantity;
+                }
             }
 
             currentMass = baseMass + (currentCapacity * element.GetMass());
             rb.mass = currentMass;
+            rb.WakeUp();
         }
     }
 
@@ -95,14 +100,11 @@ public class Barrel : MonoBehaviour, IContainer
         }
     }
 
-    private void OnParticleCollision(GameObject other)
+    protected override void Collide(Transform e)
     {
         Debug.Log("Collision");
-        if(other.GetComponentInParent<HandPresencePhysics>()==null) return;
-        if ((collidedElement = other.GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>()) != null) 
-        {
-            ModifyCapacity(collidedElement, fillSpeed);
-        }
+        collidedElement = e.GetComponent<Element>();
+        ModifyCapacity(collidedElement, fillSpeed);
     }
 
     private void Update()
@@ -112,5 +114,10 @@ public class Barrel : MonoBehaviour, IContainer
         canvas.LookAt(new Vector3(camera.position.x, canvas.transform.position.y, camera.position.z));
         canvas.transform.forward *= -1;
         text.text = $"{currentCapacity}/{maxCapacity}";
+    }
+
+    public bool getCompletedCondition()
+    {
+        return (currentCapacity - maxCapacity).Equals(0);
     }
 }

@@ -20,7 +20,7 @@ public class Element : MonoBehaviour
         {
             elementData.Initialize();
         }
-        particlesCollisions = new List<ParticleCollisionEvent>(); 
+        particlesCollisions = new List<ParticleCollisionEvent>();
     }
 
     public void PlayParticles()
@@ -98,28 +98,10 @@ public class Element : MonoBehaviour
         }
     }
 
-    // @@@@@@@@@@@@@@@@@@@@@
-    // POUR DEBUG
-
-    //private bool hasCollidedOnce = false;
-
-    //@@@@@@@@@@@@@@@@@@@@@@
-
-    /*private void OnCollisionEnter(Collision collision)
+    public void DelayedDepopThis(float t) 
     {
-        if ((collidedElement = collision.transform.GetComponent<Element>()) != null && !hasCollidedOnce)
-        {
-            rotation = Quaternion.FromToRotation(Vector3.forward, transform.forward + collidedElement.transform.forward);
-
-            if (collidedElement.GetPriority() > GetPriority()) collidedElement.GetElementData().Merge(elementData, collision.contacts[0].point, rotation);
-            else elementData.Merge(collidedElement.GetElementData(), collision.contacts[0].point, rotation);
-
-            hasCollidedOnce = true;
-
-            elementData.Remove();
-            collidedElement.GetElementData().Remove();
-        }
-    }*/
+        Pooler.instance.DelayedDePop(t, elementData.GetName(), this.gameObject);
+    }
 
     public ElementData GetElementData() 
     {
@@ -144,5 +126,10 @@ public class Element : MonoBehaviour
     public int GetPriority() 
     {
         return elementData.GetPriority();
+    }
+
+    public void ResetElement()
+    {
+        SetElementData(null);
     }
 }
