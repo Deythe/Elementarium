@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8251272568987416137}
+  - component: {fileID: 8179545465818176266}
   m_Layer: 9
   m_Name: Hole2
   m_TagString: Untagged
@@ -31,6 +32,19 @@ Transform:
   m_Father: {fileID: 1361117926843130420}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8179545465818176266
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805727818715478902}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9723143, y: 1, z: 0.077144384}
+  m_Center: {x: -0.0046143234, y: 0, z: 0.0030761957}
 --- !u!1 &1848860852834728078
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,9 +58,8 @@ GameObject:
   - component: {fileID: 191549589969000795}
   - component: {fileID: 6825815913923086330}
   - component: {fileID: 7105620165675532}
-  - component: {fileID: 4946044765998894258}
-  - component: {fileID: 6305520074220564719}
   - component: {fileID: -6734488421642664353}
+  - component: {fileID: 2889056769767128075}
   m_Layer: 9
   m_Name: PipeStraight
   m_TagString: Untagged
@@ -140,11 +153,11 @@ MonoBehaviour:
   isTheFirst: 0
   isTheEnd: 0
   isFeed: 0
-  currentElement: {fileID: 0}
+  currentElement: {fileID: 2889056769767128075}
   lastPipes: []
   listLinkedPiped: []
   _isInHand: 0
-  rb: {fileID: 0}
+  rb: {fileID: -6734488421642664353}
 --- !u!64 &7105620165675532
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -159,32 +172,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 668436658155722778, guid: 2b45bb18220e4d740bcaff5cbc8cd324, type: 3}
---- !u!65 &4946044765998894258
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848860852834728078}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.79999995, y: 0.79999995, z: 0.05143562}
-  m_Center: {x: 0.0000076293945, y: 0, z: -0.5051718}
---- !u!65 &6305520074220564719
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848860852834728078}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.79999995, y: 0.79999995, z: 0.06978041}
-  m_Center: {x: 0.0000076293945, y: 0, z: 0.5121994}
 --- !u!54 &-6734488421642664353
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -201,6 +188,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2889056769767128075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848860852834728078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7549140d2426f364185b14f53487ae44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementData: {fileID: 0}
 --- !u!1 &6481925134055474237
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3073190041284126413}
+  - component: {fileID: 9211172987478458992}
   m_Layer: 9
   m_Name: Hole1
   m_TagString: Untagged
@@ -232,3 +233,16 @@ Transform:
   m_Father: {fileID: 1361117926843130420}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &9211172987478458992
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6481925134055474237}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9723143, y: 1, z: 0.077144384}
+  m_Center: {x: -0.0046143234, y: 0, z: 0.0030761957}

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7606647651818101076}
+  - component: {fileID: 399759046251577378}
   m_Layer: 9
   m_Name: Hole1
   m_TagString: Untagged
@@ -31,6 +32,19 @@ Transform:
   m_Father: {fileID: 5336414108303111982}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &399759046251577378
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616218214794432181}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.87542456, y: 1, z: 0.12121573}
+  m_Center: {x: 0.031802427, y: 1.7607657e-10, z: 0.0008992553}
 --- !u!1 &3844051404805845415
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,6 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1308577318266084684}
+  - component: {fileID: 1670420714601253252}
   m_Layer: 9
   m_Name: Hole2
   m_TagString: Untagged
@@ -54,14 +69,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3844051404805845415}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.634, z: 0.5}
+  m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: 0, y: -0.6348993, z: 0.50089926}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5336414108303111982}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!65 &1670420714601253252
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3844051404805845415}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.87542456, y: 1, z: 0.12121573}
+  m_Center: {x: 0.031802427, y: 1.7607657e-10, z: 0.0008992553}
 --- !u!1 &4703184039865642388
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,10 +102,9 @@ GameObject:
   - component: {fileID: 9052547301423528075}
   - component: {fileID: 6504865301636959297}
   - component: {fileID: 5585722645677560007}
-  - component: {fileID: 9052547301423528074}
-  - component: {fileID: 9052547301423528117}
   - component: {fileID: 9052547301423528116}
   - component: {fileID: 9052547301423528119}
+  - component: {fileID: 783866872457777251}
   m_Layer: 9
   m_Name: PipeAngle
   m_TagString: Untagged
@@ -166,32 +193,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6150326042995890324, guid: 03e88e16a6973d54d868a2ec752f3bde, type: 3}
---- !u!65 &9052547301423528074
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4703184039865642388}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.79999995, y: 0.78305954, z: 0.10077883}
-  m_Center: {x: 0, y: 0.008470207, z: -0.05217673}
---- !u!65 &9052547301423528117
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4703184039865642388}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.79999995, y: 0.07305533, z: 0.7991307}
-  m_Center: {x: 0, y: -0.6088625, z: 0.55442965}
 --- !u!114 &9052547301423528116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,11 +212,11 @@ MonoBehaviour:
   isTheFirst: 0
   isTheEnd: 0
   isFeed: 0
-  currentElement: {fileID: 0}
+  currentElement: {fileID: 783866872457777251}
   lastPipes: []
   listLinkedPiped: []
   _isInHand: 0
-  rb: {fileID: 0}
+  rb: {fileID: 9052547301423528119}
 --- !u!54 &9052547301423528119
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -232,3 +233,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &783866872457777251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4703184039865642388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7549140d2426f364185b14f53487ae44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementData: {fileID: 0}
