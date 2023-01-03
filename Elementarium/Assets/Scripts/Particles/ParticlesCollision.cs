@@ -78,6 +78,7 @@ public class ParticlesCollision : MonoBehaviour
     {
         if ((collidedElement = other.GetComponentInParent<Element>()) != null)
         {
+            if (collidedElement.GetElementData() == null) return;
             if (collidedElement.GetID() != element.GetID())
             {
                 rotation = Quaternion.LookRotation(Vector3.up);
