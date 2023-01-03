@@ -38,16 +38,20 @@ public class ParticlesCollision : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
+        Debug.Log("ALED");
         part.GetCollisionEvents(other, collisionEvents);
         ElementCollision(other);
     }
 
     private void ElementCollision(GameObject other)
     {
+        Debug.Log("Collide 1");
         if (element != null)
         {
+            Debug.Log("Collide 2");
             if (collisionEvents.Count > 0 && canElementCollide)
             {
+                Debug.Log("Collide 3");
                 if (other.GetComponentInParent<HandPresencePhysics>() == null)
                 {
                     NoHandsCollision(other);
@@ -78,6 +82,7 @@ public class ParticlesCollision : MonoBehaviour
     {
         if ((collidedElement = other.GetComponentInParent<Element>()) != null)
         {
+            if (collidedElement.GetElementData() == null) return;
             if (collidedElement.GetID() != element.GetID())
             {
                 rotation = Quaternion.LookRotation(Vector3.up);

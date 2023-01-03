@@ -13,19 +13,34 @@ public class Fire : ElementData
 
     public override void Merge(ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation)
     {
-        switch (elementData.GetID()) 
+        switch (elementData.GetID())
         {
             case ID.AIR:
                 MergeAir(collisionPoint, collisionRotation);
                 Debug.Log("Merge Air");
                 break;
+            case ID.EARTH:
+                MergeEarth(collisionPoint, collisionRotation);
+                Debug.Log("Merge Earth to Lava");
+                break;
         }
     }
 
-    private void MergeAir(Vector3 collisionPoint, Quaternion collisionRotation) 
+    private void MergeAir(Vector3 collisionPoint, Quaternion collisionRotation)
     {
-        Debug.Log("Merge Air");
+
         newElementGO = Pooler.instance.Pop("Flamethrower", collisionPoint, collisionRotation);
+        if ((element = newElementGO.GetComponent<Element>()) != null)
+        {
+            element.PlayParticles();
+            element.DelayedStopParticles(2);
+            element.DelayedDepopThis(2);
+        }
+    }
+
+    private void MergeEarth(Vector3 collisionPoint, Quaternion collisionRotation)
+    {
+        newElementGO = Pooler.instance.Pop("Lava", collisionPoint, collisionRotation);
         if ((element = newElementGO.GetComponent<Element>()) != null) 
         {
             element.PlayParticles();

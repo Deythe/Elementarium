@@ -74,7 +74,7 @@ public class Pipe : Interactible
     {
         if (!isFeed)
         {
-            e.GetComponent<ParticleSystem>().GetCollisionEvents(gameObject, currentCollision);
+            e.GetComponentInChildren<ParticleSystem>().GetCollisionEvents(gameObject, currentCollision);
             foreach (var part in currentCollision)
             {
                 foreach (var localhole in listHole)
