@@ -22,7 +22,6 @@ public class Expulse : MonoBehaviour
             return;
         }
         
-        if(motherHand.haveObjectInHand) return;
         FireElement();
 
     }
@@ -37,18 +36,36 @@ public class Expulse : MonoBehaviour
         if (motherHand.element == null) return;
         if(motherHand.element.GetElementData() == null) return;
         
-        if (motherHand.triggerAction.action.ReadValue<float>() > 0.5f && motherHand.gripAction.action.ReadValue<float>()<0.05f)
+        if (motherHand.triggerAction.action.ReadValue<float>() > 0.5f && !motherHand.haveObjectInHand)
         {
-            if (!hasShot)
+            if (!motherHand.element.GetElementData().isParticuleSystem)
             {
-                motherHand.element.PlayParticles(anchorTransform, anchorTransform);
-                hasShot = true;
+                if (motherHand.gripAction.action.ReadValue<float>() < 0.05f)
+                {
+                    if (!hasShot)
+                    {
+                        motherHand.element.PlayParticles(anchorTransform, anchorTransform);
+                        hasShot = true;
+                    }
+                }
             }
         }
         else
         {
-            motherHand.element.StopParticles();
-            hasShot = false;
+            if (hasShot)
+            {
+                if (!motherHand.haveObjectInHand && !motherHand.element.GetElementData().isParticuleSystem)
+                {
+                    motherHand.element.StopParticles();
+                }
+                else
+                {
+                    Debug.Log("Test");
+                    motherHand.element.DetacheFromHand();
+                }
+
+                hasShot = false;
+            }
         }
     }
 }

@@ -6,9 +6,10 @@ public class Absorb : MonoBehaviour
 {
     [SerializeField] private HandController masterHand;
     [SerializeField] private GameObject absorbShape;
-    [SerializeField] private Transform absorbAnchorTransform;
+    [SerializeField] private Transform absorbAnchorTransform, inHandAnchor;
     [SerializeField] private float rayDistanceMax, speedRotation, radiusRotation;
     [SerializeField] private LayerMask _layerMask;
+    
     
     private Coroutine currentCoroutine;
     private bool isTouching, isAbsorbing;
@@ -58,7 +59,6 @@ public class Absorb : MonoBehaviour
         absorbedObject.SetParent(absorbAnchorTransform);
         absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
         currentCoroutine = StartCoroutine(CoroutineMoveAround());
-        
     }
 
     void CancelAbsorb()
@@ -86,6 +86,7 @@ public class Absorb : MonoBehaviour
     public void Grabbed()
     {
         masterHand.haveObjectInHand = true;
+
         if (isAbsorbing)
         {
             StopCoroutine(currentCoroutine);

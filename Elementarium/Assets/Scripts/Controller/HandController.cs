@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class HandController : MonoBehaviour
 {
     [SerializeField] private Element _element;
+    
     [SerializeField] private InputActionProperty _triggerAction;
     [SerializeField] private InputActionProperty _gripAction;
     [SerializeField] private AnimatedHandOnInput anim;
