@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Torch : Brasero, ICompleted
 {
-    protected void ToggleFire() 
+    [ContextMenu("Toggle Torch")]
+    public void ToggleFire() 
     {
         if (!onFire) SwitchOn();
         else SwitchOff();
