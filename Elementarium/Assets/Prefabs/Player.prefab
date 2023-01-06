@@ -1863,7 +1863,7 @@ MonoBehaviour:
   _absorb: {fileID: 1972154468330440641}
   _expulse: {fileID: 1972154468802680011}
   _rayHand: {fileID: 1972154468493575760}
-  debugMode: 0
+  debugMode: 1
 --- !u!114 &3363044772489211238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3156,7 +3156,6 @@ GameObject:
   - component: {fileID: 1972154468102165643}
   - component: {fileID: 3363044773050545348}
   - component: {fileID: 3363044773050545350}
-  - component: {fileID: 3363044773050545349}
   - component: {fileID: 1972154468102165642}
   - component: {fileID: 1972154468102165647}
   - component: {fileID: 1972154468102165644}
@@ -3407,20 +3406,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!136 &3363044773050545349
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3363044773050545354}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.09
-  m_Height: 0.1
-  m_Direction: 1
-  m_Center: {x: -0.05, y: 0.07, z: 0.02}
 --- !u!114 &1972154468102165642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3964,7 +3949,7 @@ MonoBehaviour:
   radiusRotation: 2
   _layerMask:
     serializedVersion: 2
-    m_Bits: 4608
+    m_Bits: 528896
 --- !u!1 &3363044773180488078
 GameObject:
   m_ObjectHideFlags: 0
@@ -4686,7 +4671,7 @@ MonoBehaviour:
   _absorb: {fileID: 3363044773145192323}
   _expulse: {fileID: 3363044773751059593}
   _rayHand: {fileID: 1972154468102165642}
-  debugMode: 0
+  debugMode: 1
 --- !u!114 &3363044773696633325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4923,7 +4908,6 @@ GameObject:
   - component: {fileID: 1972154468493575756}
   - component: {fileID: 3363044773979416074}
   - component: {fileID: 3363044773979416073}
-  - component: {fileID: 3363044773979416072}
   - component: {fileID: 1972154468493575760}
   - component: {fileID: 1972154468493575761}
   - component: {fileID: 1972154468493575758}
@@ -5174,20 +5158,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!136 &3363044773979416072
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3363044773979416079}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.09
-  m_Height: 0.1
-  m_Direction: 1
-  m_Center: {x: 0.05, y: 0.07, z: 0.02}
 --- !u!114 &1972154468493575760
 MonoBehaviour:
   m_ObjectHideFlags: 0

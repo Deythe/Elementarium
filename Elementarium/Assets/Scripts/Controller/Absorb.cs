@@ -6,7 +6,7 @@ public class Absorb : MonoBehaviour
 {
     [SerializeField] private HandController masterHand;
     [SerializeField] private GameObject absorbShape;
-    [SerializeField] private Transform absorbAnchorTransform, inHandAnchor;
+    [SerializeField] private Transform absorbAnchorTransform;
     [SerializeField] private float rayDistanceMax, speedRotation, radiusRotation;
     [SerializeField] private LayerMask _layerMask;
     
