@@ -36,7 +36,6 @@ public class Pipe : Interactible
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(name + other.name);
         if (other.GetComponent<Pipe>() != null && !listLinkedPiped.Contains(other.transform))
         {
             listLinkedPiped.Add(other.transform);

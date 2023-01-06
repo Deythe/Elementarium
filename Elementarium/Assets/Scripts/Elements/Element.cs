@@ -6,7 +6,7 @@ public class Element : MonoBehaviour
 {
 
     [SerializeField] protected ElementData elementData;
-
+    
     protected GameObject particlesGO;
     protected ParticleSystem particles;
     protected Element collidedElement;
@@ -26,36 +26,52 @@ public class Element : MonoBehaviour
     public void PlayParticles()
     {
         particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), transform.position, transform);
-        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
+        if (elementData.isParticuleSystem)
         {
-            particles.Play();
+            if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
+            {
+                particles.Play();
+            }
         }
     }
 
     public void PlayParticles(Transform t, Quaternion quaternion)
     {
         particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, quaternion);
-        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
+        if (elementData.isParticuleSystem)
         {
-            particles.Play();
+            if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
+            {
+                particles.Play();
+            }
         }
     }
 
     public void PlayParticles(Transform t, Transform parent)
     {
-        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, parent);
-        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null) 
+        if (elementData.isParticuleSystem)
         {
-            particles.Play();
+            particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, parent);
+            if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
+            {
+                particles.Play();
+            }
+        }
+        else
+        {
+            particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position + t.forward/5, parent);
         }
     }
 
     public void PlayParticles(Transform t, Quaternion quaternion, Transform parent)
     {
         particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, quaternion,  parent);
-        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
+        if (elementData.isParticuleSystem)
         {
-            particles.Play();
+            if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
+            {
+                particles.Play();
+            }
         }
     }
 
@@ -69,6 +85,16 @@ public class Element : MonoBehaviour
         if (particlesGO != null)
         {
             Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
+            particlesGO = null;
+        }
+    }
+
+    public void DetacheFromHand()
+    {
+        if (particlesGO != null)
+        {
+            particlesGO.GetComponent<Rigidbody>().isKinematic = false;
+            particlesGO.transform.SetParent(null);
             particlesGO = null;
         }
     }

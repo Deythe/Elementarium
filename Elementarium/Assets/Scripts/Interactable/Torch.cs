@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Torch : Brasero
+public class Torch : Brasero, ICompleted
 {
     protected void ToggleFire() 
     {
@@ -18,5 +18,10 @@ public class Torch : Brasero
         onFire = false;
 
         Pooler.instance.DePop("p_Fire", fire);
+    }
+
+    public bool getCompletedCondition()
+    {
+        return onFire;
     }
 }
