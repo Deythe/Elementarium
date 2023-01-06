@@ -18637,18 +18637,18 @@ PrefabInstance:
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2638738552102665698}
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -18657,12 +18657,12 @@ PrefabInstance:
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: CheckState
       objectReference: {fileID: 0}
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: DoorAnimation, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
@@ -18689,6 +18689,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door_Animated
       objectReference: {fileID: 0}
+    - target: {fileID: 8746342977658713689, guid: 8ba9b1667a37ba0448093076d95ba66a,
+        type: 3}
+      propertyPath: activators.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746342977658713689, guid: 8ba9b1667a37ba0448093076d95ba66a,
+        type: 3}
+      propertyPath: activators.Array.data[0]
+      value: 
+      objectReference: {fileID: 9082728565377925062}
     - target: {fileID: 8746342977658713695, guid: 8ba9b1667a37ba0448093076d95ba66a,
         type: 3}
       propertyPath: m_RootOrder
@@ -18756,6 +18766,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ba9b1667a37ba0448093076d95ba66a, type: 3}
+--- !u!114 &2638738552102665698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8746342977658713689, guid: 8ba9b1667a37ba0448093076d95ba66a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6773394197037796283}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ee501311aa9844e81c1383f472464d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2638738552102665700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8746342977658713695, guid: 8ba9b1667a37ba0448093076d95ba66a,

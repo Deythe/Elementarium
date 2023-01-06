@@ -58794,6 +58794,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door_Animated
       objectReference: {fileID: 0}
+    - target: {fileID: 8746342977658713689, guid: 8ba9b1667a37ba0448093076d95ba66a,
+        type: 3}
+      propertyPath: activators.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746342977658713689, guid: 8ba9b1667a37ba0448093076d95ba66a,
+        type: 3}
+      propertyPath: activators.Array.data[0]
+      value: 
+      objectReference: {fileID: 4993854535446864510}
     - target: {fileID: 8746342977658713695, guid: 8ba9b1667a37ba0448093076d95ba66a,
         type: 3}
       propertyPath: m_RootOrder
@@ -58869,6 +58879,12 @@ PrefabInstance:
 --- !u!4 &5909872009376898362 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8746342977658713695, guid: 8ba9b1667a37ba0448093076d95ba66a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3126999931504257893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6435580006723700608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8226546228828318949, guid: 8ba9b1667a37ba0448093076d95ba66a,
     type: 3}
   m_PrefabInstance: {fileID: 3126999931504257893}
   m_PrefabAsset: {fileID: 0}
@@ -59058,18 +59074,18 @@ PrefabInstance:
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6435580006723700608}
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -59078,17 +59094,17 @@ PrefabInstance:
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2549983832483646034, guid: ad8332f570062fd4a83fe5c00b1d75c2,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad8332f570062fd4a83fe5c00b1d75c2, type: 3}
