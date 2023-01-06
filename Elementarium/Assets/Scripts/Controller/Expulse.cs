@@ -10,7 +10,6 @@ public class Expulse : MonoBehaviour
     private GameObject elementGO;
     private ParticleSystem elementPS;
     private RaycastHit hit;
-    private bool hasShot;
 
 
     public void Update()
@@ -18,11 +17,10 @@ public class Expulse : MonoBehaviour
         if (CheckIfInMenu())
         {
             motherHand.element.StopParticles();
-            hasShot = false;
+            motherHand.haveShot = false;
             return;
         }
         
-        if(motherHand.haveObjectInHand) return;
         FireElement();
 
     }
@@ -37,18 +35,41 @@ public class Expulse : MonoBehaviour
         if (motherHand.element == null) return;
         if(motherHand.element.GetElementData() == null) return;
         
-        if (motherHand.triggerAction.action.ReadValue<float>() > 0.5f && motherHand.gripAction.action.ReadValue<float>()<0.05f)
+        if (motherHand.triggerAction.action.ReadValue<float>() > 0.5f && !motherHand.haveObjectInHand)
         {
-            if (!hasShot)
+            if (motherHand.gripAction.action.ReadValue<float>() < 0.05f)
             {
-                motherHand.element.PlayParticles(anchorTransform, anchorTransform);
-                hasShot = true;
+                if (!motherHand.haveShot)
+                {
+                    motherHand.element.PlayParticles(anchorTransform, anchorTransform);
+                    motherHand.haveShot = true;
+                }
+            }
+            else
+            {
+                StopFire();
             }
         }
         else
         {
-            motherHand.element.StopParticles();
-            hasShot = false;
+            StopFire();
+        }
+    }
+
+    private void StopFire()
+    {
+        if (motherHand.haveShot)
+        {
+            if (!motherHand.haveObjectInHand)
+            {
+                motherHand.element.StopParticles();
+            }
+            else
+            {
+                motherHand.element.DetacheFromHand();
+            }
+
+            motherHand.haveShot = false;
         }
     }
 }
