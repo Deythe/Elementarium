@@ -250,6 +250,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededID: 00000000
+  interactionEvent:
+    m_PersistentCalls:
+      m_Calls: []
   rb: {fileID: 3382317517678031469}
   baseMass: 0.5
   maxCapacity: 10
@@ -47742,12 +47745,12 @@ PrefabInstance:
     - target: {fileID: 8746342977658713695, guid: 8ba9b1667a37ba0448093076d95ba66a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.306
+      value: 1.177
       objectReference: {fileID: 0}
     - target: {fileID: 8746342977658713695, guid: 8ba9b1667a37ba0448093076d95ba66a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.896
+      value: -36.103
       objectReference: {fileID: 0}
     - target: {fileID: 8746342977658713695, guid: 8ba9b1667a37ba0448093076d95ba66a,
         type: 3}
@@ -48436,6 +48439,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8910282278196843338}
     m_Modifications:
+    - target: {fileID: 2706820916832366803, guid: 4a417e0162c42f04296c0c145f198028,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: da847aacc421b3a478545222ef3fd917, type: 2}
     - target: {fileID: 5995253472314911957, guid: 4a417e0162c42f04296c0c145f198028,
         type: 3}
       propertyPath: elementData
