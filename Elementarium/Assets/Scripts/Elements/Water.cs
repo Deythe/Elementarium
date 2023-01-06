@@ -21,6 +21,10 @@ public class Water : ElementData
             case ID.AIR:
                 MergeAir(collisionPoint, collisionRotation);
                 break;
+            case ID.EARTH:
+                Debug.Log("Merge Earth to Mud");
+                MergeEarth(collisionPoint, collisionRotation);
+                break;
         }
     }
 
@@ -41,6 +45,18 @@ public class Water : ElementData
         if ((element = newElementGO.GetComponent<Element>()) != null) 
         {
             Debug.Log("Merge Ice");
+            element.PlayParticles();
+            element.DelayedStopParticles(2);
+            element.DelayedDepopThis(2);
+        }
+    }
+
+    private void MergeEarth(Vector3 collisionPoint, Quaternion collisionRotation) 
+    {
+        newElementGO = Pooler.instance.Pop("Mud", collisionPoint, collisionRotation);
+        if ((element = newElementGO.GetComponent<Element>()) != null) 
+        {
+            Debug.Log("Merge Earth");
             element.PlayParticles();
             element.DelayedStopParticles(2);
             element.DelayedDepopThis(2);

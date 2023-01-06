@@ -9,7 +9,7 @@ public class Earth : ElementData
 {
     public override void Merge(ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation)
     {
-        throw new NotImplementedException();
+
     }
 
     public override void Remove()

@@ -57,7 +57,7 @@ public abstract class ElementData : ScriptableObject
 
     public enum ID 
     {
-        WATER, FIRE, AIR, EARTH, STEAM, ICE, MUD, FLAMETHROWER, CLAY, SAND
+        WATER, FIRE, AIR, EARTH, STEAM, ICE, MUD, FLAMETHROWER, LAVA, SAND
     }
 
 }
