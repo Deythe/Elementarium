@@ -13,7 +13,7 @@ public class HandController : MonoBehaviour
     [SerializeField] private Expulse _expulse;
     [SerializeField] private XRRayInteractor _rayHand;
     [SerializeField] private bool debugMode;
-    private bool _haveAnElement, _haveObjectInHand, _haveGlove;
+    private bool _haveAnElement, _haveObjectInHand, _haveGlove, _haveShot;
 
     private void Start()
     {
@@ -66,6 +66,15 @@ public class HandController : MonoBehaviour
             _absorb.enabled = value;
             _expulse.enabled = value;
             anim.handAnimator.SetBool("HaveGlove", _haveGlove);
+        }
+    }
+    
+    public bool haveShot
+    {
+        get => _haveShot;
+        set
+        {
+            _haveShot = value;
         }
     }
 

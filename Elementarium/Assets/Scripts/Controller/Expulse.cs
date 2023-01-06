@@ -10,7 +10,6 @@ public class Expulse : MonoBehaviour
     private GameObject elementGO;
     private ParticleSystem elementPS;
     private RaycastHit hit;
-    private bool hasShot;
 
 
     public void Update()
@@ -18,7 +17,7 @@ public class Expulse : MonoBehaviour
         if (CheckIfInMenu())
         {
             motherHand.element.StopParticles();
-            hasShot = false;
+            motherHand.haveShot = false;
             return;
         }
         
@@ -38,34 +37,39 @@ public class Expulse : MonoBehaviour
         
         if (motherHand.triggerAction.action.ReadValue<float>() > 0.5f && !motherHand.haveObjectInHand)
         {
-            if (!motherHand.element.GetElementData().isParticuleSystem)
+            if (motherHand.gripAction.action.ReadValue<float>() < 0.05f)
             {
-                if (motherHand.gripAction.action.ReadValue<float>() < 0.05f)
+                if (!motherHand.haveShot)
                 {
-                    if (!hasShot)
-                    {
-                        motherHand.element.PlayParticles(anchorTransform, anchorTransform);
-                        hasShot = true;
-                    }
+                    motherHand.element.PlayParticles(anchorTransform, anchorTransform);
+                    motherHand.haveShot = true;
                 }
+            }
+            else
+            {
+                StopFire();
             }
         }
         else
         {
-            if (hasShot)
-            {
-                if (!motherHand.haveObjectInHand && !motherHand.element.GetElementData().isParticuleSystem)
-                {
-                    motherHand.element.StopParticles();
-                }
-                else
-                {
-                    Debug.Log("Test");
-                    motherHand.element.DetacheFromHand();
-                }
+            StopFire();
+        }
+    }
 
-                hasShot = false;
+    private void StopFire()
+    {
+        if (motherHand.haveShot)
+        {
+            if (!motherHand.haveObjectInHand)
+            {
+                motherHand.element.StopParticles();
             }
+            else
+            {
+                motherHand.element.DetacheFromHand();
+            }
+
+            motherHand.haveShot = false;
         }
     }
 }

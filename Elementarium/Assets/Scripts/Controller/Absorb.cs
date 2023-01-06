@@ -24,9 +24,12 @@ public class Absorb : MonoBehaviour
         if (masterHand.gripAction.action.ReadValue<float>() > 0.95f &&
             masterHand.triggerAction.action.ReadValue<float>() > 0.95f)
         {
-            isAbsorbing = true;
-            absorbShape.SetActive(true);
-            CheckAbsorbedObject();
+            if (!masterHand.haveShot)
+            {
+                isAbsorbing = true;
+                absorbShape.SetActive(true);
+                CheckAbsorbedObject();
+            }
         }
         else
         {
@@ -50,6 +53,7 @@ public class Absorb : MonoBehaviour
         
         if (hit.transform.gameObject.layer.Equals(12)) 
         {
+            
             masterHand.element.SetElementData(hit.collider.GetComponent<Element>().GetElementData());
             return;
         }
