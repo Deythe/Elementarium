@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,24 +7,36 @@ using Object = UnityEngine.Object;
 
 public class FinishCondition : MonoBehaviour
 {
-    [SerializeField] private Object condition;
+    [SerializeField] private List<Transform> activators = new List<Transform>();
+    private List<ICompleted> activs = new List<ICompleted>();
+    private ICompleted iCompleted;
+
     [SerializeField] private UnityEvent finishConditionEvent;
     [SerializeField] private UnityEvent resetCondition;
 
     bool flag;
 
-    private void Update()
+    void Start()
     {
-        if (condition.GetComponent<ICompleted>().getCompletedCondition() && !flag)
+        foreach (Transform activator in activators)
         {
-            flag = true;
-            finishConditionEvent.Invoke();
-            //Destroy(this);
+            iCompleted = activator.GetComponent<ICompleted>();
+            if (iCompleted != null) activs.Add(iCompleted);
         }
-        else if(!condition.GetComponent<ICompleted>().getCompletedCondition() && flag)
+    }
+
+    public void CheckState()
+    {
+        Debug.Log("CheckState");
+        foreach (ICompleted activator in activs)
         {
-            flag = false;
-            resetCondition.Invoke();
+            if (!activator.getCompletedCondition())
+            {
+                resetCondition.Invoke();
+                return;
+            }
         }
+        finishConditionEvent.Invoke();
+        return;
     }
 }
