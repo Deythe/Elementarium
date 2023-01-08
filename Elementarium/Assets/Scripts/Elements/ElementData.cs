@@ -27,7 +27,7 @@ public abstract class ElementData : ScriptableObject
         }
     }
     
-    public abstract void Merge(ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation);
+    public abstract void Merge(Transform elementCollided, ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation);
     public abstract void Remove();
 
     [ContextMenu("Initialize Element")]

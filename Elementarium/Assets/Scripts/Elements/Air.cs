@@ -10,7 +10,7 @@ public class Air : ElementData
     private GameObject newElementGO;
     private Element element;
 
-    public override void Merge(ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation)
+    public override void Merge(Transform elementCollided, ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation)
     {
         switch (elementData.GetID()) 
         {

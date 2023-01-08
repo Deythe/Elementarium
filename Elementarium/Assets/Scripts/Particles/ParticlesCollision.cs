@@ -52,23 +52,26 @@ public class ParticlesCollision : MonoBehaviour
             if (collisionEvents.Count > 0 && canElementCollide)
             {
                 Debug.Log("Collide 3");
+                //NoHandsCollision(other);
                 if (other.GetComponentInParent<HandPresencePhysics>() == null)
                 {
+                    Debug.Log("NoHandCollision");
                     NoHandsCollision(other);
                     return;
                 }
                 if ((collidedElement = other.GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>()) != null)
                 {
+                    if (collidedElement.GetID() == ElementData.ID.EARTH) NoHandsCollision(other);
                     if (collidedElement.GetID() != element.GetID()) 
                     {
                         rotation = Quaternion.FromToRotation(Vector3.forward, transform.forward + collidedElement.transform.forward);
                         if (collidedElement.GetPriority() > element.GetPriority())
                         {
-                            collidedElement.GetElementData().Merge(element.GetElementData(), collisionEvents[0].intersection, rotation);
+                            collidedElement.GetElementData().Merge(element.transform, element.GetElementData(), collisionEvents[0].intersection, rotation);
                         }
                         else
                         {
-                            element.GetElementData().Merge(collidedElement.GetElementData(), collisionEvents[0].intersection, rotation);
+                            element.GetElementData().Merge(collidedElement.transform, collidedElement.GetElementData(), collisionEvents[0].intersection, rotation);
                         }
                         canElementCollide = false;
                         StartCoroutine(CollideCoroutine(collisionCooldown));
@@ -88,11 +91,11 @@ public class ParticlesCollision : MonoBehaviour
                 rotation = Quaternion.LookRotation(Vector3.up);
                 if (collidedElement.GetPriority() > element.GetPriority())
                 {
-                    collidedElement.GetElementData().Merge(element.GetElementData(), collisionEvents[0].intersection, rotation);
+                    collidedElement.GetElementData().Merge(element.transform, element.GetElementData(), collisionEvents[0].intersection, rotation);
                 }
                 else
                 {
-                    element.GetElementData().Merge(collidedElement.GetElementData(), collisionEvents[0].intersection, rotation);
+                    element.GetElementData().Merge(collidedElement.transform, collidedElement.GetElementData(), collisionEvents[0].intersection, rotation);
                 }
                 canElementCollide = false;
                 StartCoroutine(CollideCoroutine(collisionCooldown));
