@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Buttons : MonoBehaviour
+public class Buttons : MonoBehaviour, ICompleted
 {
     [SerializeField] private UnityEvent onPressed, onReleased;
     [SerializeField] private float treshold;
@@ -83,5 +83,10 @@ public class Buttons : MonoBehaviour
         }
         
         GetComponent<MeshRenderer>().material = matInit;
+    }
+
+    public bool getCompletedCondition()
+    {
+        return _isPressed;
     }
 }
