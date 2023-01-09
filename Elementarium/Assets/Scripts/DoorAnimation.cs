@@ -28,18 +28,18 @@ public class DoorAnimation : MonoBehaviour
         }
     }
 
-    public bool CheckState() 
+    public void CheckState() 
     {
         foreach (ICompleted activator in activs) 
         {
             if (!activator.getCompletedCondition()) 
             {
                 if (open) Close();
-                return false;
+                return;
             }
         }
         if (!open) Open();
-        return true;
+        return;
     }
 
     public void Open()
