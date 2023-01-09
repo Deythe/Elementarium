@@ -19,6 +19,7 @@ public class Torch : Brasero, ICompleted
         onFire = false;
 
         Pooler.instance.DePop("p_Fire", fire);
+        interactionEvent.Invoke();
     }
 
     public bool getCompletedCondition()

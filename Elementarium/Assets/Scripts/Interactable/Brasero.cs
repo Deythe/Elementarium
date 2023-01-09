@@ -16,11 +16,12 @@ public class Brasero : Interactible
     {
         if (onFire) return;
 
-
         onFire = true;
         fire = Pooler.instance.Pop("p_Fire", transform);
         fire.transform.position = transform.position + transform.up * offset;
         fire.transform.Rotate(transform.rotation.x - 90, 0, 0);
         fire.GetComponent<ParticleSystem>().Play();
+
+        interactionEvent.Invoke();
     }
 }
