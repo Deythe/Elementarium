@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3264804957279222372}
   - component: {fileID: 3264804957279222375}
   - component: {fileID: 3264804957279222374}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Box1x1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededID: 02000000
+  interactionEvent:
+    m_PersistentCalls:
+      m_Calls: []
   slidingElement: 5
   rb: {fileID: 3264804957279222375}
   velocity: 2
