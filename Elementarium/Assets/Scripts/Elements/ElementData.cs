@@ -12,10 +12,21 @@ public abstract class ElementData : ScriptableObject
     protected int priority;
     [SerializeField] protected float mass = 0;
 
+    [SerializeField] bool _isParticuleSystem;
+    
     [Header("Particles")]
     [SerializeField] protected GameObject particlesPrefab;
     [SerializeField] protected string particlesKey;
 
+    public bool isParticuleSystem
+    {
+        get => _isParticuleSystem;
+        set
+        {
+            _isParticuleSystem = value;
+        }
+    }
+    
     public abstract void Merge(ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation);
     public abstract void Remove();
 
@@ -24,6 +35,7 @@ public abstract class ElementData : ScriptableObject
     {
         priority = Enum.GetValues(typeof(ID)).Cast<int>().Max() - (int)id;
     }
+    
 
     public string GetName() 
     {
@@ -57,7 +69,7 @@ public abstract class ElementData : ScriptableObject
 
     public enum ID 
     {
-        WATER, FIRE, AIR, EARTH, STEAM, ICE, MUD, FLAMETHROWER, CLAY, SAND
+        WATER, FIRE, AIR, EARTH, STEAM, ICE, MUD, FLAMETHROWER, LAVA, SAND
     }
 
 }

@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Interactible: MonoBehaviour
 {
     private Transform _collidedParticle;
     [SerializeField] private List<ElementData.ID> neededID;
+    public UnityEvent interactionEvent;
     
     private void OnParticleCollision(GameObject other)
     {
