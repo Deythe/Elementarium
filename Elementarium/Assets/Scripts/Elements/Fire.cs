@@ -7,11 +7,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Fire", menuName = "Element/Fire")]
 public class Fire : ElementData
 {
+    [Header("Lava")]
+    [SerializeField] private ElementData lavaData;
+    [SerializeField] private Material lavaMaterial;
 
     private GameObject newElementGO;
     private Element element;
 
-    public override void Merge(ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation)
+    public override void Merge(Transform elementCollided, ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation)
     {
         switch (elementData.GetID())
         {
@@ -20,8 +23,8 @@ public class Fire : ElementData
                 Debug.Log("Merge Air");
                 break;
             case ID.EARTH:
-                MergeEarth(collisionPoint, collisionRotation);
                 Debug.Log("Merge Earth to Lava");
+                MergeEarth(elementCollided, collisionPoint, collisionRotation);
                 break;
         }
     }
@@ -38,14 +41,12 @@ public class Fire : ElementData
         }
     }
 
-    private void MergeEarth(Vector3 collisionPoint, Quaternion collisionRotation)
+    private void MergeEarth(Transform elementCollided, Vector3 collisionPoint, Quaternion collisionRotation)
     {
-        newElementGO = Pooler.instance.Pop("Lava", collisionPoint, collisionRotation);
-        if ((element = newElementGO.GetComponent<Element>()) != null) 
+        if ((element = elementCollided.GetComponent<Element>()) != null) 
         {
-            element.PlayParticles();
-            element.DelayedStopParticles(2);
-            element.DelayedDepopThis(2);
+            element.SetElementData(lavaData);
+            elementCollided.GetComponentInChildren<MeshRenderer>().material = lavaMaterial;
         }
     }
 

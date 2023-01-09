@@ -7,7 +7,7 @@ using UnityEngine;
 public class Lava : ElementData
 {
 
-    public override void Merge(ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation)
+    public override void Merge(Transform elementCollided, ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation)
     {
         throw new NotImplementedException();
     }

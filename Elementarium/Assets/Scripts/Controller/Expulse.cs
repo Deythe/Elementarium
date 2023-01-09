@@ -45,7 +45,7 @@ public class Expulse : MonoBehaviour
                     motherHand.haveShot = true;
                 }
             }
-            else
+            else if(motherHand.gripAction.action.ReadValue<float>()>0.50)
             {
                 StopFire();
             }
