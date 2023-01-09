@@ -12,7 +12,7 @@ public class Brasero : Interactible
         SwitchOn();
     }
 
-    protected void SwitchOn()
+    public void SwitchOn()
     {
         if (onFire) return;
 

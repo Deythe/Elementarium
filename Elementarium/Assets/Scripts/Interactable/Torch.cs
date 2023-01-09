@@ -11,7 +11,7 @@ public class Torch : Brasero, ICompleted
         else SwitchOff();
     }
 
-    protected void SwitchOff() 
+    public void SwitchOff() 
     {
         if (!onFire) return;
 
