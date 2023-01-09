@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Torch : Brasero, ICompleted
 {
+    [SerializeField] private bool finalState;
+
     [ContextMenu("Toggle Torch")]
     public void ToggleFire() 
     {
@@ -24,6 +26,6 @@ public class Torch : Brasero, ICompleted
 
     public bool getCompletedCondition()
     {
-        return onFire;
+        return onFire && finalState;
     }
 }
