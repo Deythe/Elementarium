@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,11 +13,17 @@ public class FinishCondition : MonoBehaviour
     private ICompleted iCompleted;
     [SerializeField] private bool hasOrder;
 
+    [Header("Finish")]
+    [SerializeField] private float finishDelay;
     [SerializeField] private UnityEvent finishConditionEvent;
+
+    [Header("Reset")]
+    [SerializeField] private float resetDelay;
     [SerializeField] private UnityEvent resetCondition;
 
     bool completed;
     bool flag;
+    int totalNbChange;
     int nbChange;
 
     void Start()
@@ -33,7 +40,6 @@ public class FinishCondition : MonoBehaviour
         completed = true;
         flag = true;
         nbChange = 0;
-        Debug.Log("CheckState");
         foreach (ICompleted activator in activs)
         {
             if (flag != activator.getCompletedCondition()) 
@@ -47,7 +53,25 @@ public class FinishCondition : MonoBehaviour
             }
         }
 
-        if (completed) finishConditionEvent.Invoke();
-        else if(hasOrder && nbChange > 1) resetCondition.Invoke();
+        if (nbChange > totalNbChange) totalNbChange = nbChange;
+
+        StartCoroutine(CheckStateCoroutine());       
+    }
+
+    IEnumerator CheckStateCoroutine() 
+    {
+
+        if (hasOrder && totalNbChange > 1 && completed)
+        {
+            yield return new WaitForSeconds(resetDelay);
+            resetCondition.Invoke();
+            totalNbChange = 0;
+        }
+        else if (completed) 
+        {
+            yield return new WaitForSeconds(finishDelay);
+            finishConditionEvent.Invoke();
+        }
+
     }
 }
