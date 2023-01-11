@@ -26,6 +26,6 @@ public class Torch : Brasero, ICompleted
 
     public bool getCompletedCondition()
     {
-        return onFire && finalState;
+        return onFire == finalState;
     }
 }
