@@ -12,6 +12,7 @@ public class WindMill: Interactible, ICompleted
     protected override void Collide(Transform e)
     {
         rb.angularVelocity += angularAcceleration;
+        interactionEvent.Invoke();
     }
     
     public bool getCompletedCondition()
