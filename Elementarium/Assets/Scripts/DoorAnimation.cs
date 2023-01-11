@@ -19,13 +19,14 @@ public class DoorAnimation : MonoBehaviour
 
     public void Open()
     {
-        doorState.Play("DoorOpen");
+        
+        if(!open) doorState.Play("DoorOpen");
         open = true;
     }
 
     public void Close()
     {
-        doorState.Play("DoorClose");
+        if(open) doorState.Play("DoorClose");
         open = false;
     }
 }

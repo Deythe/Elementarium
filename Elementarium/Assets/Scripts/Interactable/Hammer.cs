@@ -20,6 +20,7 @@ public class Hammer : Interactible
     {
         if (!usingGravity)
         {
+            hammer_rb.AddForce(-vectorForceEnclume * upAccelerationForce, ForceMode.Acceleration);
         }
     }
 }
