@@ -3110,8 +3110,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3264804957279222372, guid: d75132da476727345a308b11ea8aceef,
+        type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3264804957279222372, guid: d75132da476727345a308b11ea8aceef,
+        type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3264804957279222372, guid: d75132da476727345a308b11ea8aceef,
+        type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2622516208464311238}
+    - target: {fileID: 3264804957279222372, guid: d75132da476727345a308b11ea8aceef,
+        type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d75132da476727345a308b11ea8aceef, type: 3}
+--- !u!1 &2622516208464311238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1273078292558163830, guid: d75132da476727345a308b11ea8aceef,
+    type: 3}
+  m_PrefabInstance: {fileID: 3877578863173737648}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3399896886042716540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1936883581079057868, guid: d75132da476727345a308b11ea8aceef,
