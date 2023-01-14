@@ -27,9 +27,14 @@ public class PipeOpened : MonoBehaviour
             
             for (int i = 0; i < listPipeOpenedOrdered.Count; i++)
             {
+                if (!listPipeOpenedOrdered[i].isFilled)
+                {
+                    return;
+                }
+                
                 if (listPipeOpenedOrdered[i].Equals(this))
                 {
-                    if (i.Equals(0) && i+1<listPipeOpenedOrdered.Count)
+                    if (i<listPipeOpenedOrdered.Count-1)
                     {
                         listPipeOpenedOrdered[i+1].element.PlayParticles(listPipeOpenedOrdered[i+1].transform, listPipeOpenedOrdered[i+1].transform.rotation, listPipeOpenedOrdered[i+1].transform);
                     }

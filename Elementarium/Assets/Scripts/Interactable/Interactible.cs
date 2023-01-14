@@ -21,6 +21,20 @@ public abstract class Interactible: MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        _collidedParticle = collision.gameObject.transform;
+        if (_collidedParticle == null) return;
+        if (CheckCollidedElement())
+        {
+            Collide(_collidedParticle);
+        }
+        else
+        {
+            _collidedParticle = null;
+        }
+    }
+
     private bool CheckCollidedElement()
     {
         if (_collidedParticle.GetComponent<Element>() != null)
