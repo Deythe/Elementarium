@@ -86,7 +86,7 @@ public class Absorb : MonoBehaviour
     public void Release()
     {
         masterHand.haveObjectInHand = false;
-        absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
+        //absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     public void Grabbed()

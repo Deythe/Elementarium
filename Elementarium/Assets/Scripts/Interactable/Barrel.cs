@@ -74,6 +74,7 @@ public class Barrel :Interactible, IContainer, ICompleted
             currentMass = baseMass + (currentCapacity * element.GetMass());
             rb.mass = currentMass;
             rb.WakeUp();
+            interactionEvent.Invoke();
         }
     }
 
@@ -118,6 +119,7 @@ public class Barrel :Interactible, IContainer, ICompleted
 
     public bool getCompletedCondition()
     {
+        Debug.Log("conditionCompleted");
         return (currentCapacity - maxCapacity).Equals(0);
     }
 }

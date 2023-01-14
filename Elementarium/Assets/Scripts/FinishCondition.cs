@@ -31,12 +31,14 @@ public class FinishCondition : MonoBehaviour
         foreach (Transform activator in activators)
         {
             iCompleted = activator.GetComponent<ICompleted>();
+            Debug.Log(iCompleted);
             if (iCompleted != null) activs.Add(iCompleted);
         }
     }
 
     public void CheckState()
     {
+        Debug.Log("checkingState");
         completed = true;
         flag = true;
         nbChange = 0;
