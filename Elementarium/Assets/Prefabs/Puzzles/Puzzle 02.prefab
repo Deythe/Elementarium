@@ -480,6 +480,7 @@ GameObject:
   - component: {fileID: 4440450634996354531}
   - component: {fileID: 4440450634996354535}
   - component: {fileID: 4440450634996354528}
+  - component: {fileID: 4440450634996354529}
   - component: {fileID: 4440450634996354530}
   m_Layer: 0
   m_Name: BarrelObject (1)
@@ -521,19 +522,7 @@ MonoBehaviour:
   neededID: 00000000
   interactionEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1169826928016943050}
-        m_TargetAssemblyTypeName: FinishCondition, Assembly-CSharp
-        m_MethodName: CheckState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   rb: {fileID: 4440450634996354530}
   baseMass: 0.5
   maxCapacity: 10
@@ -557,6 +546,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementData: {fileID: 11400000, guid: a1d589fed03ede047b5bfa9cff3e3a14, type: 2}
+--- !u!114 &4440450634996354529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4440450634996354540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d158abee50ef8c4591f4914856a1c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activators: []
+  hasOrder: 0
+  finishConditionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8394434557653581344}
+        m_TargetAssemblyTypeName: DoorAnimation, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  resetCondition:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &4440450634996354530
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2788,7 +2809,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9038828122084754930}
-  - component: {fileID: 1169826928016943050}
   m_Layer: 0
   m_Name: Puzzle 02
   m_TagString: Untagged
@@ -2815,44 +2835,10 @@ Transform:
   - {fileID: 8394434557653581350}
   - {fileID: 3305548394196130480}
   - {fileID: 926957701985737330}
+  - {fileID: 480996206419915350}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1169826928016943050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9038828122084754931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d158abee50ef8c4591f4914856a1c08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activators:
-  - {fileID: 4440450634996354531}
-  hasOrder: 0
-  finishDelay: 0
-  finishConditionEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8394434557653581344}
-        m_TargetAssemblyTypeName: DoorAnimation, Assembly-CSharp
-        m_MethodName: Open
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  resetDelay: 0
-  resetCondition:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &9038828122454558702
 GameObject:
   m_ObjectHideFlags: 0
@@ -3906,6 +3892,86 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3154427491351355960}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3168869058427847311
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9038828122084754930}
+    m_Modifications:
+    - target: {fileID: 3267012017343017157, guid: c1191470129f5e643a1aa4ba12236631,
+        type: 3}
+      propertyPath: m_Name
+      value: Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267012017343017157, guid: c1191470129f5e643a1aa4ba12236631,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267012017343017177, guid: c1191470129f5e643a1aa4ba12236631,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267012017343017177, guid: c1191470129f5e643a1aa4ba12236631,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.061
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267012017343017177, guid: c1191470129f5e643a1aa4ba12236631,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.096000016
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267012017343017177, guid: c1191470129f5e643a1aa4ba12236631,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -56.497
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267012017343017177, guid: c1191470129f5e643a1aa4ba12236631,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267012017343017177, guid: c1191470129f5e643a1aa4ba12236631,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267012017343017177, guid: c1191470129f5e643a1aa4ba12236631,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0000029504295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267012017343017177, guid: c1191470129f5e643a1aa4ba12236631,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267012017343017177, guid: c1191470129f5e643a1aa4ba12236631,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267012017343017177, guid: c1191470129f5e643a1aa4ba12236631,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267012017343017177, guid: c1191470129f5e643a1aa4ba12236631,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c1191470129f5e643a1aa4ba12236631, type: 3}
+--- !u!4 &480996206419915350 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3267012017343017177, guid: c1191470129f5e643a1aa4ba12236631,
+    type: 3}
+  m_PrefabInstance: {fileID: 3168869058427847311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3241725352932471782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4062,11 +4128,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PipeAngle
-      objectReference: {fileID: 0}
-    - target: {fileID: 4703184039865642388, guid: 90e3872fd112f6946a2d2fb51b319246,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5336414108303111982, guid: 90e3872fd112f6946a2d2fb51b319246,
         type: 3}
@@ -5229,8 +5290,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hook
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3983516303709189312, guid: 98148e813846da84fb242977032c95a9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98148e813846da84fb242977032c95a9, type: 3}
 --- !u!4 &6143802036168424903 stripped
 Transform:
@@ -5466,8 +5526,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hook (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3983516303709189312, guid: 98148e813846da84fb242977032c95a9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98148e813846da84fb242977032c95a9, type: 3}
 --- !u!4 &6495123613431694451 stripped
 Transform:
@@ -5587,8 +5646,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hook (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3983516303709189312, guid: 98148e813846da84fb242977032c95a9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98148e813846da84fb242977032c95a9, type: 3}
 --- !u!4 &6420854947599661752 stripped
 Transform:
