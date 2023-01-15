@@ -103,7 +103,6 @@ public class Barrel :Interactible, IContainer, ICompleted
 
     protected override void Collide(Transform e)
     {
-        Debug.Log("Collision");
         collidedElement = e.GetComponent<Element>();
         ModifyCapacity(collidedElement, fillSpeed);
     }
@@ -119,7 +118,6 @@ public class Barrel :Interactible, IContainer, ICompleted
 
     public bool getCompletedCondition()
     {
-        Debug.Log("conditionCompleted");
         return (currentCapacity - maxCapacity).Equals(0);
     }
 }
