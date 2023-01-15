@@ -13,7 +13,7 @@ public class Pipe : Interactible
     [SerializeField] private bool _isInHand;
     [SerializeField] private Rigidbody rb;
     private List<ParticleCollisionEvent> currentCollision = new List<ParticleCollisionEvent>();
-    private WaitForSeconds stopTime = new WaitForSeconds(0.5f);
+    private WaitForSeconds stopTime = new WaitForSeconds(0.3f);
     private Transform holeMoreDistant, _hookAttached;
     
     public bool isOnHook
