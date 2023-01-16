@@ -1,27 +1,51 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
-public class SteamMachine : Interactible
+public class SteamMachine : Interactible, ICompleted
 {
-    private Rigidbody rb;
-    [SerializeField] private float upForce;
+    [SerializeField] private Transform arrow;
+    [SerializeField] private float coolingSpeed;
+    private bool cooling;
     private bool frozen;
+    private float angle;
+    
 
-    private void Start()
+    private void Update()
     {
-        rb = GetComponent<Rigidbody>();
+        angle = arrow.localEulerAngles.x;
+        angle = (angle > 180) ? angle - 360 : angle;
+        if (!cooling) return;
+        if (angle >= -80)
+        {
+            arrow.Rotate(-coolingSpeed, 0, 0);
+            if (angle <= -80)
+            {
+                arrow.Rotate(0.2f, 0, 0);
+                cooling = false;
+            }
+        }
     }
 
     protected override void Collide(Transform e)
     {
         if (e.GetComponentInParent<Element>().GetID() == ElementData.ID.STEAM)
         {
-            rb.AddForce(Vector3.up * upForce);
+            if (angle <= 80)
+            {
+                arrow.Rotate(1, 0, 0);
+                interactionEvent.Invoke();
+                if (angle >= 80)
+                {
+                    arrow.eulerAngles = new Vector3(350, 90, 0);
+                }
+                cooling = true;
+            }
         } else
         {
-            Debug.Log("collided with ice");
+            arrow.Rotate(-1, 0, 0);
             if (frozen) return;
             StartCoroutine(Freeze());
         }
@@ -34,5 +58,10 @@ public class SteamMachine : Interactible
         yield return new WaitForSeconds(2);
         frozen = false;
         Debug.Log("I'm not frozen anymore");
+    }
+
+    public bool getCompletedCondition()
+    {
+        return angle >= -40 && angle <= 40;
     }
 }

@@ -10,16 +10,15 @@ public class DoorAnimation : MonoBehaviour
 
     void Start()
     {
-
         if (open)
         {
+            open = false;
             Open();
         }
     }
 
     public void Open()
     {
-        
         if(!open) doorState.Play("DoorOpen");
         open = true;
     }
