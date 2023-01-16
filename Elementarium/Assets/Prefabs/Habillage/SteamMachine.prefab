@@ -25,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824457030524913172}
-  m_LocalRotation: {x: -0, y: 0.70710677, z: -1.1368684e-13, w: 0.7071069}
+  m_LocalRotation: {x: -0.45451945, y: 0.54167527, z: 0.45451945, w: 0.54167527}
   m_LocalPosition: {x: 0.16326666, y: 0.004311636, z: 0.054214478}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7462400855451980145}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -80, y: 90, z: 0}
 --- !u!33 &1887510921665853660
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 1056508279037625102}
   - component: {fileID: 2976193152276035524}
   - component: {fileID: 8406928046459463924}
-  m_Layer: 0
+  - component: {fileID: 5059008962735111084}
+  m_Layer: 16
   m_Name: SteamMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,11 +181,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ed536a826921e48ac9aee7bb0032c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neededID: 
+  neededID: 04000000
   interactionEvent:
     m_PersistentCalls:
       m_Calls: []
-  upForce: 0
+  arrow: {fileID: 2474323467468033214}
+  coolingSpeed: 0.2
+--- !u!64 &5059008962735111084
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624680369610249745}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1616458658916155781, guid: 2bb74a484dac73640bc682c91527e880, type: 3}
 --- !u!1 &7837414157954124747
 GameObject:
   m_ObjectHideFlags: 0

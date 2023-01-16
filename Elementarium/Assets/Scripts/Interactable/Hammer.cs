@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Hammer : Interactible
@@ -6,21 +7,46 @@ public class Hammer : Interactible
     [SerializeField] private Rigidbody hammer_rb, pales_rb;
     [SerializeField] private float upAccelerationForce;
     [SerializeField] private Vector3 angularAcceleration, vectorForceEnclume;
-     
+    
+    private Vector3 initialPosition;
+
+    private void Awake()
+    {
+        initialPosition = hammer_rb.transform.position;
+    }
+
     protected override void Collide(Transform e)
     {
-        if (e.GetComponentInParent<Element>().GetID() == ElementData.ID.AIR)
-        {
-            pales_rb.angularVelocity += angularAcceleration;
-            hammer_rb.AddForce(vectorForceEnclume * upAccelerationForce, ForceMode.Acceleration);
-        }
+        pales_rb.angularVelocity += angularAcceleration;
+        hammer_rb.AddForce(vectorForceEnclume * upAccelerationForce, ForceMode.Acceleration);
     }
 
     private void FixedUpdate()
     {
         if (!usingGravity)
         {
-            hammer_rb.AddForce(-vectorForceEnclume * upAccelerationForce, ForceMode.Acceleration);
+            if (vectorForceEnclume.x > 0)
+            {
+                if (Mathf.Abs(hammer_rb.transform.position.x) - Mathf.Abs(initialPosition.x) > 0)
+                {
+                    hammer_rb.AddForce(-vectorForceEnclume * upAccelerationForce, ForceMode.Acceleration);
+                }
+                else
+                {
+                    hammer_rb.velocity = Vector3.zero;
+                }
+            }
+            else
+            {
+                if (Mathf.Abs(hammer_rb.transform.position.x) - Mathf.Abs(initialPosition.x) < 0)
+                {
+                    hammer_rb.AddForce(-vectorForceEnclume * upAccelerationForce, ForceMode.Acceleration);
+                }
+                else
+                {
+                    hammer_rb.velocity = Vector3.zero;
+                }
+            }
         }
     }
 }

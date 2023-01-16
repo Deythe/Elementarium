@@ -31,6 +31,7 @@ public class FinishCondition : MonoBehaviour
         foreach (Transform activator in activators)
         {
             iCompleted = activator.GetComponent<ICompleted>();
+            Debug.Log(iCompleted);
             if (iCompleted != null) activs.Add(iCompleted);
         }
     }
@@ -60,7 +61,6 @@ public class FinishCondition : MonoBehaviour
 
     IEnumerator CheckStateCoroutine() 
     {
-
         if (hasOrder && totalNbChange > 1 && completed)
         {
             yield return new WaitForSeconds(resetDelay);
@@ -72,6 +72,5 @@ public class FinishCondition : MonoBehaviour
             yield return new WaitForSeconds(finishDelay);
             finishConditionEvent.Invoke();
         }
-
     }
 }

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HeavyObject : Interactible
@@ -10,6 +12,7 @@ public class HeavyObject : Interactible
     [SerializeField] private float velocity;
 
     private RaycastHit hit;
+    [SerializeField] private float offsetOrigin;
     [SerializeField] private float raycastDistance;
     private Element element;
     private float xDiff;
@@ -18,6 +21,7 @@ public class HeavyObject : Interactible
 
     private void Update()
     {
+        Debug.DrawRay(transform.position + Vector3.down * offsetOrigin, Vector3.down * raycastDistance, Color.blue);
         if (rb.velocity.sqrMagnitude < (velocity * velocity) / 2) 
         {
             ResetVelocity();
@@ -27,9 +31,11 @@ public class HeavyObject : Interactible
 
     protected override void Collide(Transform e)
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, raycastDistance))
+        
+        if (Physics.Raycast(transform.position + Vector3.down * offsetOrigin, Vector3.down, out hit, raycastDistance))
         {
             element = hit.transform.GetComponent<Element>();
+            Debug.Log(hit.transform.name);
 
             if (element == null || element.GetID() != slidingElement)
             {
