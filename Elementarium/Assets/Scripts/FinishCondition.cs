@@ -38,7 +38,6 @@ public class FinishCondition : MonoBehaviour
 
     public void CheckState()
     {
-        Debug.Log("checkingState");
         completed = true;
         flag = true;
         nbChange = 0;
@@ -62,7 +61,6 @@ public class FinishCondition : MonoBehaviour
 
     IEnumerator CheckStateCoroutine() 
     {
-
         if (hasOrder && totalNbChange > 1 && completed)
         {
             yield return new WaitForSeconds(resetDelay);
@@ -74,6 +72,5 @@ public class FinishCondition : MonoBehaviour
             yield return new WaitForSeconds(finishDelay);
             finishConditionEvent.Invoke();
         }
-
     }
 }
