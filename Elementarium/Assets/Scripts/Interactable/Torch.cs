@@ -28,4 +28,9 @@ public class Torch : Brasero, ICompleted
     {
         return onFire == finalState;
     }
+
+    public bool getResetCondition()
+    {
+        return false;
+    }
 }

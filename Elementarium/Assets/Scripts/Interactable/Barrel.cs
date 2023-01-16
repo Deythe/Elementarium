@@ -120,4 +120,9 @@ public class Barrel :Interactible, IContainer, ICompleted
     {
         return (currentCapacity - maxCapacity).Equals(0);
     }
+
+    public bool getResetCondition()
+    {
+        return false;
+    }
 }
