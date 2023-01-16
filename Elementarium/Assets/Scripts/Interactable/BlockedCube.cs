@@ -13,7 +13,7 @@ public class BlockedCube : MonoBehaviour
     {
         if (woodParent.childCount < 2) 
         {
-            rb.isKinematic = true;
+            rb.isKinematic = false;
             xrg.enabled = true;
         }
     }
