@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -13,6 +11,7 @@ public abstract class ElementData : ScriptableObject
     [SerializeField] protected float mass = 0;
 
     [SerializeField] bool _isParticuleSystem;
+    [SerializeField] private AudioManager.Clip expulseAudioClip;
     
     [Header("Particles")]
     [SerializeField] protected GameObject particlesPrefab;
@@ -70,6 +69,11 @@ public abstract class ElementData : ScriptableObject
     public enum ID 
     {
         WATER, FIRE, AIR, EARTH, STEAM, ICE, MUD, FLAMETHROWER, LAVA, SAND
+    }
+
+    public AudioManager.Clip GetAudioClip()
+    {
+        return expulseAudioClip;
     }
 
 }

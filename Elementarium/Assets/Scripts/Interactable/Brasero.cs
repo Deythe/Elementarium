@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Brasero : Interactible
 {
+    [SerializeField] Animation braseroDoor;
+    [SerializeField] Animation emmisivePart;
     protected bool onFire;
     public float offset;
     protected GameObject fire;
@@ -21,7 +21,8 @@ public class Brasero : Interactible
         fire.transform.position = transform.position + transform.up * offset;
         fire.transform.Rotate(transform.rotation.x - 90, 0, 0);
         fire.GetComponent<ParticleSystem>().Play();
-
+        braseroDoor.Play("BraseroClose");
+        emmisivePart.Play("BraseroEmissive");
         interactionEvent.Invoke();
     }
 }

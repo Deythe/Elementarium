@@ -89,4 +89,9 @@ public class Buttons : MonoBehaviour, ICompleted
     {
         return _isPressed;
     }
+
+    public bool getResetCondition()
+    {
+        return false;
+    }
 }

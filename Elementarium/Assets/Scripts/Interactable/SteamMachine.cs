@@ -8,6 +8,7 @@ public class SteamMachine : Interactible, ICompleted
 {
     [SerializeField] private Transform arrow;
     [SerializeField] private float coolingSpeed;
+    [SerializeField] private float heatingSpeed;
     private bool cooling;
     private bool frozen;
     private float angle;
@@ -21,12 +22,14 @@ public class SteamMachine : Interactible, ICompleted
         if (angle >= -80)
         {
             arrow.Rotate(-coolingSpeed, 0, 0);
+            interactionEvent.Invoke();
             if (angle <= -80)
             {
-                arrow.Rotate(0.2f, 0, 0);
+                arrow.Rotate(coolingSpeed, 0, 0);
                 cooling = false;
             }
         }
+        
     }
 
     protected override void Collide(Transform e)
@@ -35,7 +38,7 @@ public class SteamMachine : Interactible, ICompleted
         {
             if (angle <= 80)
             {
-                arrow.Rotate(1, 0, 0);
+                arrow.Rotate(heatingSpeed, 0, 0);
                 interactionEvent.Invoke();
                 if (angle >= 80)
                 {
@@ -45,7 +48,7 @@ public class SteamMachine : Interactible, ICompleted
             }
         } else
         {
-            arrow.Rotate(-1, 0, 0);
+            arrow.Rotate(-heatingSpeed, 0, 0);
             if (frozen) return;
             StartCoroutine(Freeze());
         }
@@ -62,6 +65,11 @@ public class SteamMachine : Interactible, ICompleted
 
     public bool getCompletedCondition()
     {
-        return angle >= -40 && angle <= 40;
+        return angle is >= -40 and <= 40;
+    }
+
+    public bool getResetCondition()
+    {
+        return !(angle is >= -40 and <= 40);
     }
 }

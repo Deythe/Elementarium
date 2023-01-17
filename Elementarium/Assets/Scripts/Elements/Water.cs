@@ -7,7 +7,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Water", menuName = "Element/Water")]
 public class Water : ElementData
 {
-
     private GameObject newElementGO;
     private Element element;
 
