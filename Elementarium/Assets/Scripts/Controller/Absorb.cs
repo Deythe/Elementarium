@@ -1,6 +1,7 @@
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Absorb : MonoBehaviour
 {
@@ -85,6 +86,7 @@ public class Absorb : MonoBehaviour
     public void Release()
     {
         masterHand.haveObjectInHand = false;
+        //absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     public void Grabbed()
@@ -113,5 +115,6 @@ public class Absorb : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         while (!masterHand.haveObjectInHand) ;
+        Release();
     }
 }

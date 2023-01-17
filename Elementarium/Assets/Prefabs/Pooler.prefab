@@ -45,15 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolKeys:
-  - key: Steam
-    pool:
-      prefab: {fileID: 3492171818417176022, guid: 963da8a42f9a71440b327f80b0d96b9c,
-        type: 3}
-      baseCount: 3
-  - key: p_Steam
-    pool:
-      prefab: {fileID: 1253142483436318, guid: 7c50de229e88bd9428ecf14259835b20, type: 3}
-      baseCount: 3
   - key: p_Water
     pool:
       prefab: {fileID: 5484362316147430247, guid: 0c4b5e79854978b4d857eab7fc922401,
@@ -68,14 +59,33 @@ MonoBehaviour:
       prefab: {fileID: 4193000839210913559, guid: 9a5aa08a3019057438591a51590da4f0,
         type: 3}
       baseCount: 3
+  - key: p_Earth
+    pool:
+      prefab: {fileID: 2866512253297607436, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      baseCount: 3
+  - key: Steam
+    pool:
+      prefab: {fileID: 3492171818417176022, guid: 963da8a42f9a71440b327f80b0d96b9c,
+        type: 3}
+      baseCount: 3
+  - key: p_Steam
+    pool:
+      prefab: {fileID: 1253142483436318, guid: 7c50de229e88bd9428ecf14259835b20, type: 3}
+      baseCount: 3
+  - key: Ice
+    pool:
+      prefab: {fileID: 2390752587740751661, guid: 12f0d26a5ef03744996d064f85fee68c,
+        type: 3}
+      baseCount: 3
   - key: p_Ice
     pool:
       prefab: {fileID: 5452846966871389477, guid: dc4045ad24c13534cbdb01ecdd555c3e,
         type: 3}
       baseCount: 3
-  - key: Ice
+  - key: Flamethrower
     pool:
-      prefab: {fileID: 2390752587740751661, guid: 12f0d26a5ef03744996d064f85fee68c,
+      prefab: {fileID: 1436368493083274651, guid: 9a3277cbb27c98f4e8c4e2f8f03fbc58,
         type: 3}
       baseCount: 3
   - key: p_Flamethrower
@@ -83,8 +93,33 @@ MonoBehaviour:
       prefab: {fileID: 5452846966871389477, guid: d7f2074f6918e3249a19278d400f659e,
         type: 3}
       baseCount: 3
-  - key: Flamethrower
+  - key: Lava
     pool:
-      prefab: {fileID: 1436368493083274651, guid: 9a3277cbb27c98f4e8c4e2f8f03fbc58,
+      prefab: {fileID: 8844716118679652012, guid: 60241f20727913c49b53c262e8b402a9,
+        type: 3}
+      baseCount: 3
+  - key: p_Lava
+    pool:
+      prefab: {fileID: 5484362316147430247, guid: 18b9f3bd295ba994fb035167f044f185,
+        type: 3}
+      baseCount: 3
+  - key: Sand
+    pool:
+      prefab: {fileID: 1074612584755074654, guid: 34c6553c423a69643a1e90610990ebf4,
+        type: 3}
+      baseCount: 3
+  - key: p_Sand
+    pool:
+      prefab: {fileID: 5452846966871389477, guid: bbe69e14918b19a4d9a2b819ce4338ff,
+        type: 3}
+      baseCount: 3
+  - key: Mud
+    pool:
+      prefab: {fileID: 2866512253297607436, guid: 011d78118ef3e69459d325600de6408a,
+        type: 3}
+      baseCount: 3
+  - key: p_Mud
+    pool:
+      prefab: {fileID: 5484362316147430247, guid: 842df739f0e365440b5e969d90788690,
         type: 3}
       baseCount: 3

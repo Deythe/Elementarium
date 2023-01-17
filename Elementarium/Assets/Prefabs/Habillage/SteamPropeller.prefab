@@ -164,6 +164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededID: 04000000
+  interactionEvent:
+    m_PersistentCalls:
+      m_Calls: []
   pales: {fileID: 7232347345817591238}
   rb: {fileID: 6393561908859701468}
   angularAcceleration: {x: 0, y: 0, z: 20000}
@@ -295,7 +298,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 9046825036822801564, guid: b11151cba3e2d44448bccf2b4882a5ba, type: 3}
 --- !u!54 &6393561908859701468

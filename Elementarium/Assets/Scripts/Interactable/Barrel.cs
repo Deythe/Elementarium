@@ -74,6 +74,7 @@ public class Barrel :Interactible, IContainer, ICompleted
             currentMass = baseMass + (currentCapacity * element.GetMass());
             rb.mass = currentMass;
             rb.WakeUp();
+            interactionEvent.Invoke();
         }
     }
 
@@ -102,7 +103,6 @@ public class Barrel :Interactible, IContainer, ICompleted
 
     protected override void Collide(Transform e)
     {
-        Debug.Log("Collision");
         collidedElement = e.GetComponent<Element>();
         ModifyCapacity(collidedElement, fillSpeed);
     }

@@ -9,12 +9,8 @@ public class Hook : MonoBehaviour
     private Pipe currentPipe;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Pipe>() != null)
-        {
-            currentPipe = other.GetComponent<Pipe>();
-            currentPipe.isOnHook = true;
-            currentPipe.hookAttached = pivot;
-        } else if (other.GetComponentInParent<Pipe>() != null)
+        Debug.Log(other.gameObject);
+        if (other.GetComponentInParent<Pipe>() != null)
         {
             currentPipe = other.GetComponentInParent<Pipe>();
             currentPipe.isOnHook = true;
@@ -24,16 +20,11 @@ public class Hook : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<Pipe>() != null)
-        {
-            currentPipe = other.GetComponent<Pipe>();
-            currentPipe.isOnHook = false;
-            currentPipe = null;
-        } else if (other.GetComponentInParent<Pipe>() != null)
-        {
+       if (other.GetComponentInParent<Pipe>() != null)
+       {
             currentPipe = other.GetComponentInParent<Pipe>();
             currentPipe.isOnHook = false;
             currentPipe.hookAttached = null;
-        }
+       }
     }
 }

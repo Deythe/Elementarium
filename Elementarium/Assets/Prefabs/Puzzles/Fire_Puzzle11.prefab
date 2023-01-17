@@ -1470,6 +1470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5488840159662624860}
+  - component: {fileID: 1045302777744674355}
   m_Layer: 0
   m_Name: Fire_Puzzle11
   m_TagString: Untagged
@@ -1500,6 +1501,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1045302777744674355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5488840159662624861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d158abee50ef8c4591f4914856a1c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activators:
+  - {fileID: 1039151200117447464}
+  - {fileID: 3514507240674962377}
+  - {fileID: 8452872253728490339}
+  - {fileID: 5930246226901057179}
+  - {fileID: 6064704560053230249}
+  hasOrder: 0
+  finishDelay: 0
+  finishConditionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4513338236111870648}
+        m_TargetAssemblyTypeName: DoorAnimation, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  resetDelay: 0
+  resetCondition:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5488840159751614668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3736,6 +3776,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4776299616996169011, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4776299616996169012, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: m_Mesh
@@ -3755,6 +3800,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VersionIndex
       value: 1370
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489753038284526069, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: offset
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: finalState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -3780,17 +3840,17 @@ PrefabInstance:
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4513338236111870648}
+      objectReference: {fileID: 3542568958112665619}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 3542568958112665619}
+      objectReference: {fileID: 1118155524789133554}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1118155524789133554}
+      objectReference: {fileID: 1045302777744674355}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -3809,7 +3869,7 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CheckState
+      value: ToggleFire
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -3819,12 +3879,12 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ToggleFire
+      value: CheckState
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DoorAnimation, Assembly-CSharp
+      value: Torch, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -3834,7 +3894,7 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: Torch, Assembly-CSharp
+      value: FinishCondition, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -3938,6 +3998,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4776299616996169011, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4776299616996169012, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: m_Mesh
@@ -3957,6 +4022,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VersionIndex
       value: 1373
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489753038284526069, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: offset
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: finalState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -3982,17 +4062,17 @@ PrefabInstance:
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4513338236111870648}
+      objectReference: {fileID: 1118155524789133554}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1118155524789133554}
+      objectReference: {fileID: 5335876843758438488}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 5335876843758438488}
+      objectReference: {fileID: 1045302777744674355}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -4011,7 +4091,7 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CheckState
+      value: ToggleFire
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4021,12 +4101,12 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ToggleFire
+      value: CheckState
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DoorAnimation, Assembly-CSharp
+      value: Torch, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4036,7 +4116,7 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: Torch, Assembly-CSharp
+      value: FinishCondition, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4140,6 +4220,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4776299616996169011, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4776299616996169012, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: m_Mesh
@@ -4159,6 +4244,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VersionIndex
       value: 1367
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489753038284526069, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: offset
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: finalState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4184,7 +4284,7 @@ PrefabInstance:
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4513338236111870648}
+      objectReference: {fileID: 7739538876647100818}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -4194,7 +4294,7 @@ PrefabInstance:
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 7739538876647100818}
+      objectReference: {fileID: 1045302777744674355}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -4213,7 +4313,7 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CheckState
+      value: ToggleFire
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4223,12 +4323,12 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ToggleFire
+      value: CheckState
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DoorAnimation, Assembly-CSharp
+      value: Torch, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4238,7 +4338,7 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: Torch, Assembly-CSharp
+      value: FinishCondition, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4417,17 +4517,17 @@ PrefabInstance:
     - target: {fileID: 4776299616996169010, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.044
       objectReference: {fileID: 0}
     - target: {fileID: 4776299616996169010, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.12500393
+      value: -0.123
       objectReference: {fileID: 0}
     - target: {fileID: 4776299616996169010, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.093
       objectReference: {fileID: 0}
     - target: {fileID: 4776299616996169010, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4469,6 +4569,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch
       objectReference: {fileID: 0}
+    - target: {fileID: 4776299616996169011, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4776299616996169012, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: m_Mesh
@@ -4483,6 +4588,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489753038284526069, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: offset
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: finalState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4508,17 +4628,17 @@ PrefabInstance:
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4513338236111870648}
+      objectReference: {fileID: 5335876843758438488}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 5335876843758438488}
+      objectReference: {fileID: 7858221382583448992}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 7858221382583448992}
+      objectReference: {fileID: 1045302777744674355}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -4537,7 +4657,7 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CheckState
+      value: ToggleFire
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4547,12 +4667,12 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ToggleFire
+      value: CheckState
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DoorAnimation, Assembly-CSharp
+      value: Torch, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4562,7 +4682,7 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: Torch, Assembly-CSharp
+      value: FinishCondition, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4606,6 +4726,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5488840159662624860}
     m_Modifications:
+    - target: {fileID: 5995253472314911957, guid: 4a417e0162c42f04296c0c145f198028,
+        type: 3}
+      propertyPath: elementData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6fe1b171d11fdf74b97534d50a3d7969,
+        type: 2}
     - target: {fileID: 6171660594680115529, guid: 4a417e0162c42f04296c0c145f198028,
         type: 3}
       propertyPath: m_Name
@@ -4741,6 +4867,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4776299616996169011, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4776299616996169012, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: m_Mesh
@@ -4760,6 +4891,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VersionIndex
       value: 1364
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489753038284526069, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: offset
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: finalState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4785,17 +4931,17 @@ PrefabInstance:
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4513338236111870648}
+      objectReference: {fileID: 7858221382583448992}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 7858221382583448992}
+      objectReference: {fileID: 7739538876647100818}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 7739538876647100818}
+      objectReference: {fileID: 1045302777744674355}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -4814,7 +4960,7 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CheckState
+      value: ToggleFire
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4824,12 +4970,12 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ToggleFire
+      value: CheckState
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DoorAnimation, Assembly-CSharp
+      value: Torch, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -4839,7 +4985,7 @@ PrefabInstance:
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: Torch, Assembly-CSharp
+      value: FinishCondition, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}

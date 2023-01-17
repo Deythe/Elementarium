@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7916259097566627610}
   - component: {fileID: 7916259097566627609}
-  m_Layer: 0
+  - component: {fileID: 6153734496646740599}
+  m_Layer: 13
   m_Name: Wire_Sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,6 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &6153734496646740599
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7916259097566627611}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.1200004, y: 5.1200004, z: 0.20000003}
+  m_Center: {x: -0.00000047683716, y: 0, z: 0}
 --- !u!1 &7916259097638941487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,13 +1539,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7916259098019767195}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7916259098019767195
 Transform:
   m_ObjectHideFlags: 0
@@ -3190,7 +3204,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 976
+  m_VersionIndex: 982
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4387,7 +4401,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7916259099181470721}
   - component: {fileID: 7916259099181470720}
-  m_Layer: 0
+  - component: {fileID: 1846848479686825543}
+  m_Layer: 13
   m_Name: Wire_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4461,6 +4476,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &1846848479686825543
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7916259099181470722}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.1200004, y: 5.1200004, z: 0.20000003}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7916259099260873922
 GameObject:
   m_ObjectHideFlags: 0
@@ -5953,6 +5981,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7916259097876724581}
     m_Modifications:
+    - target: {fileID: 5995253472314911957, guid: 4a417e0162c42f04296c0c145f198028,
+        type: 3}
+      propertyPath: elementData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6fe1b171d11fdf74b97534d50a3d7969,
+        type: 2}
     - target: {fileID: 6171660594680115529, guid: 4a417e0162c42f04296c0c145f198028,
         type: 3}
       propertyPath: m_Name
