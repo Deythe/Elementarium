@@ -11,7 +11,7 @@ public abstract class ElementData : ScriptableObject
     [SerializeField] protected float mass = 0;
 
     [SerializeField] bool _isParticuleSystem;
-    [SerializeField] private AudioManager.Clip expulseAudioClip;
+    [SerializeField] private AudioClip expulseAudioClip;
     
     [Header("Particles")]
     [SerializeField] protected GameObject particlesPrefab;
@@ -71,9 +71,8 @@ public abstract class ElementData : ScriptableObject
         WATER, FIRE, AIR, EARTH, STEAM, ICE, MUD, FLAMETHROWER, LAVA, SAND
     }
 
-    public AudioManager.Clip GetAudioClip()
+    public AudioClip GetAudioClip()
     {
         return expulseAudioClip;
     }
-
 }

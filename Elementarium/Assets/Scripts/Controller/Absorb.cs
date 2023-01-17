@@ -10,7 +10,7 @@ public class Absorb : MonoBehaviour
     [SerializeField] private Transform absorbAnchorTransform;
     [SerializeField] private float rayDistanceMax, speedRotation, radiusRotation;
     [SerializeField] private LayerMask _layerMask;
-    
+    [SerializeField] private AudioClip absorbSound;
     
     private Coroutine currentCoroutine;
     private bool isTouching, isAbsorbing;
@@ -27,6 +27,7 @@ public class Absorb : MonoBehaviour
         {
             if (!masterHand.haveShot)
             {
+                masterHand.PlaySound(absorbSound);
                 isAbsorbing = true;
                 absorbShape.SetActive(true);
                 CheckAbsorbedObject();
@@ -68,6 +69,7 @@ public class Absorb : MonoBehaviour
 
     void CancelAbsorb()
     {
+        masterHand.StopSound();
         if (absorbedObject != null)
         {
             if (currentCoroutine != null)

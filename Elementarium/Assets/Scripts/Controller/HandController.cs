@@ -13,6 +13,9 @@ public class HandController : MonoBehaviour
     [SerializeField] private Expulse _expulse;
     [SerializeField] private XRRayInteractor _rayHand;
     [SerializeField] private bool debugMode;
+    [SerializeField] private AudioSource source;
+        
+        
     private bool _haveAnElement, _haveObjectInHand, _haveGlove, _haveShot;
 
     private void Start()
@@ -90,5 +93,21 @@ public class HandController : MonoBehaviour
     public void ResetElement() 
     {
         _element.SetElementData(null);
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        if (!source.isPlaying)
+        {
+            source.clip = clip;
+            source.Play();
+        }
+    }
+
+    public void StopSound()
+    {
+        source.Stop();
+        source.clip = null;
+        source.loop = false;
     }
 }
