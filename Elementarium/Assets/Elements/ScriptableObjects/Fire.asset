@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fc65af1f7702745abe8ecaadb0661a, type: 3}
+  m_Name: Fire
+  m_EditorClassIdentifier: 
+  id: 1
+  elementName: Fire
+  mass: 0
+  _isParticuleSystem: 1
+  expulseAudioClip:
+    audioClip: {fileID: 8300000, guid: d386f3dcf581bd345b4adb29bac29752, type: 3}
+    isLooping: 1
+  particlesPrefab: {fileID: 1253142483436318, guid: 89956e675b749204c8e10395ce2b5fb9,
+    type: 3}
+  particlesKey: p_Fire
+  lavaData: {fileID: 11400000, guid: 352d2c88f9a531248840178889b992ff, type: 2}
+  lavaMaterial: {fileID: 2100000, guid: 6b38742730e330c488cc8d7964788813, type: 2}
