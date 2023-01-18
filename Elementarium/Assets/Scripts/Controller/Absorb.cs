@@ -97,6 +97,7 @@ public class Absorb : MonoBehaviour
 
         if (isAbsorbing)
         {
+            masterHand.StopSound();
             StopCoroutine(currentCoroutine);
             absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
             absorbedObject.SetParent(null);
