@@ -52,6 +52,12 @@ public class FinishCondition : MonoBehaviour
             {
                 completed = false;
             }
+
+            if (activator.getResetCondition())
+            {
+                Debug.Log("reset");
+                resetCondition.Invoke();
+            }
         }
 
         if (nbChange > totalNbChange) totalNbChange = nbChange;

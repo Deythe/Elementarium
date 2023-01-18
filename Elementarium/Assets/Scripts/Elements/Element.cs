@@ -30,6 +30,7 @@ public class Element : MonoBehaviour
         {
             if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
             {
+                AudioManager.instance.PlayPist(elementData.GetAudioClip());
                 particles.Play();
             }
         }
@@ -42,6 +43,7 @@ public class Element : MonoBehaviour
         {
             if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
             {
+                AudioManager.instance.PlayPist(elementData.GetAudioClip());
                 particles.Play();
             }
         }
@@ -54,12 +56,14 @@ public class Element : MonoBehaviour
             particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, parent);
             if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
             {
+                AudioManager.instance.PlayPist(elementData.GetAudioClip());
                 particles.Play();
             }
         }
         else
         {
             particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position + t.forward/5, parent);
+            AudioManager.instance.PlayPist(elementData.GetAudioClip());
         }
     }
 
@@ -70,6 +74,7 @@ public class Element : MonoBehaviour
         {
             if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
             {
+                AudioManager.instance.PlayPist(elementData.GetAudioClip());
                 particles.Play();
             }
         }
@@ -80,11 +85,13 @@ public class Element : MonoBehaviour
         if (particles != null && !particles.IsAlive()) 
         {
             particles.Stop();
+            AudioManager.instance.StopPist(elementData.GetAudioClip());
         }
 
         if (particlesGO != null)
         {
             Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
+            AudioManager.instance.StopPist(elementData.GetAudioClip());
             particlesGO = null;
         }
     }
@@ -113,12 +120,14 @@ public class Element : MonoBehaviour
 
             if (particles != null && !particles.IsAlive())
             {
+                AudioManager.instance.StopPist(elementData.GetAudioClip());
                 particles.Stop();
             }
         }
 
         if (particlesGO != null)
         {
+            AudioManager.instance.StopPist(elementData.GetAudioClip());
             Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
             particlesGO = null;
         }

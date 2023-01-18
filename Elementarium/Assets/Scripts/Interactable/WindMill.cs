@@ -5,18 +5,30 @@ using UnityEngine;
 
 public class WindMill: Interactible, ICompleted
 {
-    [SerializeField] private Rigidbody rb;
-    [SerializeField] private Vector3 angularAcceleration;
-     
-    protected override void Collide(Transform e)
+    Rigidbody rb;
+    [SerializeField] Vector3 eulerAngleVelocity;
+    [SerializeField] private float maxRotationSpeed;
+
+
+    private void Start()
     {
-        Debug.Log("Collided");
-        rb.angularVelocity += angularAcceleration ;
+        rb = GetComponent<Rigidbody>();
+        rb.maxAngularVelocity = maxRotationSpeed;
+    }
+
+    protected override void Collide(Transform collid)
+    {
+        rb.AddRelativeTorque(eulerAngleVelocity * Time.deltaTime, ForceMode.Force);
         interactionEvent.Invoke();
     }
-    
+
     public bool getCompletedCondition()
     {
-        return rb.angularVelocity.magnitude > 0.3;
+        return rb.angularVelocity.magnitude >= 4.5f;
+    }
+
+    public bool getResetCondition()
+    {
+        return false;
     }
 }
