@@ -94,7 +94,10 @@ public class HandController : MonoBehaviour
     public void ResetElement()
     {
         gemMesh.material = empty;
-        _element.StopParticles();
+        if (element != null)
+        {
+            _expulse.StopFire();
+        }
         _element.SetElementData(null);
     }
 
