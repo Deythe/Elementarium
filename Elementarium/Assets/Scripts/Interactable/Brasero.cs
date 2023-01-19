@@ -9,10 +9,10 @@ public class Brasero : Interactible
     protected GameObject fire;
     protected override void Collide(Transform collid)
     {
-        SwitchOn();
+        SwitchOn(true);
     }
 
-    public void SwitchOn()
+    public void SwitchOn(bool invokeEvt = true)
     {
         if (onFire) return;
 
@@ -21,8 +21,19 @@ public class Brasero : Interactible
         fire.transform.position = transform.position + transform.up * offset;
         fire.transform.Rotate(transform.rotation.x - 90, 0, 0);
         fire.GetComponent<ParticleSystem>().Play();
-        braseroDoor.Play("BraseroClose");
-        emmisivePart.Play("BraseroEmissive");
+        braseroDoor?.Play("BraseroClose");
+        emmisivePart?.Play("BraseroEmissive");
         interactionEvent.Invoke();
     }
+
+    public void SwitchOff(bool invokeEvt = true)
+    {
+        if (!onFire) return;
+
+        onFire = false;
+        Pooler.instance.DePop("p_Fire", fire);
+
+        if (invokeEvt) interactionEvent.Invoke();
+    }
+
 }
