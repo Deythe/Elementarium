@@ -21,9 +21,14 @@ public class Brasero : Interactible
         fire.transform.position = transform.position + transform.up * offset;
         fire.transform.Rotate(transform.rotation.x - 90, 0, 0);
         fire.GetComponent<ParticleSystem>().Play();
-        braseroDoor?.Play("BraseroClose");
-        emmisivePart?.Play("BraseroEmissive");
-        interactionEvent.Invoke();
+        //braseroDoor?.Play("BraseroClose");
+        //emmisivePart?.Play("BraseroEmissive");
+        if (invokeEvt) 
+        {
+            Debug.Log("Event Invoked");
+            interactionEvent.Invoke();
+        }
+        
     }
 
     public void SwitchOff(bool invokeEvt = true)
@@ -33,7 +38,11 @@ public class Brasero : Interactible
         onFire = false;
         Pooler.instance.DePop("p_Fire", fire);
 
-        if (invokeEvt) interactionEvent.Invoke();
+        if (invokeEvt) 
+        {
+            Debug.Log("Event Invoked");
+            interactionEvent.Invoke();
+        } 
     }
 
 }
