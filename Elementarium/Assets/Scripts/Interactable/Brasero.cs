@@ -5,9 +5,17 @@ public class Brasero : Interactible
     [SerializeField] Animation braseroDoor;
     [SerializeField] Animation emmisivePart;
     [SerializeField] private AudioSource source;
+    [SerializeField] protected bool startingMode; 
     protected bool onFire;
     public float offset;
     protected GameObject fire;
+
+    private void Start()
+    {
+        if (startingMode) SwitchOn();
+        else SwitchOff();
+    }
+
     protected override void Collide(Transform collid)
     {
         SwitchOn(true);
