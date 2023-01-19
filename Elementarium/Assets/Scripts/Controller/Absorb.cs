@@ -10,7 +10,7 @@ public class Absorb : MonoBehaviour
     [SerializeField] private Transform absorbAnchorTransform;
     [SerializeField] private float rayDistanceMax, speedRotation, radiusRotation;
     [SerializeField] private LayerMask _layerMask;
-    
+    [SerializeField] private AudioClip absorbSound;
     
     private Coroutine currentCoroutine;
     private bool isTouching, isAbsorbing;
@@ -27,6 +27,7 @@ public class Absorb : MonoBehaviour
         {
             if (!masterHand.haveShot)
             {
+                masterHand.PlaySound(absorbSound);
                 isAbsorbing = true;
                 absorbShape.SetActive(true);
                 CheckAbsorbedObject();
@@ -52,10 +53,11 @@ public class Absorb : MonoBehaviour
         if (hit.transform == absorbedObject) return;
         if (((1<<hit.transform.gameObject.layer) & _layerMask) == 0) return;
         
-        if (hit.transform.gameObject.layer.Equals(12)) 
+        if (hit.transform.gameObject.layer.Equals(12))
         {
-            
+            masterHand.ChangeGemMesh();
             masterHand.element.SetElementData(hit.collider.GetComponent<Element>().GetElementData());
+            
             return;
         }
 
@@ -68,6 +70,7 @@ public class Absorb : MonoBehaviour
 
     void CancelAbsorb()
     {
+        masterHand.StopSound();
         if (absorbedObject != null)
         {
             if (currentCoroutine != null)
@@ -95,6 +98,7 @@ public class Absorb : MonoBehaviour
 
         if (isAbsorbing)
         {
+            masterHand.StopSound();
             StopCoroutine(currentCoroutine);
             absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
             absorbedObject.SetParent(null);
