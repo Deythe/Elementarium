@@ -89,6 +89,10 @@ public class HandController : MonoBehaviour
 
     public void ResetElement() 
     {
+        if (element != null)
+        {
+            _expulse.StopFire();
+        }
         _element.SetElementData(null);
     }
 }
