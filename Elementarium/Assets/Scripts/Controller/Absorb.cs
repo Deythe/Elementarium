@@ -63,6 +63,7 @@ public class Absorb : MonoBehaviour
         absorbedObject = hit.transform;
         absorbedObject.SetParent(absorbAnchorTransform);
         absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
+        absorbedObject.transform.localScale /= 2f;
         currentCoroutine = StartCoroutine(CoroutineMoveAround());
     }
 
@@ -74,7 +75,8 @@ public class Absorb : MonoBehaviour
             {
                 StopCoroutine(currentCoroutine);
             }
-            
+            absorbedObject.transform.localScale *=  2f;
+            absorbedObject.transform.position += transform.forward;
             absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
             absorbedObject.SetParent(null);
             absorbedObject = null;
