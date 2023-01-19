@@ -56,7 +56,7 @@ public class Expulse : MonoBehaviour
         }
     }
 
-    private void StopFire()
+    public void StopFire()
     {
         if (motherHand.haveShot)
         {

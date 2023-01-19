@@ -7,21 +7,10 @@ public class Torch : Brasero, ICompleted
     [SerializeField] private bool finalState;
 
     [ContextMenu("Toggle Torch")]
-    public void ToggleFire() 
+    public void ToggleFire(bool invokeEvt) 
     {
-        if (!onFire) SwitchOn();
-        else SwitchOff();
-    }
-
-    public void SwitchOff() 
-    {
-        if (!onFire) return;
-
-
-        onFire = false;
-
-        Pooler.instance.DePop("p_Fire", fire);
-        interactionEvent.Invoke();
+        if (!onFire) SwitchOn(invokeEvt);
+        else SwitchOff(invokeEvt);
     }
 
     public bool getCompletedCondition()
