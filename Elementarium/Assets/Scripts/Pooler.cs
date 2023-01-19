@@ -32,13 +32,10 @@ public class Pooler : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-    
-    void Start()
-    {
         InitPools();
         Populate();
     }
+    
 
     void InitPools()
     {
