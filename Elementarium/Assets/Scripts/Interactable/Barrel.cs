@@ -28,6 +28,8 @@ public class Barrel :Interactible, IContainer, ICompleted
 
     [SerializeField] private RectTransform canvas;
     [SerializeField] private TMP_Text text;
+    [SerializeField] private AudioSource source;
+    
     
     private void Start()
     {
@@ -67,6 +69,10 @@ public class Barrel :Interactible, IContainer, ICompleted
             {
                 if ((quantity > 0 && !isEmptying) || quantity < 0)
                 {
+                    if (!source.isPlaying)
+                    {
+                        source.Play();
+                    }
                     currentCapacity += quantity;
                 }
             }

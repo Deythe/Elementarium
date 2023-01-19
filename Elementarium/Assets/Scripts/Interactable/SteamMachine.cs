@@ -9,6 +9,7 @@ public class SteamMachine : Interactible, ICompleted
     [SerializeField] private Transform arrow;
     [SerializeField] private float coolingSpeed;
     [SerializeField] private float heatingSpeed;
+    [SerializeField] private AudioSource _source;
     private bool cooling;
     private bool frozen;
     private float angle;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,13 +7,17 @@ public class Element : MonoBehaviour
 {
 
     [SerializeField] protected ElementData elementData;
-    
+    private AudioSource source;
     protected GameObject particlesGO;
     protected ParticleSystem particles;
     protected Element collidedElement;
     protected List<ParticleCollisionEvent> particlesCollisions;
-
     protected Quaternion rotation;
+
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -20,6 +25,7 @@ public class Element : MonoBehaviour
         {
             elementData.Initialize();
         }
+        
         particlesCollisions = new List<ParticleCollisionEvent>();
     }
 
@@ -30,10 +36,11 @@ public class Element : MonoBehaviour
         {
             if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
             {
-                //AudioManager.instance.PlayPist(elementData.GetAudioClip());
                 particles.Play();
             }
         }
+        
+        PlaySound();
     }
 
     public void PlayParticles(Transform t, Quaternion quaternion)
@@ -43,10 +50,11 @@ public class Element : MonoBehaviour
         {
             if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
             {
-                //AudioManager.instance.PlayPist(elementData.GetAudioClip());
                 particles.Play();
             }
         }
+        
+        PlaySound();
     }
 
     public void PlayParticles(Transform t, Transform parent)
@@ -56,15 +64,15 @@ public class Element : MonoBehaviour
             particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, parent);
             if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
             {
-                //AudioManager.instance.PlayPist(elementData.GetAudioClip());
                 particles.Play();
             }
         }
         else
         {
             particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position + t.forward/5, parent);
-            //AudioManager.instance.PlayPist(elementData.GetAudioClip());
         }
+        
+        PlaySound();
     }
 
     public void PlayParticles(Transform t, Quaternion quaternion, Transform parent)
@@ -74,24 +82,25 @@ public class Element : MonoBehaviour
         {
             if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
             {
-                //AudioManager.instance.PlayPist(elementData.GetAudioClip());
                 particles.Play();
             }
         }
+        
+        PlaySound();
     }
 
     public void StopParticles()
     {
         if (particles != null && !particles.IsAlive()) 
         {
-            particles.Stop();
-            //AudioManager.instance.StopPist(elementData.GetAudioClip());
+            StopPlaySound();
+            particles.Stop(); 
         }
 
         if (particlesGO != null)
         {
+            StopPlaySound();
             Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
-            //AudioManager.instance.StopPist(elementData.GetAudioClip());
             particlesGO = null;
         }
     }
@@ -115,21 +124,39 @@ public class Element : MonoBehaviour
     {
         while (!particles.isStopped)
         {
-
             yield return new WaitForSeconds(t);
 
             if (particles != null && !particles.IsAlive())
             {
-                //AudioManager.instance.StopPist(elementData.GetAudioClip());
+                StopPlaySound();
                 particles.Stop();
             }
         }
 
         if (particlesGO != null)
         {
-            //AudioManager.instance.StopPist(elementData.GetAudioClip());
+            StopPlaySound();
             Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
             particlesGO = null;
+        }
+    }
+
+    private void PlaySound()
+    {
+        if (particlesGO.GetComponent<Element>().source!=null && !particlesGO.GetComponent<Element>().source.isPlaying)
+        {
+            Debug.Log("Caca");
+            particlesGO.GetComponent<Element>().source.clip = elementData.GetAudioClip();
+            particlesGO.GetComponent<Element>().source.Play();
+        }
+    }
+
+    private void StopPlaySound()
+    {
+        if (particlesGO.GetComponent<Element>().source != null)
+        {
+            particlesGO.GetComponent<Element>().source.Stop();
+            particlesGO.GetComponent<Element>().source.clip = null;
         }
     }
 
