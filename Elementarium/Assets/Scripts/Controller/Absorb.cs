@@ -53,10 +53,11 @@ public class Absorb : MonoBehaviour
         if (hit.transform == absorbedObject) return;
         if (((1<<hit.transform.gameObject.layer) & _layerMask) == 0) return;
         
-        if (hit.transform.gameObject.layer.Equals(12)) 
+        if (hit.transform.gameObject.layer.Equals(12))
         {
-            
+            masterHand.ChangeGemMesh();
             masterHand.element.SetElementData(hit.collider.GetComponent<Element>().GetElementData());
+            
             return;
         }
 

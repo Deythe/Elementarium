@@ -16,6 +16,7 @@ public abstract class ElementData : ScriptableObject
     [Header("Particles")]
     [SerializeField] protected GameObject particlesPrefab;
     [SerializeField] protected string particlesKey;
+    [SerializeField] private Material matBracelet;
 
     public bool isParticuleSystem
     {
@@ -74,5 +75,10 @@ public abstract class ElementData : ScriptableObject
     public AudioClip GetAudioClip()
     {
         return expulseAudioClip;
+    }
+
+    public Material GetMatBracelet()
+    {
+        return matBracelet;
     }
 }
