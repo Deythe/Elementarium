@@ -100,7 +100,6 @@ public class ParticlesCollision : MonoBehaviour
 
     IEnumerator CollideCoroutine(float t)
     {
-        //Debug.Log("Start Coroutine");
         yield return new WaitForSeconds(t);
 
         canElementCollide = true;

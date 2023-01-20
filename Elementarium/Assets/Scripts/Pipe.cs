@@ -12,6 +12,8 @@ public class Pipe : Interactible
     [SerializeField] private List<Transform> listLinkedPiped = new List<Transform>();
     [SerializeField] private bool _isInHand;
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip clip;
     private List<ParticleCollisionEvent> currentCollision = new List<ParticleCollisionEvent>();
     private WaitForSeconds stopTime = new WaitForSeconds(0.3f);
     private Transform holeMoreDistant, _hookAttached;
@@ -122,6 +124,8 @@ public class Pipe : Interactible
     {
         if (isOnHook)
         {
+            source.clip = clip;
+            source.Play();
             transform.position = hookAttached.position;
             transform.rotation = Quaternion.Euler((int)((((transform.rotation.eulerAngles.x/90)%4)+4)%4)*90, hookAttached.rotation.eulerAngles.y, hookAttached.rotation.eulerAngles.z);
             rb.constraints = RigidbodyConstraints.FreezeAll;
