@@ -55,9 +55,8 @@ public class Absorb : MonoBehaviour
         
         if (hit.transform.gameObject.layer.Equals(12))
         {
-            masterHand.ChangeGemMesh();
             masterHand.element.SetElementData(hit.collider.GetComponent<Element>().GetElementData());
-            
+            masterHand.ChangeGemMesh();
             return;
         }
 
@@ -77,7 +76,6 @@ public class Absorb : MonoBehaviour
             {
                 StopCoroutine(currentCoroutine);
             }
-            
             absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
             absorbedObject.SetParent(null);
             absorbedObject = null;
