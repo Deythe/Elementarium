@@ -4918,7 +4918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5484362316147430246
 Transform:
   m_ObjectHideFlags: 0
@@ -8801,7 +8801,7 @@ ParticleSystem:
     radiusScale: 0.15
     collidesWith:
       serializedVersion: 2
-      m_Bits: 988967
+      m_Bits: 3086119
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -9964,14 +9964,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5484362316165165061}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.0437049, y: -0, z: 8.7311484e-11, w: 0.9990445}
   m_LocalPosition: {x: 0, y: -0, z: 0.068}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5484362316147430246}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -2, y: 2, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.01, y: 0, z: 0}
 --- !u!198 &5484362316165165065
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -10547,7 +10547,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 0
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -14859,14 +14859,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5484362316548721233}
-  m_LocalRotation: {x: 0.6087617, y: -9.313226e-10, z: 0.000000001891749, w: 0.79335314}
-  m_LocalPosition: {x: -0.09599995, y: 0.0010000074, z: 0.10599999}
+  m_LocalRotation: {x: 0.034946006, y: -0.12012521, z: -0.99037796, w: -0.05916318}
+  m_LocalPosition: {x: 0.039, y: -0.00088092685, z: 0.025226388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5484362316147430246}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 75, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -14.009, y: -3.25, z: -186.438}
 --- !u!198 &5484362316548721234
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -15641,7 +15641,7 @@ ParticleSystem:
     arc:
       value: 180
       mode: 0
-      spread: 0.82
+      spread: 0
       speed:
         serializedVersion: 2
         minMaxState: 0
@@ -17626,7 +17626,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 1
+    enabled: 0
     strength:
       serializedVersion: 2
       minMaxState: 0
@@ -18558,7 +18558,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 0
