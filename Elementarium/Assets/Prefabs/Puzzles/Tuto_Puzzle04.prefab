@@ -1264,6 +1264,30 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1583601155310754983}
         m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7095725610779654103}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1833388632047058655}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7095725610779654103}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1583601155310754983}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
         m_MethodName: Burn
         m_Mode: 1
         m_Arguments:
@@ -1286,15 +1310,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  meshRenderer: {fileID: 0}
-  woodCollider: {fileID: 0}
+  meshRenderer: {fileID: 7095725610779654090}
+  woodCollider: {fileID: 7095725610779654088}
   burnCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 8.557658
+      outSlope: 8.557658
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.057324827
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  burningTime: 0
+  burningTime: 8
 --- !u!1 &7095725610807498582
 GameObject:
   m_ObjectHideFlags: 0
@@ -2349,6 +2391,30 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1583601155310754983}
         m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7095725611566002370}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 107768064613887447}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7095725611566002370}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1583601155310754983}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
         m_MethodName: Burn
         m_Mode: 1
         m_Arguments:
@@ -2371,15 +2437,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  meshRenderer: {fileID: 0}
-  woodCollider: {fileID: 0}
+  meshRenderer: {fileID: 7095725611566002373}
+  woodCollider: {fileID: 7095725611566002371}
   burnCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 8.557658
+      outSlope: 8.557658
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.057324827
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  burningTime: 0
+  burningTime: 8
 --- !u!1 &7095725611587932549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,6 +2827,30 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1833388632047058655}
         m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7095725611587932550}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 107768064613887447}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7095725611587932550}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1833388632047058655}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
         m_MethodName: Burn
         m_Mode: 1
         m_Arguments:
@@ -2765,15 +2873,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  meshRenderer: {fileID: 0}
-  woodCollider: {fileID: 0}
+  meshRenderer: {fileID: 7095725611587932601}
+  woodCollider: {fileID: 7095725611587932551}
   burnCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 8.557658
+      outSlope: 8.557658
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.057324827
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  burningTime: 0
+  burningTime: 8
 --- !u!1 &7095725611701300180
 GameObject:
   m_ObjectHideFlags: 0
