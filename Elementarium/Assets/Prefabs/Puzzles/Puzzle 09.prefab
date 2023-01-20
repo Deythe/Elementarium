@@ -113,23 +113,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 0}
   m_VersionIndex: 7128
   m_IsSelectable: 1
-  m_SelectedFaces: 00000000
-  m_SelectedEdges:
-  - a: 0
-    b: 0
-  - a: 0
-    b: 0
-  - a: 0
-    b: 0
-  - a: 0
-    b: 0
-  - a: 0
-    b: 0
-  - a: 0
-    b: 0
-  - a: 0
-    b: 0
-  m_SelectedVertices: 00000000000000000000000000000000000000000000000000000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!114 &3558567505119954236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3847,6 +3833,7 @@ GameObject:
   - component: {fileID: 7948108110600073200}
   - component: {fileID: 7948108110600073201}
   - component: {fileID: 8968035396903840067}
+  - component: {fileID: 3976953352830633789}
   m_Layer: 0
   m_Name: GlassWaterBox
   m_TagString: Untagged
@@ -4189,10 +4176,25 @@ Animation:
   m_Animation: {fileID: 0}
   m_Animations:
   - {fileID: 7400000, guid: ec40bfaa566f1e246a324dc83b916f12, type: 2}
+  - {fileID: 7400000, guid: f276c38e67e8d614a8d1a04e2e83e4b4, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &3976953352830633789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7948108110600073203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f781f81addee648985fc7ea3c07bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glassAnim: {fileID: 8968035396903840067}
+  open: 0
 --- !u!1 &7948108110609731020
 GameObject:
   m_ObjectHideFlags: 0
@@ -6065,10 +6067,10 @@ MonoBehaviour:
   finishConditionEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7948108110600073203}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 3976953352830633789}
+        m_TargetAssemblyTypeName: AnimationGlassPuzzleWater9, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6077,10 +6079,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8968035396903840067}
-        m_TargetAssemblyTypeName: UnityEngine.Animation, UnityEngine
-        m_MethodName: set_playAutomatically
-        m_Mode: 6
+      - m_Target: {fileID: 6360057719568580314}
+        m_TargetAssemblyTypeName: DoorAnimation, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6093,10 +6095,10 @@ MonoBehaviour:
   resetCondition:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7948108110600073203}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 3976953352830633789}
+        m_TargetAssemblyTypeName: AnimationGlassPuzzleWater9, Assembly-CSharp
+        m_MethodName: Close
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6105,9 +6107,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 8968035396903840067}
-        m_TargetAssemblyTypeName: UnityEngine.Animation, UnityEngine
-        m_MethodName: Rewind
+      - m_Target: {fileID: 6360057719568580314}
+        m_TargetAssemblyTypeName: DoorAnimation, Assembly-CSharp
+        m_MethodName: Close
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7146,6 +7148,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ba9b1667a37ba0448093076d95ba66a, type: 3}
+--- !u!114 &6360057719568580314 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8746342977658713689, guid: 8ba9b1667a37ba0448093076d95ba66a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2387530493823928451}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ee501311aa9844e81c1383f472464d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6360057719568580316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8746342977658713695, guid: 8ba9b1667a37ba0448093076d95ba66a,
