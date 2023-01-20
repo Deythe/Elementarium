@@ -10,7 +10,7 @@ public class Elevator : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     private Vector3 initialPosition;
     private bool isActive, isWaiting;
-    private WaitForSeconds second = new WaitForSeconds(2);
+    private WaitForSeconds second = new WaitForSeconds(1);
     private void Start()
     {
         initialPosition = transform.position;

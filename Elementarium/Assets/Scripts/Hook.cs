@@ -9,7 +9,7 @@ public class Hook : MonoBehaviour
     [SerializeField] private Pipe currentPipe;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<Pipe>() != null && currentPipe==null)
+        if (other.GetComponentInParent<Pipe>() != null && currentPipe==null && !other.gameObject.layer.Equals(16))
         {
             currentPipe = other.GetComponentInParent<Pipe>();
             currentPipe.isOnHook = true;
