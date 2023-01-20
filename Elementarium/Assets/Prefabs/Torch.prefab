@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 9010196533801278985}
   - component: {fileID: 4813032475252408107}
   - component: {fileID: 9067297454968203539}
-  m_Layer: 9
+  m_Layer: 16
   m_Name: Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,6 @@ MonoBehaviour:
   braseroDoor: {fileID: 0}
   emmisivePart: {fileID: 0}
   source: {fileID: 0}
-  startingMode: 0
   offset: 0.5
   finalState: 0
 --- !u!54 &4813032475252408107
@@ -134,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 2642141534001815677, guid: d97e9778c63af234daf2aa433b9957f4,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3450061971205634759, guid: d97e9778c63af234daf2aa433b9957f4,
         type: 3}
