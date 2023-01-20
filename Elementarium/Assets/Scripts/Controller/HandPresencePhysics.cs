@@ -6,8 +6,8 @@ public class HandPresencePhysics : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private Rigidbody rb;
     private Quaternion rotationDiference;
-    private Vector3 rotationDiferenceInDegree;
-
+    private Vector3 rotationDiferenceInDegree, centerMass;
+    
     public Transform target
     {
         get => _target;
@@ -16,6 +16,8 @@ public class HandPresencePhysics : MonoBehaviour
     private void Start()
     {
         rb.maxAngularVelocity = 10000;
+        centerMass = rb.centerOfMass;
+        rb.centerOfMass = centerMass;
     }
     
     private void FixedUpdate()

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2866512253297607437}
   - component: {fileID: 1756544382785396838}
   - component: {fileID: 6026068693159425103}
+  - component: {fileID: 2698716676140393732}
   m_Layer: 14
   m_Name: Earth
   m_TagString: Untagged
@@ -225,6 +226,19 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &2698716676140393732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2866512253297607436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5a4eb1f31faf640acfca98627d923a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: {fileID: 2866512253297607437}
 --- !u!1 &2866512253389196511
 GameObject:
   m_ObjectHideFlags: 0

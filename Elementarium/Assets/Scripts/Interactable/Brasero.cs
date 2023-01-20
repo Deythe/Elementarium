@@ -4,9 +4,18 @@ public class Brasero : Interactible
 {
     [SerializeField] Animation braseroDoor;
     [SerializeField] Animation emmisivePart;
+    [SerializeField] private AudioSource source;
+    [SerializeField] protected bool startingMode; 
     protected bool onFire;
     public float offset;
     protected GameObject fire;
+
+    private void Start()
+    {
+        if (startingMode) SwitchOn();
+        else SwitchOff();
+    }
+
     protected override void Collide(Transform collid)
     {
         SwitchOn(true);
@@ -21,8 +30,12 @@ public class Brasero : Interactible
         fire.transform.position = transform.position + transform.up * offset;
         fire.transform.Rotate(transform.rotation.x - 90, 0, 0);
         fire.GetComponent<ParticleSystem>().Play();
-        //braseroDoor?.Play("BraseroClose");
-        //emmisivePart?.Play("BraseroEmissive");
+        if (braseroDoor!=null && emmisivePart!=null)
+        {
+            braseroDoor.Play("BraseroClose");
+            emmisivePart.Play("BraseroEmissive");
+            source.Play();
+        }
         if (invokeEvt) 
         {
             Debug.Log("Event Invoked");

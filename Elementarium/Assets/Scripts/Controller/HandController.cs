@@ -13,6 +13,11 @@ public class HandController : MonoBehaviour
     [SerializeField] private Expulse _expulse;
     [SerializeField] private XRRayInteractor _rayHand;
     [SerializeField] private bool debugMode;
+    [SerializeField] private AudioSource source;
+    [SerializeField] private Material empty;
+    [SerializeField] private MeshRenderer gemMesh;
+
+
     private bool _haveAnElement, _haveObjectInHand, _haveGlove, _haveShot;
 
     private void Start()
@@ -87,12 +92,34 @@ public class HandController : MonoBehaviour
         }
     }
 
-    public void ResetElement() 
+    public void ResetElement()
     {
+        gemMesh.material = empty;
         if (element != null)
         {
             _expulse.StopFire();
         }
         _element.SetElementData(null);
+    }
+
+    public void ChangeGemMesh()
+    {
+        gemMesh.material = element.GetElementData().GetMatBracelet();
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        if (!source.isPlaying)
+        {
+            source.clip = clip;
+            source.Play();
+        }
+    }
+
+    public void StopSound()
+    {
+        source.Stop();
+        source.clip = null;
+        source.loop = false;
     }
 }

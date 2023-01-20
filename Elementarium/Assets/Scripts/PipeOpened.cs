@@ -13,7 +13,7 @@ public class PipeOpened : MonoBehaviour
     {
         if (listPipeOpenedOrdered[0].Equals(this))
         {
-            Debug.Log("Caca");
+            Debug.Log(element.GetElementData());
             element.PlayParticles(transform, transform.rotation, transform);
         }
     }
