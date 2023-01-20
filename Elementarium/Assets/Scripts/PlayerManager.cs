@@ -8,7 +8,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private HandController leftHandController;
     [SerializeField] private HandController rightHandController;
     [SerializeField] private DataPlayerScriptable data;
-
+    [SerializeField] private GameObject rightBracelet, leftBracelet;
+    
     public DataPlayerScriptable p_data
     {
         get => data;
@@ -32,6 +33,8 @@ public class PlayerManager : MonoBehaviour
 
     public void GiveGlove()
     {
+        rightBracelet.SetActive(true);
+        leftBracelet.SetActive(false);
         leftHandController.haveGlove = true;
         rightHandController.haveGlove = true;
     }

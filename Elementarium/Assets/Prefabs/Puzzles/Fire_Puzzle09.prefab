@@ -1999,7 +1999,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ee6561ebf75a4b15857523107eae6bd, type: 2}
+  - {fileID: 2100000, guid: f02f08e4b5aeb7645a0cc37764506b6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2061,6 +2061,66 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2715443096082914556}
         m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538100706955464}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1171765556062900127}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538100706955464}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9066050927485308658}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538100706955464}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6746990766494010946}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538100706955464}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6270979383162870079}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538100706955464}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2715443096082914556}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
         m_MethodName: Burn
         m_Mode: 1
         m_Arguments:
@@ -2119,6 +2179,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  meshRenderer: {fileID: 8734538100706955469}
+  woodCollider: {fileID: 8734538100706955471}
+  burnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 8.557658
+      outSlope: 8.557658
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.057324827
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  burningTime: 8
 --- !u!1 &8734538100746651681
 GameObject:
   m_ObjectHideFlags: 0
@@ -7342,11 +7429,11 @@ Transform:
   - {fileID: 8734538100704637200}
   - {fileID: 8734538100870259475}
   - {fileID: 8734538100876460628}
-  - {fileID: 4526727250160233199}
   - {fileID: 8056009215122145279}
   - {fileID: 7956618064129272789}
   - {fileID: 2792534676933978704}
   - {fileID: 6823879553323399058}
+  - {fileID: 8138960047126389612}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8507,7 +8594,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ee6561ebf75a4b15857523107eae6bd, type: 2}
+  - {fileID: 2100000, guid: f02f08e4b5aeb7645a0cc37764506b6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8569,6 +8656,66 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2715443096082914556}
         m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101186094019}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1171765556062900127}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101186094019}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9066050927485308658}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101186094019}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6885283766771387202}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101186094019}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6746990766494010946}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101186094019}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2715443096082914556}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
         m_MethodName: Burn
         m_Mode: 1
         m_Arguments:
@@ -8627,6 +8774,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  meshRenderer: {fileID: 8734538101186094016}
+  woodCollider: {fileID: 8734538101186094018}
+  burnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 8.557658
+      outSlope: 8.557658
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.057324827
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  burningTime: 8
 --- !u!1 &8734538101257764796
 GameObject:
   m_ObjectHideFlags: 0
@@ -9272,7 +9446,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ee6561ebf75a4b15857523107eae6bd, type: 2}
+  - {fileID: 2100000, guid: f02f08e4b5aeb7645a0cc37764506b6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9334,6 +9508,66 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2715443096082914556}
         m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101276140383}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1171765556062900127}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101276140383}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9066050927485308658}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101276140383}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6885283766771387202}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101276140383}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6270979383162870079}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101276140383}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2715443096082914556}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
         m_MethodName: Burn
         m_Mode: 1
         m_Arguments:
@@ -9392,6 +9626,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  meshRenderer: {fileID: 8734538101276140380}
+  woodCollider: {fileID: 8734538101276140382}
+  burnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 8.557658
+      outSlope: 8.557658
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.057324827
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  burningTime: 8
 --- !u!1 &8734538101277761156
 GameObject:
   m_ObjectHideFlags: 0
@@ -12571,7 +12832,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ee6561ebf75a4b15857523107eae6bd, type: 2}
+  - {fileID: 2100000, guid: f02f08e4b5aeb7645a0cc37764506b6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12633,6 +12894,66 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2715443096082914556}
         m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101560670202}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9066050927485308658}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101560670202}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6885283766771387202}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101560670202}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6746990766494010946}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101560670202}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6270979383162870079}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101560670202}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2715443096082914556}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
         m_MethodName: Burn
         m_Mode: 1
         m_Arguments:
@@ -12691,6 +13012,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  meshRenderer: {fileID: 8734538101560670207}
+  woodCollider: {fileID: 8734538101560670201}
+  burnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 8.557658
+      outSlope: 8.557658
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.057324827
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  burningTime: 8
 --- !u!1 &8734538101583396003
 GameObject:
   m_ObjectHideFlags: 0
@@ -13067,7 +13415,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ee6561ebf75a4b15857523107eae6bd, type: 2}
+  - {fileID: 2100000, guid: f02f08e4b5aeb7645a0cc37764506b6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13129,6 +13477,66 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2715443096082914556}
         m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101602925231}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1171765556062900127}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101602925231}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6885283766771387202}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101602925231}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6746990766494010946}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101602925231}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6270979383162870079}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101602925231}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2715443096082914556}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
         m_MethodName: Burn
         m_Mode: 1
         m_Arguments:
@@ -13187,6 +13595,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  meshRenderer: {fileID: 8734538101602925228}
+  woodCollider: {fileID: 8734538101602925230}
+  burnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 8.557658
+      outSlope: 8.557658
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.057324827
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  burningTime: 8
 --- !u!1 &8734538101634872572
 GameObject:
   m_ObjectHideFlags: 0
@@ -13488,7 +13923,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ee6561ebf75a4b15857523107eae6bd, type: 2}
+  - {fileID: 2100000, guid: f02f08e4b5aeb7645a0cc37764506b6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13550,6 +13985,66 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1171765556062900127}
         m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101634872547}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9066050927485308658}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101634872547}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6885283766771387202}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101634872547}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6746990766494010946}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101634872547}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6270979383162870079}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
+        m_MethodName: SetDissolveOrigin
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8734538101634872547}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1171765556062900127}
+        m_TargetAssemblyTypeName: Wood, Assembly-CSharp
         m_MethodName: Burn
         m_Mode: 1
         m_Arguments:
@@ -13608,6 +14103,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  meshRenderer: {fileID: 8734538101634872544}
+  woodCollider: {fileID: 8734538101634872546}
+  burnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 8.557658
+      outSlope: 8.557658
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.057324827
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  burningTime: 8
 --- !u!1 &8734538101704907241
 GameObject:
   m_ObjectHideFlags: 0
@@ -20833,7 +21355,7 @@ PrefabInstance:
     - target: {fileID: 6840391896957676531, guid: 4a417e0162c42f04296c0c145f198028,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6840391896957676531, guid: 4a417e0162c42f04296c0c145f198028,
         type: 3}
@@ -20943,7 +21465,7 @@ PrefabInstance:
     - target: {fileID: 3009417245663029155, guid: fddb06394956d5a40a0ad076c683dedd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3009417245663029155, guid: fddb06394956d5a40a0ad076c683dedd,
         type: 3}
@@ -21023,111 +21545,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1081579091698765299}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1760746461944679705
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8734538100895783980}
-    m_Modifications:
-    - target: {fileID: 2791466402147576096, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847669, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_Name
-      value: PressurePlate
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847669, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.109
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -5.073
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.587
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.0000004768371
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791466403368733728, guid: f91e78a3bab12d14fb307319e63478d4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f91e78a3bab12d14fb307319e63478d4, type: 3}
---- !u!4 &4526727250160233199 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2791466402699847670, guid: f91e78a3bab12d14fb307319e63478d4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1760746461944679705}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3180463600452353767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21138,22 +21555,22 @@ PrefabInstance:
     - target: {fileID: 4776299616996169010, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4776299616996169010, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4776299616996169010, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4776299616996169010, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4776299616996169010, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
@@ -21205,6 +21622,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -60
       objectReference: {fileID: 0}
+    - target: {fileID: 4776299616996169010, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4776299616996169011, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
         type: 3}
       propertyPath: m_Name
@@ -21232,6 +21654,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8aa3757d2475a14c9c2c3c7c69841f0, type: 3}
+--- !u!4 &3180463600442505171 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 57329972, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3180463600452353767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5848452746615447790 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9010196533801278985, guid: a8aa3757d2475a14c9c2c3c7c69841f0,
@@ -21331,7 +21759,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 3180463600442505171}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
@@ -21421,7 +21849,7 @@ PrefabInstance:
     - target: {fileID: 3009417245663029155, guid: fddb06394956d5a40a0ad076c683dedd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3009417245663029155, guid: fddb06394956d5a40a0ad076c683dedd,
         type: 3}
@@ -21500,6 +21928,97 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3009417245663029155, guid: fddb06394956d5a40a0ad076c683dedd,
     type: 3}
   m_PrefabInstance: {fileID: 5048298480226605148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6283788935903273070
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8734538100895783980}
+    m_Modifications:
+    - target: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.99999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.357
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607436, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: m_Name
+      value: Earth
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866512253297607437, guid: 846813d4834cfa944bbc430947e7e534,
+        type: 3}
+      propertyPath: elementData
+      value: 
+      objectReference: {fileID: 11400000, guid: 352d2c88f9a531248840178889b992ff,
+        type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 846813d4834cfa944bbc430947e7e534, type: 3}
+--- !u!4 &8138960047126389612 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2866512253297607426, guid: 846813d4834cfa944bbc430947e7e534,
+    type: 3}
+  m_PrefabInstance: {fileID: 6283788935903273070}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8027879248688256520
 PrefabInstance:

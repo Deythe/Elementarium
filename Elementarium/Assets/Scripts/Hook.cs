@@ -6,11 +6,10 @@ using UnityEngine;
 public class Hook : MonoBehaviour
 {
     [SerializeField] private Transform pivot;
-    private Pipe currentPipe;
+    [SerializeField] private Pipe currentPipe;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject);
-        if (other.GetComponentInParent<Pipe>() != null)
+        if (other.GetComponentInParent<Pipe>() != null && currentPipe==null)
         {
             currentPipe = other.GetComponentInParent<Pipe>();
             currentPipe.isOnHook = true;
@@ -20,11 +19,11 @@ public class Hook : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-       if (other.GetComponentInParent<Pipe>() != null)
+       if (other.GetComponentInParent<Pipe>() != null && currentPipe.Equals(other.GetComponentInParent<Pipe>()))
        {
-            currentPipe = other.GetComponentInParent<Pipe>();
-            currentPipe.isOnHook = false;
-            currentPipe.hookAttached = null;
+           currentPipe.isOnHook = false;
+           currentPipe.hookAttached = null;
+           currentPipe = null;
        }
     }
 }
