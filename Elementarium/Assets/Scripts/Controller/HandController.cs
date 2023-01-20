@@ -16,7 +16,8 @@ public class HandController : MonoBehaviour
     [SerializeField] private AudioSource source;
     [SerializeField] private Material empty;
     [SerializeField] private MeshRenderer gemMesh;
-    
+
+
     private bool _haveAnElement, _haveObjectInHand, _haveGlove, _haveShot;
 
     private void Start()
