@@ -37,13 +37,13 @@ public class SteamMachine : Interactible, ICompleted
     {
         if (e.GetComponentInParent<Element>().GetID() == ElementData.ID.STEAM)
         {
-            if (angle <= 80)
+            if (angle <= 40)
             {
                 arrow.Rotate(heatingSpeed, 0, 0);
                 interactionEvent.Invoke();
-                if (angle >= 80)
+                if (angle >= 40)
                 {
-                    arrow.eulerAngles = new Vector3(350, 90, 0);
+                    arrow.eulerAngles = new Vector3(350, 45, 0);
                 }
                 cooling = true;
             }
@@ -71,6 +71,6 @@ public class SteamMachine : Interactible, ICompleted
 
     public bool getResetCondition()
     {
-        return !(angle is >= -40 and <= 40);
+        return angle is <= -40 ;
     }
 }
