@@ -34,7 +34,7 @@ public class PlayerManager : MonoBehaviour
     public void GiveGlove()
     {
         rightBracelet.SetActive(true);
-        leftBracelet.SetActive(false);
+        leftBracelet.SetActive(true);
         leftHandController.haveGlove = true;
         rightHandController.haveGlove = true;
     }
