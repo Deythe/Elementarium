@@ -13,6 +13,8 @@ public class SteamMachine : Interactible, ICompleted
     private bool cooling;
     private bool frozen;
     private float angle;
+
+    private bool canInvoke; 
     
 
     private void Update()
@@ -20,57 +22,70 @@ public class SteamMachine : Interactible, ICompleted
         angle = arrow.localEulerAngles.x;
         angle = (angle > 180) ? angle - 360 : angle;
         if (!cooling) return;
+        Cool();
+    }
+
+    private void Cool()
+    {
         if (angle >= -80)
         {
             arrow.Rotate(-coolingSpeed, 0, 0);
-            interactionEvent.Invoke();
-            if (angle <= -80)
-            {
-                arrow.Rotate(coolingSpeed, 0, 0);
-                cooling = false;
-            }
+            if (canInvoke) interactionEvent.Invoke();
+
+            if (!(angle <= -80)) return;
+            arrow.Rotate(coolingSpeed, 0, 0);
+            cooling = false;
         }
-        
+    }
+
+    private void Heat()
+    {
+        if (angle <= 40)
+        {
+            arrow.Rotate(heatingSpeed, 0, 0);
+            if (canInvoke) interactionEvent.Invoke();
+            if (angle >= 40)
+            {
+                arrow.eulerAngles = new Vector3(350, 45, 0);
+            }
+            cooling = true;
+        }
     }
 
     protected override void Collide(Transform e)
     {
         if (e.GetComponentInParent<Element>().GetID() == ElementData.ID.STEAM)
         {
-            if (angle <= 80)
-            {
-                arrow.Rotate(heatingSpeed, 0, 0);
-                interactionEvent.Invoke();
-                if (angle >= 80)
-                {
-                    arrow.eulerAngles = new Vector3(350, 90, 0);
-                }
-                cooling = true;
-            }
-        } else
+            Heat();
+        } 
+        else if (e.GetComponentInParent<Element>().GetID() == ElementData.ID.ICE)
         {
-            arrow.Rotate(-heatingSpeed, 0, 0);
             if (frozen) return;
             StartCoroutine(Freeze());
         }
+        else
+        {
+            arrow.Rotate(-heatingSpeed, 0, 0);
+        }
+        
     }
 
     private IEnumerator Freeze()
     {
-        Debug.Log("I'm frozen");
         frozen = true;
         yield return new WaitForSeconds(2);
         frozen = false;
-        Debug.Log("I'm not frozen anymore");
     }
 
     public bool getCompletedCondition()
     {
+        canInvoke = false;
         return angle is >= -40 and <= 40;
     }
 
     public bool getResetCondition()
     {
-        return !(angle is >= -40 and <= 40);
+        canInvoke = false;
+        return angle is <= -40 ;
     }
 }

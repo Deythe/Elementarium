@@ -20,11 +20,12 @@ public class DoorAnimation : MonoBehaviour
 
     public void Open()
     {
+        Debug.Log("open");
         if(!open) doorState.Play("DoorOpen");
         if (!source.isPlaying)
         {
-            source.clip = doorOpenSound;
-            source.Play();
+            //source.clip = doorOpenSound;
+            source.PlayOneShot(doorOpenSound);
         }
 
         open = true;
@@ -32,11 +33,14 @@ public class DoorAnimation : MonoBehaviour
 
     public void Close()
     {
+        Debug.Log("close");
         if(open) doorState.Play("DoorClose");
         if (source.isPlaying)
         {
-            source.clip = doorCloseSound;
             source.Stop();
+            //source.clip = doorCloseSound;
+            source.PlayOneShot(doorOpenSound);
+            
         }
 
         open = false;
