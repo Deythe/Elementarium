@@ -93,7 +93,6 @@ public class Element : MonoBehaviour
     {
         if (particles != null && !particles.IsAlive()) 
         {
-            StopPlaySound();
             particles.Stop(); 
         }
 
@@ -145,7 +144,6 @@ public class Element : MonoBehaviour
     {
         if (particlesGO.GetComponent<Element>().source!=null && !particlesGO.GetComponent<Element>().source.isPlaying)
         {
-            Debug.Log("Caca");
             particlesGO.GetComponent<Element>().source.clip = elementData.GetAudioClip();
             particlesGO.GetComponent<Element>().source.Play();
         }
