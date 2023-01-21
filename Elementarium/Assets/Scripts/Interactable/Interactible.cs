@@ -39,7 +39,6 @@ public abstract class Interactible: MonoBehaviour
     {
         if (_collidedParticle.GetComponent<Element>() != null)
         {
-            Debug.Log(_collidedParticle.name);
             return neededID.Contains(_collidedParticle.GetComponent<Element>().GetID()) ;
         }
 

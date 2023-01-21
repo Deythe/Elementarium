@@ -38,7 +38,6 @@ public class Brasero : Interactible
         }
         if (invokeEvt) 
         {
-            Debug.Log("Event Invoked");
             interactionEvent.Invoke();
         }
         
@@ -53,7 +52,6 @@ public class Brasero : Interactible
 
         if (invokeEvt) 
         {
-            Debug.Log("Event Invoked");
             interactionEvent.Invoke();
         } 
     }

@@ -14,7 +14,6 @@ public class WaterPond : Interactible
 
     protected override void Collide(Transform e)
     {
-        Debug.Log("Pound collide");
         waterPondMaster.FreezeAllPonds();
     }
 
