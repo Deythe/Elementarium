@@ -3553,6 +3553,7 @@ GameObject:
   - component: {fileID: 7948108110600073200}
   - component: {fileID: 7948108110600073201}
   - component: {fileID: 8968035396903840067}
+  - component: {fileID: 8641099475985294046}
   m_Layer: 0
   m_Name: GlassWaterBox
   m_TagString: Untagged
@@ -3895,10 +3896,25 @@ Animation:
   m_Animation: {fileID: 0}
   m_Animations:
   - {fileID: 7400000, guid: ec40bfaa566f1e246a324dc83b916f12, type: 2}
+  - {fileID: 7400000, guid: f276c38e67e8d614a8d1a04e2e83e4b4, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &8641099475985294046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7948108110600073203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f781f81addee648985fc7ea3c07bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glassAnim: {fileID: 8968035396903840067}
+  open: 0
 --- !u!1 &7948108110609731020
 GameObject:
   m_ObjectHideFlags: 0
@@ -5854,22 +5870,10 @@ MonoBehaviour:
   finishConditionEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7948108110600073203}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8968035396903840067}
-        m_TargetAssemblyTypeName: UnityEngine.Animation, UnityEngine
-        m_MethodName: set_playAutomatically
-        m_Mode: 6
+      - m_Target: {fileID: 8641099475985294046}
+        m_TargetAssemblyTypeName: AnimationGlassPuzzleWater9, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5882,21 +5886,9 @@ MonoBehaviour:
   resetCondition:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7948108110600073203}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 8968035396903840067}
-        m_TargetAssemblyTypeName: UnityEngine.Animation, UnityEngine
-        m_MethodName: Rewind
+      - m_Target: {fileID: 8641099475985294046}
+        m_TargetAssemblyTypeName: AnimationGlassPuzzleWater9, Assembly-CSharp
+        m_MethodName: Close
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8201,6 +8193,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7506731267014040805}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1246376461324315324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8746342977658713689, guid: 8ba9b1667a37ba0448093076d95ba66a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7506731267014040805}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ee501311aa9844e81c1383f472464d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7948108111229004356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8211,12 +8215,12 @@ PrefabInstance:
     - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
         type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
         type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
         type: 3}
@@ -8250,6 +8254,11 @@ PrefabInstance:
       objectReference: {fileID: 2064071468255041042}
     - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
         type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1246376461324315324}
+    - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
+        type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4356621498836182524}
@@ -8258,6 +8267,11 @@ PrefabInstance:
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2064071468255041042}
+    - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
+        type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1246376461324315324}
     - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
         type: 3}
       propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -8280,6 +8294,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
         type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: Open
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
+        type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -8296,6 +8315,11 @@ PrefabInstance:
     - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
         type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Close
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
+        type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: Close
       objectReference: {fileID: 0}
     - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
@@ -8330,12 +8354,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
         type: 3}
+      propertyPath: onPressed.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
+        type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
         type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4674430019138145430, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
+        type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6999131321933331605, guid: a0b3b79355730cc4cb69c8ca06b60d7e,
