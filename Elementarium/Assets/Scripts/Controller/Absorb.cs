@@ -52,7 +52,8 @@ public class Absorb : MonoBehaviour
         if (hit.transform == null) return;
         if (hit.transform == absorbedObject) return;
         if (((1<<hit.transform.gameObject.layer) & _layerMask) == 0) return;
-        
+        if (hit.transform.GetComponent<GrabbableObjects>() != null && hit.transform.GetComponent<GrabbableObjects>().isGrabbed) return;
+
         if (hit.transform.gameObject.layer.Equals(12))
         {
             masterHand.element.SetElementData(hit.collider.GetComponent<Element>().GetElementData());
@@ -67,7 +68,7 @@ public class Absorb : MonoBehaviour
         currentCoroutine = StartCoroutine(CoroutineMoveAround());
     }
 
-    void CancelAbsorb()
+    public void CancelAbsorb()
     {
         masterHand.StopSound();
         if (absorbedObject != null)
@@ -93,7 +94,7 @@ public class Absorb : MonoBehaviour
     public void Grabbed()
     {
         masterHand.haveObjectInHand = true;
-
+        
         if (isAbsorbing)
         {
             masterHand.StopSound();
