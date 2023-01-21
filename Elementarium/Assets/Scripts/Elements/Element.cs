@@ -93,7 +93,6 @@ public class Element : MonoBehaviour
     {
         if (particles != null && !particles.IsAlive()) 
         {
-            StopPlaySound();
             particles.Stop(); 
         }
 

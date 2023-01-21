@@ -69,10 +69,10 @@ public class Barrel :Interactible, IContainer, ICompleted
             {
                 if ((quantity > 0 && !isEmptying) || quantity < 0)
                 {
-                    if (!source.isPlaying)
+                    /*if (!source.isPlaying)
                     {
                         source.Play();
-                    }
+                    }*/
                     currentCapacity += quantity;
                 }
             }
@@ -95,12 +95,13 @@ public class Barrel :Interactible, IContainer, ICompleted
                 currentElement.PlayParticles(particleStart, Quaternion.FromToRotation(Vector3.forward, particleStart.forward), transform);
                 isEmptying = true;
             }
-            else if(currentCapacity <= 0)
+            else if(currentCapacity <= 0 && isEmptying)
             {
                 currentElement.StopParticles();
+                isEmptying = false;
             }
         }
-        else 
+        else if(isEmptying)
         {
             currentElement.StopParticles();
             isEmptying = false;
