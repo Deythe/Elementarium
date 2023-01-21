@@ -69,10 +69,10 @@ public class Barrel :Interactible, IContainer, ICompleted
             {
                 if ((quantity > 0 && !isEmptying) || quantity < 0)
                 {
-                    if (!source.isPlaying)
+                    /*if (!source.isPlaying)
                     {
                         source.Play();
-                    }
+                    }*/
                     currentCapacity += quantity;
                 }
             }

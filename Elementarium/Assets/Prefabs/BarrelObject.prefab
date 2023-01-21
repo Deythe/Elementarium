@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 4831523861953114566}
   - component: {fileID: 4831523861953114563}
   - component: {fileID: 4831523861953114564}
-  - component: {fileID: 4831523861953114565}
+  - component: {fileID: 1289070942930813829}
   m_Layer: 16
   m_Name: Hole
   m_TagString: Untagged
@@ -126,8 +126,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4831523861953114567}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.007, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.1, z: 0.4}
+  m_LocalPosition: {x: 0, y: 0.976, z: 0}
+  m_LocalScale: {x: 0.88, y: 0.1, z: 0.68}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1723081216593301013}
@@ -183,8 +183,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4831523861953114565
-BoxCollider:
+--- !u!64 &1289070942930813829
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -193,9 +193,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5243069603982660751
 GameObject:
   m_ObjectHideFlags: 0
