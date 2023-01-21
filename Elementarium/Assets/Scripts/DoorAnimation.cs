@@ -21,16 +21,24 @@ public class DoorAnimation : MonoBehaviour
     public void Open()
     {
         if(!open) doorState.Play("DoorOpen");
-        source.clip = doorOpenSound;
-        source.Play();
+        if (!source.isPlaying)
+        {
+            source.clip = doorOpenSound;
+            source.Play();
+        }
+
         open = true;
     }
 
     public void Close()
     {
         if(open) doorState.Play("DoorClose");
-        source.clip = doorCloseSound;
-        source.Stop();
+        if (source.isPlaying)
+        {
+            source.clip = doorCloseSound;
+            source.Stop();
+        }
+
         open = false;
     }
 }
