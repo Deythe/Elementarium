@@ -42,8 +42,6 @@ public class WaterPond : Interactible
             mat.SetVector("_IceOrigin", solidificationOrigin.position);
             firstTilingSpeed = mat.GetFloat("_FirstTilingSpeed");
             secondTilingSpeed = mat.GetFloat("_SecondTilingSpeed");
-            Debug.Log("first" + firstTilingSpeed);
-            Debug.Log("second" + secondTilingSpeed);
             StartCoroutine(FreezeCoroutine(solidificationTime));
         }
     }
