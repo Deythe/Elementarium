@@ -13,6 +13,10 @@ public class GrabbableObjects : MonoBehaviour
 
     public void Release()
     {
+        if (isGrabbed)
+        {
+            GetComponent<Rigidbody>().isKinematic = false;
+        }
         isGrabbed = false;
     }
 }
