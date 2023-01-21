@@ -14,7 +14,7 @@ public class SteamMachine : Interactible, ICompleted
     private bool frozen;
     private float angle;
 
-    private bool canInvoke; 
+    private bool isOn;
     
 
     private void Update()
@@ -29,12 +29,18 @@ public class SteamMachine : Interactible, ICompleted
     {
         if (angle >= -80)
         {
-            arrow.Rotate(-coolingSpeed, 0, 0);
-            if (canInvoke) interactionEvent.Invoke();
+            arrow.Rotate(-coolingSpeed * Time.deltaTime, 0, 0);
 
-            if (!(angle <= -80)) return;
-            arrow.Rotate(coolingSpeed, 0, 0);
-            cooling = false;
+            if (angle <= -80)
+            {
+                arrow.Rotate(coolingSpeed * Time.deltaTime, 0, 0);
+                cooling = false;
+            }
+            else if (isOn && angle < -40)
+            {
+                interactionEvent.Invoke();
+                isOn = false;
+            }
         }
     }
 
@@ -42,11 +48,15 @@ public class SteamMachine : Interactible, ICompleted
     {
         if (angle <= 40)
         {
-            arrow.Rotate(heatingSpeed, 0, 0);
-            if (canInvoke) interactionEvent.Invoke();
+            arrow.Rotate(heatingSpeed * Time.deltaTime, 0, 0);
             if (angle >= 40)
             {
-                arrow.eulerAngles = new Vector3(350, 45, 0);
+                arrow.Rotate(-heatingSpeed * Time.deltaTime, 0, 0);
+            }
+            else if (!isOn && angle > -40)
+            {
+                interactionEvent.Invoke();
+                isOn = true;
             }
             cooling = true;
         }
@@ -79,13 +89,11 @@ public class SteamMachine : Interactible, ICompleted
 
     public bool getCompletedCondition()
     {
-        canInvoke = false;
         return angle is >= -40 and <= 40;
     }
 
     public bool getResetCondition()
     {
-        canInvoke = false;
         return angle is <= -40 ;
     }
 }
