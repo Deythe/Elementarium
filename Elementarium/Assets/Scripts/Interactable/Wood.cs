@@ -9,7 +9,6 @@ public class Wood :Interactible
     [SerializeField] private Collider woodCollider;
 
     [Header("Burn Shader")]
-    private float dissolve;
     private Transform dissolveOrigin;
     [SerializeField] private AnimationCurve burnCurve;
     [SerializeField] private float burningTime;
@@ -38,6 +37,7 @@ public class Wood :Interactible
     private float i;
     IEnumerator BurnCoroutine(float t) 
     {
+        i = 0;
         while (i < t) 
         {
             mat.SetFloat("_Dissolve", burnCurve.Evaluate(i / t));
