@@ -38,10 +38,8 @@ public class Glass : MonoBehaviour, IDestroyable
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision entered");
         if ((impactRelativeSpeed = collision.relativeVelocity.magnitude) > impactSpeedMin && collision.transform.GetComponent<IDestroyer>() != null)
         {
-            Debug.Log("Collision Condition entered");
             impactPosition = collision.GetContact(0).point +  new Vector3(collision.GetContact(0).normal.x * impactPositionOffsetMultiplier, collision.GetContact(0).normal.y * impactPositionOffsetMultiplier, collision.GetContact(0).normal.z * impactPositionOffsetMultiplier);
             actionWhenBroke.Invoke();
             DestroyObject();

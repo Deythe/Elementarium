@@ -13,6 +13,8 @@ public class SteamMachine : Interactible, ICompleted
     private bool cooling;
     private bool frozen;
     private float angle;
+
+    private bool isOn;
     
 
     private void Update()
@@ -20,48 +22,69 @@ public class SteamMachine : Interactible, ICompleted
         angle = arrow.localEulerAngles.x;
         angle = (angle > 180) ? angle - 360 : angle;
         if (!cooling) return;
+        Cool();
+    }
+
+    private void Cool()
+    {
         if (angle >= -80)
         {
-            arrow.Rotate(-coolingSpeed, 0, 0);
-            interactionEvent.Invoke();
+            arrow.Rotate(-coolingSpeed * Time.deltaTime, 0, 0);
+
             if (angle <= -80)
             {
-                arrow.Rotate(coolingSpeed, 0, 0);
+                arrow.Rotate(coolingSpeed * Time.deltaTime, 0, 0);
                 cooling = false;
             }
+            else if (isOn && angle < -40)
+            {
+                interactionEvent.Invoke();
+                isOn = false;
+            }
         }
-        
+    }
+
+    private void Heat()
+    {
+        if (angle <= 40)
+        {
+            arrow.Rotate(heatingSpeed * Time.deltaTime, 0, 0);
+            if (angle >= 40)
+            {
+                arrow.Rotate(-heatingSpeed * Time.deltaTime, 0, 0);
+            }
+            else if (!isOn && angle > -40)
+            {
+                interactionEvent.Invoke();
+                isOn = true;
+            }
+            cooling = true;
+        }
     }
 
     protected override void Collide(Transform e)
     {
         if (e.GetComponentInParent<Element>().GetID() == ElementData.ID.STEAM)
         {
-            if (angle <= 40)
-            {
-                arrow.Rotate(heatingSpeed, 0, 0);
-                interactionEvent.Invoke();
-                if (angle >= 40)
-                {
-                    arrow.eulerAngles = new Vector3(350, 45, 0);
-                }
-                cooling = true;
-            }
-        } else
+            Heat();
+        } 
+        else if (e.GetComponentInParent<Element>().GetID() == ElementData.ID.ICE)
         {
-            arrow.Rotate(-heatingSpeed, 0, 0);
             if (frozen) return;
             StartCoroutine(Freeze());
         }
+        else
+        {
+            arrow.Rotate(-heatingSpeed, 0, 0);
+        }
+        
     }
 
     private IEnumerator Freeze()
     {
-        Debug.Log("I'm frozen");
         frozen = true;
         yield return new WaitForSeconds(2);
         frozen = false;
-        Debug.Log("I'm not frozen anymore");
     }
 
     public bool getCompletedCondition()
