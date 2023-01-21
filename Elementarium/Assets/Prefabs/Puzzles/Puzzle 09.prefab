@@ -83,7 +83,7 @@ MonoBehaviour:
   - {x: 19.822247, y: 0.5000001, z: -1.9992449}
   - {x: 19.6795, y: 0.5000001, z: -1.827652}
   - {x: 19.12656, y: 0.5000001, z: -1.661274}
-  - {x: 18.112629, y: 0.5000001, z: -1.6396141}
+  - {x: 18.102654, y: 0.5000001, z: -1.6396157}
   m_Textures0:
   - {x: 18.099815, y: -4.0518}
   - {x: 20.101204, y: -4.5611076}
@@ -91,17 +91,17 @@ MonoBehaviour:
   - {x: 19.822247, y: -1.9992449}
   - {x: 19.6795, y: -1.827652}
   - {x: 19.12656, y: -1.661274}
-  - {x: 18.112629, y: -1.6396141}
+  - {x: 18.102654, y: -1.6396157}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
-  - {x: 1, y: 0.000000014097901, z: 8.389512e-23, w: -1}
+  - {x: 1, y: 0.000000014094479, z: 8.3897724e-23, w: -1}
   - {x: 1, y: 0.000000013791023, z: 9.626707e-23, w: -1}
   - {x: 1, y: 0.000000013746036, z: 5.4636147e-23, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0.0000000071256703, z: 9.713643e-24, w: -1}
-  - {x: 1, y: 0.0000000010555943, z: 0, w: -1}
+  - {x: 1, y: 0.000000007123104, z: 9.7141326e-24, w: -1}
+  - {x: 1, y: 0.0000000010453286, z: 0, w: -1}
   m_Colors: []
   m_UnwrapParameters:
     m_HardAngle: 88
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7062
+  m_VersionIndex: 7090
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -166,7 +166,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2f598ed937ae98d4cbdab9392b60bc6f, type: 2}
-  - {fileID: 2100000, guid: a175a1943e4423a4aa0f589fcc01c43d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -774,6 +773,7 @@ MonoBehaviour:
   particleStart: {fileID: 1646719421003612539}
   canvas: {fileID: 1646719421452915565}
   text: {fileID: 1646719421657268814}
+  source: {fileID: 0}
 --- !u!114 &2896659426881708018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6656,6 +6656,8 @@ MonoBehaviour:
   listLinkedPiped: []
   _isInHand: 0
   rb: {fileID: 4717590823749149153}
+  source: {fileID: 0}
+  clip: {fileID: 0}
 --- !u!54 &4717590823749149153
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8149,7 +8151,7 @@ PrefabInstance:
     - target: {fileID: 8746342977658713695, guid: 8ba9b1667a37ba0448093076d95ba66a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.209001
+      value: 9.94
       objectReference: {fileID: 0}
     - target: {fileID: 8746342977658713695, guid: 8ba9b1667a37ba0448093076d95ba66a,
         type: 3}

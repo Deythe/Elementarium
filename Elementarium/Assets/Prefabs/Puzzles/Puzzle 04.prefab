@@ -1493,9 +1493,25 @@ MonoBehaviour:
   m_Mesh: {fileID: 0}
   m_VersionIndex: 7467
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 00000000
+  m_SelectedEdges:
+  - a: 0
+    b: 7
+  - a: 7
+    b: 6
+  - a: 1
+    b: 0
+  - a: 2
+    b: 1
+  - a: 3
+    b: 2
+  - a: 6
+    b: 5
+  - a: 5
+    b: 4
+  - a: 4
+    b: 3
+  m_SelectedVertices: 0600000000000000070000000100000002000000030000000500000004000000
 --- !u!114 &7984430953568948705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1546,7 +1562,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2f598ed937ae98d4cbdab9392b60bc6f, type: 2}
-  - {fileID: 2100000, guid: a175a1943e4423a4aa0f589fcc01c43d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2176,7 +2191,7 @@ PrefabInstance:
     - target: {fileID: 8746342977658713695, guid: 8ba9b1667a37ba0448093076d95ba66a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.289
+      value: -0.61
       objectReference: {fileID: 0}
     - target: {fileID: 8746342977658713695, guid: 8ba9b1667a37ba0448093076d95ba66a,
         type: 3}
