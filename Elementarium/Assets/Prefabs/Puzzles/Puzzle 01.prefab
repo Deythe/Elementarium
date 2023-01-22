@@ -49615,7 +49615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activators:
-  - {fileID: 1822608693081406111}
+  - {fileID: 7669190791969404270}
   hasOrder: 0
   finishDelay: 0
   finishConditionEvent:
@@ -49738,17 +49738,52 @@ PrefabInstance:
       propertyPath: m_Name
       value: StaticBarrel
       objectReference: {fileID: 0}
+    - target: {fileID: 7686369614855981224, guid: d2687b3466d94454e86abed06ec43e04,
+        type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686369614855981224, guid: d2687b3466d94454e86abed06ec43e04,
+        type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686369614855981224, guid: d2687b3466d94454e86abed06ec43e04,
+        type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1927118144974853621}
+    - target: {fileID: 7686369614855981224, guid: d2687b3466d94454e86abed06ec43e04,
+        type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686369614855981224, guid: d2687b3466d94454e86abed06ec43e04,
+        type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheckState
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686369614855981224, guid: d2687b3466d94454e86abed06ec43e04,
+        type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FinishCondition, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686369614855981224, guid: d2687b3466d94454e86abed06ec43e04,
+        type: 3}
+      propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2687b3466d94454e86abed06ec43e04, type: 3}
---- !u!4 &1822608693081406111 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1841476262832850783, guid: d2687b3466d94454e86abed06ec43e04,
-    type: 3}
-  m_PrefabInstance: {fileID: 55459455354060224}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1834393586402562159 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1851009321569562031, guid: d2687b3466d94454e86abed06ec43e04,
+    type: 3}
+  m_PrefabInstance: {fileID: 55459455354060224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7669190791969404270 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7686369614855981230, guid: d2687b3466d94454e86abed06ec43e04,
     type: 3}
   m_PrefabInstance: {fileID: 55459455354060224}
   m_PrefabAsset: {fileID: 0}
