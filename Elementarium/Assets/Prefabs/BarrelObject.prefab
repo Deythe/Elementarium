@@ -645,7 +645,7 @@ GameObject:
   - component: {fileID: 5816274936941896017}
   - component: {fileID: 5537314779473996908}
   - component: {fileID: 3994758463393214779}
-  - component: {fileID: 1209935960235721278}
+  - component: {fileID: 3707183122122102866}
   m_Layer: 9
   m_Name: BarrelObject
   m_TagString: Untagged
@@ -742,11 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -776,7 +772,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1209935960235721278}
+      - m_Target: {fileID: 3707183122122102866}
         m_TargetAssemblyTypeName: GrabbableObjects, Assembly-CSharp
         m_MethodName: Grab
         m_Mode: 1
@@ -791,7 +787,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1209935960235721278}
+      - m_Target: {fileID: 3707183122122102866}
         m_TargetAssemblyTypeName: GrabbableObjects, Assembly-CSharp
         m_MethodName: Release
         m_Mode: 1
@@ -978,7 +974,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1209935960235721278
+--- !u!114 &3707183122122102866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -991,6 +987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrabbed: 0
+  grabbers: 0
 --- !u!1 &5816274937918920222
 GameObject:
   m_ObjectHideFlags: 0
