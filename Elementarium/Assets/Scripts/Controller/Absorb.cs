@@ -11,13 +11,15 @@ public class Absorb : MonoBehaviour
     [SerializeField] private float rayDistanceMax, speedRotation, radiusRotation;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private AudioClip absorbSound;
+    [SerializeField] private Rigidbody rb;
+    private GrabbableObjects grabbableObj;
     
     private Coroutine currentCoroutine;
     private bool isTouching, isAbsorbing;
     private Transform absorbedObject;
     private float angle, distance, maxDistance;
     private RaycastHit hit;
-    
+
     void Update()
     {
         if (masterHand.haveObjectInHand) return;
@@ -41,6 +43,7 @@ public class Absorb : MonoBehaviour
         }
     }
 
+    private GrabbableObjects otherGrabObj;
     void CheckAbsorbedObject()
     {
         if (absorbedObject == null)
@@ -52,9 +55,9 @@ public class Absorb : MonoBehaviour
         if (hit.transform == null) return;
         if (hit.transform == absorbedObject) return;
         if (((1<<hit.transform.gameObject.layer) & _layerMask) == 0) return;
-        if (hit.transform.GetComponent<GrabbableObjects>() != null)
+        if ((otherGrabObj = hit.transform.GetComponent<GrabbableObjects>()) != null)
         {
-            if (hit.transform.GetComponent<GrabbableObjects>().isGrabbed)
+            if (otherGrabObj.isGrabbed)
             {
                 return;
             };
@@ -68,9 +71,13 @@ public class Absorb : MonoBehaviour
         }
 
         CancelAbsorb();
+
         absorbedObject = hit.transform;
         absorbedObject.SetParent(absorbAnchorTransform);
-        absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
+        rb = absorbedObject.GetComponent<Rigidbody>();
+        grabbableObj = absorbedObject.GetComponent<GrabbableObjects>();
+        rb.isKinematic = true;
+        rb.velocity = Vector3.zero;
         currentCoroutine = StartCoroutine(CoroutineMoveAround());
     }
 
@@ -84,7 +91,7 @@ public class Absorb : MonoBehaviour
                 StopCoroutine(currentCoroutine);
             }
             
-            absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
+            rb.isKinematic = false;
             absorbedObject.SetParent(null);
             absorbedObject = null;
         }
@@ -105,7 +112,7 @@ public class Absorb : MonoBehaviour
         {
             masterHand.StopSound();
             StopCoroutine(currentCoroutine);
-            absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
+            rb.isKinematic = false;
             absorbedObject.SetParent(null);
             absorbShape.SetActive(false);
         }
@@ -116,7 +123,7 @@ public class Absorb : MonoBehaviour
         angle = 0;
         maxDistance = Mathf.Abs(Vector3.Distance(absorbedObject.position, absorbAnchorTransform.position)); 
         do
-        {
+        { 
             absorbedObject.LookAt(absorbAnchorTransform);
             distance = Mathf.Abs(Vector3.Distance(absorbedObject.position, absorbAnchorTransform.position)); 
             absorbedObject.localPosition = new Vector3(Mathf.Cos(angle)*distance*0.5f/maxDistance, Mathf.Sin(angle)*distance*0.5f/maxDistance, absorbedObject.localPosition.z-0.01f);
