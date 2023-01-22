@@ -56,7 +56,6 @@ public class Absorb : MonoBehaviour
         {
             if (hit.transform.GetComponent<GrabbableObjects>().isGrabbed)
             {
-                Debug.Log("alreadyGrabbed");
                 return;
             };
         }
@@ -85,7 +84,7 @@ public class Absorb : MonoBehaviour
                 StopCoroutine(currentCoroutine);
             }
             
-            absorbedObject.GetComponent<GrabbableObjects>().Release();
+            absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
             absorbedObject.SetParent(null);
             absorbedObject = null;
         }
@@ -96,7 +95,6 @@ public class Absorb : MonoBehaviour
     public void Release()
     {
         masterHand.haveObjectInHand = false;
-        //absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     public void Grabbed()
@@ -107,7 +105,6 @@ public class Absorb : MonoBehaviour
         {
             masterHand.StopSound();
             StopCoroutine(currentCoroutine);
-            absorbedObject.GetComponent<GrabbableObjects>().Grab();
             absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
             absorbedObject.SetParent(null);
             absorbShape.SetActive(false);
