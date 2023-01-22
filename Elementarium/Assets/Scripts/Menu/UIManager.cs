@@ -21,7 +21,9 @@ public class UIManager : MonoBehaviour
     
     [SerializeField] private LayerMask UIlayer, TPLayer;
     
-    [SerializeField] private List<Transform> checkpoints = new List<Transform>();
+    [SerializeField] private List<Transform> TUTCP = new List<Transform>();
+    [SerializeField] private List<Transform> WQCP = new List<Transform>();
+    [SerializeField] private List<Transform> FQCP = new List<Transform>();
     
     private void Update()
     {
@@ -81,8 +83,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void TeleportFromIndex(int index)
+    public void TeleportFromIndexTut(int index)
     {
-        player.transform.position = checkpoints[index].position;
+        player.transform.position = TUTCP[index].position;
+    }
+    
+    public void TeleportFromIndexWq(int index)
+    {
+        player.transform.position = WQCP[index].position;
+    }
+    
+    public void TeleportFromIndexFq(int index)
+    {
+        player.transform.position = FQCP[index].position;
     }
 }
