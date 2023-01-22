@@ -15,8 +15,8 @@ public class WaterPond : Interactible
     [SerializeField] private float solidificationTime;
 
     [Header("WaterShader")]
-    private float firstTilingSpeed;
-    private float secondTilingSpeed;
+    private Vector2 firstTilingSpeed;
+    private Vector2 secondTilingSpeed;
 
     private WaitForEndOfFrame wait;
 
@@ -40,8 +40,8 @@ public class WaterPond : Interactible
         {
             element.SetElementData(iceData);
             mat.SetVector("_IceOrigin", solidificationOrigin.position);
-            firstTilingSpeed = mat.GetFloat("_FirstTilingSpeed");
-            secondTilingSpeed = mat.GetFloat("_SecondTilingSpeed");
+            firstTilingSpeed = mat.GetVector("_FirstTilingSpeed");
+            secondTilingSpeed = mat.GetVector("_SecondTilingSpeed");
             StartCoroutine(FreezeCoroutine(solidificationTime));
         }
     }
@@ -53,8 +53,8 @@ public class WaterPond : Interactible
         while (i < t)
         {
             mat.SetFloat("_IceDistance", solidificationCurve.Evaluate(i / t));
-            mat.SetFloat("_FirstTilingSpeed", Mathf.Lerp(firstTilingSpeed, 0, i / t));
-            mat.SetFloat("_SecondTilingSpeed", Mathf.Lerp(secondTilingSpeed, 0, i / t));
+            mat.SetVector("_FirstTilingSpeed", new Vector2(Mathf.Lerp(firstTilingSpeed.x, 0, i / t), Mathf.Lerp(firstTilingSpeed.y, 0, i / t)));
+            mat.SetVector("_SecondTilingSpeed", new Vector2(Mathf.Lerp(secondTilingSpeed.x, 0, i / t), Mathf.Lerp(secondTilingSpeed.y, 0, i / t)));
             yield return wait;
             i += Time.deltaTime;
         }

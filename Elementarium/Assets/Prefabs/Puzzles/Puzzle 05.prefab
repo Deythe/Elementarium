@@ -2839,11 +2839,29 @@ MonoBehaviour:
   isSolid: 0
   solidificationCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 50
+      outSlope: 50
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 50
+      inSlope: 50
+      outSlope: 50
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  solidificationTime: 0
+  solidificationTime: 4
   iceData: {fileID: 11400000, guid: 505dd95b919e4864989cdf5e78127c0f, type: 2}
 --- !u!1 &5384684989117498362
 GameObject:
