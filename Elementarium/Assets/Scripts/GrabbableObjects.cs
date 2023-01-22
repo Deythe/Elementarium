@@ -5,20 +5,21 @@ using UnityEngine;
 public class GrabbableObjects : MonoBehaviour
 {
     public bool isGrabbed;
+    public int grabbers;
 
     public void Grab()
     {
-        Debug.Log("grab");
-        isGrabbed = true;
+        grabbers ++;
+        isGrabbed = grabbers > 0;
     }
 
     public void Release()
     {
         if (isGrabbed)
         {
-            Debug.Log("release");
             GetComponent<Rigidbody>().isKinematic = false;
-            isGrabbed = false;
+            grabbers --;
+            isGrabbed = grabbers > 0;
         }
     }
 }
