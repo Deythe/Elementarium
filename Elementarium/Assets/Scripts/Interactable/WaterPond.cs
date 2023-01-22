@@ -43,6 +43,7 @@ public class WaterPond : Interactible
             firstTilingSpeed = mat.GetVector("_FirstTilingSpeed");
             secondTilingSpeed = mat.GetVector("_SecondTilingSpeed");
             StartCoroutine(FreezeCoroutine(solidificationTime));
+            isSolid = true;
         }
     }
 
