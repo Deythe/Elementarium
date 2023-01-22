@@ -52,11 +52,13 @@ public class Absorb : MonoBehaviour
         if (hit.transform == null) return;
         if (hit.transform == absorbedObject) return;
         if (((1<<hit.transform.gameObject.layer) & _layerMask) == 0) return;
-        if (hit.transform.GetComponent<GrabbableObjects>() != null &&
-            hit.transform.GetComponent<GrabbableObjects>().isGrabbed)
+        if (hit.transform.GetComponent<GrabbableObjects>() != null)
         {
-            Debug.Log("alreadyGrabbed");
-            return;
+            if (hit.transform.GetComponent<GrabbableObjects>().isGrabbed)
+            {
+                Debug.Log("alreadyGrabbed");
+                return;
+            };
         }
 
         if (hit.transform.gameObject.layer.Equals(12))
@@ -68,15 +70,13 @@ public class Absorb : MonoBehaviour
 
         CancelAbsorb();
         absorbedObject = hit.transform;
-        Debug.Log("absorbing" + absorbedObject.name);
         absorbedObject.SetParent(absorbAnchorTransform);
         absorbedObject.GetComponent<Rigidbody>().isKinematic = true;
         currentCoroutine = StartCoroutine(CoroutineMoveAround());
     }
 
-    public void CancelAbsorb()
+    void CancelAbsorb()
     {
-        Debug.Log("cancelAbsorb");
         masterHand.StopSound();
         if (absorbedObject != null)
         {
@@ -84,7 +84,8 @@ public class Absorb : MonoBehaviour
             {
                 StopCoroutine(currentCoroutine);
             }
-            absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
+            
+            absorbedObject.GetComponent<GrabbableObjects>().Release();
             absorbedObject.SetParent(null);
             absorbedObject = null;
         }
@@ -101,11 +102,12 @@ public class Absorb : MonoBehaviour
     public void Grabbed()
     {
         masterHand.haveObjectInHand = true;
-        
+
         if (isAbsorbing)
         {
             masterHand.StopSound();
             StopCoroutine(currentCoroutine);
+            absorbedObject.GetComponent<GrabbableObjects>().Grab();
             absorbedObject.GetComponent<Rigidbody>().isKinematic = false;
             absorbedObject.SetParent(null);
             absorbShape.SetActive(false);

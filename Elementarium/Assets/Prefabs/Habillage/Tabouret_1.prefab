@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: 7044763988455273008}
   - component: {fileID: 2877694151819374627}
   - component: {fileID: 6507829984990399276}
-  - component: {fileID: 4897585800212023819}
-  - component: {fileID: 1141784471302888819}
+  - component: {fileID: 608755486065575420}
   m_Layer: 9
   m_Name: Tabouret_1
   m_TagString: Untagged
@@ -121,10 +120,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_Colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6507829984990399276}
+  - {fileID: 9179423685628194353}
+  - {fileID: 7328127158190691439}
+  - {fileID: 1948371407370092687}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -154,7 +153,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1141784471302888819}
+      - m_Target: {fileID: 608755486065575420}
         m_TargetAssemblyTypeName: GrabbableObjects, Assembly-CSharp
         m_MethodName: Grab
         m_Mode: 1
@@ -169,7 +168,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1141784471302888819}
+      - m_Target: {fileID: 608755486065575420}
         m_TargetAssemblyTypeName: GrabbableObjects, Assembly-CSharp
         m_MethodName: Release
         m_Mode: 1
@@ -271,21 +270,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.45, y: 0.4360023, z: 0.2}
-  m_Center: {x: 0, y: 0.000000044703494, z: 0.01}
---- !u!114 &4897585800212023819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72193424639998073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68a4a0f1c9923d41acf0aad2d02216e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1141784471302888819
+  m_Size: {x: 0.45, y: 0.4360023, z: 0.05}
+  m_Center: {x: 0, y: 0.000000044703494, z: 0.07}
+--- !u!114 &608755486065575420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
