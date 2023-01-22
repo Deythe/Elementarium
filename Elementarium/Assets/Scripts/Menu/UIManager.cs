@@ -7,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject menu;
+    [SerializeField] private GameObject player;
     [SerializeField] private InputActionProperty showButton,debugShowButton;
     [SerializeField] private Transform head;
     [SerializeField][Range(1,10)] private float spawnDistance = 2;
@@ -19,6 +20,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private ActionBasedContinuousTurnProvider continuousTurn;
     
     [SerializeField] private LayerMask UIlayer, TPLayer;
+    
+    [SerializeField] private List<Transform> checkpoints = new List<Transform>();
     
     private void Update()
     {
@@ -76,5 +79,10 @@ public class UIManager : MonoBehaviour
             snapTurn.enabled = false;
             continuousTurn.enabled = false;
         }
+    }
+
+    public void TeleportFromIndex(int index)
+    {
+        player.transform.position = checkpoints[index].position;
     }
 }
