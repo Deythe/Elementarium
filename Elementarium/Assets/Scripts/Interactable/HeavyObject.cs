@@ -56,7 +56,7 @@ public class HeavyObject : Interactible
         Vector3 toOther = transform.position - e.position;
         
         float angle = (int)(Vector3.Dot(forward, toOther));
-        Debug.Log(angle);
+        //Debug.Log(angle);
         if (angle != 0)
         {
             rb.velocity = angle > 0 ? transform.forward * velocity : -transform.forward * velocity;
@@ -65,15 +65,17 @@ public class HeavyObject : Interactible
         else
         {
             Vector3 cross = Vector3.Cross(Vector3.forward, toOther);
-            if (cross.y < 0)
+            float sideAngle = (int)(Vector3.Dot(toOther, transform.right));
+            Debug.Log(sideAngle);
+            if (sideAngle < 0)
             {
                 rb.velocity = -transform.right * velocity;
-                Debug.Log("Left");
+                //Debug.Log("Left");
             }
             else 
             {
                 rb.velocity = transform.right* velocity;
-                Debug.Log("Right");
+                //Debug.Log("Right");
             }
             //rb.velocity = e.transform.position.x > transform.position.x ? -transform.right * velocity : ;
         }
