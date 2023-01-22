@@ -8,11 +8,17 @@ public class GrabbableObjects : MonoBehaviour
 
     public void Grab()
     {
+        Debug.Log("grab");
         isGrabbed = true;
     }
 
     public void Release()
     {
-        isGrabbed = false;
+        if (isGrabbed)
+        {
+            Debug.Log("release");
+            GetComponent<Rigidbody>().isKinematic = false;
+            isGrabbed = false;
+        }
     }
 }
