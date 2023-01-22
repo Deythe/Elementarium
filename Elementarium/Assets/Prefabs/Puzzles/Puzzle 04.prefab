@@ -1980,7 +1980,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: da847aacc421b3a478545222ef3fd917, type: 2}
+  - {fileID: 2100000, guid: c9d12923985396c478f79499135bf457, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2040,10 +2040,34 @@ MonoBehaviour:
   interactionEvent:
     m_PersistentCalls:
       m_Calls: []
-  waterPondMaster: {fileID: 6208087905274337213}
   meshRenderer: {fileID: 6208087905620479642}
   element: {fileID: 6208087905620479639}
-  IceMaterial: {fileID: 2100000, guid: 515fa05d2fd59f34ea3dcae89af27311, type: 2}
+  isSolid: 0
+  solidificationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 50
+      outSlope: 50
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 50
+      inSlope: 50
+      outSlope: 50
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  solidificationTime: 4
   iceData: {fileID: 11400000, guid: 505dd95b919e4864989cdf5e78127c0f, type: 2}
 --- !u!114 &6208087905620479639
 MonoBehaviour:
