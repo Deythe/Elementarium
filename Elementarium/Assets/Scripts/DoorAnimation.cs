@@ -20,12 +20,17 @@ public class DoorAnimation : MonoBehaviour
 
     public void Open()
     {
-        Debug.Log("open");
         if(!open) doorState.Play("DoorOpen");
         if (!source.isPlaying)
         {
-            //source.clip = doorOpenSound;
-            source.PlayOneShot(doorOpenSound);
+            source.clip = doorOpenSound;
+            source.Play();
+        }
+        else
+        {
+            source.Stop();
+            source.clip = doorOpenSound;
+            source.Play();
         }
 
         open = true;
@@ -33,14 +38,17 @@ public class DoorAnimation : MonoBehaviour
 
     public void Close()
     {
-        Debug.Log("close");
         if(open) doorState.Play("DoorClose");
-        if (source.isPlaying)
+        if (!source.isPlaying)
+        {
+            source.clip = doorCloseSound;
+            source.Play();
+        }
+        else
         {
             source.Stop();
-            //source.clip = doorCloseSound;
-            source.PlayOneShot(doorOpenSound);
-            
+            source.clip = doorCloseSound;
+            source.Play();
         }
 
         open = false;

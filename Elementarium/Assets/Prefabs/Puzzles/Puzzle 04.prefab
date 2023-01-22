@@ -1493,25 +1493,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 0}
   m_VersionIndex: 7467
   m_IsSelectable: 1
-  m_SelectedFaces: 00000000
-  m_SelectedEdges:
-  - a: 0
-    b: 7
-  - a: 7
-    b: 6
-  - a: 1
-    b: 0
-  - a: 2
-    b: 1
-  - a: 3
-    b: 2
-  - a: 6
-    b: 5
-  - a: 5
-    b: 4
-  - a: 4
-    b: 3
-  m_SelectedVertices: 0600000000000000070000000100000002000000030000000500000004000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!114 &7984430953568948705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1996,7 +1980,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: da847aacc421b3a478545222ef3fd917, type: 2}
+  - {fileID: 2100000, guid: c9d12923985396c478f79499135bf457, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2052,14 +2036,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab25bd8e95d348148be03ad984a6fb25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neededID: 02000000
+  neededID: 0200000005000000
   interactionEvent:
     m_PersistentCalls:
       m_Calls: []
-  waterPondMaster: {fileID: 6208087905274337213}
   meshRenderer: {fileID: 6208087905620479642}
   element: {fileID: 6208087905620479639}
-  IceMaterial: {fileID: 2100000, guid: 515fa05d2fd59f34ea3dcae89af27311, type: 2}
+  isSolid: 0
+  solidificationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  solidificationTime: 0
   iceData: {fileID: 11400000, guid: 505dd95b919e4864989cdf5e78127c0f, type: 2}
 --- !u!114 &6208087905620479639
 MonoBehaviour:
