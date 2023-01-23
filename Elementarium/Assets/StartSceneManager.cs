@@ -33,8 +33,8 @@ public class StartSceneManager : MonoBehaviour
 
     IEnumerator CoroutineEarthQuake()
     {
-        randomX = Random.Range(-0.15f, 0.15f);
-        randomZ = Random.Range(-0.10f, 0.10f);
+        randomX = Random.Range(-0.07f, 0.07f);
+        randomZ = Random.Range(-0.07f, 0.07f);
         environment.transform.position += new Vector3(randomX, 0, randomZ);
         yield return new WaitForSeconds(0.04f);
         StartCoroutine(CoroutineEarthQuake());

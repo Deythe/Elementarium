@@ -95,6 +95,6 @@ public class UIManager : MonoBehaviour
     
     public void TeleportFromIndexFq(int index)
     {
-        player.transform.position = FQCP[index].position;
+        player.transform.localPosition = FQCP[index].position;
     }
 }
