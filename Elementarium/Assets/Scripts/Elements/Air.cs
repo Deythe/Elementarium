@@ -16,7 +16,7 @@ public class Air : ElementData
         {
             case ID.EARTH:
                 Debug.Log("Merge Earth to Sand");
-                MergeEarth(collisionPoint, collisionRotation);
+                //MergeEarth(collisionPoint, collisionRotation);
                 break;
         }
     }
