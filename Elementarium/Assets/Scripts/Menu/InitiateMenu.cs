@@ -10,7 +10,6 @@ public class InitiateMenu : MonoBehaviour
 {
     [SerializeField] private ActionBasedSnapTurnProvider snapTurn;
     [SerializeField] private ActionBasedContinuousTurnProvider continuousTurn;
-    [SerializeField] private ActionBasedContinuousMoveProvider continuousMove;
     [SerializeField] private TeleportationProvider teleportationMove;
     [SerializeField] private TMP_Dropdown turnDD;
     [SerializeField] private TMP_Dropdown moveDD;
@@ -27,15 +26,6 @@ public class InitiateMenu : MonoBehaviour
         else
         {
             turnDD.value = 2;
-        }
-
-        if (continuousMove)
-        {
-            moveDD.value = 0;
-        }
-        else
-        {
-            moveDD.value = 1;
         }
     }
 }
