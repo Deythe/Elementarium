@@ -19,7 +19,7 @@ public class Water : ElementData
                 break;
             case ID.EARTH:
                 Debug.Log("Merge Earth to Mud");
-                MergeEarth(collisionPoint, collisionRotation);
+                //MergeEarth(collisionPoint, collisionRotation);
                 break;
         }
     }

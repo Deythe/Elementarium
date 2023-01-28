@@ -85,16 +85,16 @@ public class UIManager : MonoBehaviour
 
     public void TeleportFromIndexTut(int index)
     {
-        player.transform.position = TUTCP[index].position;
+        player.transform.localPosition = TUTCP[index].position;
     }
     
     public void TeleportFromIndexWq(int index)
     {
-        player.transform.position = WQCP[index].position;
+        player.transform.localPosition = WQCP[index].position;
     }
     
     public void TeleportFromIndexFq(int index)
     {
-        player.transform.position = FQCP[index].position;
+        player.transform.localPosition = FQCP[index].position;
     }
 }
