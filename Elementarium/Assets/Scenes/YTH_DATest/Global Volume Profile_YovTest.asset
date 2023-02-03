@@ -1,5 +1,39 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9005710673858992444
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
+  m_Name: ShadowsMidtonesHighlights
+  m_EditorClassIdentifier: 
+  active: 1
+  shadows:
+    m_OverrideState: 0
+    m_Value: {x: 0.98958457, y: 0.99538994, z: 1, w: 0}
+  midtones:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.9865735, z: 0.781685, w: 0}
+  highlights:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.98079693, z: 0.9852898, w: 0}
+  shadowsStart:
+    m_OverrideState: 0
+    m_Value: 0
+  shadowsEnd:
+    m_OverrideState: 0
+    m_Value: 0.3
+  highlightsStart:
+    m_OverrideState: 0
+    m_Value: 0.55
+  highlightsEnd:
+    m_OverrideState: 1
+    m_Value: 1.31
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,6 +49,8 @@ MonoBehaviour:
   components:
   - {fileID: 1163955307401175941}
   - {fileID: 7638638303439011093}
+  - {fileID: 2284378703481106892}
+  - {fileID: -9005710673858992444}
 --- !u!114 &1163955307401175941
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -30,10 +66,10 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 0
-    m_Value: 0.9
+    m_Value: 0.71
   intensity:
     m_OverrideState: 1
-    m_Value: 1.15
+    m_Value: 1.26
   scatter:
     m_OverrideState: 0
     m_Value: 0.597
@@ -42,7 +78,7 @@ MonoBehaviour:
     m_Value: 65472
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.7058824, g: 0.6107664, b: 0.5254902, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
@@ -51,11 +87,36 @@ MonoBehaviour:
     m_Value: 1
   dirtTexture:
     m_OverrideState: 0
-    m_Value: {fileID: 0}
+    m_Value: {fileID: 2800000, guid: d4287339594da0f4bbcd58a0d350b338, type: 3}
     dimension: 1
   dirtIntensity:
     m_OverrideState: 0
+    m_Value: 2.72
+--- !u!114 &2284378703481106892
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 1
+  mode:
+    m_OverrideState: 0
     m_Value: 0
+  quality:
+    m_OverrideState: 1
+    m_Value: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.1
+  clamp:
+    m_OverrideState: 0
+    m_Value: 0.05
 --- !u!114 &7638638303439011093
 MonoBehaviour:
   m_ObjectHideFlags: 3
