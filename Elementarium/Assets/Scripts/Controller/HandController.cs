@@ -122,12 +122,4 @@ public class HandController : MonoBehaviour
         source.clip = null;
         source.loop = false;
     }
-
-    public void CheckTpInResetDoor()
-    {
-        if (Physics.Raycast(_rayHand.rayOriginTransform.position, rayHand.transform.forward, rayHand.endPointDistance, resetDoor))
-        {
-            PlayerManager.instance.ResetElements();
-        }
-    }
 }
