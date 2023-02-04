@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -8,6 +9,10 @@ using Random = UnityEngine.Random;
 public class GenerateGrid : MonoBehaviour
 {
     public GameObject blockGameObject;
+
+    public GameObject planeGameObject;
+
+    public bool makePlaneBehind;
     
     [SerializeField]
     private int worldSizeX = 10;
@@ -24,6 +29,7 @@ public class GenerateGrid : MonoBehaviour
     private float noiseSmoothness = 8f;
 
     private List<Vector3> _blockPositions = new List<Vector3>();
+    private List<float> _blockHeights = new List<float>();
 
     [ContextMenu("Make Grid")]
     public void MakeGrid()
@@ -37,26 +43,40 @@ public class GenerateGrid : MonoBehaviour
             for (int z = 0; z < worldSizeZ; z++)
             {
                 
-                float degX = Mathf.Rad2Deg * transform.rotation.eulerAngles.x;
-                float degY = Mathf.Rad2Deg * transform.rotation.eulerAngles.y;
-                float degZ = Mathf.Rad2Deg * transform.rotation.eulerAngles.z;
-
-                Debug.Log(degZ);
-                
-                Matrix4x4 rotationMatrix = Matrix4x4.TRS(transform.position, transform.rotation, transform.lossyScale);
-
+                Matrix4x4 gridMatrix = this.transform.localToWorldMatrix;
                 Vector3 pos = new Vector3(
-                    transform.position.x + x * gridOffset,
-                    transform.position.y + GenerateNoise(x, z, 102 - noiseSmoothness * 10) * noiseHeight,
-                    transform.position.z + z * gridOffset);
+                     x * gridOffset,
+                     (float)GenerateNoise(x, z, 102 - noiseSmoothness * 10) * noiseHeight,
+                     z * gridOffset);
 
-                pos = rotationMatrix.MultiplyVector(pos);
-                
-                GameObject block = Instantiate(blockGameObject, pos, transform.rotation) as GameObject;
-                _blockPositions.Add(block.transform.position);
+                //pos = gridMatrix.MultiplyVector(pos + transform.position);
+                pos -= Vector3.up * noiseHeight/2;
+
+                GameObject block = Instantiate(blockGameObject, Vector3.zero, transform.rotation) as GameObject;
                 block.transform.SetParent(this.transform);
+                block.transform.localPosition = pos;
+                _blockHeights.Add(block.transform.localPosition.y);
+                
             }
         }
+
+        if (!makePlaneBehind) return;
+        MakePlaneBehind();
+    }
+
+    private void MakePlaneBehind()
+    {
+        _blockHeights.Sort();
+        GameObject plane = Instantiate(planeGameObject, Vector3.zero, transform.rotation);
+        
+        float posX = (worldSizeX - 1) / 2f;
+        float posY = _blockHeights[0] - blockGameObject.transform.lossyScale.y/2f - 0.01f;
+        float posZ = (worldSizeZ - 1) / 2f;
+        
+        plane.transform.SetParent(this.transform);
+        plane.transform.localPosition = new Vector3(posX, posY, posZ);
+        plane.transform.Rotate(Vector3.forward, 180);
+        plane.transform.localScale = new Vector3(worldSizeX/10f, 0, worldSizeZ/10f);
     }
 
     private Vector3 ObjectSpawnLocation()
@@ -121,20 +141,20 @@ public class GenerateGrid : MonoBehaviour
         }
         cubes.Clear();
         _blockPositions.Clear();
+        _blockHeights.Clear();
     }
 
     private void OnDrawGizmos()
     {
 #if UNITY_EDITOR
         Handles.color = Color.blue;
-        Matrix4x4 handleMatrix = Matrix4x4.TRS(transform.localPosition, transform.localRotation, transform.lossyScale);
+        Matrix4x4 handleMatrix = this.transform.localToWorldMatrix;
         Handles.matrix = handleMatrix;
-        
+
         Handles.DrawWireCube(
-            transform.position + 
             new Vector3(
                 worldSizeX * gridOffset - gridOffset ,
-                noiseHeight,
+                0,
                 worldSizeZ * gridOffset  - gridOffset)/2,
             
             new Vector3(
