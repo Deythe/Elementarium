@@ -10,6 +10,7 @@ public class Fire : ElementData
 
     private GameObject newElementGO;
     private Element element;
+    private bool isFireActive = false;
 
     public override void Merge(Transform elementCollided, ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation)
     {
@@ -28,13 +29,13 @@ public class Fire : ElementData
 
     private void MergeAir(Vector3 collisionPoint, Quaternion collisionRotation)
     {
-
         newElementGO = Pooler.instance.Pop("Flamethrower", collisionPoint, collisionRotation);
-        if ((element = newElementGO.GetComponent<Element>()) != null)
+        if ((element = newElementGO.GetComponent<Element>()) != null && !isFireActive)
         {
             element.PlayParticles();
-            element.DelayedStopParticles(2);
-            element.DelayedDepopThis(2);
+            isFireActive = true;
+            //element.DelayedStopParticles(2);
+            //element.DelayedDepopThis(2);
         }
     }
 
