@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.VFX;
 
 public class Element : MonoBehaviour
 {
@@ -10,7 +9,6 @@ public class Element : MonoBehaviour
     [SerializeField] protected ElementData elementData;
     private AudioSource source;
     protected GameObject particlesGO;
-    protected VisualEffect VFXGO;
     protected ParticleSystem particles;
     protected Element collidedElement;
     protected List<ParticleCollisionEvent> particlesCollisions;
@@ -39,14 +37,6 @@ public class Element : MonoBehaviour
             if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
             {
                 particles.Play();
-            }
-        }
-        else
-        {
-            VisualEffect vfx = particlesGO.GetComponent<VisualEffect>();
-            if (vfx != null)
-            {
-                VFXGO = vfx;
             }
         }
         
@@ -111,12 +101,6 @@ public class Element : MonoBehaviour
             StopPlaySound();
             Pooler.instance.DePop(elementData.GetParticlesKey(), particlesGO);
             particlesGO = null;
-        }
-
-        if (VFXGO != null)
-        {
-            VFXGO.Stop();
-            Pooler.instance.DelayedDePop(2f, elementData.GetParticlesKey(), VFXGO.gameObject);
         }
     }
 
