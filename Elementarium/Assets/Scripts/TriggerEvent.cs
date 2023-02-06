@@ -10,19 +10,22 @@ public class TriggerEvent : MonoBehaviour
     public UnityEvent triggerEnterEvent;
     public UnityEvent triggerStayEvent;
     public UnityEvent triggerExitEvent;
+    public bool thisResetsElements;
 
     private bool canInvoke = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (transforms.Count == 0)
+        if (thisResetsElements)
         {
             PlayerManager playerManager = null;
             if ((playerManager = other.gameObject.GetComponentInChildren<PlayerManager>()) != null)
             {
                 playerManager.ResetElements();
                 triggerEnterEvent.Invoke();
+                return;
             }
+            return;
         }
         
         foreach(Transform t in transforms) 
