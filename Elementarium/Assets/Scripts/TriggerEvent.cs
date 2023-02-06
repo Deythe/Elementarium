@@ -15,6 +15,16 @@ public class TriggerEvent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (transforms.Count == 0)
+        {
+            PlayerManager playerManager = null;
+            if ((playerManager = other.gameObject.GetComponentInChildren<PlayerManager>()) != null)
+            {
+                playerManager.ResetElements();
+                triggerEnterEvent.Invoke();
+            }
+        }
+        
         foreach(Transform t in transforms) 
         {
             if (other.transform.Equals(t)) canInvoke = true;

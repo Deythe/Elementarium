@@ -75,7 +75,6 @@ public class GenerateGrid : MonoBehaviour
         
         plane.transform.SetParent(this.transform);
         plane.transform.localPosition = new Vector3(posX, posY, posZ);
-        plane.transform.Rotate(Vector3.forward, 180);
         plane.transform.localScale = new Vector3(worldSizeX/10f, 0, worldSizeZ/10f);
     }
 
