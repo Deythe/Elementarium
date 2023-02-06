@@ -10,7 +10,9 @@ public class Absorb : MonoBehaviour
     [SerializeField] private Transform absorbAnchorTransform;
     [SerializeField] private float rayDistanceMax;
     [SerializeField] private float absorbSpeed;
+    [SerializeField] private float absorbDrag;
     [SerializeField] private float absorbCenterSpeed;
+    [SerializeField] private float absorbCenterDrag;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private AudioClip absorbSound;
     [SerializeField] private Rigidbody rb;
@@ -97,7 +99,7 @@ public class Absorb : MonoBehaviour
 
             //rb.isKinematic = false;
             rb.useGravity = true;
-            rb.drag = 0;
+            //rb.drag = 0;
             absorbedObject.SetParent(null);
             absorbedObject = null;
         }
@@ -133,7 +135,8 @@ public class Absorb : MonoBehaviour
             rb.velocity += ((transform.forward * dot + absorbAnchorTransform.position - absorbedObject.position) * Time.deltaTime * absorbCenterSpeed * (1 / (dot == 0 ? 0.001f : dot)));
 
             yield return new WaitForFixedUpdate();
-            rb.velocity -= (absorbAnchorTransform.position - absorbedObject.position).normalized * Time.deltaTime * absorbSpeed;
+            rb.velocity -= (absorbAnchorTransform.position - absorbedObject.position).normalized * Time.deltaTime * absorbSpeed * absorbDrag;// * 0.9f;
+            rb.velocity -= ((transform.forward * dot + absorbAnchorTransform.position - absorbedObject.position) * Time.deltaTime * absorbCenterSpeed * (1 / (dot == 0 ? 0.001f : dot))) * absorbCenterDrag;
         }
         Release();
     }
