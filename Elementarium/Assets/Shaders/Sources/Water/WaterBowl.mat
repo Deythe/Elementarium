@@ -86,6 +86,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 8b320672dbc7fff41bac1dd3929b9b3c, type: 3}
         m_Scale: {x: 0.25, y: 0.25}
         m_Offset: {x: 0, y: 0}
+    - _WaterWaveNormals:
+        m_Texture: {fileID: 2800000, guid: 30f1c435329b816488ff310e835bae40, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _WaterfallMask:
         m_Texture: {fileID: 2800000, guid: c5808e939924bc24babf257467893c2e, type: 3}
         m_Scale: {x: 1, y: -1}
@@ -125,15 +129,16 @@ Material:
     - _EnvironmentReflections: 1
     - _FallEnd: 1
     - _FallFadeEnd: 1
-    - _FallFadeStart: 0.85
+    - _FallFadeStart: 0.95
     - _FallStart: 0.568
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
+    - _NormalCalcOffset: 0.1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _QueueControl: 1
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RefractionStrength: 0.05
@@ -145,17 +150,17 @@ Material:
     - _TexturePower: 1
     - _TransitionEnd: 0.783
     - _TransitionStart: 0.72
-    - _WaterCenterEnd: 0.5
-    - _WaterCenterStart: 0
-    - _WaterMetallic: 0
-    - _WaterNormalStrength: 0.5
-    - _WaterSmoothness: 0
-    - _WaterWaveScale: 5
+    - _WaterCenterEnd: 0.25
+    - _WaterCenterStart: 0.05
+    - _WaterMetallic: 1
+    - _WaterNormalStrength: 0.4
+    - _WaterSmoothness: 1
+    - _WaterWaveScale: 3
     - _WaterWaveSpeed: 0.25
-    - _WaterfallMetallic: 0
+    - _WaterfallMetallic: 1
     - _WaterfallNormalStrength: 1
-    - _WaterfallSmoothness: 0
-    - _WaterfallSpeed: 0.4
+    - _WaterfallSmoothness: 1
+    - _WaterfallSpeed: 0.5
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -163,6 +168,6 @@ Material:
     - _Color: {r: 0.38470098, g: 0.5247192, b: 0.6132076, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _WaterColor: {r: 1, g: 1, b: 1, a: 1}
-    - _WaterfallColor: {r: 1, g: 1, b: 1, a: 1}
+    - _WaterColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
+    - _WaterfallColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
   m_BuildTextureStacks: []
