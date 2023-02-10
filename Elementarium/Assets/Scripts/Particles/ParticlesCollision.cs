@@ -56,7 +56,6 @@ public class ParticlesCollision : MonoBehaviour
                 }
                 if ((collidedElement = other.GetComponentInParent<HandPresencePhysics>().target.GetComponent<Element>()) != null)
                 {
-                    if (collidedElement.GetID() == ElementData.ID.EARTH) NoHandsCollision(other);
                     if (collidedElement.GetID() != element.GetID()) 
                     {
                         rotation = Quaternion.FromToRotation(Vector3.forward, transform.forward + collidedElement.transform.forward);

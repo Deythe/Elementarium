@@ -19,10 +19,6 @@ public class Fire : ElementData
                 MergeAir(collisionPoint, collisionRotation);
                 Debug.Log("Merge Air");
                 break;
-            case ID.EARTH:
-                Debug.Log("Merge Earth to Lava");
-                MergeEarth(elementCollided, collisionPoint, collisionRotation);
-                break;
         }
     }
 
@@ -35,15 +31,6 @@ public class Fire : ElementData
             element.PlayParticles();
             element.DelayedStopParticles(2);
             element.DelayedDepopThis(2);
-        }
-    }
-
-    private void MergeEarth(Transform elementCollided, Vector3 collisionPoint, Quaternion collisionRotation)
-    {
-        if ((element = elementCollided.GetComponent<Element>()) != null) 
-        {
-            element.SetElementData(lavaData);
-            elementCollided.GetComponentInChildren<MeshRenderer>().material = lavaMaterial;
         }
     }
 

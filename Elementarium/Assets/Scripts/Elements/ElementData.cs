@@ -69,7 +69,7 @@ public abstract class ElementData : ScriptableObject
 
     public enum ID 
     {
-        WATER, FIRE, AIR, EARTH, STEAM, ICE, MUD, FLAMETHROWER, LAVA, SAND
+        WATER, FIRE, AIR, STEAM, ICE, FLAMETHROWER
     }
 
     public AudioClip GetAudioClip()
