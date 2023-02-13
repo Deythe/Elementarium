@@ -8,7 +8,11 @@ public class Absorb : MonoBehaviour
     [SerializeField] private HandController masterHand;
     [SerializeField] private GameObject absorbShape;
     [SerializeField] private Transform absorbAnchorTransform;
-    [SerializeField] private float rayDistanceMax, speedRotation, radiusRotation;
+    [SerializeField] private float rayDistanceMax;
+    [SerializeField] private float absorbSpeed;
+    [SerializeField] private float absorbDrag;
+    [SerializeField] private float absorbCenterSpeed;
+    [SerializeField] private float absorbCenterDrag;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private AudioClip absorbSound;
     [SerializeField] private Rigidbody rb;
@@ -17,7 +21,7 @@ public class Absorb : MonoBehaviour
     private Coroutine currentCoroutine;
     private bool isTouching, isAbsorbing;
     private Transform absorbedObject;
-    private float angle, distance, maxDistance;
+    private float angle, distance, maxDistance, dot;
     private RaycastHit hit;
 
     void Update()
@@ -73,12 +77,14 @@ public class Absorb : MonoBehaviour
         CancelAbsorb();
 
         absorbedObject = hit.transform;
-        absorbedObject.SetParent(absorbAnchorTransform);
+        //absorbedObject.SetParent(absorbAnchorTransform);
         rb = absorbedObject.GetComponent<Rigidbody>();
         grabbableObj = absorbedObject.GetComponent<GrabbableObjects>();
-        rb.isKinematic = true;
+        //rb.isKinematic = true;
+        rb.useGravity = false;
         rb.velocity = Vector3.zero;
-        currentCoroutine = StartCoroutine(CoroutineMoveAround());
+        rb.drag = 1f;
+        currentCoroutine = StartCoroutine(CoroutineMoveAround(hit));
     }
 
     void CancelAbsorb()
@@ -90,8 +96,10 @@ public class Absorb : MonoBehaviour
             {
                 StopCoroutine(currentCoroutine);
             }
-            
-            rb.isKinematic = false;
+
+            //rb.isKinematic = false;
+            rb.useGravity = true;
+            //rb.drag = 0;
             absorbedObject.SetParent(null);
             absorbedObject = null;
         }
@@ -118,19 +126,19 @@ public class Absorb : MonoBehaviour
         }
     }
 
-    IEnumerator CoroutineMoveAround()
+    IEnumerator CoroutineMoveAround(RaycastHit hit) 
     {
-        angle = 0;
-        maxDistance = Mathf.Abs(Vector3.Distance(absorbedObject.position, absorbAnchorTransform.position)); 
-        do
-        { 
-            absorbedObject.LookAt(absorbAnchorTransform);
-            distance = Mathf.Abs(Vector3.Distance(absorbedObject.position, absorbAnchorTransform.position)); 
-            absorbedObject.localPosition = new Vector3(Mathf.Cos(angle)*distance*0.5f/maxDistance, Mathf.Sin(angle)*distance*0.5f/maxDistance, absorbedObject.localPosition.z-0.01f);
-            angle += Time.deltaTime * speedRotation;
+        while (!masterHand.haveObjectInHand) 
+        {
+            rb.velocity += (absorbAnchorTransform.position - absorbedObject.position).normalized * Time.deltaTime * absorbSpeed;
+            dot = Vector3.Dot(absorbAnchorTransform.forward, (absorbedObject.position - absorbAnchorTransform.position));
+            rb.velocity += ((transform.forward * dot + absorbAnchorTransform.position - absorbedObject.position) * Time.deltaTime * absorbCenterSpeed * (1 / (dot == 0 ? 0.001f : dot)));
+
             yield return new WaitForFixedUpdate();
+            rb.velocity -= (absorbAnchorTransform.position - absorbedObject.position).normalized * Time.deltaTime * absorbSpeed * absorbDrag;// * 0.9f;
+            rb.velocity -= ((transform.forward * dot + absorbAnchorTransform.position - absorbedObject.position) * Time.deltaTime * absorbCenterSpeed * (1 / (dot == 0 ? 0.001f : dot))) * absorbCenterDrag;
         }
-        while (!masterHand.haveObjectInHand) ;
         Release();
     }
+
 }

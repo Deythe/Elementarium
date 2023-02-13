@@ -10,22 +10,12 @@ public abstract class ElementData : ScriptableObject
     protected int priority;
     [SerializeField] protected float mass = 0;
 
-    [SerializeField] bool _isParticuleSystem;
     [SerializeField] private AudioClip expulseAudioClip;
     
     [Header("Particles")]
     [SerializeField] protected GameObject particlesPrefab;
     [SerializeField] protected string particlesKey;
     [SerializeField] private Material matBracelet;
-
-    public bool isParticuleSystem
-    {
-        get => _isParticuleSystem;
-        set
-        {
-            _isParticuleSystem = value;
-        }
-    }
     
     public abstract void Merge(Transform elementCollided, ElementData elementData, Vector3 collisionPoint, Quaternion collisionRotation);
     public abstract void Remove();
@@ -69,7 +59,7 @@ public abstract class ElementData : ScriptableObject
 
     public enum ID 
     {
-        WATER, FIRE, AIR, EARTH, STEAM, ICE, MUD, FLAMETHROWER, LAVA, SAND
+        WATER, FIRE, AIR, STEAM, ICE, FLAMETHROWER
     }
 
     public AudioClip GetAudioClip()
