@@ -10,12 +10,18 @@ public class Pendulum : Interactible
     [SerializeField] private float gravityMultiplier;
     private Vector3 direction;
 
+    private float armLength;
     private Vector3 aAcceleration;
+
+    private void Start()
+    {
+        armLength = (pivot.position - transform.position).magnitude;
+    }
 
     protected override void Collide(Transform collid)
     {
         direction = (transform.position - collid.position).normalized;
-        rb.angularVelocity += new Vector3(/*-direction.z * windMultiplier*/0, 0, direction.x * windMultiplier);
+        rb.angularVelocity += new Vector3(-direction.z * windMultiplier, 0, direction.x * windMultiplier);
     }
 
     private void FixedUpdate()
@@ -23,9 +29,14 @@ public class Pendulum : Interactible
         //rb.angularVelocity = new Vector3(rb.angularVelocity.x, 0, rb.angularVelocity.z);
         //rb.angularVelocity += new Vector3(((transform.parent.rotation.eulerAngles.z + 180)%360-180) * gravityMultiplier, 0, -((transform.parent.rotation.eulerAngles.x+180)%360-180) * gravityMultiplier);
 
-        Debug.Log((pivot.position.x - transform.position.x));
 
-        aAcceleration = new Vector3(0, 0, Mathf.Sin(pivot.rotation.eulerAngles.x * Mathf.Deg2Rad) * Physics.gravity.y / Mathf.Abs(pivot.position.x - transform.position.x)) * gravityMultiplier;
+
+        aAcceleration = new Vector3(-(gravityMultiplier / armLength) * Mathf.Sin(pivot.rotation.eulerAngles.z * Mathf.Deg2Rad), (gravityMultiplier / armLength) * Mathf.Sin(pivot.rotation.eulerAngles.y * Mathf.Deg2Rad), (gravityMultiplier / armLength) * Mathf.Sin(pivot.rotation.eulerAngles.x * Mathf.Deg2Rad)); //* gravityMultiplier;
         rb.angularVelocity += aAcceleration;
+        Debug.Log((gravityMultiplier/ armLength) + "\n" +
+            pivot.rotation.eulerAngles.x * Mathf.Deg2Rad + "\n" +
+            Mathf.Sin(pivot.rotation.eulerAngles.x * Mathf.Deg2Rad) + "\n" +
+            (gravityMultiplier / armLength) * Mathf.Sin(pivot.rotation.eulerAngles.x * Mathf.Deg2Rad));
+        Debug.Log("ANGULAR ACCELERATION" + aAcceleration.z);
     }
 }
