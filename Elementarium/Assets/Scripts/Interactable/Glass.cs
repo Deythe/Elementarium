@@ -21,8 +21,11 @@ public class Glass : MonoBehaviour, IDestroyable
     private float impactRelativeSpeed;
     //[SerializeField] private LayerMask destroyerLayerMask;
 
+    [ContextMenu("Break Glass")]
     public void DestroyObject()
     {
+        actionWhenBroke.Invoke();
+
         originalMeshRenderer.enabled = false;
         originalCollider.enabled = false;
         fracturedObject.SetActive(true);
@@ -41,7 +44,6 @@ public class Glass : MonoBehaviour, IDestroyable
         if ((impactRelativeSpeed = collision.relativeVelocity.magnitude) > impactSpeedMin && collision.transform.GetComponent<IDestroyer>() != null)
         {
             impactPosition = collision.GetContact(0).point +  new Vector3(collision.GetContact(0).normal.x * impactPositionOffsetMultiplier, collision.GetContact(0).normal.y * impactPositionOffsetMultiplier, collision.GetContact(0).normal.z * impactPositionOffsetMultiplier);
-            actionWhenBroke.Invoke();
             DestroyObject();
         }
     }

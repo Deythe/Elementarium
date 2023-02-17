@@ -32,12 +32,9 @@ public class Element : MonoBehaviour
     public void PlayParticles()
     {
         particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), transform.position, transform);
-        if (elementData.isParticuleSystem)
+        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
         {
-            if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
-            {
-                particles.Play();
-            }
+            particles.Play();
         }
         
         PlaySound();
@@ -46,12 +43,9 @@ public class Element : MonoBehaviour
     public void PlayParticles(Transform t, Quaternion quaternion)
     {
         particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, quaternion);
-        if (elementData.isParticuleSystem)
+        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
         {
-            if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
-            {
-                particles.Play();
-            }
+            particles.Play();
         }
         
         PlaySound();
@@ -59,13 +53,10 @@ public class Element : MonoBehaviour
 
     public void PlayParticles(Transform t, Transform parent)
     {
-        if (elementData.isParticuleSystem)
+        particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, parent);
+        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
         {
-            particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, parent);
-            if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
-            {
-                particles.Play();
-            }
+            particles.Play();
         }
         else
         {
@@ -78,12 +69,9 @@ public class Element : MonoBehaviour
     public void PlayParticles(Transform t, Quaternion quaternion, Transform parent)
     {
         particlesGO = Pooler.instance.Pop(elementData.GetParticlesKey(), t.position, quaternion,  parent);
-        if (elementData.isParticuleSystem)
+        if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
         {
-            if ((particles = particlesGO.GetComponent<ParticleSystem>()) != null)
-            {
-                particles.Play();
-            }
+            particles.Play();
         }
         
         PlaySound();
