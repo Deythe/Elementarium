@@ -50,7 +50,7 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 0.07
+      - m_Value: 0.25
         m_Name: Size
         m_Overridden: 1
       - m_Value: 0.075
@@ -71,9 +71,9 @@ VisualEffect:
       - m_Value: 3
         m_Name: Noise Scale
         m_Overridden: 1
-      - m_Value: 0.005
+      - m_Value: 0.01
         m_Name: Spread
-        m_Overridden: 1
+        m_Overridden: 0
       - m_Value: -1
         m_Name: Gravity
         m_Overridden: 1
@@ -122,6 +122,15 @@ VisualEffect:
       - m_Value: 7.5
         m_Name: DustMaskPower
         m_Overridden: 1
+      - m_Value: 0.025
+        m_Name: Tiling
+        m_Overridden: 1
+      - m_Value: 0.46
+        m_Name: DisplacementStrength
+        m_Overridden: 1
+      - m_Value: 0.5
+        m_Name: MaskStrength
+        m_Overridden: 1
     m_Vector2f:
       m_Array:
       - m_Value: {x: 3, y: 3}
@@ -137,7 +146,7 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 0.5990566, y: 1, z: 0.9857604, w: 1}
+      - m_Value: {x: 0.7264151, y: 0.7264151, z: 0.7264151, w: 1}
         m_Name: Color
         m_Overridden: 1
     m_Uint:
@@ -152,6 +161,9 @@ VisualEffect:
         m_Overridden: 1
       - m_Value: 5
         m_Name: WindTrailSpawnRate
+        m_Overridden: 1
+      - m_Value: 64
+        m_Name: ParticlesCount
         m_Overridden: 1
     m_Matrix4x4f:
       m_Array: []
@@ -324,6 +336,67 @@ VisualEffect:
           m_RotationOrder: 4
         m_Name: DustAlphaCurve
         m_Overridden: 1
+      - m_Value:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.35
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_Name: SizeOverLife
+        m_Overridden: 1
+      - m_Value:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.25
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_Name: MaskStrengthOverTime
+        m_Overridden: 1
     m_Gradient:
       m_Array:
       - m_Value:
@@ -358,7 +431,10 @@ VisualEffect:
         m_Name: DustColor
         m_Overridden: 1
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 2800000, guid: defd8231e9bcdc1419dc2b564b106005, type: 3}
+        m_Name: DisplacementMap
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &8301280169900238171
