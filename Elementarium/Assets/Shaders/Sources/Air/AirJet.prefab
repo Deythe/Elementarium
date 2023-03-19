@@ -98,20 +98,29 @@ VisualEffect:
       - m_Value: 0.5
         m_Name: Lifetime
         m_Overridden: 1
-      - m_Value: 4
+      - m_Value: 16
         m_Name: WindTrailForce
         m_Overridden: 1
       - m_Value: 0.75
         m_Name: DustSize
         m_Overridden: 1
-      - m_Value: 0.25
+      - m_Value: 0.3
         m_Name: DustAlpha
         m_Overridden: 1
       - m_Value: 0.025
         m_Name: DustSpread
         m_Overridden: 1
-      - m_Value: 1.5
+      - m_Value: 3
         m_Name: DustForce
+        m_Overridden: 1
+      - m_Value: 0.0025
+        m_Name: WindSize
+        m_Overridden: 1
+      - m_Value: 0.2
+        m_Name: DustNormalStrength
+        m_Overridden: 1
+      - m_Value: 7.5
+        m_Name: DustMaskPower
         m_Overridden: 1
     m_Vector2f:
       m_Array:
@@ -121,7 +130,7 @@ VisualEffect:
       - m_Value: {x: 0.02, y: 0.035}
         m_Name: ParticleSizeMinMax
         m_Overridden: 1
-      - m_Value: {x: 0.5, y: 1}
+      - m_Value: {x: 0.25, y: 0.5}
         m_Name: WindLifetime
         m_Overridden: 1
     m_Vector3f:
@@ -138,8 +147,11 @@ VisualEffect:
       - m_Value: 64
         m_Name: ParticlesPerSecond
         m_Overridden: 1
-      - m_Value: 32
+      - m_Value: 64
         m_Name: DustSpawnRate
+        m_Overridden: 1
+      - m_Value: 5
+        m_Name: WindTrailSpawnRate
         m_Overridden: 1
     m_Matrix4x4f:
       m_Array: []
@@ -316,8 +328,8 @@ VisualEffect:
       m_Array:
       - m_Value:
           serializedVersion: 2
-          key0: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
-          key1: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
+          key0: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
+          key1: {r: 0.5943396, g: 0.31378686, b: 0.1485849, a: 1}
           key2: {r: 0.24528301, g: 0.13149631, b: 0.08908863, a: 0}
           key3: {r: 0, g: 0, b: 0, a: 0}
           key4: {r: 0, g: 0, b: 0, a: 0}
@@ -325,7 +337,7 @@ VisualEffect:
           key6: {r: 0, g: 0, b: 0, a: 0}
           key7: {r: 0, g: 0, b: 0, a: 0}
           ctime0: 0
-          ctime1: 30840
+          ctime1: 65535
           ctime2: 64764
           ctime3: 0
           ctime4: 0
@@ -341,7 +353,7 @@ VisualEffect:
           atime6: 0
           atime7: 0
           m_Mode: 0
-          m_NumColorKeys: 3
+          m_NumColorKeys: 2
           m_NumAlphaKeys: 2
         m_Name: DustColor
         m_Overridden: 1

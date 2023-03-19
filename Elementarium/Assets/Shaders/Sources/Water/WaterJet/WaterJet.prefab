@@ -71,7 +71,7 @@ VisualEffect:
       - m_Value: 3
         m_Name: Noise Scale
         m_Overridden: 1
-      - m_Value: 0.01
+      - m_Value: 0.005
         m_Name: Spread
         m_Overridden: 1
       - m_Value: -1
@@ -80,10 +80,10 @@ VisualEffect:
       - m_Value: 1
         m_Name: DisplacementIntensity
         m_Overridden: 1
-      - m_Value: 20
+      - m_Value: 2
         m_Name: NoiseSpeed
         m_Overridden: 1
-      - m_Value: 0.2
+      - m_Value: 2
         m_Name: NoiseScale
         m_Overridden: 1
       - m_Value: 4.83
@@ -92,12 +92,21 @@ VisualEffect:
       - m_Value: 0.4
         m_Name: SmallerDisplacementIntensity
         m_Overridden: 1
+      - m_Value: 1
+        m_Name: Length
+        m_Overridden: 1
+      - m_Value: 0.5
+        m_Name: Lifetime
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Alpha
+        m_Overridden: 1
     m_Vector2f:
       m_Array:
-      - m_Value: {x: 2, y: 2}
+      - m_Value: {x: 3, y: 3}
         m_Name: VelocityMinMax
         m_Overridden: 1
-      - m_Value: {x: 0.015, y: 0.03}
+      - m_Value: {x: 0.025, y: 0.05}
         m_Name: ParticleSizeMinMax
         m_Overridden: 1
     m_Vector3f:
@@ -111,7 +120,7 @@ VisualEffect:
       m_Array: []
     m_Int:
       m_Array:
-      - m_Value: 64
+      - m_Value: 16
         m_Name: ParticlesPerSecond
         m_Overridden: 1
     m_Matrix4x4f:
@@ -167,37 +176,19 @@ VisualEffect:
           m_Curve:
           - serializedVersion: 3
             time: 0
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 0.25
             value: 1
             inSlope: 0
             outSlope: 0
-            tangentMode: 0
+            tangentMode: 34
             weightedMode: 0
             inWeight: 0
             outWeight: 0
-          - serializedVersion: 3
-            time: 0.7
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
           - serializedVersion: 3
             time: 1
-            value: 0
+            value: 1
             inSlope: 0
             outSlope: 0
-            tangentMode: 0
+            tangentMode: 34
             weightedMode: 0
             inWeight: 0
             outWeight: 0
@@ -209,7 +200,11 @@ VisualEffect:
     m_Gradient:
       m_Array: []
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 1482910063194737830, guid: b08922ccc98a98a4cb2e58cc14863bfa,
+          type: 3}
+        m_Name: Mesh
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &1352906420257398944
