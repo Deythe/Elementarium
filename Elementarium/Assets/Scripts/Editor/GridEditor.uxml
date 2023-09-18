@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement>
+        <uie:IntegerField label="Width" value="42" binding-path="worldSizeX" />
+        <uie:IntegerField label="Height" value="42" binding-path="worldSizeZ" />
+        <uie:FloatField label="Offset" value="42,2" binding-path="gridOffset" />
+        <ui:Slider picking-mode="Ignore" label="Noise Power" value="42" high-value="10" binding-path="noiseSmoothness" low-value="0" show-input-field="true" />
+        <ui:Foldout text="Prefabs">
+            <uie:ObjectField label="Grid Blocks" binding-path="blockGameObject" type="UnityEngine.GameObject, UnityEngine.CoreModule" allow-scene-objects="false" />
+            <uie:ObjectField label="Grid Plane" binding-path="planeGameObject" type="UnityEngine.GameObject, UnityEngine.CoreModule" allow-scene-objects="false" />
+        </ui:Foldout>
+        <ui:Toggle label="Make Plane Behind ?" binding-path="makePlaneBehind" />
+        <ui:Button text="Create" display-tooltip-when-elided="true" name="button" />
+    </ui:VisualElement>
+</ui:UXML>

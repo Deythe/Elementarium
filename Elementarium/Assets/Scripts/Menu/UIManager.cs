@@ -7,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject menu;
+    [SerializeField] private GameObject player;
     [SerializeField] private InputActionProperty showButton,debugShowButton;
     [SerializeField] private Transform head;
     [SerializeField][Range(1,10)] private float spawnDistance = 2;
@@ -19,6 +20,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private ActionBasedContinuousTurnProvider continuousTurn;
     
     [SerializeField] private LayerMask UIlayer, TPLayer;
+    
+    [SerializeField] private List<Transform> TUTCP = new List<Transform>();
+    [SerializeField] private List<Transform> WQCP = new List<Transform>();
+    [SerializeField] private List<Transform> FQCP = new List<Transform>();
     
     private void Update()
     {
@@ -76,5 +81,20 @@ public class UIManager : MonoBehaviour
             snapTurn.enabled = false;
             continuousTurn.enabled = false;
         }
+    }
+
+    public void TeleportFromIndexTut(int index)
+    {
+        player.transform.localPosition = TUTCP[index].position;
+    }
+    
+    public void TeleportFromIndexWq(int index)
+    {
+        player.transform.localPosition = WQCP[index].position;
+    }
+    
+    public void TeleportFromIndexFq(int index)
+    {
+        player.transform.localPosition = FQCP[index].position;
     }
 }

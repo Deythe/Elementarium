@@ -40,7 +40,7 @@ public class Expulse : MonoBehaviour
             if (motherHand.gripAction.action.ReadValue<float>() < 0.05f)
             {
                 if (!motherHand.haveShot)
-                {
+                { 
                     motherHand.element.PlayParticles(anchorTransform, anchorTransform);
                     motherHand.haveShot = true;
                 }
@@ -56,7 +56,7 @@ public class Expulse : MonoBehaviour
         }
     }
 
-    private void StopFire()
+    public void StopFire()
     {
         if (motherHand.haveShot)
         {

@@ -53,7 +53,7 @@ MonoBehaviour:
   - key: p_Fire
     pool:
       prefab: {fileID: 1253142483436318, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
-      baseCount: 3
+      baseCount: 50
   - key: p_Air
     pool:
       prefab: {fileID: 4193000839210913559, guid: 9a5aa08a3019057438591a51590da4f0,
@@ -121,5 +121,10 @@ MonoBehaviour:
   - key: p_Mud
     pool:
       prefab: {fileID: 5484362316147430247, guid: 842df739f0e365440b5e969d90788690,
+        type: 3}
+      baseCount: 3
+  - key: Earth
+    pool:
+      prefab: {fileID: 2866512253297607436, guid: 846813d4834cfa944bbc430947e7e534,
         type: 3}
       baseCount: 3

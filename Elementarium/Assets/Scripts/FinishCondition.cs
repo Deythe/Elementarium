@@ -31,7 +31,6 @@ public class FinishCondition : MonoBehaviour
         foreach (Transform activator in activators)
         {
             iCompleted = activator.GetComponent<ICompleted>();
-            Debug.Log(iCompleted);
             if (iCompleted != null) activs.Add(iCompleted);
         }
     }
@@ -55,7 +54,6 @@ public class FinishCondition : MonoBehaviour
 
             if (activator.getResetCondition())
             {
-                Debug.Log("reset");
                 resetCondition.Invoke();
             }
         }
